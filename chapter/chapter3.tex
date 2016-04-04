@@ -1,0 +1,93 @@
+%!TEX root = ../TemplateMasterThesis.tex
+
+\chapter{Additional Chapter} % (fold)
+\label{cha:additional_chapter}
+
+\section{Section about footnotes and enumerations} % (fold)
+\label{sec:section_about_footnotes_and_enumerations}
+
+Sometimes footnotes can be useful, but keep in mind, that an extensive use of footnotes can decrease the readibility\footnote{ because the reader's flow of reading is interrupted!}. 
+
+\subsection{Example for subsections} % (fold)
+\label{sub:example_for_subsections}
+
+You might make use of subsections as well. Please note, that if you create a section / subsection, these should be followed by another one. It is uncommon to have just on section within a chapter or just one subsection within a section. See for example the writing tips by Dave Patterson: 
+
+\begin{quotation}
+	\emph{``Its strange to have a single subsection (e.g., 5.2.1 in section 5.2). Why do you need to number it if there is only one? Either eliminate the single subsection, or change the part that precedes the subsection into a second subsection''}
+	\citep{Patterson2013}
+\end{quotation} 
+
+% subsection example_for_subsections (end)
+
+
+\subsection{Subsection for enumeration examples} % (fold)
+\label{sub:subsection_for_enumeration_examples}
+
+In this subsection some examples for enumerations are given. First you see an unnumbered enumeration:
+
+\begin{itemize}
+	\item Item 1
+	\item Item 2
+	\item Item 3
+\end{itemize}
+
+which is followed by a numbered enumeration:
+
+\begin{enumerate}
+	\item Item 1
+	\item Item 2
+	\item Item 3
+\end{enumerate}
+
+If you like (and it's appropriate) you might also make use of symbols:
+
+\begin{itemize}
+\renewcommand{\labelitemi}{$\rightarrow$}
+	\item Item 1
+	\item Item 2
+	\item Item 3
+\end{itemize}
+
+Since it decreases the readability and clarity, \LaTeX{} will not list a subsubsection in the table of content. If you want to make use of them anyway, this is how to do it:
+
+\subsubsection{Example for subsubsection} % (fold)
+\label{ssub:example_for_subsubsection}
+
+The following is just a placeholder text: \emph{Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.}
+
+% subsubsection example_for_subsubsection (end)
+
+\subsubsection{Yet another subsubsection} % (fold)
+\label{ssub:yet_another_subsubsection}
+
+The following is just a placeholder text: \emph{Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.}
+
+% subsubsection yet_another_subsubsection (end)
+
+\paragraph{Paragraph as alternative} % (fold)
+\label{par:paragraph_as_alternative}
+Here not the \texttt{subsubsection\{\}} command has been used - a paragraph can also be used to create a subsubsection, which has no number and doesn't appear in the table of content. Compared to the \texttt{subsubsection\{\}} command, here the text will start directly after the headline. Especially, when you don't have that much content, this might be more appropriate 
+
+% paragraph paragraph_as_alternative (end)
+
+% subsection subsection_for_enumeration_examples (end)
+
+% section section_about_footnotes_and_enumerations (end)
+
+
+
+\section{Section about the description environment} % (fold)
+\label{sec:section_about_the_description_environment}
+
+If you want to describe some concepts, an enumeration or subsection is not the best way to do it. Here as an alternative you see the \emph{description environment}, which can be very helpful:
+
+\begin{description}
+	\item[Concept] Definition of the concept: Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+	\item[Notion] Definition of the notion: Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+\end{description}
+
+% section section_about_the_description_environment (end)
+
+
+% chapter additional_chapter (end)

@@ -1,0 +1,103 @@
+\documentclass[BCOR=12mm,DIV11,titlepage,a4paper,oneside]{scrbook}
+
+% package for encoding, here UTF-8
+\usepackage[utf8]{inputenc}
+
+% package for including graphics with figure-environment
+\usepackage{graphicx}
+
+% package for changing header and footer
+\usepackage{fancyhdr}
+% Uses the package for own page style
+\pagestyle{fancy} 
+% Creates a line in header (to hide this, change to 0.0pt)
+\renewcommand*{\headrulewidth}{0.4pt} 
+\fancyhf{}
+\fancyhead[EC,OC]{\thepage}
+% \fancyhead[EL]{\leftmark} 
+% \fancyhead[OR]{\rightmark} 
+% \fancyhead[ER,OL]{\thepage}
+\renewcommand{\sectionmark}[1]{ 
+\markboth{\thechapter{} #1}{\thechapter{} #1} 
+}
+
+% changes page numbering of table of content with own style
+\renewcommand*{\indexpagestyle}{fancy}
+% prevents page numbering on "Part" pages
+\renewcommand*{\partpagestyle}{empty}
+% changes page numbering of chapters with own style
+\renewcommand*{\chapterpagestyle}{fancy}
+
+% Changes numbering of figures (chapter-dependent, e.g. figure 1.1)
+\renewcommand*{\thefigure}{\thechapter.\arabic{figure}}
+% Changes numbering of tables (table-depentent, e.g. table 1.1)
+\renewcommand*{\thetable}{\thechapter.\arabic{table}}
+
+
+% prevents indent after section and figures
+\setlength{\parindent}{0pt}
+
+
+
+% prevents that a new page is created for a single word / row
+\clubpenalty = 10000 % exclusion of orphans
+\widowpenalty = 10000 % exclusion of widow lines
+
+% package for bibliography
+\usepackage[authoryear,round]{natbib}
+\bibliographystyle{natdin}
+
+% package for the use of URL by the use of the command \url{}
+\usepackage{url}
+
+% package for line spacing (onehalfspace, singlespace)
+\usepackage{setspace}
+
+% package for the creation of quotation marks by the use of the command \enquote{Text}
+\usepackage[english]{babel}
+\usepackage[babel, german=quotes]{csquotes}
+
+% package for colored text
+% black,white,green,red,blue,yellow,cyan,magenta
+\usepackage{color}
+
+% package for colored tables
+\usepackage{colortbl}
+
+% Rotation of floating objects (figures, tables, etc.)
+\usepackage{rotating}
+
+% Rotation of single pages by the use of the command begin{landscape}
+\usepackage{lscape}
+
+% package for colored background Verbatim-environment (source code environment)
+\usepackage{fancyvrb}
+\usepackage{verbatim,moreverb}
+% defindes shade of grey for source code environment 80 % grey
+\definecolor{sourcegray}{gray}{.80}
+
+% package for source code environment
+\usepackage{listings}
+
+% package for positioning objects without float (Example of usage: \begin{figure}[H])
+\usepackage{here}
+
+% Alternatives Paket für here.sty
+% \usepackage{float}
+
+% Package for the creation of hyperrefs and pdf informations
+\usepackage[pdftex,plainpages=false,pdfpagelabels,
+            pdftitle={title},
+            pdfauthor={name}
+            ]{hyperref}
+
+% colors for hyperlinks
+% colored borders (false) colored text (true) 
+\hypersetup{colorlinks=true,citecolor=black,filecolor=black,linkcolor=black,urlcolor=black}
+
+% two directories for "content" and "appendix"
+\usepackage{appendix}
+
+
+
+

@@ -1,0 +1,63 @@
+\include{header} 
+
+\begin{document}
+
+%=== Introduction ======================================================
+\frontmatter 
+\setcounter{page}{3}
+\pagenumbering{arabic}
+
+\include{chapter/titlepage}
+\onehalfspacing
+\include{chapter/abstract}
+\singlespacing
+\include{chapter/tableofcontent}
+\onehalfspacing
+ 
+%=== Main Part =======================================================
+\mainmatter
+\setcounter{page}{6}
+
+% Inclusion of foreword
+\include{chapter/foreword}
+
+	% The counter for tables and figures are set back in order to start a new numeration per chapter
+\setcounter{table}{1}
+\setcounter{figure}{1}
+	\include{chapter/chapter1} 
+
+	% The counter for tables and figures are set back in order to start a new numeration per chapter
+\setcounter{table}{1}
+\setcounter{figure}{1}
+	% Inclusion of the second chapter
+	\include{chapter/chapter2}
+	
+	% The counter for tables and figures are set back in order to start a new numeration per chapter
+\setcounter{table}{1}
+\setcounter{figure}{1}
+	% Inclusion of the third chapter
+	\include{chapter/chapter3}
+
+		% The counter for tables and figures are set back in order to start a new numeration per chapter
+	\setcounter{table}{1}
+	\setcounter{figure}{1}
+		% Inclusion of the third chapter
+		\include{chapter/chapteraboutquotation}
+
+\singlespacing
+\include{chapter/lists}
+
+%=== Final part =====================================================
+% \backmatter
+% \pagenumbering{Roman}
+
+\setcounter{table}{1}
+\setcounter{figure}{1}
+\include{chapter/appendix}
+
+
+\setcounter{table}{1}
+\setcounter{figure}{1}
+\include{chapter/affidavit}
+
+\end{document}

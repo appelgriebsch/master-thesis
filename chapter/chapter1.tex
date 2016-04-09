@@ -3,14 +3,15 @@
 \chapter{Introduction} % (fold)
 \label{cha:introduction}
 
-Introduction of chapter, overview, \ldots
+This introductory section of the Master thesis will first give a section showing the importance and relevance of the topic in the research area of Web Science,
+followed by a description of the problem this thesis will focus on as well as an analysis of related works and an overview of the outline of the thesis.
 
 \section{Motivation}
 \label{sec:motivation}
 
 \begin{quotation}
-  \textit{\enquote{When it comes to fraud, 2015 is likely among the riskiest season retailers have ever seen, […]
-  it is critical that they prepare for a significant uptick in fraud, particularly within e-commerce channels.}}
+    \textit{\enquote{When it comes to fraud, 2015 is likely among the riskiest season retailers have ever seen, […]
+    it is critical that they prepare for a significant uptick in fraud, particularly within e-commerce channels.}}
 \end{quotation}
 This statement from Mike Braatz, senior vice president of Payment Risk Management, ACI Worldwide in \citep{Reuters2015}
 shows the dramatic shift in credit card fraud from the offline to the online world, that retailers are starting to face
@@ -69,11 +70,11 @@ in the last years.\footnote{please also note the various US patent applications 
 
 Stakeholders might include \textbf{vendors} and other businesses, that the retailer has a long-term business relationship with, \textbf{law enforcement agencies}, \textbf{acquirers} like PayPal or Visa,
 and even \textbf{competitors}, that are also affected by the Internet fraud. In such a case the merchant usually tries to solve the issue on his own and getting in contact with relative parties by phone or e-mail
-if necessary. But these communication styles do not fit to the complexity of the task involved, and based on the media-richness model (see Figure~\ref{fig:images_media_richness_model}) will result in inefficient and ineffective problem solutions.
+if necessary. But these communication styles do not fit to the complexity of the task involved, and based on the media-richness model (see Figure~\ref{fig:images_media_richness_model}) will result in inefficient and ineffective problem solutions. \\
 
-\begin{figure}[H]
+\begin{figure}[!ht]
 	\centering
-		\includegraphics[height=3in]{images/media-richness-model.png}
+		\includegraphics[height=2in]{images/media-richness-model.png}
 	\caption{The Media Richness Model \citep{Rice1992}}
 \label{fig:images_media_richness_model}
 \end{figure}
@@ -95,7 +96,7 @@ Based on the level of support for one of these functionalities the various syste
 
 \begin{figure}[H]
 	\centering
-		\includegraphics[height=3in]{images/3C-model.png}
+		\includegraphics[height=2.5in]{images/3C-model.png}
 	\caption{The 3C Model \citep{Koch2008}}
 \label{fig:images_3C_model}
 \end{figure}
@@ -106,7 +107,7 @@ any time and to share information with co-workers --- usually with a build in ve
 However as some of the required information might be confidential or business-critical to one of the involved parties a \textbf{centralized system} (e.g.\ a service in the cloud) could \textbf{\underline{not}} be used in the scenario described here.
 Another key characteristic of the investigation of an e-commerce fraud is, that it involves information sharing from many different organizations. These different aspects have to be combined into a \textbf{shared information space} in a meaningful way
 to be able to achieve the common group goal on time. Combining information from different stakeholders will face issues due to \textbf{different wordings and data formats} of the information,
-\textbf{competing incentives} of the stakeholders to participate on information sharing as well as possible \textbf{sharing restrictions}, that prevent making the information available to a larger audience (e.g.\ via an Open Data Initiative). \\
+\textbf{competing incentives} of the stakeholders to participate on information sharing as well as possible \textbf{sharing restrictions}, that prevent making the information available to a larger audience. \\
 
 \textbf{Decentralized information sharing architectures}, that utilizes \textbf{peer-to-peer communication technologies}, are either restricted to a commonly agreed set of data entities and relations (based on an ontology) between all involved parties
 or are lacking richer semantics for sharing and integrating content between the stakeholders. \textbf{Semantic Web technologies} can help lower the barrier to integrate information from various sources into a shared information space,

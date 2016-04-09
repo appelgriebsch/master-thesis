@@ -9,16 +9,16 @@
 % package for changing header and footer
 \usepackage{fancyhdr}
 % Uses the package for own page style
-\pagestyle{fancy} 
+\pagestyle{fancy}
 % Creates a line in header (to hide this, change to 0.0pt)
-\renewcommand*{\headrulewidth}{0.4pt} 
+\renewcommand*{\headrulewidth}{0.4pt}
 \fancyhf{}
 \fancyhead[EC,OC]{\thepage}
-% \fancyhead[EL]{\leftmark} 
-% \fancyhead[OR]{\rightmark} 
+% \fancyhead[EL]{\leftmark}
+% \fancyhead[OR]{\rightmark}
 % \fancyhead[ER,OL]{\thepage}
-\renewcommand{\sectionmark}[1]{ 
-\markboth{\thechapter{} #1}{\thechapter{} #1} 
+\renewcommand{\sectionmark}[1]{
+\markboth{\thechapter{} #1}{\thechapter{} #1}
 }
 
 % changes page numbering of table of content with own style
@@ -33,11 +33,8 @@
 % Changes numbering of tables (table-depentent, e.g. table 1.1)
 \renewcommand*{\thetable}{\thechapter.\arabic{table}}
 
-
 % prevents indent after section and figures
 \setlength{\parindent}{0pt}
-
-
 
 % prevents that a new page is created for a single word / row
 \clubpenalty = 10000 % exclusion of orphans
@@ -92,12 +89,8 @@
             ]{hyperref}
 
 % colors for hyperlinks
-% colored borders (false) colored text (true) 
+% colored borders (false) colored text (true)
 \hypersetup{colorlinks=true,citecolor=black,filecolor=black,linkcolor=black,urlcolor=black}
 
 % two directories for "content" and "appendix"
 \usepackage{appendix}
-
-
-
-

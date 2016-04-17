@@ -47,22 +47,26 @@
 % The counter for tables and figures are set back in order to start a new numeration per chapter
 \setcounter{table}{1}
 \setcounter{figure}{1}
-    % Inclusion of the fith chapter
-    \include{chapter/chapter5}
+  % Inclusion of the fith chapter
+  \include{chapter/chapter5}
 
 \singlespacing
-\include{chapter/lists}
+	\include{chapter/lists}
 
+\setcounter{table}{1}
+\setcounter{figure}{1}
+	\include{chapter/oath}
+	
 %=== Final part =====================================================
 % \backmatter
 % \pagenumbering{Roman}
 
 \setcounter{table}{1}
 \setcounter{figure}{1}
-\include{chapter/appendix}
+	\include{chapter/appendix}
 
 \setcounter{table}{1}
 \setcounter{figure}{1}
-\include{chapter/affidavit}
+	\include{chapter/affidavit}
 
 \end{document}

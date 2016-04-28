@@ -96,22 +96,159 @@ named graph: \\
 - alternative: reification via an auxiliary object \\
 \\
 Turtle: Terse RDF triple language \\
-- \textless subject incl. URI \textgreater \textless predicate incl. URI \textgreater \textless object incl. URI \textgreater . \\
-- literals will be expressed as ``value''^^\textless XML schema data type \textgreater and supports string, integer, decimal, dates \\
-- URIs can be prefixed: @prefix: \textless URI \textgreater \\
+- \textless subject incl. URI\textgreater \textless predicate incl. URI\textgreater \textless object incl. URI\textgreater . \\
+- literals will be expressed as ``value''\^{}\^{}\textless XML schema data type\textgreater and supports \textit{string, integer, decimal, dates, \ldots} \\
+- URIs can be prefixed: @prefix: \textless URI\textgreater \\
 - repetition: `;' repeats the subject from previous statement, `,' repeats subject and predicate from previous statement \\
+- named graphs in Turtle via Trig extension: \\
+  { [...] } \textless predicate incl. URI\textgreater { [...] } \\
+\\
+\texttt{sample.ttl:}
+\begin{lstlisting}[basicstyle=\ttfamily,numbers=left,numberstyle=\footnotesize\ttfamily,backgroundcolor=\color{sourcegray}]
+  @prefix ns1: <URI>
+  @prefix ns2: <URI>
+  @prefix ns3: <URI>
+
+  ns1:subject ns2:predicate ns3:object .
+\end{lstlisting} \vspace{0.5cm}
+RDF/XML: RDF represented in XML format \\
+- RDF namespace and root node \\
+- subjects in `RDF:description' node containing `RDF:about' attribute with URI \\
+- predicates and objects are child elements of subject node \\
+- use XML namespeaces for URI of nodes \\
+\\
+\texttt{sample.xml:}
+\begin{lstlisting}[basicstyle=\ttfamily,numbers=left,numberstyle=\footnotesize\ttfamily,backgroundcolor=\color{sourcegray}]
+  <rdf:Description rdf:about="<subject incl. URI>">
+    <ns2:predicate rdf:resource="<object incl. URI>" />
+  </rdf:Description>
+\end{lstlisting} \vspace{0.5cm}
+RDFa: mixin RDF meta-data into HTML \\
+- `about' attribute on \textless span\textgreater or \textless div\textgreater in HTML \\
+- `property' attribute for literal value assignment \\
+- `rel' and `resource' attributes for non-literals \\
+- use XML namespaces for URI of data nodes \\
+- put `[]' around subject and object notations \\
+\\
+\texttt{sample.html:}
+\begin{lstlisting}[basicstyle=\ttfamily,numbers=left,numberstyle=\footnotesize\ttfamily,backgroundcolor=\color{sourcegray}]
+  <div about="[ns1:subject]">
+    <span rel="ns2:relation" resource="[ns3:object]">
+  </div>
+\end{lstlisting}
 
 % section semantic_rdl (end)
 
 \subsection{Web Ontologies}
 \label{sec:semantic_ontologies}
 
+Lightweight approach: RDFS \\
+- is about adding semantics to your RDF documents \\
+\\
+Start by: \\
+1. specify the \textbf{things} to talk about \\
+   differentiate between \textit{objects} (real entities) and \textit{classes} (set of entities) \\
+   `rdf:type' attribute to assign objects to classes (object = instance of this class) \\
+   impose restrictions on the kind of properties used on objects: \\
+   - restrictions on values are called `range' restrictions (object can take values of \ldots) \\
+   - restrictions on property-object relations are called `domain' restrictions (this relation applies to objects of \ldots) \\
+2. set up relations between classes (inheritance, composition) \\
+3. define properties (registered globally) and the possible hierarchy relationship between them (global properties means you can
+extend existing RDFS classes with your own properties easily) \\
+\\
+\begin{figure}[H]
+	\centering
+		\includegraphics[height=2.5in]{images/RDFSchema.png}
+	\caption{RDF Schema sample}
+\label{fig:images_rdfs_sample}
+\end{figure}
+
+RDFS is described in RDF style using: \\
+- core classes like: \\
+  - `rdfs:Resource' (all objects/resources) \\
+  - `rdfs:Class' (all classes) \\
+  - `rdfs:Literal' (all literals) \\
+  - `rdfs:Property' (all properties) \\
+  - `rdfs:Statement' (all reified statements) \\
+- core properties like: \\
+  - `rdfs:type' (specify kind of class) \\
+  - `rdfs:subClassOf' (specify inheritance between classes) \\
+  - `rdfs:subPropertyOf' (specify inheritance between properties) \\
+  - `rdfs:domain' (specify domain restrictions) \\
+  - `rdfs:range' (specify range restrictions) \\
+- container classes like: \\
+  - `rdf:Bag'  (unordered list of entitites) \\
+  - `rdf:Seq'  (ordered list of entities) \\
+  - `rdf:Alt'  (list of alternatives/choices) \\
+  - `rdf:Container' (superclass for all containers) \\
+- utility classes like: \\
+  - `rdfs:seeAlso', `rdfs:isDefinedBy' (links and references to other entities) \\
+  - `rdfs:Comment' (comments and notes of entities) \\
+  - `rdfs:Label' (human-friendly name of entities) \\
+\\
+
+Missing features in RDFS: \ldots  \\
+\\
+Complex Ontologies in Web Ontology Language (OWL): \\
+\ldots \\
+\\
 
 % section semantic_ontologies (end)
 
 \subsection{Query Language}
 \label{sec:semantic_querylang}
 
+SPARQL requires a \textbf{triple store} - a database containing RDF documents \\
+is also referred to as a \textit{Graph Store} \\
+data is inserted via Bulk load operation or via SPARQL update statements \\
+SPARQL consist of SPARQL Queries that are send over the SPARQL protocol \\
+Clients sends the queries to an HTTP endpoint \\
+Stores on the public Web incl. dbpedia.org, ckan.org, wikidata.org \\
+SPARQL also works with RDFS \\
+SPARQL has similarities to SQL:
+- each element in a triple might be replaced with a variable like `?varName' like so: \\
+\texttt{sample.sparql:}
+\begin{lstlisting}[basicstyle=\ttfamily,numbers=left,numberstyle=\footnotesize\ttfamily,backgroundcolor=\color{sourcegray}]
+  PREFIX ns1:<URI>
+  PREFIX ns2:<URI>
+  PREFIX ns3:<URI>
+
+  SELECT ?varName
+  WHERE {
+      ns1:subject ns2:predicate ?varName
+  }
+\end{lstlisting}
+- in the WHERE clause it hosts the graph pattern to match (could be cascaded to go down subgraphs) \\
+- variables can occur at any place in the graph pattern (?subj ?pred ?obj) as select with query everything \\
+\\
+LIMIT \textless n\textgreater option at the end for limiting the result set \\
+FILTER (?varName \textless condition\textgreater ) in graph pattern can restrict results to match some
+literal values and supports: \\
+- numbers, dates: \textless, \textgreater, = \\
+- strings: =, regex() \\
+\\
+\textbf{open world} assumption: resources on the Web are described in different schematas with various properties
+using different vocabularies \\
+- UNION option in graph pattern combines different matches \\
+- OPTIONAL option in graph pattern only returns those entities if they are available (otherwise empty) \\
+\\
+ASK query checks for the existence of a given graph pattern \\
+CONSTRUCT can be used to retrieve a subgraph from a larger graph, can also be used to translate between different schemas \\
+\texttt{sample2.sparql:}
+\begin{lstlisting}[basicstyle=\ttfamily,numbers=left,numberstyle=\footnotesize\ttfamily,backgroundcolor=\color{sourcegray}]
+  PREFIX ns1:<URI>
+  PREFIX ns2:<URI>
+  PREFIX ns3:<URI>
+
+  CONSTRUCT {
+      ?varA ns2:predicate ?varB .
+      ?varA ns3:predicate ?literalA .
+  }
+  WHERE {
+      ?varA ns1:predicate ?varB
+  }
+  FILTER ( ?varB > x )
+\end{lstlisting}
 
 % section semantic_querylang (end)
 

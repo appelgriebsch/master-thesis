@@ -4,6 +4,25 @@
 \label{sec:p2p_communication}
 
 \subsection{Centralized vs. Decentralized Web Architectures}
+
+- in a classical client-server scenario a single server is storing information and distributing it to the clients \\
+- the information is centralized and under control of the provider \\
+
+- a P2P network considers all nodes equal \\
+- each node can provide information to any other node \\
+- information in a P2P network has to be indexed so that the correct node is queried for it \\
+- the index itself has to be stored somewhere (e.g. on a central server like Napster or in a distributed manner spread over the nodes of the P2P network) \\
+\\
+- a P2P system has an high degree of decentralization \\
+- the system is usually self-organizing (adding new or removing members automatically) \\
+- the whole system is usually not controlled by a single organisation and spread over various domains \\
+- it tends to be more resilent to faults and attacks \\
+- can be used for file & data sharing, media streaming, telephony, volunteer computing and much more \\
+\\
+- can be categorized by the degree of centralization into: \\
+  1) partly centralized P2P systems (have a dedicated controller node that maintains the set of participating nodes and controls the system) \\
+  2) decentralized P2P systems (there are no dedicated nodes that are critical for the system operation) \\
+\\
 \label{sec:central_decentral_arch}
 
 % section central_decentral_arch (end)
@@ -11,15 +30,40 @@
 \subsection{Initiating a communication session}
 \label{sec:p2p_init_session}
 
+- depends on the structure of the P2P system
+- in a partly centralized P2P system new nodes join the network by connecting to the central controller (wellknown IP address) \\
+- in a decentralized P2P system new nodes are expected to obtain via a separate channel the IP address to connect to (usually a bootstrap node that helps to set up the new node) \\
+\\
+
 % section p2p_init_session (end)
 
 \subsection{Finding communication peers}
 \label{sec:p2p_finding_peers}
 
+- also known as the overlay network in a P2P system \\
+- can be represented as a directed graph containing the nodes and communication links between them \\
+- can be differentiated between unstructured and structured overlays \\
+- unstructured overlay networks have no constraints for the links between nodes; therefore the network has no particular structure \\
+- structured overlay networks assign an unique identifier from a numeric keyspace to each node; these keys are used to assign certain responsibilities to nodes
+on the network; as of this routing can be handled more efficiently \\
+- in partly centralized P2P systems the controller is responsible for the overlay formation \\
+\\
+- in partly centralized P2P system an object is typically stored at the node that inserted the object \\
+- the central controller holds the information about which objects exist and which nodes hold them \\
+\\
+- in unstructured systems the information is typically stored on the nodes that introduces them \\
+- to locate an object a query request is typically broadcasted through the overlay network \\
+- often the scope of the request (e.g. the maximum number of hops from the querying node forward) is limited to reduce the overhead on the system \\
+\\
+- in structured systems a distributed index is maintained in the form of a distributed hash table \\
+- this DHT holds the hash value of the (index) key and the address of the node that stores the value \\
+\\
+
 % section p2p_finding_peers
 
 \subsection{Transmitting Data}
 \label{sec:p2p_data_transmit}
+
 
 % section p2p_data_transmit (end)
 

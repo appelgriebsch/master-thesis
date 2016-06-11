@@ -234,7 +234,7 @@ MKP Chapter 3: \\
   1) simply split the tables on a row-basis; the table needs to have the same layout on all servers \\
 	2) simply split the tables on a column-basis; the rows in each column need an unique identifier to match up the results \\
 	3) break down the whole table into cells and distribute them across all servers \\
-	 -> cells with facts need an unique identifier for the row as well as the column \\
+	 -\textgreater cells with facts need an unique identifier for the row as well as the column \\
 \\
 - therefore RDF uses a triple of subject - predicate - object \\
 - subject and predicate are using an unique identifier based on URI \\
@@ -244,7 +244,7 @@ MKP Chapter 3: \\
 - therefore nodes are prefixed with an URI \\
 - this URI should be an URL if the information can be dereferenced on the World-Wide Web \\
 - usually they are used in combination with qnames, which define abbrevations for full-qualified URIs \\
-   e.g. qname <URI> \\
+   e.g. qname \textless URI\textgreater \\
 	      qname:subject predicate qname:object . \\
 - use camel case for identifiers, no spaces are allowed \\
 - W3C defines some qnames themselves: \\
@@ -397,6 +397,20 @@ CONSTRUCT can be used to retrieve a subgraph from a larger graph, can also be us
   FILTER ( ?varB > x )
 \end{lstlisting}
 
+- SPARQL can be used to harmonize graphs from different sources \\
+- is also used for basic reasoning ala ``if found this, assume that'' \\
+- can ease hierarchical queries with * or + on the predicate (SPARQL 1.1) \\
+- can help resolving issues with different entities referring to the same object (MKP pg. 95)\\
+- Federated Queries can be used to combine information from distinct sources via SPARQL (MKP pg. 110-112)\\
+\\
+- inferencing information from existing triples via SPIN (SPARQL Inferencing Notation) \\
+- like in a taxonomy items can be categorized in an hierarchy (MKP pg. 114) \\
+- inference patterns are used in Semantic Web applications (MKP pg. 115) \\
+   * subClassOf - type propagation rule \\
+- inferencing could be done at query time or persistently (MKP pg. 120/121) \\
+- inferences can also be helpful when combining information from unknown sources \\
+- inferencing happens on various levels (RDFS, RDFS+, OWL) with an increased set of complex inferencing rules (MKP pg. 122/123)
+\\
 % section semantic_querylang (end)
 
 \subsection{Agents and Rules}

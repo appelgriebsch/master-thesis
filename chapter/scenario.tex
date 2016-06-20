@@ -3,14 +3,34 @@
 \section{Scenario Description}
 \label{sec:scenario_description}
 
-- different forms of e-commerce exists: \\
-1. Business-To-Business (B2B): electronic trading between companies for improving supply-chain processes \\
-2. Business-To-Consumer (B2C): electronic trading between merchant and consumers \\
-3. Consumer-To-Consumer (C2C): electronic trading between consumers - e.g. eBay \\
-\\
-- focus of this thesis is on B2C \\
-- consumer is using an e-commerce shop of a merchant on the Internet \\
-- she is ordering products from the catalog of the merchant and uses her credit card to pay the bill \\
+``E-Commerce is basically trading in product or services using computer network such as the Internet'' \citep{sen2015study}.
+It is usually categorized into four different forms \citep{sen2015study}:
+
+\begin{enumerate}
+  \item \textbf{Business-To-Business (B2B)}: refers to electronic trading between companies with the objective to improve the supply chain processes
+  \item \textbf{Business-To-Consumer (B2C)}: refers to electronic trading between a company and it's consumers (e.g. Amazon)
+  \item \textbf{Consumer-To-Consumer (C2C)}: refers to electronic trading between consumers (e.g.\ eBay)
+  \item \textbf{Consumer-To-Business (C2B)}: referes to electronic trading between consumer and business (e.g. MyHammer)
+\end{enumerate}
+
+This Master thesis will focus on the B2C aspect of E-Commerce. In that case a consumer is using an E-Commerce shop of a merchant on the Internet to
+order products or services online. The merchant is offering a catalog of available products or services on the Web, that is available and accessible
+by the general public and usually has a global reach. The merchant can either run the E-Commerce shop software on her own servers or can outsource this additional business channel to a 3$^{rd}$ party hoster or cloud
+service provider (CSP). Also the shop software itself can either be provided by the merchant or bought on the software market from an independent software provider (ISV).
+For business accounting purposes the merchant also runs a bank account with the acquirer. \\
+When placing an order with the merchant online the consumer is normally using a credit card for finalizing the transaction. This credit card has been handed out by the issuing bank to the consumer.
+Additionally some online shops require the consumer to create an user account while others do not. The former is the preferred way when consumers are repetitively buying from that merchant
+whereas the latter might be used for one-time shopping trips online. To connect to the Internet the consumer relies on a service of an Internet Service Provider (ISP). \\
+
+\begin{figure}[H]
+	\centering
+		\includegraphics[width=0.8\columnwidth]{images/e-commerce-scenario.pdf}
+	\caption{E-Commerce Scenario}
+\label{fig:images_ecommerce_scenario}
+\end{figure}
+
+
+
 - the merchant is relying on a third party service to handle the payment process (e.g. PayPal) \\
 - this payment processor is routing the transaction amount due to the issuer of the credit card (e.g. a bank or credit card institute) \\
 - the merchant have a business relationship with her own bank and uses the service to acquire the outstanding amounts from consumers \\

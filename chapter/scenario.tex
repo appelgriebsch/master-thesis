@@ -4,7 +4,7 @@
 \label{sec:scenario_description}
 
 ``E-Commerce is basically trading in product or services using computer network such as the Internet'' \citep{sen2015study}.
-It is usually categorized into four different forms \citep{sen2015study}:
+It is usually categorized into four different forms \citep{sen2015study}:\@
 
 \begin{enumerate}
   \item \textbf{Business-To-Business (B2B)}: refers to electronic trading between companies with the objective to improve the supply chain processes
@@ -16,7 +16,7 @@ It is usually categorized into four different forms \citep{sen2015study}:
 This Master thesis will focus on the B2C aspect of E-Commerce. In that case a consumer is using an E-Commerce shop of a merchant on the Internet to
 order products or services online. The merchant is offering a catalog of available products or services on the Web, that is available and accessible
 by the general public and usually has a global reach. The merchant can either run the E-Commerce shop software on her own servers or can outsource this additional business channel to a 3$^{rd}$ party hoster or cloud
-service provider (CSP). Also the shop software itself can either be provided by the merchant or bought on the software market from an independent software provider (ISV).
+service provider (CSP). Also the shop software itself can either be provided by the merchant or bought on the software market from an Independent Software Vendor (ISV).
 For business accounting purposes the merchant also runs a bank account with the acquirer. \\
 When placing an order with the merchant online the consumer is normally using a credit card for finalizing the transaction. This credit card has been handed out by the issuing bank to the consumer.
 Additionally some online shops require the consumer to create an user account while others do not. The former is the preferred way when consumers are repetitively buying from that merchant
@@ -29,10 +29,27 @@ whereas the latter might be used for one-time shopping trips online. To connect 
 \label{fig:images_ecommerce_scenario}
 \end{figure}
 
+When the consumer places the order online the merchant receives a list of products or services from the current shopping cart of the consumer as well as the delivery address for the items.
+If the transaction is going to be finalized with a credit card the consumer will have to state additional information like billing address and credit card information (incl.\ credit card number, validity date and security number).
+The merchant does not validate the credit card information on her own. For that purpose she is usually relying on another 3$^{rd}$ party service offered on the Internet by the Payment Service Provider (PSP).
+These providers are either validating the credit card information themselves based on a given user profile (e.g.\ PayPal) or connecting to the issuing bank of the card for doing it. In this process the merchant is
+handing over the following information to the PSP:\@
 
+\begin{itemize}
+    \item consumer's billing address
+    \item given credit card number, validity date and security number
+    \item final amount of the transaction being processed
+\end{itemize}
 
-- the merchant is relying on a third party service to handle the payment process (e.g. PayPal) \\
-- this payment processor is routing the transaction amount due to the issuer of the credit card (e.g. a bank or credit card institute) \\
+The merchant receives a status of the authorization as well as an authorization code in return.
+
+\begin{figure}[H]
+	\centering
+		\includegraphics[width=0.8\columnwidth]{images/e-commerce-checkout-process.pdf}
+	\caption{E-Commerce Checkout Process in detail}
+\label{fig:images_ecommerce_checkout_process}
+\end{figure}
+
 - the merchant have a business relationship with her own bank and uses the service to acquire the outstanding amounts from consumers \\
 - in the clearing process the acquiring bank is settling any outstanding transaction with an issuing bank \\
 \\

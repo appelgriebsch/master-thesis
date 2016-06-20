@@ -41,7 +41,9 @@ handing over the following information to the PSP:\@
     \item final amount of the transaction being processed
 \end{itemize}
 
-The merchant receives a status of the authorization as well as an authorization code in return.
+The merchant receives a status of the authorization as well as an authorization code in return. If the authorization was done successfully the merchant will collect the items and send out a shipping order to one of the available logistic
+services capable to handle the order. They will pickup the order at the merchants facility and ship it to the given delivery address of the consumer. Usually in parallel the merchant is informing her bank about the order, amount due as well as
+authorization code from the PSP. The acquirer is in charge to withdrawal the amount of the order from the consumers bank account either via the PSP or directly with the issuing bank (a process called clearing).\@
 
 \begin{figure}[H]
 	\centering

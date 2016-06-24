@@ -3,7 +3,7 @@
 \section{Stakeholder Analysis}
 \label{sec:stakeholder_analysis}
 
-The following section will look at each stakeholder involved in detail, listing the kind of information they have at hand and the incentives they might have to participate on a shared collaborative system. \\
+The following section will look at each stakeholder involved in detail, listing the kind of information they have at hand and the incentives they might have to participate on a shared collaborative system.
 
 \subsection{Consumer}
 \label{subsec:stakeholder_consumer}
@@ -29,27 +29,70 @@ If she is going to end the transaction with a payment of type \textbf{credit car
 		\item credit card security code
 \end{itemize}
 
-The consumer is also playing a special role in the whole scenario. As the merchant has to deal with the consumer without any face-to-face or real-world interaction, the consumer is also the less thrustworthy party from the point of view of the merchant. As the section \ref{sec:scenario_fraud} will show the consumer is the main object of question in the case of an E-commer fraud. For the investigation of it the consumer is usually not taking an active part.
+The consumer is also playing a special role in the whole scenario. As the merchant has to deal with the consumer without any face-to-face or real-world interaction, the consumer is also the less thrustworthy party from the point of view of the merchant. As the Section~\ref{sec:scenario_fraud} will show the consumer is the main object of question in the case of an E-commer fraud. For the investigation of it the consumer is usually not taking an active part.
 
 % subsection stakeholder consumer
 
 \subsection{Merchant}
 \label{subsec:stakeholder_merchant}
 
-The \textbf{merchant} offers products and services on the Internet for the general public. She might use the Internet as an additional sales channel or rely on it solely for making any business. To provide access to the \textbf{Web shop} the merchant has to register a domain name and \textbf{\gls{URL}} at a local registry. This specific \gls{URL} refers to a fixed public \gls{IP} address, that the server hosting the Web shop software uses. Normally the merchant does not run the servers herself, but rely on a service offering from a hosting or \textbf{cloud service provider} for that. Also the Web shop software itself is not implemented by the merchant, but bought from an \textbf{\gls{ISV}}. The merchant has special rights in this software as she is allowed to configure the products, prices, promotions, available payment and shipment services. \\
+The \textbf{merchant} offers products and services on the Internet for the general public. She might use the Internet as an additional sales channel or rely on it solely for making any business. To provide access to the \textbf{Web shop} the merchant has to register a domain name and \textbf{\gls{URL}} at a local registry. This specific \gls{URL} refers to a fixed public \gls{IP} address, that the server hosting the Web shop software uses. Normally the merchant does not run the servers herself, but rely on a service offering from a hosting or \textbf{cloud service provider} for that. Also the Web shop software itself is not implemented by the merchant, but bought from an \textbf{\gls{ISV}}. The merchant has special rights in this software as she is allowed to configure the products, prices, promotions, available payment and shipment services. Products can be categorized into departments and sub-departments for easier navigation in the online shop. \\
 
-The merchant can decide whether she restricts ordering of products to registered users or allows anonymous users too. The main benefit of the former is the possibility to analyse the \textbf{shopping behaviour} of individual consumers, whereas the latter will open the business for a wider range of consumers as it include also those, that do not want to register with any online shop. Any consumer activity on the online shop is traced in the backend analytic databases. This includes not only the items, that have been put into the shopping cart, but also any product that has been looked at during this shopping session. Even if these analytic capabilities are actually synonymous for target-related advertising, they can also help to decide if a consumer behaves normally or not. \\
+The merchant can decide whether she restricts ordering of products to registered users or allows anonymous users too. The main benefit of the former is the possibility to analyse the \textbf{shopping behaviour} of individual consumers, whereas the latter will open the business for a wider range of consumers as it include also those, that do not want to register with any online shop. Nevertheless any consumer activity on the online shop is traced in the analytic databases of the merchant. This includes not only the items, that have been placed into the shopping cart, but also any product that has been looked at during this shopping session. Even if these detailed analytic capabilities are actually synonymous for target-related advertising, they can also help to decide if a consumer behaves normally or not. \\
 
+Any business transaction that the consumer makes with the merchant is stored in the merchants' databases. A transaction information contains, but is not limited to:\@
+
+\begin{itemize}
+		\item the personal information of the consumer
+		\item the address the items will be shipped to
+		\item a collection of products that have been ordered
+		\item the total amount of the order considering promotions, taxes and fees
+		\item the selected payment information
+\end{itemize}
+
+If the consumer pays with credit card the merchant do not handle the payment herself, but relate this action to a \textbf{payment service provider}. In return of the payment authorization the merchant will receive and store the following payment-related information for the transaction:\@
+
+\begin{itemize}
+		\item the type of credit card uses (e.g. Visa, MasterCard, American Express, \ldots)
+		\item the credit card information incl. credit card number, expiry date and security code
+		\item the name of the credit card owner
+		\item the payment token received by the payment service provider
+		\item the timestamp and result code of the authorization
+		\item the authority who approved the payment (if the merchant offers multiple payment service providers)
+\end{itemize}
+
+As a merchant will collect a lot of personal and payment related information over time, she is also one of the major sources of possible data leaks in this scenario. Due to this fact the Payment Card Initiative provides rules and guidelines (aka PCI/DSS standards) for securely handling these kinds of information in an IT system \citep{dss2014payment}. \\
+
+A merchant is one of the main actors in the fraud investigation process. She is interested in figuring out whether the consumer's transaction is valid or not. As in a case of an E-commerce fraud the merchant will mostly have to cover the costs of the incident (see Section~\ref{sec:scenario_fraud}). Also the online merchant's reputation will suffer if private information from her databases get leacked. If a merchant falls victim to a fraud incident multiple times the economic damages can finally result in a bankruptcy of the merchant.
 
 % subsection stakeholder merchant
 
 \subsection{Payment Service Provider}
 \label{subsec:stakeholder_psp}
 
+The \textbf{Payment Service Provider} is offering payment-related services to online merchants. As of this the \gls{PSP} provides a common Web interface to communicate with for payment authorization requests. The \gls{PSP} might be able to authorize the payment request on her own or have to route the request to the corresponding \textbf{issuer} of the credit card in question. For the former procedure to take place the \gls{PSP} usually has an own database of registered users with their credit card information (e.g. PayPal). For checking the credit card and authorizing the payment the \textbf{merchant} is sending the following information from the transaction:\@
+
+\begin{itemize}
+		\item credit card owner name
+		\item credit card number
+		\item credit card expiry date
+		\item credit card security number
+		\item identification of the merchant
+		\item current transaction total amount
+\end{itemize}
+
+The \gls{PSP} has to securely process these information and return the result of the examination to the merchant. The result message also contains an unique payment token, that the merchant can refer to later to initiate the clearing process. As of this the \gls{PSP} have to persist the credit card and transaction related information in his backend databases. Following industry standards she should do so according to the PCI/DSS guidelines mentioned above.\\
+
+The level of activity in the E-commerce fraud investigation process depends on whether the \gls{PSP} authorizes the payment herself or only acts as routing service between the merchant and the original credit card issuer. In the former case the \gls{PSP} is more actively involved. In that case she also holds more of the valuable information to solve the incident. In the latter case she might be able to connect the payment-related request information from the merchant with the authorization results coming from the issuer.\\
+
+If the \gls{PSP} holds sensitive information in her own databases she might also be a source of a possible data leak.
+
 % subsection stakeholder psp
 
 \subsection{Issuing Bank}
 \label{subsec:stakeholder_issuer}
+
+The \textbf{issuer}
 
 % subsection stakeholer issuer
 

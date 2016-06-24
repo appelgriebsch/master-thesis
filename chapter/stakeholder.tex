@@ -3,11 +3,79 @@
 \section{Stakeholder Analysis}
 \label{sec:stakeholder_analysis}
 
-\begin{figure}[H]
-	\centering
-		\includegraphics[width=0.8\columnwidth]{images/Stakeholders.pdf}
-	\caption{Stakeholder Overview}
-\label{fig:images_stakeholder_overview}
-\end{figure}
+The following section will look at each stakeholder involved in detail, listing the kind of information they have at hand and the incentives they might have to participate on a shared collaborative system. \\
+
+\subsection{Consumer}
+\label{subsec:stakeholder_consumer}
+
+The \textbf{consumer} is the initiator of an E-commerce transaction. She is using the shop of a \textbf{merchant} on the Internet to order products or services. For this she has to know the \gls{URL} of the Web shop, has to be connected to the Internet via the \textbf{\gls{ISP}} and have to use a standard software called a Web Browser on her computer or mobile. For the duration of her online session she receives an unique \textbf{\gls{IP}} address from the ISP.\@ She might have had a long-term business relationship with the merchant and due to this owns an \textbf{user account} on the Web shop. On the other hand she might be just interested into a one-time shopping trip and might want to order the items without creating an account first --- something called ``anonymous shopping'' in the E-commerce scenario. \\
+
+The consumer is also having a \textbf{bank account} and at least owns a \textbf{debit card} with the \textbf{issuing bank} to get access to the money on that account. In addition to that she can also hold multipe \textbf{credit cards}. A credit card can be issued by the same bank or can be provided by other financial services (e.g. American Express). In any case the organisation that has handed out the credit card to the consumer is called the \textbf{issuer}. \\
+
+If she is going to order items in a Web shop she will usually browse the product and service offerings of the merchant first and put the articles of interest into the \textbf{shopping cart}. When finalizing the transaction she has to hand over the following information to the merchant:\@
+
+\begin{itemize}
+		\item personal information incl. given name, family name and date of birth
+		\item the current home address
+		\item the address the items should be shipped to
+		\item payment information incl. type of payment and billing address
+\end{itemize}
+
+If she is going to end the transaction with a payment of type \textbf{credit card} she will have to provide the specific information of the card to be used:\@
+
+\begin{itemize}
+		\item credit card number
+		\item credit card expiry date (in format MM/YY)
+		\item credit card security code
+\end{itemize}
+
+The consumer is also playing a special role in the whole scenario. As the merchant has to deal with the consumer without any face-to-face or real-world interaction, the consumer is also the less thrustworthy party from the point of view of the merchant. As the section \ref{sec:scenario_fraud} will show the consumer is the main object of question in the case of an E-commer fraud. For the investigation of it the consumer is usually not taking an active part.
+
+% subsection stakeholder consumer
+
+\subsection{Merchant}
+\label{subsec:stakeholder_merchant}
+
+The \textbf{merchant} offers products and services on the Internet for the general public. She might use the Internet as an additional sales channel or rely on it solely for making any business. To provide access to the \textbf{Web shop} the merchant has to register a domain name and \textbf{\gls{URL}} at a local registry. This specific \gls{URL} refers to a fixed public \gls{IP} address, that the server hosting the Web shop software uses. Normally the merchant does not run the servers herself, but rely on a service offering from a hosting or \textbf{cloud service provider} for that. Also the Web shop software itself is not implemented by the merchant, but bought from an \textbf{\gls{ISV}}. The merchant has special rights in this software as she is allowed to configure the products, prices, promotions, available payment and shipment services. \\
+
+The merchant can decide whether she restricts ordering of products to registered users or allows anonymous users too. The main benefit of the former is the possibility to analyse the \textbf{shopping behaviour} of individual consumers, whereas the latter will open the business for a wider range of consumers as it include also those, that do not want to register with any online shop. Any consumer activity on the online shop is traced in the backend analytic databases. This includes not only the items, that have been put into the shopping cart, but also any product that has been looked at during this shopping session. Even if these analytic capabilities are actually synonymous for target-related advertising, they can also help to decide if a consumer behaves normally or not. \\
+
+
+% subsection stakeholder merchant
+
+\subsection{Payment Service Provider}
+\label{subsec:stakeholder_psp}
+
+% subsection stakeholder psp
+
+\subsection{Issuing Bank}
+\label{subsec:stakeholder_issuer}
+
+% subsection stakeholer issuer
+
+\subsection{Acquiring Bank}
+\label{subsec:stakeholder_acquirer}
+
+% subsection stakeholder acquirer
+
+\subsection{Logistic Service Provider}
+\label{subsec:stakeholder_lsp}
+
+% subsection stakeholder lsp
+
+\subsection{Cloud Service Provider}
+\label{subsec:stakeholder_csp}
+
+% subsection stakeholder csp
+
+\subsection{Independent Software Vendor}
+\label{subsec:stakeholder_isv}
+
+% subsection stakeholder isv
+
+\subsection{Internet Service Provider}
+\label{subsec:stakeholder_isp}
+
+% subsection stakeholder isp
 
 % section stakeholder analysis

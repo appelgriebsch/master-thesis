@@ -6,14 +6,14 @@
 E-commerce as a term relates to the trading of products or services utilizing a computer network such as the Internet. It is usually categorized into the following four different subfields \citep{sen2015study}:\@
 
 \begin{enumerate}
-  \item \textbf{Business-To-Business (B2B)}: refers to electronic trading between companies with the objective to improve their supply chain processes
-  \item \textbf{Business-To-Consumer (B2C)}: refers to electronic trading between a company and it's consumers (most publicly known example is Amazon)
-  \item \textbf{Consumer-To-Consumer (C2C)}: refers to electronic trading between consumers (most publicly known example is eBay)
-  \item \textbf{Consumer-To-Business (C2B)}: referes to electronic trading between consumers and businesses (most publicly known example is TaskRabbit)
+  \item \textbf{Business-To-Business (\gls{B2B})}: refers to electronic trading between companies with the objective to improve their supply chain processes
+  \item \textbf{Business-To-Consumer (\gls{B2C})}: refers to electronic trading between a company and it's consumers (most publicly known example is Amazon)
+  \item \textbf{Consumer-To-Consumer (\gls{C2C})}: refers to electronic trading between consumers (most publicly known example is eBay)
+  \item \textbf{Consumer-To-Business (\gls{C2B})}: referes to electronic trading between consumers and businesses (most publicly known example is TaskRabbit)
 \end{enumerate}
 
-This Master thesis will solely focus on the \textbf{B2C} aspect of E-commerce. In that case a \textbf{consumer} is using an \textbf{E-commerce shop} of a \textbf{merchant} on the Internet to order products or services online. The merchant is offering a catalog of available products or services on the Web, that is available and accessible by the general public and usually has an at least nation-wide if not global reach. The merchant can either run the E-commerce shop software on her own servers (on-premise) or can outsource this additional sales channel to a \textbf{3$^{rd}$ party hosting company or cloud service provider (CSP)}. Also the E-commerce shop software itself can either be developed by the merchant internally or acquired as a boxed product on the market from an \textbf{Independent Software Vendor (ISV)}. For business accounting purposes the merchant also runs a bank account with the \textbf{acquirer} (see Figure~\ref{fig:images_ecommerce_scenario}). \\
-When placing an order with the merchant online the consumer is normally using a \textbf{credit card} for finalizing the transaction. This credit card has originally been handed out by the \textbf{issuing bank} to the consumer. Additionally some online shops make it mandatory to the consumer to create an user account with them while others do not. The former is the preferred way when consumers are repetitively buying from that merchant whereas the latter might be used for one-time or irregular shopping trips online. Last but not least to be able to connect to the Internet the consumer relies on a service of an \textbf{Internet Service Provider (ISP)}. The whole initial setup for participating on E-commerce activities is found in Figure~\ref{fig:images_ecommerce_scenario}.\@
+This Master thesis will solely focus on the \textbf{B2C} aspect of E-commerce. In that case a \textbf{consumer} is using an \textbf{E-commerce shop} of a \textbf{merchant} on the Internet to order products or services online. The merchant is offering a catalog of available products or services on the Web, that is available and accessible by the general public and usually has an at least nation-wide if not global reach. The merchant can either run the E-commerce shop software on her own servers (on-premise) or can outsource this additional sales channel to a \textbf{3$^{rd}$ party hosting company or cloud service provider (\gls{CSP})}. Also the E-commerce shop software itself can either be developed by the merchant internally or acquired as a boxed product on the market from an \textbf{Independent Software Vendor (\gls{ISV})}. For business accounting purposes the merchant also runs a bank account with the \textbf{acquirer} (see Figure~\ref{fig:images_ecommerce_scenario}). \\
+When placing an order with the merchant online the consumer is normally using a \textbf{credit card} for finalizing the transaction. This credit card has originally been handed out by the \textbf{issuing bank} to the consumer. Additionally some online shops make it mandatory to the consumer to create an user account with them while others do not. The former is the preferred way when consumers are repetitively buying from that merchant whereas the latter might be used for one-time or irregular shopping trips online. Last but not least to be able to connect to the Internet the consumer relies on a service of an \textbf{Internet Service Provider (\gls{ISP})}. The whole initial setup for participating on E-commerce activities is found in Figure~\ref{fig:images_ecommerce_scenario}.\@
 
 \begin{figure}[H]
 	\centering
@@ -23,7 +23,7 @@ When placing an order with the merchant online the consumer is normally using a 
 \end{figure}
 
 When the consumer places the \textbf{order} online, the merchant receives at least a \textbf{list of products or services} from the current shopping cart of the consumer as well as the \textbf{delivery address} to ship the physical items to. If the transaction is going to be finalized with a credit card, the consumer will have to state additional information like her \textbf{billing address} and \textbf{credit card information} (including the credit card number, the expiration date and a security number). \\
-The merchant does not validate the credit card information on her own. For that purpose she is usually relying on another 3$^{rd}$ party service offered on the Internet by the \textbf{Payment Service Provider (PSP)}. These providers are either validating the credit card information themselves based on an user profile the consumer has with the PSP (e.g.\ a central Web service like PayPal) or connecting to the issuing bank of the card for doing so. For this validation process the merchant is handing over the following information to the PSP:\@
+The merchant does not validate the credit card information on her own. For that purpose she is usually relying on another 3$^{rd}$ party service offered on the Internet by the \textbf{Payment Service Provider (\gls{PSP})}. These providers are either validating the credit card information themselves based on an user profile the consumer has with the PSP (e.g.\ a central Web service like PayPal) or connecting to the issuing bank of the card for doing so. For this validation process the merchant is handing over the following information to the PSP:\@
 
 \begin{itemize}
     \item consumer's billing address
@@ -42,9 +42,6 @@ The merchant will receive the \textbf{status} of the authorization as well as a 
 \label{fig:images_ecommerce_checkout_process}
 \end{figure}
 
-- the merchant have a business relationship with her own bank and uses the service to acquire the outstanding amounts from consumers \\
-- in the clearing process the acquiring bank is settling any outstanding transaction with an issuing bank \\
-\\
 Workshop ErsteBank Wien: \\
 - usually banks are monitoring the usage of credit / debit cards and are looking for suspicious activities \\
 - this fraud prevention mechanism is working on a rule-based (non self-learning) or score-based (self-learning) software from a third party \\

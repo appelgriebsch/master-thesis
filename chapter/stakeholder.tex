@@ -83,7 +83,7 @@ The \textbf{Payment Service Provider} is offering payment-related services to on
 
 The \gls{PSP} has to securely process these information and return the result of the examination to the merchant. The result message also contains an unique payment token, that the merchant can refer to later to initiate the clearing process. As of this the \gls{PSP} have to persist the credit card and transaction related information in his backend databases. Following industry standards she should do so according to the PCI/DSS guidelines mentioned above.\\
 
-The level of activity in the E-commerce fraud investigation process depends on whether the \gls{PSP} authorizes the payment herself or only acts as routing service between the merchant and the original credit card issuer. In the former case the \gls{PSP} is more actively involved. In that case she also holds more of the valuable information to solve the incident. In the latter case she might be able to connect the payment-related request information from the merchant with the authorization results coming from the issuer.\\
+The level of activity in the E-commerce fraud investigation process depends on whether the \gls{PSP} authorizes the payment herself or only acts as routing service between the merchant and the original credit card issuer. In the former case the \gls{PSP} is more actively involved. In that case she also holds more of the valuable information to solve the incident. In the latter case she might be able to connect the payment-related request information from the merchant with the authorization result coming from the issuer.\\
 
 If the \gls{PSP} holds sensitive information in her own databases she might also be a source of a possible data leak.
 
@@ -92,32 +92,67 @@ If the \gls{PSP} holds sensitive information in her own databases she might also
 \subsection{Issuing Bank}
 \label{subsec:stakeholder_issuer}
 
-The \textbf{issuer}
+The \textbf{issuer} is one of the parties in the scenario that knows the owner of the credit card in person. Each individual has to register personally with the issuer to get access to a credit card. This includes providing the following information:\@
+
+\begin{itemize}
+		\item personal information like given name, family name and date of birth
+		\item the current home address
+		\item the bank account that should be used to settle credit card balances
+\end{itemize}
+
+Even if the two parties do not really meet each other personally, a person will still have to identify with a valid id card and bank account to receive and activate a new credit card. Beside being the single source of truth about the original credit card owner the issuer of the card also collects and stores all  usages of it. The issuer therefore can provide credit card usage patterns, that are not just limited to the online shopping scenario --- something a Payment Service Provider might also be able to deliver; but also include transactions the card owner does in the real-world. Needless to say that these are valuable information for the E-commerce fraud investigation. \\
+
+Still the issuer do not know the details of each transaction that has been made with the credit card. As mentioned above in the section about the \gls{PSP} the issuer will just receive an identifier of the merchant, in which shop the credit card has been used. But based on public available information of the merchant from the commercial register the issuer could at least come up with the retail branch the merchant belongs to. \\
+
+Being the single source of truth about all issued credit cards and their owners the issuer is another high-risk for data leaks. They should as well follow the guidelines from the PCI/DSS standards and monitor their backend systems heavily for intrusion detection.
 
 % subsection stakeholer issuer
 
 \subsection{Acquiring Bank}
 \label{subsec:stakeholder_acquirer}
 
+The \textbf{acquirer} holds the bank account of the merchant and is responsible for withdrawing the outstanding amounts of transactions from the accounts of the consumers, or more precisely the issuing bank of each consumer. As of this the acquiring bank is usually not processing any credit card related information from consumers, but refers to the payment tokens that have been given by the \gls{PSP} or \gls{issuer} during the authorization process. \\
+
+Still as financial institute it has to comply with the rules and guidelines of the PCI/DSS and other industry standards to make sure that their bank accounts and the transaction processing are safe and secure. The detailed analysis of these procedures and their possible (banking) frauds is out of scope of this thesis.
+
 % subsection stakeholder acquirer
 
 \subsection{Logistic Service Provider}
 \label{subsec:stakeholder_lsp}
+
+The \textbf{Logistic Service Provider} has two important roles in the E-commerce scenario. First it has access to and control over the items of the merchant for the duration of the transport between the merchant's facility and the consumer's shipping address. And second it holds the information to whom it has handed over the items at the final destination. Although the \gls{LSP} has nothing to do with any payment related activities, it might be the last chance for the merchant to stop the delivery of the items (in case a fraud has been detected after shipment) or give information about the person that has received the items at the shipping address --- especially on high-priced goods, which usually require the receiver to show their personal id card and have to place a signature on the delivery receipt. \\
+
+For initiating the shipment procedure the merchant is ordering a certain transport service from the \gls{LSP} and hand over the following information:\@
+
+\begin{itemize}
+	\item name of the receiver
+	\item delivery address
+	\item list of items to be shipped
+	\item optionally: value of the items if an insurance policy is taken
+\end{itemize}
+
+The \gls{LSP} at the other hand returns an unique \textbf{tracking id} for the shipment. It can be used by the merchant and the consumer to check the status of the shipment online.
 
 % subsection stakeholder lsp
 
 \subsection{Cloud Service Provider}
 \label{subsec:stakeholder_csp}
 
+The \textbf{Cloud Service Provider} offers IT services to its customers. These IT services include hardware and software assets that in our scenario a merchant can order to run her Web shop on the Internet. Part of the service level agreement between the merchant and the \gls{CSP} is a detailed listing of the responsibilities of both parties (who has to take care of what). In most cases the merchant is outsourcing the complete operation of the hardware and software for the Web shop to the \gls{CSP}, making the \gls{CSP} be responsible for making sure the Web shop is available and secure. The \gls{CSP} is also constantly monitoring the incoming connections to the public Internet servers under her control and might provide information if the Web shop of one of the merchant using the services of the \gls{CSP} has been compromised or leaked.
+
 % subsection stakeholder csp
 
 \subsection{Independent Software Vendor}
 \label{subsec:stakeholder_isv}
 
+The \textbf{ISV} designs, implements and sells the Web shop software. It has detailed knowledge about the software components and libraries used within the Web shop and normally also monitors for security breaches or vulnerabilities in them. It also has to check the own implemented software code for these and additionally have to make sure that the implementation follows industry standards (e.g. PCI/DSS for handling person and payment related information). As of this it can best assert these quality criterias of the Web shop if needed.
+
 % subsection stakeholder isv
 
 \subsection{Internet Service Provider}
 \label{subsec:stakeholder_isp}
+
+The \textbf{ISP} provides a service to the consumer for connecting to the Internet. Each Web request the consumer is doing on her system is routed to the public Internet via the infrastructure of the \gls{ISP}. Due to regulations and laws the \gls{ISP} have to store the log files of any Internet session of its customers for a certain amount of time. Especially these log files can be helpful to decide whether a consumer was visiting pages in the dark-side of the Web or if she falls victim to some phishing attacks (explained in detail in Section~\ref{sec:scenario_fraud}).
 
 % subsection stakeholder isp
 

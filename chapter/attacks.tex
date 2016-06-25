@@ -3,29 +3,51 @@
 \section{E-commerce fraud scenarios}
 \label{sec:scenario_fraud}
 
-Workshop ErsteBank Wien: \\
-- usually banks are monitoring the usage of credit / debit cards and are looking for suspicious activities \\
-- this fraud prevention mechanism is working on a rule-based (non self-learning) or score-based (self-learning) software from a third party \\
-- the outcome of the fraud prevention could be: yes (this is a fraudulent transaction, pls.\ block it), no (everything looks fine, pls. continue with the process) or maybe (uncertain, pls.\ let a human decide how to proceed) \\
-- in case of the maybe result an alert is triggered to one of the support staff of the bank (operating 24/7/365) \\
-- still this kind of fraud prevention mgmt. can not solve all issues due to the amount and frequency of the transactions, there is generally a
-fraud-to-sales ratio of max. 0.11 percent in the EU (meaning 1 promille of transactions are fraudulent) \\
-- still the success rate of fraud prevention is rougly 70-80 percent, means of the fraudulent transactions nearly 80 percent are blocked correctly \\
-- for the rest: the consumer has to actively trigger an investigation, if the case is valid usually the issuing bank will cover the cost (in case of larger amounts an insurance will take over). \\
-- the bank is responsible for pushing the consumer to file a case at police \\
-- most of the filed cases could not be resolved \\
-- there is no court decision yet in which circumstances the consumer might be guilty as well \\
-\\
-- ca. 85 percent of frauds are E-commerce frauds (EU: 70-90 percent). Hotspots are Germany, France and US. Frauds are coming from Travel-Shops or Online Merchants and the amount is on average between 500-600 EUR \\
-- E-commerce frauds will usually not filed at police; in most cases the acquirer is in charge to handle the issue \\
-- if it is known that a merchant has been hacked the bank is usually issuing new credit cards to all affected consumers automatically \\
-- otherwise the bank has to get in contact with the acquirer and/or merchant to figure out if the transaction is fraudulent \\
-- usually the banks only have credit card related information from a consumer (no detailed information about the ongoing transaction), whereas the merchant and the acquirer have the detailed records of the order at hand \\
-- various regulations make it hard to shre detailed information with involved parties (even if they have special agreements signed between them) \\
-- main questions for E-commerce fraud: who is the party that is the victim of the incident? Is it really a fraudulent transaction? \\
-- E-commerce fraud can not be handled by technology alone, at best the fraudulent transaction can be blocked on the merchant side (due to the information given by the consumer like items, prices, delivery address, ...) \\
-- in the worst case one successful fraudulent transaction in an E-commerce shop will trigger hundred and thousands of attempts -> so the awareness for the issue has to be at merchant side \\
-- at the end: much effort is assumed to bring all the experts together and solve the issue by putting their individual know-how on the table \\
+When looking into the possible scenarios for an E-commerce fraud activity one would come up with:\@
 
+\begin{enumerate}
+  \item a fraudster owns \textbf{one} leaked credit card information and try to use it for ordering products from \textbf{multiple} merchants on the Internet
+  \item a fraudster owns \textbf{multiple} leaked credit card information and try to use them for ordering products from \textbf{one} merchant on the Internet
+  \item a combination of the two cases mentioned before, that can also be related to as a series of the first fraud activity
+\end{enumerate}
 
-% section stakeholder_objectives (end)
+Before going into the detail of each of these fraud scenarios one should look into the aspect of how a fraudster might get access to credit card information in the first place. \\
+
+In the Section~\ref{sec:stakeholder_analysis} one could already find the parties who have access to or store credit card information in the E-commerce scenario, namely:\@
+
+\begin{itemize}
+  \item the consumer as owner of the credit card
+  \item the issuing bank who hand out the credit card to the consumer
+  \item the merchant if the consumer is paying with a credit card
+  \item the Payment Service Provider if the consumer is paying with a credit card online
+\end{itemize}
+
+The \textbf{\gls{PSP}} does receive the credit card information from the merchant during the authorization of the payment. If the \gls{PSP} does the authorization herself, she is also the party to store and hold the credit card information in her backend. As mentioned before the \gls{PSP} should follow industry standards and guidelines for storing and processing payment-related information, especially the PCI/DSS standard. Also she is responsible for monitoring her systems with an intrusion detection program. This will trigger a signal as soon as an hacker got access to the internal databases. In this case the \gls{PSP} can put the leaked credit card information on an internal blacklist so they could not be used for further payments online. Additionally she will inform the affected issuers to which the \gls{PSP} maintain a strong business relationship. The issuer will inform the consumers and send out new credit cards to them. As of this one can assume that the safety and security of credit card handling at the \gls{PSP} can be guaranteed. \\
+
+The \textbf{merchant} receives the credit card information during the checkout process from the consumer. As the merchant is not processing the credit card information directly, she also do not have to store them in her own backend databases. The merchant is asking the \gls{PSP} for authorization of the credit card payment and receives an unique payment token as response if the authorization was successful. As stated in the PCI/DSS standard the merchant do not store the whole credit card data, but uses this payment token and an abbreviated credit card number to refer to the payment later. Due to this it can also be assumed that breaking into the systems of a merchant will not result in leaked credit card information. \\
+
+The \textbf{issuer} is a valuable target for hacking into the backend systems with the objective to leak a massive amount of credit card and owner information. As a financial institut the issuer have to follow a huge set of regulations and safety procedures to participate on the market. It can be assumed that the same safety mechanism as with the \gls{PSP} are in place. This means constantly monitoring the internal systems with an intrusion detection mechanism and blacklisting any leaked credit card. In addition to the monitoring of all online activities (as the \gls{PSP} does) the issuing bank can also monitor activities done with the credit card in the offline world. In case of suspicious activities the credit card can be blocked and a new one can be send out to the credit card owner. \\
+
+The \textbf{consumer} is also a valuable target of credit card and personal information. She is also the weakest and most unsecure party in the whole scenario. As said above a lot of the protection mechanism of the other parties are relying on industry standards and constantly monitoring the own systems for malicious activities. This can not be securly said about the system of the consumer. Whether she is using an up-to-date security program on her computer or not is out of the scope of the other parties to verify. Additionally a consumer can fall victim to a phishing attack that will send her to a malicious Web site with the intend to get her personal information. In some seldom cases the consumer might cooperate with the fraudster or might be the fraudster itself with the intend to trick the system for her own interest. As of this the E-commerce fraud investigation can not rely on information from the consumer, but has to figure out if the transaction in question was made from the real owner of the credit card or from a frauster. \\
+
+Looking back to the possible E-commerce fraud activities from the top, one can now try to figure out which parties has to be involved in the investigation process to figure out whether it is a valid transaction or a fraud activity. \\
+
+In the \textbf{first scenario}, in which the fraudster is trying out a leaked credit card for ordering products on various online merchants, each of the merchant only sees the transaction that takes place in her system. It will make it more difficult for the merchant to decide whether this is a fraud transaction or not, as she is not aware of the attempts the fraudster have done on other merchant's Web shops. As each merchant will rely on a \gls{PSP} or issuer to verify the credit card payment, it is in the responsibility of these parties to recognize fraud transactions. As for this the \gls{PSP} and also the issuer are monitoring the usage of credit cards and are actively looking for suspicious activities. The fraud prevention mechanism in place are mostly working on a rule-based, non self-learning, in some cases also score-based, self-learning systems running in the internal network of the \gls{PSP} and issuer. These systems are fed with the payment-related information from the merchant's transaction and will come up with either\@
+
+\begin{enumerate}
+  \item Yes, this is a fraudulent transaction and will be blocked
+  \item No, this is a valid transaction and will be agreed
+  \item Maybe, this transaction might be valid, but there is some uncertainty in it. These cases are routed to a human operator to decide on how to proceed with the transaction
+\end{enumerate}
+
+For handling the last case the organisations will employed special trained staff, that is operating 24/7 and 365 days a year. \\
+
+As a recent study shows the success rate of the fraud prevention systems heavily relies on the techniques used to validate the transaction \citep{rana2015survey}. The outcome is, that ca. 70 to 80 percent of the fraudulent transactions will be recognized as such and blocked successfully. As stated in the introduction of this Master thesis there is a shift from the offline credit card fraud to the online world. This also resembles current figures of E-commerce fraud, that makes up ca. 85 percent of all credit card fraud attemps. \\
+
+As the \gls{PSP} and the issuer do not have any order details, they can only decide on the information given during the authorization request (see Section~\ref{sec:stakeholder_analysis}). At most they can validate the branch the merchant is operating in and it might come as no surprise, that the common fraudsters are trying Web shops of merchants that offer either electronics or travel-related products. These are also the most commonly used sources of valid E-commerce transactions and therefore make any fraudulent transaction very difficult to detect. In any suspicious situation the operator at the issuing bank or \gls{PSP} has to reach out to the merchant to figure out the order details, a time-consuming process, that increases the efforts on both sides. \\
+
+At the end it might be the owner of the credit card that detects suspicious activities on this credit card account and informs the issuing bank about it. Based on current regulations and laws the issuing bank has to roll-back the fraudulent transaction on request of the consumer, which means that the merchant will have to cover the costs of the E-commerce fraud (as he is not receiving the money for the products that has been already shipped to the fraudster). \\
+
+Looking at the \textbf{second scenario} of the E-commerce fraud collection at the top, a merchant will receive multiple requests from a fraudster, who is trying out various leaked credit cards for finishing an order process. This kind of E-commerce fraud can be recognized at the systems of the merchant based on the same source \gls{IP} address of the requests or due to having the same shipping address for orders with different credit cards. As of this it can be concluded that also the merchants must take an active role in the fraud prevention process (if not do so already) and try to minimize the amount of fraudulent transactions taken place on their Web shops. As this scenario is likely be manageable with additional fraud prevention mechanisms at the merchant without requiring to involve other parties of the E-commerce scenario, this second scenario falls out of scope of this Master thesis. 
+
+% section scenario_fraud (end)

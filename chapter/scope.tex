@@ -3,21 +3,23 @@
 \section{Scope of this Master Thesis}
 \label{sec:scope_thesis}
 
-As laid out in the previous section the most interesting E-commerce fraud scenario is the one, in which a fraudster uses a leaked credit card information to order products or services from various merchants on the Internet. This is currently most likely to be successful as there is a lack of information on the merchant as well as the \gls{PSP} or issuer side. Each of the affected merchants just noticed the single transaction that takes place on her Web shop without knowing the other attempts on the other Web shops. The \gls{PSP} and issuer notice the active use of the credit card on different Web shops, but do not have any information about the transaction details. Therefore they could not correlate these information to check for suspicious activities. \\
+As laid out in the previous section the most interesting E-commerce fraud scenario is the one, in which a fraudster uses a leaked credit card information to order products or services from various merchants on the Internet. This is currently most likely to be successful as there is a lack of information on the side of the merchant as well as the \gls{PSP} or issuer. Each of the affected merchants just noticed the single transaction that takes place on her Web shop without knowing the other attempts on the other Web shops. The \gls{PSP} and issuer notice the active use of the credit card on different Web shops, but do not have any information about the transaction details. Therefore they could not correlate these information to check for suspicious activities. \\
 
-Based on the current strategies of the fraudsters to try out the leaked credit card information in commonly used Web shops like electronics, entertainment or travel-related merchants, it is more likely that these fraudulent transactions will not be recognized on time. Still the merchants as well as the \gls{PSP} and issuer have a high incentive for keeping the success-rate and numbers of these fraudulent activities low. For the \gls{PSP} and issuing bank there is an EU regulation stating that at a maximum 1 promille of the overall transactions could be fraudulent. This keeps the pressure on these financial services to invest in fraud prevention techniques for being able to stay in business. For the merchant it is of high interest that a fraudulent transaction can be resolved before the fraudster receives the ordered products. In the worst case of just one successful fraudulent transaction in an E-commerce shop, experience shows that this will trigger hundred if not thousands of additional attempts from other fraudsters. \\
+Based on the current strategies of the fraudsters, whose try out the leaked credit card information in commonly used Web shops like electronics, entertainment or travel-related merchants, it is more likely that these fraudulent transactions will not be recognized on time. Still the merchants as well as the \gls{PSP} and issuer have a high incentive for keeping the success rate and numbers of these fraudulent activities low. \\
 
-A simple approach to just share more information of the ongoing transaction between the merchant and the \gls{PSP} and issuer will fail due to the restrictions and regulations for sharing sensitive information that each party has to follow. Also adapting and harmonizing the communication interfaces between various Web shops on the merchant side and multiple \gls{PSP} and issuers are an enormous undertaking. \\
+For the \gls{PSP} and issuing bank there are EU regulations stating that at maximum only 1 thousands of the overall transactions should be fraudulent. This keeps the pressure on these financial instituts to invest in fraud prevention techniques for being able to stay in business. For the merchant it is of high interest that a fraudulent transaction can be resolved before the fraudster receives the ordered products. In the worst case scenario of just one successful fraudulent transaction in an E-commerce shop, past experience shows that this will trigger hundreds if not thousands of following attempts from other fraudsters. \\
 
-This is the scenario this Master thesis will look into in detail and try to solve the most important question: is this really a fraudulent transaction or not? \\
+A simple approach to just share more information of the ongoing transaction between the merchant, the \gls{PSP} and the issuer will fail due to the restrictions and regulations for sharing personal related information, that each party has to follow. Also adapting and harmonizing the communication interfaces between the Web shops from various merchants and multiple \gls{PSP}s and issuers are an enormous undertaking. \\
 
-Looking into the stakeholders, that can provide useful information to solve this question, one will come  up with:\@
+This is the scenario this Master thesis will look into in detail and try to solve the most important question: is this really a fraudulent transaction? \\
+
+Looking into the stakeholders, that can provide useful information to solve this question, one will come up with:\@
 
 \begin{enumerate}
     \item \textbf{merchant}: providing additional information of the E-commerce transaction in question
     \item \textbf{\gls{PSP}/issuer}: providing additional information of the credit card usage and owner
-    \item \textbf{\gls{ISP}}: can give hints whether a consumer has fallen victim to a phishing attack based on access logs
+    \item \textbf{\gls{ISP}}: can give hints whether a consumer has fallen victim to a phishing attack based on Internet access logs
     \item \textbf{\gls{LSP}}: provide information if the order has already been shipped or can be still halted
-\end{enumerate} 
+\end{enumerate}
 
 % section scope_thesis (end)

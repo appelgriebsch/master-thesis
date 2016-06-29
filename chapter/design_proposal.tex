@@ -25,10 +25,31 @@ The usage of the vocabulary of Schema.org is preferred as \ldots
 \subsection{Partially centralized Peer-To-Peer System}
 \label{subsec:p2p_partially_centralized_system}
 
+The issuing bank is the trusted party in this system setup. It will initiate a data sharing session with the other required stakeholders based on the past usage of the credit card in question. During the P2P session the merchants, payment and logistic service providers will share the required information with the issuer. In this process the data from the other stakeholders will be replicated to the issuer, who will build up a graph based on the Schema.org schema mapping. The analysis of the data will be done on top of this graph by the issuer and can also be handled after the initial P2P data sharing session has been ended. If there are any new conclusions drawn from the data, the issuer is in charge to inform the stakeholders afterwards. So the main work will be on the issuer side, who is the major driving party in this scenario, as depicted in Figure~\ref{fig:images_p2p_centralized}.\@
+
+\begin{figure}[H]
+	\centering
+		\includegraphics[width=0.8\columnwidth]{images/system_P2P_centralized.pdf}
+	\caption{Partially centralized P2P system architecture}
+\label{fig:images_p2p_centralized}
+\end{figure}
+
+Main issue with the above mentioned system architecture is, that the merchants, payment and logistic service providers have to hand over their information to the issuing bank of the credit card for analysis. This might be either problematic due to distrust of the objectives of the issuing bank, or not possible at all due to local data sharing restrictions and regulations.
+
 % subsec p2p_partially_centralized_system
 
 \subsection{Decentralized Peer-To-Peer System}
 \label{subsec:p2p_decentralized_system}
+
+In the decentralized P2P system architecture each node is equal and keeps their local data ready for analysis if the node is online. If the issuer will have to figure out, whether a transaction is fraudulent or not, she is going to send out various queries to all the available nodes in the P2P cluster asking for certain information that help investigating the case. The other nodes, whose reside on each stakeholder involved, will answering the queries based on the common Schema.org data mapping shown above and send back the results to the issuing bank. The issuer will collect all the results from the various parties and combine them to be able to analyse the issue and come up with a conclusion. The main benefit of this architecture is, that there is no need to duplicate the data from the other stakeholders to the issuing bank. Due to this it can also be a better suited solution if data sharing faces restrictions due to law or regulations. On the other hand this architecture will depend on the nodes being online all the time so the issuer can query for information at any time. So this works only in synchronous communication mode. Additionally there are efforts spread around all the stakeholders to set up and maintain a system for secure data querying functionality, please see Figure~\ref{fig:images_p2p_decentralized}.
+
+\begin{figure}[H]
+	\centering
+		\includegraphics[width=0.8\columnwidth]{images/system_P2P_decentralized.pdf}
+	\caption{Decentralized P2P system architecture}
+\label{fig:images_p2p_decentralized}
+\end{figure}
+
 
 % subsec p2p_decentralized_system
 

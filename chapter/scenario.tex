@@ -25,14 +25,7 @@ When placing an order with the merchant online the consumer is normally using a 
 
 When the consumer places the \textbf{order} online, the merchant receives at least a \textbf{list of products or services} from the current shopping cart of the consumer, the \textbf{identification} of the consumer as well as the \textbf{delivery address} to ship the physical items to. If the transaction is going to be finalized with a credit card, the consumer will have to provide additional information like her \textbf{billing address} and \textbf{credit card information} (including the credit card number, the expiry date and the security number of the card). \\
 
-The merchant usually does not validate the credit card information on her own. For that purpose she is relying on another 3$^{rd}$ party service offered on the Internet by the \textbf{Payment Service Provider (\gls{PSP})}. These providers are either validating the credit card information themselves based on an user profile the consumer has with the \gls{PSP} (e.g.\ a global available Web service offering like PayPal) or are connecting to the issuing bank of the card for doing so. For this validation process the merchant is handing over the following information to the \gls{PSP}:\@
-
-\begin{itemize}
-    \item consumer's billing address
-    \item given credit card number, expiry date and security number
-    \item identification of the merchant
-    \item final amount of the transaction actually being processed
-\end{itemize}
+The merchant usually does not validate the credit card information on her own. For that purpose she is relying on another 3$^{rd}$ party service offered on the Internet by the \textbf{Payment Service Provider (\gls{PSP})}. These providers are either validating the credit card information themselves based on an user profile the consumer has with the \gls{PSP} (e.g.\ a global available Web service offering like PayPal) or are connecting to the issuing bank of the card for doing so. For this validation process the merchant is handing over the billing information to the \gls{PSP} incl. the credit card information. \\
 
 Either the \gls{PSP} or the issuing bank is validating the correctness of the information with criterias like: \@
 

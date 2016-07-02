@@ -65,7 +65,22 @@ Looking at the \textbf{second scenario} of the E-commerce fraud strategies at th
 \subsection{Handling E-commerce fraud incidents}
 \label{subsec:e_commerce_fraud_handling}
 
-In any suspicious situation the operator at the issuing bank or \gls{PSP} has to reach out to the merchant to figure out the order details, a time-consuming process, that increases the efforts on both sides. \\
+If the fraud prevention systems at the \gls{PSP} or issuer are detecting a suspecious transaction an operator of a special department within the organisation will be informed about the transaction via a notification on his computer. This operator will have to decide if the transaction looks valid and should be acknowledged or seems to be fraudulent and has to be denied. To be able to decide this she is going to look into the usages of the credit card in question for the near past. Whereas it will be easy to recognize that a credit card, that was just being used in a shop in Germany could not be used in a shop in US or Asia within a short timeframe due to physical constraints in the real world, the same consumer can order products from an US or Asian online retailer within minutes with ease. So these initial geographical contraints, that work well with real world usage patterns of credit cards (a strategy called geo-fencing), will no longer work in the E-commerce scenario. \\
+
+So the operator has to base her decision on the transaction information at hand. Initially she can check for the amount that should be paid with credit card. One can assume that small amounts will be covered by the \gls{PSP} or issuer, who will take over the risk for a false authorization. With an increased value of the items ordered the \gls{PSP} or issuer is putting back the risk to the merchant in case of a customer complaint later. At a second glance she can verify whether the consumer has had any business relationship with the merchant in the past as well as validate the retail branch the merchant operates in. Though these are weak hints for investigating the E-commerce transaction (see above). \\
+
+To make a strong (??) decision the operator will have to get in contact with the merchants the credit card has been used with recently and ask for additional information like:\@
+
+\begin{itemize}
+  \item does the consumer owns an user account with the Web shop?
+  \item does the shipping address matches the billing address for the order?
+  \item has the user ordered products to this shipping address in the past?
+  \item what has been ordered, incl.\ detailed product information like brand, model, product categories, \ldots
+\end{itemize}
+
+In some cases the \gls{PSP} or issuer might have had a business relationship with the online merchant in the past and already knows the support staff from the merchant to contact for querying, but in most cases the contact person might not be known to the \gls{PSP} or issuer resulting in asking the general support via the contact formulars on the merchants Web site. \\
+
+Executing this procedure with multiple online merchants from different countries will be time consuming and raise a lot of efforts at the \gls{PSP}s, issuers and merchants. Therefore one can assume that this detailed analysis of any suspecious transaction will not take place, but most of these transactions will be acknowledged after a first short look at them. Still the merchants as well as the \gls{PSP} and issuer have a high incentive for keeping the success rate and numbers of these fraudulent activities low. For the \gls{PSP} and issuing bank there are regulations stating that at maximum only 1 thousands of the overall transactions (numbers for the EU) should be fraudulent. This keeps the pressure on these financial instituts to invest in fraud prevention techniques for being able to stay in business. For the merchant it is of high interest that a fraudulent transaction can be resolved before the fraudster receives the ordered products. In the worst case scenario of just one successful fraudulent transaction in an E-commerce shop, past experience shows that this will trigger hundreds if not thousands of following attempts from other fraudsters. \\
 
 % subsection e_commerce_fraud_handling
 

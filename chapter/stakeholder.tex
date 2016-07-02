@@ -8,7 +8,7 @@ The following section will look at each stakeholder involved in the E-commerce s
 \subsection{Consumer}
 \label{subsec:stakeholder_consumer}
 
-The \textbf{consumer} is the initiator of an E-commerce transaction. She is using the shop of a \textbf{merchant} on the Internet to order products or services. For doing so she has to know the \gls{URL} of the Web shop, has to be connected to the Internet via the \textbf{\gls{ISP}} and has to use a standard software called a Web browser on her computer. For the duration of her online browsing session she owns an unique \textbf{\gls{IP}} address handed out from the \gls{ISP}.\\
+The \textbf{consumer} is the initiator of an E-commerce transaction. She is using the shop of a \textbf{merchant} on the Internet to order products or services. For doing so she has to know the \gls{URL} of the Web shop, has to be connected to the Internet via the \textbf{\gls{ISP}} and has to use a standard software called a Web browser on her computer. For the duration of her online browsing session she also owns an unique \textbf{\gls{IP}} address handed out from the \gls{ISP}.\\
 
 She might have had a long-term business relationship with the merchant and already owns an \textbf{user account} on the Web shop. On the other hand she might be just interested into a one-time shopping trip and might want to order the items without creating an account first --- sometimes also called ``anonymous shopping'' in the E-commerce shops. \\
 
@@ -17,21 +17,21 @@ The consumer is also having a \textbf{bank account} and at least owns a \textbf{
 If she is going to order items in a Web shop, she will usually browse the product and service offerings of the merchant first and put the items of interest into the \textbf{shopping cart}. When finalizing the transaction she has to state the following information to the merchant:\@
 
 \begin{itemize}
-		\item personal information incl. given name, family name and date of birth
+		\item personal information incl.\ given name, family name and date of birth
 		\item the address the items should be shipped to
-		\item payment information incl. type of payment and billing address (if different to shipping address)
+		\item payment information incl.\ type of payment and billing address (if different to shipping address)
 \end{itemize}
 
-If she is going to end the transaction with a payment of type \textbf{credit card} she will also have to provide specific information of the card to be used:\@
+If she is going to end the transaction with a payment of type \textbf{credit card} she will also have to provide specific information of the card that should  be used for the payment:\@
 
 \begin{itemize}
-		\item the owner of the credit card
+		\item the owner of the credit card (if it is not belonging to herself)
 		\item the unique credit card number
 		\item the expiry date of the credit card (in format MM/YY)
 		\item the security code of the credit card
 \end{itemize}
 
-The consumer is having a special role in the whole scenario. As the merchant has to deal with the consumer without any face-to-face or real-world interaction online, the consumer is also the less thrustworthy party from the point of view of the merchant. As the Section~\ref{sec:scenario_fraud} will show the consumer is the main object of question in the case of an E-commerce fraud incident. For the investigation of it the consumer is usually not taking any active part.
+The consumer is having a special role in the whole scenario. As the merchant has to deal with the consumer without any face-to-face or real-world interaction online, the consumer is also the least thrustworthy party from the point of view of the merchant. As the Section~\ref{sec:scenario_fraud} will show the consumer is the main object of question in the case of an E-commerce fraud incident. For the investigation of it the consumer is usually not taking any active part.
 
 % subsection stakeholder consumer
 
@@ -83,7 +83,7 @@ A merchant is one of the main actors in the fraud investigation process. She is 
 The \textbf{Payment Service Provider} is offering payment-related services to online merchants. As of this the \gls{PSP} provides a common Web interface, that the merchant has to communicate with for sending payment authorization requests (see above). The \gls{PSP} might be able to authorize the payment request on her own or have to route the request to the corresponding \textbf{issuer} of the credit card in question. For the former procedure the \gls{PSP} has to run an own database of registered users with their credit card information (e.g. PayPal). For checking the credit card and authorizing the payment the \textbf{merchant} is sending the following information from the transaction:\@
 
 \begin{itemize}
-		\item credit card owner incl. billing address given
+		\item credit card owner incl.\ billing address given
 		\item credit card number
 		\item credit card expiry date
 		\item credit card security number
@@ -110,7 +110,7 @@ The \textbf{issuer} is one of the parties in the scenario that knows the owner o
 		\item the bank account that should be used to settle credit card balances
 \end{itemize}
 
-Even if the two parties do not really meet each other personally, an individual will still have to identify with a valid id card and bank account to receive and activate a new credit card. Beside being the single source of truth about the original credit card owner, the issuer of the card also collects and stores all  usages of it. The issuer therefore can provide individual credit card usage patterns, that are not just limited to the online shopping scenario --- something a Payment Service Provider might also be able to deliver; but also include transactions the card owner does in the real-world. Needless to say that these are valuable information for the E-commerce fraud investigation. \\
+Even if the two parties do not really meet each other personally, an individual will still have to identify with a valid id card and bank account to receive and activate a new credit card. Beside being the single source of truth about the original credit card owner, the issuer of the card also collects and stores all  usages of it. The issuer therefore can provide individual credit card usage patterns, that are not just limited to the online shopping scenario --- something a Payment Service Provider can deliver too; but also include transactions the card owner does in the real-world. Needless to say that these are valuable information for the E-commerce fraud investigation. \\
 
 Still the issuer does not know the details of the transactions, that have been made with the credit card yet. As shown in the section about the \gls{PSP} above the issuer will just receive an identifier of the merchant, in whose shop the credit card has been used. Based on public available information from a commercial register about the merchant the issuer could at least come up with the retail branch the merchant operates in. \\
 
@@ -150,7 +150,7 @@ As the \gls{LSP} does not have to deal with the payment-related activities in th
 \subsection{Cloud Service Provider}
 \label{subsec:stakeholder_csp}
 
-The \textbf{Cloud Service Provider} offers IT services to its customers. These IT services include hardware and software assets, that in the E-commerce scenario a merchant can order to run her Web shop on the Internet. Part of the service level agreement between the merchant and the \gls{CSP} is a detailed listing of the responsibilities of both parties (who has to take care of what). In most cases the merchant is outsourcing the complete operation of the hardware and software for the Web shop to the \gls{CSP}; so the \gls{CSP} would be responsible for making sure the Web shop is available and secure. The \gls{CSP} is also constantly monitoring the incoming connections to each public Internet server under her control and can provide information, whether a Web shop of one of the merchants has been compromised or not.
+The \textbf{Cloud Service Provider} offers IT services to its customers. These IT services include hardware and software assets, that in the E-commerce scenario a merchant can order to run her Web shop on the Internet. Part of the service level agreement between the merchant and the \gls{CSP} is a detailed listing of the responsibilities of both parties (who has to take care of what). In most cases the merchant is outsourcing the complete operation of the hardware and software for the Web shop to the \gls{CSP}; so the \gls{CSP} will be responsible for making sure the Web shop is available and secure. The \gls{CSP} is also constantly monitoring the incoming connections to each public Internet server under her control and can provide information, whether a Web shop of one of the merchants has been compromised or not.
 
 % subsection stakeholder csp
 
@@ -167,18 +167,5 @@ The \textbf{ISV} designs, implements and sells the Web shop software. She has de
 The \textbf{ISP} provides a service to the consumer for connecting to the Internet. Each Web request the consumer is doing on her system is routed to the public Internet via the infrastructure of the \gls{ISP}. Due to regulations and laws the \gls{ISP} has to store the log files of any Internet session of its customers for a certain amount of time. Especially these log files can be helpful to decide whether a consumer was visiting pages in the dark-side of the Web, or if she falls victim to some phishing attacks (explained later in Section~\ref{sec:scenario_fraud}).
 
 % subsection stakeholder isp
-
-\subsection{Data flow for credit card transactions}
-\label{subsec:stakeholder_data_flow}
-
-The flow of data between the most critical stakeholders involved in the handling of credit cards for an E-commerce transaction is shown in Figure~\ref{fig:images_e_commerce_stakeholder}. \@
-
-\begin{figure}[H]
-	\centering
-		\includegraphics[width=0.8\columnwidth]{images/e-commerce-stakeholder.pdf}
-	\caption{Stakeholder and Data Flow in E-commerce scenario}
-\label{fig:images_e_commerce_stakeholder}
-\end{figure}
-
 
 % section stakeholder analysis

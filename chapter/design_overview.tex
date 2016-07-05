@@ -27,7 +27,7 @@ Ideally each of them would make parts of their internal data structures availabl
 \label{fig:images_system_overview}
 \end{figure}
 
-Due to the fact that data from various sources has to be combined into a shared understanding of the E-commerce activities of a consumer, there is the need to harmonize and transform the information into a shared data model. Based on the discussion in Chapter~\ref{cha:context_analysis} and the analysis of the information each stakeholder holds and transmits to others, the following initial schema can be conducted (see Figure~\ref{fig:images_data_model}). \\
+Due to the fact that data from various sources has to be combined into a shared understanding of the E-commerce activities of a consumer, there is the need to harmonize and transform the information into a shared data model. Based on the discussion in Chapter~\ref{cha:context_analysis} and the analysis of the information each stakeholder holds and transmits to others, the following initial schema can be conducted (see Figure~\ref{fig:images_data_model}). This figure shows the relevant information from the local contexts of each stakeholder and how they can be combined within a shared information space. \\
 
 \begin{figure}[!ht]
   \centering
@@ -36,7 +36,7 @@ Due to the fact that data from various sources has to be combined into a shared 
 \label{fig:images_data_model}
 \end{figure}
 
-As one can see there are connection points between stakeholders, that can be used as reference when trying to combine the information from each of them. These connection points are: \@
+As one can see there are connection points between these stakeholders. Those can be used as a reference for doing the merging of the information. There are 3 major connection points: \@
 
 \begin{enumerate}
   \item \textbf{payment token}: shared between merchant and \gls{PSP}
@@ -44,11 +44,13 @@ As one can see there are connection points between stakeholders, that can be use
   \item \textbf{credit card}: shared between issuer and \gls{PSP}
 \end{enumerate}
 
-In addition to the connection points one can also see the validation points in the visualization. These criterias are: \@
+In addition to these connection points one can also see the validation points in the Figure~\ref{fig:images_data_model}. These are critical points that state whether an E-commerce transaction is suspecious or not. The criterias are: \@
 
 \begin{enumerate}
   \item \textbf{billing address}: the billing address of the order has to match the registered address of the owner of the credit card used
   \item \textbf{recipient}: the recipient of the delivery should be related to the owner of the credit card
 \end{enumerate}
+
+Whereas the first criteria can be examined during the authorization process of the credit card payment based on the transmitted information between merchant and \gls{PSP}, the second one is more difficult to verify (or can not be verified at all).
 
 % section system_overview (end)

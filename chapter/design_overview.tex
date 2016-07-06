@@ -77,7 +77,7 @@ But as shown in the Section~\ref{sec:scope_thesis} analysing the cluster of tran
 \label{fig:images_graph_viz}
 \end{figure}
 
- In addition to these graph visualizations the system can also support the investigation of the incidents by changing the type of visualization based on the criteria chosen for the clustering of the order details; e.g.\ when clustering them based on location information such as the shipping addresses the system can present the information as a heat map on a chart as displayed in Figure~\ref{fig:images_map_heatmap}. \@
+ In addition to these clustered graphs the system can also support the investigation of the incidents by changing the type of visualization based on the criteria chosen for the clustering of the order details; e.g.\ when clustering them based on location information such as the shipping addresses the system can present the information as a heat map on a chart as displayed in Figure~\ref{fig:images_map_heatmap}. \@
 
 \begin{figure}[H]
   \centering
@@ -85,5 +85,7 @@ But as shown in the Section~\ref{sec:scope_thesis} analysing the cluster of tran
   \caption{Heatmap displaying clusters of location-based information}
 \label{fig:images_map_heatmap}
 \end{figure}
+
+To conclude the system have to support the collection and combination of E-commerce transaction information from various sources into a large clustered graph, that can be analysed from multiple view points to validate if there is any transaction that stands out from the ``normal'' shopping behaviour of the credit card owner. The starting point is a sequence of recent credit card activities, that the issuer can provide to the other participants. The initial graph will collect and cluster the information from each merchant based on this list. In case there are suspecious information in one of the clusters of the merchant, the issuer can further enrich this cluster with additional historical order details for this customer from that merchant. In the final step the system has to do the mapping of the order detail information between each merchant to allow further analysing and clustering of the transactions. 
 
 % section system_overview (end)

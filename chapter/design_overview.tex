@@ -59,6 +59,13 @@ But just sharing the fact whether the shipping and billing address is different 
 
 Therefore the idea is to combine the transaction information from various merchants, \gls{LSP}s, \gls{PSP}s and issuers into one large, combined and shared information space to be able to analyze if there are any orders that look strange and are not being made by the owner of the credit card to a certain extend. One can already see that the proposed solution will have to deal with statistical evaluations and probabilities. \\
 
-Starting with the credit card in question the issuer can query for the order details of transactions, that have been done recently with the credit card online.
+Starting with the credit card in question the issuer can query for the order details of transactions, that have been done recently with the credit card online. Each online transaction can be mapped into a schema like the one shown in Figure~\ref{fig:images_data_model}, building up a large graph of entities and  the relationship between them with the specific credit card in the center of it. An abbreviated sample graph of that can be seen in Figure~\ref{fig:images_credit_card_graph}. One can clearly recognize the different clusters of transactions by merchant. Still this first combination of the various order information into one data set is just the beginning. Based on the information received the issuer can already filter out transactions, that have been shipped to different addresses than the credit card owner is registered for. Especially for those cases it might be worth to ask for additional information from the affected merchants to figure out if a consumer has used these addresses before. \\
+
+\begin{figure}[!ht]
+  \centering
+  \includegraphics[width=0.9\columnwidth]{images/ontology_scenario_2.pdf}
+  \caption{Cluster of E-commerce transactions by merchant}
+\label{fig:images_credit_card_graph}
+\end{figure}
 
 % section system_overview (end)

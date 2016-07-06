@@ -55,16 +55,31 @@
   <defs
      id="defs746">
     <marker
+       inkscape:isstock="true"
+       style="overflow:visible;"
+       id="marker6443"
+       refX="0.0"
+       refY="0.0"
+       orient="auto"
+       inkscape:stockid="Arrow2Mend">
+      <path
+         transform="scale(0.6) rotate(180) translate(0,0)"
+         d="M 8.7185878,4.0337352 L -2.2072895,0.016013256 L 8.7185884,-4.0017078 C 6.9730900,-1.6296469 6.9831476,1.6157441 8.7185878,4.0337352 z "
+         style="fill-rule:evenodd;stroke-width:0.625;stroke-linejoin:round;stroke:#666666;stroke-opacity:1;fill:#666666;fill-opacity:1"
+         id="path6445" />
+    </marker>
+    <marker
        inkscape:stockid="Arrow2Mend"
        orient="auto"
        refY="0.0"
        refX="0.0"
        id="marker7703"
        style="overflow:visible;"
-       inkscape:isstock="true">
+       inkscape:isstock="true"
+       inkscape:collect="always">
       <path
          id="path7705"
-         style="fill-rule:evenodd;stroke-width:0.625;stroke-linejoin:round;stroke:#666666;stroke-opacity:1;fill:#666666;fill-opacity:1"
+         style="fill-rule:evenodd;stroke-width:0.625;stroke-linejoin:round;stroke:#000000;stroke-opacity:1;fill:#000000;fill-opacity:1"
          d="M 8.7185878,4.0337352 L -2.2072895,0.016013256 L 8.7185884,-4.0017078 C 6.9730900,-1.6296469 6.9831476,1.6157441 8.7185878,4.0337352 z "
          transform="scale(0.6) rotate(180) translate(0,0)" />
     </marker>
@@ -436,8 +451,8 @@
      fit-margin-right="5"
      fit-margin-bottom="5"
      inkscape:zoom="1.65"
-     inkscape:cx="212.40337"
-     inkscape:cy="276.16521"
+     inkscape:cx="264.30769"
+     inkscape:cy="219.99721"
      inkscape:window-x="1920"
      inkscape:window-y="27"
      inkscape:window-maximized="1"
@@ -832,7 +847,7 @@
   <g
      style="stroke-width:1;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:10;stroke-dasharray:none;stroke-dashoffset:0"
      id="g372"
-     transform="matrix(0.96059601,0,0,0.96059601,93.4694,254.79543)">
+     transform="matrix(0.96059601,0,0,0.96059601,103.77243,262.06816)">
     <text
        style="font-style:normal;font-weight:normal;font-size:10px;font-family:Helvetica;fill:#999999;fill-opacity:1;stroke:none"
        id="text374"
@@ -919,10 +934,10 @@
        style="font-style:normal;font-weight:normal;font-size:12px;font-family:Helvetica;fill:#666666;fill-opacity:1;stroke:none"
        id="text406"
        y="0"
-       x="0"
+       x="10.410204"
        font-size="12"
        font-weight="normal"
-       font-style="normal">Department</text>
+       font-style="normal">Category</text>
   </g>
   <path
      style="fill:none;fill-rule:evenodd;stroke:#666666;stroke-width:1.3527838;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#marker7703-9-0-3)"
@@ -1702,7 +1717,7 @@
   <g
      style="stroke-width:1;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:10;stroke-dasharray:none;stroke-dashoffset:0"
      id="g728"
-     transform="matrix(0.96059601,0,0,0.96059601,476.6765,171.05635)">
+     transform="matrix(0.96059601,0,0,0.96059601,498.6765,171.05635)">
     <g
        style="fill:none;stroke:#ffffff;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:1"
        id="g730">
@@ -1716,7 +1731,7 @@
   <g
      style="stroke-width:1;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:10;stroke-dasharray:none;stroke-dashoffset:0"
      id="g734"
-     transform="matrix(0.96059601,0,0,0.96059601,476.6765,171.27034)">
+     transform="matrix(0.96059601,0,0,0.96059601,498.6765,171.27034)">
     <g
        style="fill:#00ccff;fill-opacity:1;fill-rule:nonzero;stroke:none"
        id="g736">
@@ -1730,7 +1745,7 @@
   <g
      style="stroke-width:1;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:10;stroke-dasharray:none;stroke-dashoffset:0"
      id="g740"
-     transform="matrix(0.96059601,0,0,0.96059601,25.23164,296.11543)">
+     transform="matrix(0.96059601,0,0,0.96059601,47.23164,296.11543)">
     <text
        style="font-style:normal;font-weight:normal;font-size:12px;font-family:Helvetica;fill:#666666;fill-opacity:1;stroke:none"
        id="text742"
@@ -1970,8 +1985,8 @@
        font-style="normal">officially registered</text>
   </g>
   <path
-     style="fill:none;fill-rule:evenodd;stroke:#666666;stroke-width:1.23483098;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#marker7703-9-0)"
-     d="M 167.47341,255.44139 62.525185,273.02686"
+     style="fill:none;fill-rule:evenodd;stroke:#666666;stroke-width:1.40139675;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#marker7703-9-0)"
+     d="M 167.37501,255.30739 85.892898,273.13914"
      id="path7701-3-1"
      inkscape:connector-curvature="0" />
   <path
@@ -2213,6 +2228,161 @@
        font-size="12"
        font-weight="normal"
        font-style="normal">Address</text>
+  </g>
+  <g
+     style="stroke-width:1;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:10;stroke-dasharray:none;stroke-dashoffset:0"
+     id="g590-3"
+     transform="matrix(0.96059601,0,0,0.96059601,203.45655,456.11396)">
+    <g
+       style="fill:#cccccc;fill-opacity:1;fill-rule:nonzero;stroke:none"
+       id="g592-6">
+      <path
+         inkscape:connector-curvature="0"
+         id="path594-7"
+         d="m -42.915195,-99.161217 19,0 0,19 -19,0 0,-19 z" />
+    </g>
+    <!-- drawing style -->
+  </g>
+  <g
+     style="stroke-width:1;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:10;stroke-dasharray:none;stroke-dashoffset:0"
+     id="g596-5"
+     transform="matrix(0.96059601,0,0,0.96059601,154.81309,390.29147)">
+    <text
+       style="font-style:normal;font-weight:normal;font-size:12px;font-family:Helvetica;fill:#666666;fill-opacity:1;stroke:none"
+       id="text598-3"
+       y="0"
+       x="0"
+       font-size="12"
+       font-weight="normal"
+       font-style="normal">string</text>
+  </g>
+  <g
+     style="stroke-width:1;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:10;stroke-dasharray:none;stroke-dashoffset:0"
+     id="g170-1-7"
+     transform="matrix(0.96059601,0,0,0.96059601,121.12636,343.1268)">
+    <text
+       style="font-style:normal;font-weight:normal;font-size:10px;font-family:Helvetica;fill:#999999;fill-opacity:1;stroke:none"
+       id="text172-2-0"
+       y="0.71543974"
+       x="22.178631"
+       font-size="10"
+       font-weight="normal"
+       font-style="normal">brand</text>
+  </g>
+  <g
+     style="stroke-width:1;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:10;stroke-dasharray:none;stroke-dashoffset:0"
+     id="g590-9"
+     transform="matrix(0.96059601,0,0,0.96059601,137.3297,475.84975)">
+    <g
+       style="fill:#cccccc;fill-opacity:1;fill-rule:nonzero;stroke:none"
+       id="g592-3">
+      <path
+         inkscape:connector-curvature="0"
+         id="path594-6"
+         d="m -42.915195,-99.161217 19,0 0,19 -19,0 0,-19 z" />
+    </g>
+    <!-- drawing style -->
+  </g>
+  <g
+     style="stroke-width:1;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:10;stroke-dasharray:none;stroke-dashoffset:0"
+     id="g596-0"
+     transform="matrix(0.96059601,0,0,0.96059601,88.686244,410.02726)">
+    <text
+       style="font-style:normal;font-weight:normal;font-size:12px;font-family:Helvetica;fill:#666666;fill-opacity:1;stroke:none"
+       id="text598-6"
+       y="0"
+       x="0"
+       font-size="12"
+       font-weight="normal"
+       font-style="normal">string</text>
+  </g>
+  <g
+     style="stroke-width:1;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:10;stroke-dasharray:none;stroke-dashoffset:0"
+     id="g170-1-7-6"
+     transform="matrix(0.96059601,0,0,0.96059601,92.363438,368.26499)">
+    <text
+       style="font-style:normal;font-weight:normal;font-size:10px;font-family:Helvetica;fill:#999999;fill-opacity:1;stroke:none"
+       id="text172-2-0-1"
+       y="0.71543974"
+       x="20.747751"
+       font-size="10"
+       font-weight="normal"
+       font-style="normal">model</text>
+  </g>
+  <g
+     style="stroke:#cccccc;stroke-width:1.42290485;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:10;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+     id="g88-5"
+     transform="matrix(1.131228,0,0,0.498946,409.10259,252.09934)">
+    <g
+       style="fill:none;stroke:#cccccc;stroke-width:1.42290485;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
+       id="g90-6">
+      <path
+         inkscape:connector-curvature="0"
+         id="path92-2"
+         d="m -250.13647,165.01735 32.00277,55.62936"
+         style="stroke:#cccccc;stroke-width:1.42290485;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1" />
+    </g>
+    <!-- drawing style -->
+  </g>
+  <g
+     style="stroke:#cccccc;stroke-width:1.76781194;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:10;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+     id="g88-5-9"
+     transform="matrix(0.13300773,1.2520004,-0.25446824,0.12730766,189.60534,628.11243)">
+    <g
+       style="fill:none;stroke:#cccccc;stroke-width:1.76781194;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
+       id="g90-6-1">
+      <path
+         inkscape:connector-curvature="0"
+         id="path92-2-2"
+         d="m -250.13647,165.01735 32.00277,55.62936"
+         style="stroke:#cccccc;stroke-width:1.76781194;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1" />
+    </g>
+    <!-- drawing style -->
+  </g>
+  <g
+     style="stroke-width:1;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:10;stroke-dasharray:none;stroke-dashoffset:0"
+     id="g494-8-3"
+     transform="matrix(0.96059601,0,0,0.96059601,222.98664,318.35762)">
+    <g
+       style="fill:#00ccff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+       id="g496-9-1">
+      <path
+         inkscape:connector-curvature="0"
+         id="path498-7-9"
+         d="m -197.58235,-72.134346 c 0,6.627413 -5.37258,11.999992 -12,11.999992 -6.62742,0 -12,-5.372579 -12,-11.999992 0,-6.627413 5.37258,-11.999992 12,-11.999992 6.62742,0 12,5.372579 12,11.999992 z" />
+    </g>
+    <!-- drawing style -->
+  </g>
+  <g
+     style="stroke-width:1;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:10;stroke-dasharray:none;stroke-dashoffset:0"
+     id="g500-3-4"
+     transform="matrix(0.96059601,0,0,0.96059601,6.8920069,276.83819)">
+    <text
+       style="font-style:normal;font-weight:normal;font-size:12px;font-family:Helvetica;fill:#666666;fill-opacity:1;stroke:none"
+       id="text502-6-7"
+       y="-1.3463612"
+       x="-4.4878459"
+       font-size="12"
+       font-weight="normal"
+       font-style="normal">Branch</text>
+  </g>
+  <path
+     style="fill:none;fill-rule:evenodd;stroke:#666666;stroke-width:1.413;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#marker6443)"
+     d="M 65.336688,271.37392 33.687648,255.66531"
+     id="path6435"
+     inkscape:connector-curvature="0" />
+  <g
+     style="stroke-width:1;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:10;stroke-dasharray:none;stroke-dashoffset:0"
+     id="g42-7"
+     transform="matrix(0.96059601,0,0,0.96059601,76.600424,437.13006)">
+    <text
+       style="font-style:normal;font-weight:normal;font-size:10px;font-family:Helvetica;fill:#999999;fill-opacity:1;stroke:none"
+       id="text44-0"
+       y="-188.01459"
+       x="-32.807915"
+       font-size="10"
+       font-weight="normal"
+       font-style="normal">operates in</text>
   </g>
 </svg>
 <!-- bounding box -->

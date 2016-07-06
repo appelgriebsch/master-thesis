@@ -32,7 +32,7 @@ Due to the fact that data from various sources has to be combined into a shared 
 \begin{figure}[!ht]
   \centering
   \includegraphics[width=0.9\columnwidth]{images/ontology_scenario_1.pdf}
-  \caption{Information relations between stakeholders (green: Issuer, red: \gls{PSP}, yellow: Merchant, blue: \gls{LSP})}
+  \caption{Data relations between stakeholders (green: Issuer, red: \gls{PSP}, yellow: Merchant, blue: \gls{LSP})}
 \label{fig:images_data_model}
 \end{figure}
 
@@ -64,18 +64,26 @@ Starting with the credit card in question the issuer can query for the order det
 \begin{figure}[!ht]
   \centering
   \includegraphics[width=0.9\columnwidth]{images/ontology_scenario_2.pdf}
-  \caption{Cluster of E-commerce transactions by merchant}
+  \caption{Clusters of E-commerce transactions by merchant}
 \label{fig:images_credit_card_graph}
 \end{figure}
 
-But as shown in the Section~\ref{sec:scope_thesis} analysing the cluster of transactions from each merchant \textbf{\underline{alone}} will not be sufficient to come up with a solid decision about a suspecious transaction. This is due to the usage pattern of the fraudsters, that have been described in the scenario selected for this Master thesis --- using a credit card for ordering items from multiple merchants online. Therefore the various order details from the merchants have to be mapped against each other, so that the initial graph can be easily transformed into additional representations that uses different criterias to cluster the transactions --- such as recipient addresses, branches of the merchants, or product-related information. This reshaping of the graph can lead to new insights about the ``normal'' behaviour of the credit card owner and make deviations from this behaviour visible. To support the issuer in investigating the transactions the system could also switch the visualization based on the criteria chosen for clustering the order details; e.g.\ when clustering them based on the shipping address of the transactions the system can present the information as a heat map on a chart as shown in Figure~\ref{fig:images_map_heatmap}. \@
+But as shown in the Section~\ref{sec:scope_thesis} analysing the cluster of transactions from each merchant \textbf{\underline{alone}} will not be sufficient to come up with a solid decision about a suspecious transaction. This is due to the usage pattern of the fraudsters, that have been described in the scenario selected for this Master thesis --- using a credit card for ordering items from multiple merchants online. Therefore the various order details from the merchants have to be mapped against each other, so that the initial graph can be easily transformed into additional representations that uses different criterias to cluster the transactions --- such as recipient addresses, branches of the merchants, or product-related information. This reshaping of the graph can lead to new insights about the ``normal'' shopping behaviour of the credit card owner and make deviations from this behaviour visible. Visualizing the graph data as a clustered graph on screen supports the explorative nature of knowledge generation and perception, and can speed up the investigation of the E-commerce fraud incidents. An example visualization of a clustered graph is shown in Figure~\ref{fig:images_graph_viz}. \@
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.9\columnwidth]{images/GraphViz.png}
+  \caption{An example visualization of a clustered graph \citep{visjsshowcase}}
+\label{fig:images_graph_viz}
+\end{figure}
+
+ In addition to these graph visualizations the system can also support the investigation of the incidents by changing the type of visualization based on the criteria chosen for the clustering of the order details; e.g.\ when clustering them based on location information such as the shipping addresses the system can present the information as a heat map on a chart as displayed in Figure~\ref{fig:images_map_heatmap}. \@
 
 \begin{figure}[H]
   \centering
   \includegraphics[width=0.9\columnwidth]{images/Heatmap.png}
-  \caption{Cluster of E-commerce transactions by shipping address}
+  \caption{Heatmap displaying clusters of location-based information}
 \label{fig:images_map_heatmap}
 \end{figure}
-
 
 % section system_overview (end)

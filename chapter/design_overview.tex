@@ -68,6 +68,14 @@ Starting with the credit card in question the issuer can query for the order det
 \label{fig:images_credit_card_graph}
 \end{figure}
 
-But as shown in the Section~\ref{sec:scope_thesis} analysing the cluster of transactions from each merchant \textbf{\underline{alone}} will not be sufficient to come up with a solid decision about a suspecious transaction. This is due to the usage pattern of the fraudsters, that have been described in the scenario selected for this Master thesis --- using a credit card for ordering items from multiple merchants online.
+But as shown in the Section~\ref{sec:scope_thesis} analysing the cluster of transactions from each merchant \textbf{\underline{alone}} will not be sufficient to come up with a solid decision about a suspecious transaction. This is due to the usage pattern of the fraudsters, that have been described in the scenario selected for this Master thesis --- using a credit card for ordering items from multiple merchants online. Therefore the various order details from the merchants have to be mapped against each other, so that the initial graph can be easily transformed into additional representations that uses different criterias to cluster the transactions --- such as recipient addresses, branches of the merchants, or product-related information. This reshaping of the graph can lead to new insights about the ``normal'' behaviour of the credit card owner and make deviations from this behaviour visible. To support the issuer in investigating the transactions the system could also switch the visualization based on the criteria chosen for clustering the order details; e.g.\ when clustering them based on the shipping address of the transactions the system can present the information as a heat map on a chart as shown in Figure~\ref{fig:images_map_heatmap}. \@
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.9\columnwidth]{images/Heatmap.png}
+  \caption{Cluster of E-commerce transactions by shipping address}
+\label{fig:images_map_heatmap}
+\end{figure}
+
 
 % section system_overview (end)

@@ -5,10 +5,21 @@
 
 When trying to solve issues of information integration between organisations there are already existing solutions, that have to be examined whether they might fit the E-commerce fraud investigation scenario or not.
 
-\subsection{\gls{ETL} processes}
+\subsection{The \gls{ETL} processes}
 \label{subsec:etl_process}
 
+To begin with, retrieving, transforming and combining data from multiple dispersed data sources is not a completely new problem and is actually part of an ``Extract-Transform-Load'' or \gls{ETL} process within an organisation. The basic idea is the same as the concept shown in this thesis; namely to get as much information as possible from the various databases, that are in use within a company, harmonize (aka transform) the information from each of them into a shared data model, and use the cleaned up and combined information repository for doing advanced business analytics and predictions. The whole process is visualized in Figure~\ref{fig:images_etl_process}. \\
 
+\begin{figure}[!ht]
+  \centering
+  \includegraphics[width=0.7\columnwidth]{images/etl_process.pdf}
+  \caption{\gls{ETL} process within a company \citep[pg. 165]{wood2014linked}}
+\label{fig:images_etl_process}
+\end{figure}
+
+Still these processes rely on an in-depth knowledge of the data structures, that are used in each of the information sources as well as direct access to the databases and files for information retrieval. Although these conditions are not cumbersome to work with within an organisation, they will be a real show stopper if one has to integrate data sources across company boundaries. As the integration in the \gls{ETL} processes takes place on the database level, allowing external access to your databases will not only open up access to your business internals, but will also make it more complicated to change the underlying database structure and software. Any changes to one of these require a negotiation between the owner of the data source and all of the partners attached to it. \\
+
+Beside this limited usage for the E-commerce fraud investigation scenario at the whole, one can assume that these processes are still in use for the daily business of each stakeholder. They can be helpful at a later point in the discussion about how a stakeholder can prepare and transform his internal data resources for external consumptions.
 
 % section etl_process
 

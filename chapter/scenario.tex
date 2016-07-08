@@ -18,7 +18,7 @@ When placing an order with the merchant online, the consumer is usually using a 
 
 \begin{figure}[H]
 	\centering
-		\includegraphics[width=0.8\columnwidth]{images/e-commerce-scenario.pdf}
+		\includegraphics[width=0.9\columnwidth]{images/e-commerce-scenario.pdf}
 	\caption{\gls{E-commerce} Fundamentals}
 \label{fig:images_ecommerce_scenario}
 \end{figure}
@@ -38,9 +38,9 @@ Either the \gls{PSP} or the issuing bank is validating the correctness of these 
 
 The merchant will receive the status of the authorization as well as an unique payment token in return. If the authorization was done successfully, the merchant will collect the items and send out a shipping request to one of the available Logistic Service Providers (\gls{LSP}), that are capable to handle the delivery of the order. They will pickup the items at the merchant's facility and ship them to the delivery address stated by the consumer. Usually in parallel the merchant is informing their bank about the order, amount due as well as the payment token received from the \gls{PSP}. The acquirer is in charge to withdrawal the amount of the order from the consumer's bank account either via the \gls{PSP} or directly from the issuing bank, depending on who of them has authorized the initial payment request (a process called clearing) \citep{VisaPayment2014}. The sequence of activities within an \gls{E-commerce} checkout process is visualized in Figure~\ref{fig:images_ecommerce_checkout_process}.\@
 
-\begin{figure}[H]
+\begin{figure}[!ht]
 	\centering
-		\includegraphics[width=0.8\columnwidth]{images/e-commerce-checkout-process.pdf}
+		\includegraphics[width=0.9\columnwidth]{images/e-commerce-checkout-process.pdf}
 	\caption{\gls{E-commerce} Checkout Process in detail}
 \label{fig:images_ecommerce_checkout_process}
 \end{figure}

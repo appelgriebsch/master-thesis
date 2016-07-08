@@ -3,23 +3,22 @@
 \section{Scope of this Master Thesis}
 \label{sec:scope_thesis}
 
-As laid out in the previous section, the most interesting E-commerce fraud scenario is the one, in which a fraudster uses a leaked credit card information to order products or services from various merchants on the Internet. This is currently most likely to be successful, because there is a lack of information on the side of the merchant as well as the \gls{PSP} or issuer. Each of the affected merchants just noticed the single transaction that takes place on her own Web shop, without knowing about the other attempts the fraudster do on other Web shops. The \gls{PSP} and issuer will notice the active use of the credit card on different Web shops though, but do not have any information about the transaction details. Therefore they could not correlate these information to check for suspicious activities. \\
+As laid out in the previous section, the most interesting \gls{E-commerce} fraud scenario is the one, in which a fraudster uses a leaked credit card information to order products or services from various merchants on the Internet. This is currently most likely to be successful, because there is a lack of information on the side of the merchant as well as the \gls{PSP} and issuer. Each of the affected merchants just noticed the single transaction that takes place on their own Web shop, without knowing about the other attempts the fraudster does on the Internet. The \gls{PSP} and issuer will both notice the active use of the credit card on different Web shops though, but do not have any information about the transaction details. Therefore they could not correlate these information to check for suspicious activities online. \\
 
-Based on the current credit card usage patterns of the fraudsters, whose will use a leaked credit card information in commonly used Web shops, which deal with electronics, entertainment or travel-related products and services, it is more likely that these fraudulent transactions will not be recognized on time by the existing fraud prevention mechanisms in place today. \\
+Based on the current credit card usage patterns of the fraudsters, that will use a leaked credit card information in commonly used Web shops, which deal with electronics, entertainment or travel-related products and services, it is more likely that these fraudulent transactions will not be recognized on time by the existing fraud prevention techniques in place. \\
 
 A simple approach to solve this issue would be to just share more information of the ongoing transaction between the merchants, the \gls{PSP}s and the issuers. This might be subject to fail though, because each party has to follow the restrictions and regulations for sharing personal-related information. Additionally adapting and harmonizing the communication interfaces between the Web shops from various online merchants and the Web interfaces of different \gls{PSP}s and issuers are an enormous undertaking and will likely not succeed due to different notions of the communication patterns and data structures exchanged between all relevant participants. \\
 
-This shows the scenario this Master thesis will look into in detail and try to solve the most important question: \textit{is this really a fraudulent transaction?} \\
+To solve these problems this Master thesis will look into the information sharing issues in detail and try to come up with a solution to answer the most important question of this scenario: \textit{Is this really a valid \gls{E-commerce} transaction?} \\
 
-Looking into the stakeholders, that can provide useful information to decide on it, one will come up with:\@
+Looking into the stakeholders, that can provide useful information to decide it, one will come up with:\@
 
 \begin{enumerate}
-    \item \textbf{merchant}, who can provide additional information of each E-commerce transaction in question
-    \item \textbf{\gls{PSP}/issuer}, whose offer information about the credit card usage pattern and the original credit card owner
+    \item \textbf{merchant}, who can provide additional information of each \gls{E-commerce} transaction in question
+    \item \textbf{\gls{PSP}/issuer}, that have information about the credit card usage patterns and the original credit card owner
     \item \textbf{\gls{LSP}}, who can offer information about whether the order has already been shipped or not, and in the former case to whom it has been handed over
-    \item \textbf{\gls{ISP}}, who can on request give hints whether a consumer has fallen victim to a phishing attack based on her Internet access logs
 \end{enumerate}
 
-Needless to say that parts of the shared information are confidential or business-critical to at least one of the stakeholders involved. Due to this precondition the data sharing has to be secured, and access to the resources has to be granted to selected participants of the scenario only. This Master thesis will concentrate on the data sharing, collecting and combining aspects of the collaborative system. A detailed discussion of the security aspects, incl.\ how to restrict access to the data with techniques such as OAuth, is out of scope though. 
+Its needless to say, that parts of the shared information are confidential or business-critical to at least one of the stakeholders involved. Due to this fact the data sharing has to be secured, and access to the resources has to be granted to selected participants of the scenario only. This Master thesis will concentrate on the data sharing, collecting and combining aspects of the collaborative system. A detailed discussion of the security aspects of it, incl.\ how to restrict access to the data with techniques such as OAuth, is out of scope of the thesis though.
 
 % section scope_thesis (end)

@@ -26,7 +26,7 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="0.7"
-     inkscape:cx="212.99701"
+     inkscape:cx="187.99701"
      inkscape:cy="409.71195"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
@@ -375,7 +375,7 @@
          sodipodi:role="line"
          id="tspan4775"
          x="821.89746"
-         y="290.39246">4. shipping order</tspan>
+         y="290.39246">3. shipping order</tspan>
     </text>
     <path
        inkscape:connector-curvature="0"
@@ -419,7 +419,7 @@
          sodipodi:role="line"
          id="tspan4955"
          x="384.81314"
-         y="150.58939">5. delivers items to</tspan>
+         y="150.58939">4. delivers items to</tspan>
     </text>
     <path
        style="clip-rule:evenodd;fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1.00000012;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:1.41420996;stroke-opacity:1;stroke-dasharray:none"
@@ -436,7 +436,7 @@
          sodipodi:role="line"
          id="tspan4990"
          x="1054.2417"
-         y="505.16083">6. informs</tspan>
+         y="505.16083">5. informs</tspan>
     </text>
     <path
        style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1.00000012;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:6.00000072,6.00000072;stroke-dashoffset:0"
@@ -454,11 +454,11 @@
          sodipodi:role="line"
          id="tspan5012"
          x="661.45752"
-         y="998.26752">7a. alternative</tspan>
+         y="998.26752">6a. alternative</tspan>
       <tspan
          sodipodi:role="line"
          x="661.45752"
-         y="1042.0175"
+         y="1042.0176"
          id="tspan4211">clearing process</tspan>
     </text>
     <path
@@ -476,7 +476,7 @@
          sodipodi:role="line"
          x="922.01013"
          y="851.20923"
-         id="tspan4211-7">7.clearing process</tspan>
+         id="tspan4211-7">6.clearing process</tspan>
     </text>
   </g>
 </svg>

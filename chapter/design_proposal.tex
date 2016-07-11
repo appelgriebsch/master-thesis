@@ -3,6 +3,27 @@
 \section{System Design Proposal}
 \label{sec:design_proposal}
 
+As the previous section explained in detail, existing architectural approaches are of limited use for the design of a collaborative system to support the \gls{E-commerce} fraud investigation scenario described in Section~\ref{sec:scope_thesis}. The leading approach for such a system will have to combine the best properties from the Web Service and the Semantic Web designs. \\
+
+As for the Web Service approach, the most valuable aspects of it are: \@
+
+\begin{itemize}
+	\item access to the \gls{HTTP} endpoint can be limited to a certain set of communication partners
+	\item these partners have to authenticate with the Web Service first
+	\item based on the identification of the partners only certain parts of information can be returned, and execution of operations can be restricted
+\end{itemize}
+
+Looking at the Semantic Web approach, it's most interesting functionalities are: \@
+
+\begin{itemize}
+	\item providing information in a semantically self-contained way
+	\item the ability to merge information from different \gls{RDF} data stores
+	\item the graph-based data model in \gls{RDF}
+	\item the usage of \gls{SPARQL} to query the combined data set
+\end{itemize}
+
+In the following section the thesis will come up with an approach that uses the fundamental technologies from the Semantic Web for information sharing and integration as well as peer-to-peer communication technologies for securing and restricting access to the \gls{RDF} data sets from the relevant participants of the \gls{E-commerce} fraud investigation scenario. It will start with a discussion of the semantics of the underlying \gls{RDF} files and how these can be combined across various organisations. After that it shows how these information can be provided to the relevant parties in the investigation scenario. It will continue with a detailed look into the \gls{P2P} architectures that can be used for the proposed solution and will close with a conclusion about the solution that has been worked out.
+
 \subsection{Vocabulary alignment}
 \label{subsec:vocab_align}
 
@@ -54,7 +75,11 @@ In the decentralized P2P system architecture each node is equal and keeps their 
 \label{fig:images_p2p_decentralized}
 \end{figure}
 
-
 % subsec p2p_decentralized_system
+
+\subsection{Proposed solution}
+\label{subsec:proposed_solution}
+
+% subsec proposed_solution
 
 % section design_proposal (end)

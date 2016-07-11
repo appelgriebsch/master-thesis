@@ -194,26 +194,34 @@ Turtle: Terse RDF triple language \\
 - named graphs in Turtle via Trig extension: \\
   { [...] } \textless predicate incl. URI\textgreater { [...] } \\
 \\
-\texttt{sample.ttl:}
-\begin{lstlisting}[basicstyle=\ttfamily,numbers=left,numberstyle=\footnotesize\ttfamily,backgroundcolor=\color{sourcegray}]
+\begin{minted}[linenos,
+               numbersep=5pt,
+               gobble=2,
+               frame=lines,
+               framesep=2mm]{TURTLE}
   @prefix ns1: <URI>
   @prefix ns2: <URI>
   @prefix ns3: <URI>
 
   ns1:subject ns2:predicate ns3:object .
-\end{lstlisting} \vspace{0.5cm}
+\end{minted}
+
 RDF/XML: RDF represented in XML format \\
 - RDF namespace and root node \\
 - subjects in `RDF:description' node containing `RDF:about' attribute with URI \\
 - predicates and objects are child elements of subject node \\
 - use XML namespeaces for URI of nodes \\
 \\
-\texttt{sample.xml:}
-\begin{lstlisting}[basicstyle=\ttfamily,numbers=left,numberstyle=\footnotesize\ttfamily,backgroundcolor=\color{sourcegray}]
+\begin{minted}[linenos,
+               numbersep=5pt,
+               gobble=2,
+               frame=lines,
+               framesep=2mm]{XML}
   <rdf:Description rdf:about="<subject incl. URI>">
     <ns2:predicate rdf:resource="<object incl. URI>" />
   </rdf:Description>
-\end{lstlisting} \vspace{0.5cm}
+\end{minted}
+
 RDFa: mixin RDF meta-data into HTML \\
 - `about' attribute on \textless span\textgreater or \textless div\textgreater in HTML \\
 - `property' attribute for literal value assignment \\
@@ -221,12 +229,15 @@ RDFa: mixin RDF meta-data into HTML \\
 - use XML namespaces for URI of data nodes \\
 - put `[]' around subject and object notations \\
 \\
-\texttt{sample.html:}
-\begin{lstlisting}[basicstyle=\ttfamily,numbers=left,numberstyle=\footnotesize\ttfamily,backgroundcolor=\color{sourcegray}]
+\begin{minted}[linenos,
+               numbersep=5pt,
+               gobble=2,
+               frame=lines,
+               framesep=2mm]{HTML}
   <div about="[ns1:subject]">
     <span rel="ns2:relation" resource="[ns3:object]">
   </div>
-\end{lstlisting}
+\end{minted}
 
 MKP Chapter 3: \\
 - usually data is provided in tables from a database \\
@@ -354,8 +365,11 @@ Stores on the public Web incl. dbpedia.org, ckan.org, wikidata.org \\
 SPARQL also works with RDFS \\
 SPARQL has similarities to SQL:
 - each element in a triple might be replaced with a variable like `?varName' like so: \\
-\texttt{sample.sparql:}
-\begin{lstlisting}[basicstyle=\ttfamily,numbers=left,numberstyle=\footnotesize\ttfamily,backgroundcolor=\color{sourcegray}]
+\begin{minted}[linenos,
+               numbersep=5pt,
+               gobble=2,
+               frame=lines,
+               framesep=2mm]{SPARQL}
   PREFIX ns1:<URI>
   PREFIX ns2:<URI>
   PREFIX ns3:<URI>
@@ -364,7 +378,8 @@ SPARQL has similarities to SQL:
   WHERE {
       ns1:subject ns2:predicate ?varName
   }
-\end{lstlisting}
+\end{minted}
+
 - in the WHERE clause it hosts the graph pattern to match (could be cascaded to go down subgraphs) \\
 - variables can occur at any place in the graph pattern (?subj ?pred ?obj) as select with query everything \\
 \\
@@ -381,8 +396,11 @@ using different vocabularies \\
 \\
 ASK query checks for the existence of a given graph pattern \\
 CONSTRUCT can be used to retrieve a subgraph from a larger graph, can also be used to translate between different schemas \\
-\texttt{sample2.sparql:}
-\begin{lstlisting}[basicstyle=\ttfamily,numbers=left,numberstyle=\footnotesize\ttfamily,backgroundcolor=\color{sourcegray}]
+\begin{minted}[linenos,
+               numbersep=5pt,
+               gobble=2,
+               frame=lines,
+               framesep=2mm]{SPARQL}
   PREFIX ns1:<URI>
   PREFIX ns2:<URI>
   PREFIX ns3:<URI>
@@ -395,7 +413,7 @@ CONSTRUCT can be used to retrieve a subgraph from a larger graph, can also be us
       ?varA ns1:predicate ?varB
   }
   FILTER ( ?varB > x )
-\end{lstlisting}
+\end{minted}
 
 - SPARQL can be used to harmonize graphs from different sources \\
 - is also used for basic reasoning ala ``if found this, assume that'' \\

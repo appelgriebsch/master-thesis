@@ -1,7 +1,7 @@
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix sorg: <http://schema.org/> .
+@prefix schema: <http://schema.org/> .
 
-<http://www.merchant1.com/orders/12345> rdfs:type sorg:Order .
-<http://www.merchant1.com/orders/12345> sorg:orderNumber "12345"^^xsd:string .
+<http://www.merchant1.com/orders/12345> rdfs:type schema:Order .
+<http://www.merchant1.com/orders/12345> schema:orderNumber "12345"^^xsd:string .

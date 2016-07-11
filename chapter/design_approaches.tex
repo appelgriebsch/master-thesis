@@ -59,20 +59,26 @@ As conclusion one could easily see that integrating information between a larger
 
 ``The Web is full of intelligent applications, with new innovations coming every day'' \citep{allemang2011semantic}. But each of those intelligent Web applications is driven by the data available to them. Data that is likely coming from different places in the global information space — accessible usually via a custom API on the server hosting those resources (see Section~\ref{subsec:web_services}). The more consistent the data available to the smart Web application is, the better the Web service and its result will be. But to support an integration of the data from various Web services the semantics of the information delivered by each service has to be available — and there has to be a generalised, formalised way to express the semantic of that data. The focus on a standard that allows Web services to express the semantics of the data they provide also allows for global scalability, openness and decentralisation, which are the key principles of the World-Wide Web. The Semantic Web tries to give a solution for this problem by providing the Resource Description Framework (aka \gls{RDF}) and related technologies (e.g. RDF schema, \gls{SPARQL}, \gls{OWL}, \ldots) for describing, linking and querying the data that a Web service delivers. But it doesn’t reinvent the wheel; instead the Semantic Web builds upon existing, proven technologies like \gls{XML}, XML namespaces, XML schemata and the \gls{URI} to uniquely address resources on the Web \citep{allemang2011semantic}. \\
 
-The main benefits of the Semantic Web approach are the specification of a standardized and generalized format to exchange information on the Web (aka \gls{RDF}) as well as a commonly agreed way to access and query for them (aka \gls{SPARQL}). The \gls{RDF} data format does not only specify the syntax of the information exchanged, but also include the semantic (aka meaning) of them. Due to this fact, resources described in \gls{RDF} format are consistent and semantically self-contained. These characteristics are achieved by providing information in a ``triple''; that is a statement consisting of the resource in question (aka subject), a predicate and the specific value (aka object) for it. To be able to unambiguously identify the meaning of these statements, each part of these statements are usually referring to unique \gls{URI}s. \gls{URI}s can be abbreviated via ``prefix'' definitions to make the whole statements easier to read (see also Section~\ref{sec:semantic_web}). To specify that there is an order 12345 from merchant1, one can come up with the following statement, that uses the explicit schema.org specification of an order: \@
+The main benefits of the Semantic Web approach are the specification of a standardized and generalized format to exchange information on the Web (aka \gls{RDF}) as well as a commonly agreed way to access and query for them (aka \gls{SPARQL}). The \gls{RDF} data format does not only specify the syntax of the information exchanged, but also include the semantic (aka meaning) of them. Due to this fact, resources described in \gls{RDF} format are consistent and semantically self-contained. These characteristics are achieved by providing information as a ``triple''; that is a statement consisting of the resource in question (aka subject), a predicate and the specific value (aka object) for it. To be able to unambiguously identify the meaning of these statements, each part of them are usually expressed by utilizing unique \gls{URI}s. These \gls{URI}s can be abbreviated via ``prefix'' definitions to make the whole statements easier to read (see also Section~\ref{sec:semantic_web}). To specify that there is an order 12345 from merchant1, one can come up with the following statement, that uses the explicit schema.org specification \citep{Schema.org} of an order: \@
 
-\begin{minted}[linenos,
+\begin{listing}[H]
+  \inputminted[linenos,
                numbersep=5pt,
-               gobble=2,
-               frame=lines,
-               framesep=2mm]{TURTLE}
-  @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-  @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+               breaklines=true,
+               frame=lines]{TURTLE}
+               {./samples/sample_order_12345.ttl}
+  \caption{An order specification in \gls{RDF}}
+\label{lst:sample_order_ttl}
+\end{listing}
 
-    <http://www.merchant1.com/orders/12345/> rdfs:type
-    <http://schema.org/Order> .
+An \gls{RDF} file contains one or more of such ``triples'' describing the resources of interest in detail. Usually these ``triples'' are visualized as directed graph, in that subjects and objects are displayed as nodes and predicates as edges between them. The above Listing~\ref{lst:sample_order_ttl} can be presented as graph as such:\@
 
-\end{minted}
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.9\columnwidth]{images/sample_order_12345.pdf}
+  \caption{Graph-based visualization of \gls{RDF} from Listing~\ref{lst:sample_order_ttl}}
+\label{fig:sample_order_graph_image}
+\end{figure}
 
 Each issuer or \gls{PSP} can access these \gls{HTTP} \gls{API} endpoints with her credentials and query for specific information from the public ``information database'' from a merchant. The results of each query can be easily combined into an existing database based on the merging capabilities of \gls{RDF}. The resulting analytic database can be used by the issuer or \gls{PSP} to run queries against or use them with intelligent reasoning tools from the Semantic Web standards for investigation of an E-commerce transaction. \\
 

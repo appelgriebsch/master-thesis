@@ -75,10 +75,12 @@ An \gls{RDF} file contains one or more of such ``triples'' describing the resour
 
 \begin{figure}[H]
   \centering
-  \includegraphics[width=0.9\columnwidth]{images/sample_order_12345.pdf}
+  \includegraphics[width=0.8\columnwidth]{images/sample_order_12345.pdf}
   \caption{Graph-based visualization of \gls{RDF} from Listing~\ref{lst:sample_order_ttl}}
 \label{fig:sample_order_graph_image}
 \end{figure}
+
+Beside having to provide internal resources in \gls{RDF} format the Semantic Web also specifies how to query and access the ``information databases'' on the Web. For this purpose the \gls{SPARQL} language and protocol has been standardized by the \gls{W3C}. It does not only describe a query language that looks very familiar to developers coming from a traditional relational database background, but also shows how to setup an \gls{HTTP} endpoint on a server to make the data set publicly available on the Web.
 
 Each issuer or \gls{PSP} can access these \gls{HTTP} \gls{API} endpoints with her credentials and query for specific information from the public ``information database'' from a merchant. The results of each query can be easily combined into an existing database based on the merging capabilities of \gls{RDF}. The resulting analytic database can be used by the issuer or \gls{PSP} to run queries against or use them with intelligent reasoning tools from the Semantic Web standards for investigation of an E-commerce transaction. \\
 

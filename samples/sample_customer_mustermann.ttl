@@ -1,0 +1,21 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
+@base <http://www.merchant1.com> .
+
+<MaxMustermann> rdf:type foaf:Person;
+                rdfs:label "Max Mustermann";
+                foaf:family_name "Mustermann";
+                foaf:givenname "Max";
+                foaf:gender "Male";
+                foaf:title "Mr.";
+                vcard:adr [
+                 rdf:type vcard:Home;
+                 vcard:street-address "Mustermannstr. 12";
+                 vcard:locality "Musterstadt";
+                 vcard:region "North-Rhine Westfalia";
+                 vcard:postal-code "33123";
+                 vcard:country-name "Germany"
+                ] .

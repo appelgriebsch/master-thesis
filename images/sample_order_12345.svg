@@ -51,7 +51,7 @@
      fit-margin-right="5"
      fit-margin-bottom="5"
      inkscape:zoom="1.1026217"
-     inkscape:cx="157.25374"
+     inkscape:cx="8.9707886"
      inkscape:cy="88.125"
      inkscape:window-x="641"
      inkscape:window-y="263"
@@ -64,7 +64,7 @@
     <title
        id="title5">test</title>
     <polygon
-       points="263,4 -4,4 -4,4 -4,-127 263,-127 "
+       points="-4,-127 263,-127 263,4 -4,4 -4,4 "
        id="polygon7"
        style="fill:#ffffff;stroke:none" />
     <!-- node1 -->
@@ -92,7 +92,7 @@
       <title
          id="title17">node2</title>
       <polygon
-         points="85.5,-87 85.5,-123 85.5,-123 31.5,-123 31.5,-87 "
+         points="31.5,-123 31.5,-87 85.5,-87 85.5,-123 85.5,-123 "
          id="polygon19"
          style="fill:none;stroke:#808080" />
       <text
@@ -114,7 +114,7 @@
          inkscape:connector-curvature="0"
          style="fill:none;stroke:#000000" />
       <polygon
-         points="50.4622,-77.2661 50.4622,-77.2661 54.6673,-86.9906 57.4444,-76.7663 "
+         points="57.4444,-76.7663 50.4622,-77.2661 50.4622,-77.2661 54.6673,-86.9906 "
          id="polygon28"
          style="fill:#000000;stroke:#000000" />
       <text
@@ -154,7 +154,7 @@
          inkscape:connector-curvature="0"
          style="fill:none;stroke:#000000" />
       <polygon
-         points="188.549,-78.4646 188.549,-78.4646 195.409,-86.5386 195.082,-75.9488 "
+         points="195.082,-75.9488 188.549,-78.4646 188.549,-78.4646 195.409,-86.5386 "
          id="polygon44"
          style="fill:#000000;stroke:#000000" />
       <text

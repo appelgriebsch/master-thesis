@@ -36,7 +36,7 @@ Although the \gls{RDF} format has build-in support for merging information from 
 \label{fig:images_combine_rdf_graph}
 \end{figure}
 
-As a major objective of the \gls{E-commerce} fraud investigation system is to bring the various transactional information from online merchants, \gls{PSP} and issuers together, combine them and analyze the resulting graph from different viewpoints, the information exchanged between the relevant participants have to follow a common schema. A possible approach is to define a completely new schema for the proposed system and share it with every possible stakeholder. This schema will define the entities and relations specific to the \gls{E-commerce} fraud investigation process and would be expressed in \gls{RDFS} format. A major drawback of this approach is, that new partners of the system will have to do the conversion of their internal data structures to a \gls{RDF} file, that is compatible with the specific schema definition, before being able to participate in it. \\
+As a major objective of the \gls{E-commerce} fraud investigation system is to bring the various transactional information from online merchants, \gls{PSP} and issuers together, combine them and analyze the resulting graph from different viewpoints, the information exchanged between the relevant participants have to follow a common schema. A possible approach is to define a completely new schema for the proposed system and share it with every possible stakeholder. This schema will define the entities and relations specific to the \gls{E-commerce} fraud investigation process and would be expressed in \gls{RDFS} format. A major drawback of this approach is, that new partners of the system will have to do the conversion of their internal data structures to an \gls{RDF} file, that is compatible with the specific schema definition, before being able to participate in it. \\
 
 Therefore a better approach is to take a look into commonly used \gls{RDF} schemata and vocabularies, and try to figure out if they can be used for describing the information, that need to be exchanged between participants of the \gls{E-commerce} fraud investigation system. When consulting the Semantic Web community for commonly agreed upon and highly referenced \gls{RDF} schema definitions, one will come up with this list (see Table~\ref{tab:used_vocab_rdf}):\@
 
@@ -46,7 +46,9 @@ Therefore a better approach is to take a look into commonly used \gls{RDF} schem
 \hline
 \textbf{Name} & \textbf{Prefix} & \textbf{Describes} & \textbf{Namespace URI} \\
 \hline
-FOAF & foaf: & People & \url{http://xmlns.org/foaf/0.1/} \\
+Dublin Core & dc: & Meta data & \url{http://purl.org/dc/terms/} \\
+\hline
+FOAF & foaf: & People & \url{http://xmlns.com/foaf/0.1/} \\
 \hline
 Geo & pos: & Positions & \url{http://www.w3.org/2003/01/geo/wgs84\_pos\#} \\
 \hline
@@ -73,7 +75,7 @@ XML Schema Datatypes & xsd: & Data types & \url{http://www.w3.org/2001/XMLSchema
 \label{tab:used_vocab_rdf}
 \end{table}
 
-Based on these schemata describing a fictive consumer named ``Max Mustermann'' incl.\ his home address can be done by combining data from the \gls{FOAF} and \gls{vCard} namespaces in an \gls{RDF} file, such as described in Listing~\ref{lst:sample_customer_mustermann} and visualized as graph in Figure~\ref{fig:images_sample_customer}. \@
+Based on these schema specifications describing a fictive consumer named ``Max Mustermann'' incl.\ his home address can be done by combining data from the \gls{FOAF} and \gls{vCard} namespaces in an \gls{RDF} file, such as described in Listing~\ref{lst:sample_customer_mustermann} and visualized as graph in Figure~\ref{fig:images_sample_customer}. \@
 
 \begin{listing}[H]
   \inputminted[linenos,
@@ -118,14 +120,14 @@ Item Categories & GoodRelations \\
 \hline
 Brands & GoodRelations \\
 \hline
-Payments & GoodRelations \\
-\hline
-Authority & GoodRelations \\
+Payment Types & GoodRelations \\
 \hline
 \end{tabular}
 \caption{Possible usage of \gls{RDF} vocabularies for \gls{E-commerce} transaction information}
 \label{tab:map_tx_rdf_vocab}
 \end{table}
+
+
 
 \begin{figure}[H]
 	\centering

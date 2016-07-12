@@ -83,7 +83,7 @@ Based on these schema specifications describing a fictive consumer named ``Max M
                breaklines=true,
                frame=lines]{TURTLE}
                {./samples/sample_customer_mustermann.ttl}
-  \caption{Person-related information about a fictive consumer in \gls{RDF}}
+  \caption{Personal related information about a fictive consumer in \gls{RDF}}
 \label{lst:sample_customer_mustermann}
 \end{listing}
 
@@ -96,7 +96,7 @@ Based on these schema specifications describing a fictive consumer named ``Max M
 
 Looking back to the initial data model from Section~\ref{sec:system_concept} one can map the information, that are currently available in the \gls{E-commerce} scenario, to the existing \gls{RDF} vocabularies such as follows (see Table~\ref{tab:map_tx_rdf_vocab}):\@
 
-\begin{table}[]
+\begin{table}[H]
 \centering
 \begin{tabular}{p{5cm}l}
 \hline
@@ -127,7 +127,7 @@ Payment Types & GoodRelations \\
 \label{tab:map_tx_rdf_vocab}
 \end{table}
 
-As this table shows there are some parts of the \gls{E-commerce} data model that can be expressed with existing \gls{RDF} vocabularies extensively --- such as person-related information via \gls{FOAF} and \gls{vCard}, whereas other parts can not be stated in-depth (e.g. credit card information), or are not mentioned at all (e.g. tracking of the delivery). Additionally some of the vocabularies are no longer actively maintained, such as GoodRelations. Due to these circumstances one usually have to build an own ontology that fills in the missing pieces and refers to the existing concepts where appropriate. When modeling the information of a credit card as displayed in Figure~\ref{fig:images_data_model} one can come up with the \gls{RDFS} specification shown in Listing~\ref{lst:credit_card_vocab}. \@
+As this table shows there are some parts of the \gls{E-commerce} data model that can be expressed with existing \gls{RDF} vocabularies extensively --- such as personal related information via \gls{FOAF} and \gls{vCard}, whereas other parts can not be stated in-depth (e.g. credit card information), or are not mentioned at all (e.g. tracking of the delivery). Additionally some of the vocabularies are no longer actively maintained, such as GoodRelations. Due to these circumstances one usually have to build an own ontology that fills in the missing pieces and refers to the existing concepts where appropriate. When modeling the information of a credit card as displayed in Figure~\ref{fig:images_data_model} one can come up with the \gls{RDFS} specification shown in Listing~\ref{lst:credit_card_vocab}. \@
 
 \begin{listing}[H]
   \inputminted[linenos,

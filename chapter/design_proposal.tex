@@ -127,7 +127,7 @@ Payment Types & GoodRelations \\
 \label{tab:map_tx_rdf_vocab}
 \end{table}
 
-As this table shows there are some parts of the \gls{E-commerce} data model that can be expressed with existing \gls{RDF} vocabularies extensively --- such as person-related information via \gls{FOAF} and \gls{vCard}, whereas other parts can not be stated in-depth (e.g. credit card information), or are not mentioned at all (e.g. tracking of the delivery). Additionally some of the vocabularies are no longer actively maintained, such as GoodRelations. Due to these circumstances one usually have to build an own ontology that fills in the missing pieces and refers to the existing concepts where appropriate. When trying to model the information of a credit card as displayed in Figure~\ref{fig:images_data_model} one can come up with the specification shown in Listing~\ref{lst:credit_card_vocab}. \@
+As this table shows there are some parts of the \gls{E-commerce} data model that can be expressed with existing \gls{RDF} vocabularies extensively --- such as person-related information via \gls{FOAF} and \gls{vCard}, whereas other parts can not be stated in-depth (e.g. credit card information), or are not mentioned at all (e.g. tracking of the delivery). Additionally some of the vocabularies are no longer actively maintained, such as GoodRelations. Due to these circumstances one usually have to build an own ontology that fills in the missing pieces and refers to the existing concepts where appropriate. When modeling the information of a credit card as displayed in Figure~\ref{fig:images_data_model} one can come up with the \gls{RDFS} specification shown in Listing~\ref{lst:credit_card_vocab}. \@
 
 \begin{listing}[H]
   \inputminted[linenos,
@@ -139,10 +139,14 @@ As this table shows there are some parts of the \gls{E-commerce} data model that
 \label{lst:credit_card_vocab}
 \end{listing}
 
+As mentioned before building a new ontology for handling the \gls{E-commerce} fraud investigation process is not the best approach. The result would be that participants have to access, understand and implement the desired \gls{RDF} file format first, before they can share their information in the collaborative system. Looking back at the list of existing ontologies and vocabularies, that are actively used on the Web today, one will find the Schema.org vocabulary definition \citep{Schema.org}. This vocabulary was initially designed by the leading search engines to allow Web site authors to markup their \gls{HTML} documents in a way, that they are better understood by those search engines. It is actively maintained, includes new concepts with each release and also offers an extension mechanism to implement additional vocabularies that are not part of the core specification \citep{SchemaExtensions}. In one of the past releases of the Schema.org specification they also included all of the existing concepts of the GoodRelation ontology \citep{SchemaGoodRelation}. \\
+
+As the merchants will provide semantic meta data for \gls{SEO} in the vocabulary of Schema.org already, one can re-use parts of these information for the \gls{E-commerce} fraud investigation. Also the wide-ranging aspects that Schema.org declares make it a good fit to the \gls{E-commerce} fraud investigation scenario. When mapping the initial data model from Section~\ref{sec:system_concept} to the Schema.org specifications one will come up with the following approach as displayed in Figure~\ref{fig:images_schema_org}. \@
+
 \begin{figure}[H]
 	\centering
 		\includegraphics[width=0.8\columnwidth]{images/schema_org_mapping.pdf}
-	\caption{Schema.org Mapping}
+	\caption{Schema.org based mapping of the \gls{E-commerce} transaction}
 \label{fig:images_schema_org}
 \end{figure}
 
@@ -151,7 +155,7 @@ As this table shows there are some parts of the \gls{E-commerce} data model that
 \subsection{Communication protocols}
 \label{subsec:comm_protocol}
 
-As the merchants will provide semantic meta data for \gls{SEO} already, one can re-use part of these information for the E-commerce fraud investigation. The data is likely encoded in Microdata, \gls{RDFa} or \gls{JSON-LD}. \\
+ The data is likely encoded in Microdata, \gls{RDFa} or \gls{JSON-LD}. \\
 
 For the communication the \gls{WebRTC} is a good approach as it integrates well with existing enterprise IT infrastructures.
 

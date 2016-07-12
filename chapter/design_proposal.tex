@@ -3,7 +3,7 @@
 \section{System Design Proposal}
 \label{sec:design_proposal}
 
-As the previous section explained in detail, existing architectural approaches are of limited use for the design of a collaborative system to support the \gls{E-commerce} fraud investigation scenario described in Section~\ref{sec:scope_thesis}. The leading approach for such a system will have to combine the best properties from the Web Service and the Semantic Web designs. \\
+As the previous section explained in detail, existing architectural approaches are of limited use for the design of a collaborative system to support the \gls{E-commerce} fraud investigation scenario described in Section~\ref{sec:scope_thesis}. The leading approach for such a system will have to combine the best characteristics from the Web Service and the Semantic Web designs. \\
 
 As for the Web Service approach, the most valuable aspects of it are: \@
 
@@ -18,16 +18,60 @@ Looking at the Semantic Web approach, it's most interesting functionalities are:
 \begin{itemize}
 	\item providing information in a semantically self-contained way
 	\item the ability to merge information from different \gls{RDF} data stores
-	\item the graph-based data model in \gls{RDF}
-	\item the usage of \gls{SPARQL} to query the combined data set
+	\item the graph-based data model of \gls{RDF}
+	\item the usage of \gls{SPARQL} to query and analyze the combined data set
 \end{itemize}
 
-In the following section the thesis will come up with an approach that uses the fundamental technologies from the Semantic Web for information sharing and integration as well as peer-to-peer communication technologies for securing and restricting access to the \gls{RDF} data sets from the relevant participants of the \gls{E-commerce} fraud investigation scenario. It will start with a discussion of the semantics of the underlying \gls{RDF} files and how these can be combined across various organizations. After that it shows how these information can be provided to the relevant parties in the investigation scenario. It will continue with a detailed look into the \gls{P2P} architectures that can be used for the proposed solution and will close with a conclusion about the solution that has been worked out.
+In the following section the thesis will come up with an approach that uses the fundamental technologies from the Semantic Web for information sharing and integration as well as Peer-to-Peer communication technologies for securing and restricting access to the \gls{RDF} data sets from the relevant participants of the \gls{E-commerce} fraud investigation scenario. It will start with a discussion of the semantics of the underlying \gls{RDF} files and how these can be combined across various organizations. After that it shows how these information can be provided to the relevant parties in the investigation scenario. It will continue with a detailed look into the \gls{P2P} architectures that can be used for the proposed solution and will close with a conclusion about the solution that has been worked out.
 
 \subsection{Vocabulary alignment}
 \label{subsec:vocab_align}
 
-The usage of the vocabulary of Schema.org is preferred as \ldots
+Although the \gls{RDF} format has build-in support for merging different data sources this functionality is only working as expected if the ``triples'' in the data sources are using the same \gls{URI}s to refer to subjects or objects. In that case merging the ``triples'' from different \gls{RDF} data files will result in a graph holding the combined information as shown in Figure~\ref{fig:images_combine_rdf_graph}.\@
+
+\begin{figure}[H]
+	\centering
+		\includegraphics[width=0.9\columnwidth]{images/combine_rdf_graph.pdf}
+	\caption{Combining two \gls{RDF} files}
+\label{fig:images_combine_rdf_graph}
+\end{figure}
+
+As a major objective of the \gls{E-commerce} fraud investigation system is to bring the various transactional information from online merchants, \gls{PSP} and issuers together, combine them and analyze the resulting graph from different viewpoints, the information exchanged between the relevant participants have to follow a common schema. A possible approach is to define a new schema for the proposed system and share it between every possible stakeholder. That schema will define the entities and relations specific to the \gls{E-commerce} fraud investigation process and would be expressed in \gls{RDFS}. A major drawback of this approach is, that new partners of the system will have to do the conversion of their internal data structures to a \gls{RDF}, that is compatible with the schema definition, before being able to participate in it. \\
+
+Therefore a better approach is to take a look into commonly used \gls{RDF} schemata and vocabularies and try to figure out if they can be used for describing the information, that need to be exchanged between participants of the \gls{E-commerce} fraud investigation system. When searching the Semantic Web community for commonly agreed upon and highly referenced \gls{RDF} schema definitions, one will come up with this list (see Table~\ref{tab:used_vocab_rdf}):\@
+
+\begin{table}[]
+\centering
+\begin{tabular}{p{3cm}llp{4.5cm}}
+\hline
+\multicolumn{1}{l}{\textbf{Name}} & \multicolumn{1}{l}{\textbf{Prefix}} & \multicolumn{1}{l}{\textbf{Describes}} & \multicolumn{1}{l}{\textbf{Namespace URI}} \\
+\hline
+FOAF & foaf: & People & \url{http://xmlns.org/foaf/0.1/} \\
+\hline
+Geo & pos: & Positions & \url{http://www.w3.org/2003/01/geo/wgs84\_pos\#} \\
+\hline
+Geo Names & gn: & Locations & \url{http://www.geonames.org/ontology\#} \\
+\hline
+Good Relations & gr: & Products & \url{http://purl.org/goodrelations/v1\#} \\
+\hline
+RDF & rdf: & Core framework & \url{http://www.w3.org/1999/02/22-rdf-syntax-ns\#} \\
+\hline
+RDFS & rdfs: & RDF vocabularies & \url{http://www.w3.org/2000/01/rdf-schema\#} \\
+\hline
+Schema.org & schema: & Schema.org vocabularies & \url{http://schema.org/} \\
+\hline
+SKOS & skos: & Controlled vocabularies & \url{http://www.w3.org/2004/02/skos/core\#} \\
+\hline
+vCard & vcard: & Business Cards & \url{http://www.w3.org/2006/vcard/ns\#} \\
+\hline
+Web Ontology Language & owl: & Ontologies & \url{http://www.w3.org/2002/07/owl\#} \\
+\hline
+XML Schema Datatypes & xsd: & Data types & \url{http://www.w3.org/2001/XMLSchema\#} \\
+\hline
+\end{tabular}
+\caption{Commonly used \gls{RDF} vocabularies on the Web \citep[pg. 41]{wood2014linked}}
+\label{tab:used_vocab_rdf}
+\end{table}
 
 \begin{figure}[H]
 	\centering

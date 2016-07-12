@@ -127,7 +127,17 @@ Payment Types & GoodRelations \\
 \label{tab:map_tx_rdf_vocab}
 \end{table}
 
+As this table shows there are some parts of the \gls{E-commerce} data model that can be expressed with existing \gls{RDF} vocabularies extensively --- such as person-related information via \gls{FOAF} and \gls{vCard}, whereas other parts can not be stated in-depth (e.g. credit card information), or are not mentioned at all (e.g. tracking of the delivery). Additionally some of the vocabularies are no longer actively maintained, such as GoodRelations. Due to these circumstances one usually have to build an own ontology that fills in the missing pieces and refers to the existing concepts where appropriate. When trying to model the information of a credit card as displayed in Figure~\ref{fig:images_data_model} one can come up with the specification shown in Listing~\ref{lst:credit_card_vocab}. \@
 
+\begin{listing}[H]
+  \inputminted[linenos,
+               numbersep=5pt,
+               breaklines=true,
+               frame=lines]{TURTLE}
+               {./samples/vocab_credit_card.ttl}
+  \caption{A specification for a credit card in \gls{RDFS}}
+\label{lst:credit_card_vocab}
+\end{listing}
 
 \begin{figure}[H]
 	\centering

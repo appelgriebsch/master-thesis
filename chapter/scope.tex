@@ -3,26 +3,26 @@
 \section{Scope of this Master Thesis}
 \label{sec:scope_thesis}
 
-As laid out in the previous section, the most interesting \gls{E-commerce} fraud scenario is the one, in which fraudsters use a leaked credit card information to order products or services from various merchants on the Internet. This is currently most likely to be successful, because there is a lack of information on the side of the merchant as well as the \gls{PSP} and issuer. Each of the affected merchants just noticed the single transaction that takes place on their own Web shop, without knowing about the other attempts the fraudsters do on the Internet. The \gls{PSP} and issuer will both notice the active use of the credit card on different Web shops though, but do not have any information about the transaction details. Therefore they could not correlate these information to check for suspicious activities online. \\
+As laid out in the previous section, the most interesting \gls{E-commerce} fraud scenario is the one, in which fraudsters use leaked credit card information to order products or services from various merchants on the Internet. This is currently most likely to be successful, because there is a lack of information on the side of the merchants as well as the \gls{PSP}s and issuers. Each of the affected merchants just noticed the transaction that takes place in their own Web shop, without knowing about the other attempts the fraudsters do on the Internet. The \gls{PSP}s and issuers will both notice the active use of a credit card on different Web shops though, but do not have any detail information about it. Therefore they could not correlate the data from the transactions to check for suspicious activities. \\
 
-Based on the current credit card usage patterns of the fraudsters, that will use a leaked credit card information in commonly used Web shops, which deal with electronics, entertainment or travel-related products and services, it is more likely that these fraudulent transactions will not be recognized on time by the existing fraud prevention techniques in place. \\
+Based on the current credit card usage patterns of the fraudsters, that will try a leaked credit card in commonly used Web shops, it is more likely that these fraudulent transactions will not be recognized on time by the existing fraud prevention techniques in place. \\
 
-A simple approach to solve this issue would be to just share more information of the ongoing transaction between the merchants, the \gls{PSP}s and the issuers. This might be subject to fail though, because each party has to follow the restrictions and regulations for sharing personal related information. Additionally adapting and harmonizing the communication interfaces between the Web shops from various online merchants and the Web interfaces of different \gls{PSP}s and issuers are an enormous undertaking and will likely not succeed due to different notions of the communication patterns and data structures exchanged between all relevant participants. \\
+A simple approach to solve these issues would be to just share more information of the ongoing transactions between the merchants, the \gls{PSP}s and the issuers. This approach might be subject to fail though, because adapting and harmonizing the communication interfaces between the Web shops from various online merchants and the Web Service interfaces of different \gls{PSP}s and issuers are an enormous undertaking. These attempts will likely not succeed due to different notions of the communication patterns and data structures exchanged between all relevant participants. \\
 
 To solve these problems this Master thesis will look into the information sharing issues in detail and try to come up with a solution to answer the most important question of this scenario: \@
 
 \begin{quotation}
-  \textit{Is this really a valid \gls{E-commerce} transaction?}
+  \textit{Is this transaction really a valid \gls{E-commerce} transaction?}
 \end{quotation}
 
 Looking into the stakeholders, that can provide useful information to decide it, one will come up with:\@
 
 \begin{enumerate}
-    \item \textbf{merchant}, who can provide additional information of each \gls{E-commerce} transaction in question
-    \item \textbf{\gls{PSP}/issuer}, that have information about the credit card usage patterns and the original credit card owner
-    \item \textbf{\gls{LSP}}, who can offer information about whether the order has already been shipped or not, and in the former case to whom it has been handed over
+    \item \textbf{merchants}, who can provide additional information of each \gls{E-commerce} transaction in question
+    \item \textbf{\gls{PSP}s/issuers}, that have information about the credit card usage patterns and the original credit card owners
+    \item \textbf{\gls{LSP}s}, who can offer information about whether an order has already been shipped or not, and in the former case to whom it has been handed over
 \end{enumerate}
 
-Its needless to say, that parts of the shared information are confidential or business-critical to at least one of the stakeholders involved. Due to this fact the data sharing has to be secured, and access to the resources has to be granted to selected participants of the scenario only. This Master thesis will concentrate on the data sharing, collecting and combining aspects of the collaborative system. A detailed discussion of the security aspects of it, incl.\ how to restrict access to the data with techniques such as \gls{OAuth}, is out of scope of the thesis though.
+Its important to point out, that parts of the shared information are confidential or business-critical to at least one of the stakeholders involved. Due to this fact the data sharing has to be secured, and access to the resources has to be granted to selected participants of the scenario only. This Master thesis will focus on the data sharing, collecting and combining aspects of the collaborative system. A detailed discussion of the security aspects of it, incl.\ how to restrict access to the data with available techniques such as \gls{OAuth}, is out of scope of the thesis though.
 
 % section scope_thesis (end)

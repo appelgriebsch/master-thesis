@@ -6,18 +6,18 @@
 Based on the explanations in Chapter~\ref{cha:context_analysis}, and especially the scope definition for this Master thesis in Section~\ref{sec:scope_thesis}, the collaborative system for investigating \gls{E-commerce} fraud incidents have to answer the central question:\@
 
 \begin{quotation}
-  \textit{Is this really a valid \gls{E-commerce} transaction?}
+  \textit{Is this transaction really a valid \gls{E-commerce} transaction?}
 \end{quotation}
 
 The relevant stakeholders, that need to be involved in the investigation process, are:\@
 
 \begin{enumerate}
-    \item \textbf{merchant}, who can provide additional information of each \gls{E-commerce} transaction in question
-    \item \textbf{\gls{PSP}/issuer}, that have information about the credit card usage patterns and the original credit card owner
-    \item \textbf{\gls{LSP}}, who can offer information about whether the order has already been shipped or not, and in the former case to whom it has been handed over
+    \item \textbf{merchants}, who can provide additional information of each \gls{E-commerce} transaction in question
+    \item \textbf{\gls{PSP}s/issuers}, that have information about the credit card usage patterns and the original credit card owners
+    \item \textbf{\gls{LSP}s}, who can offer information about whether an order has already been shipped or not, and in the former case to whom it has been handed over
 \end{enumerate}
 
-Ideally each of them would make parts of their internal data structures available for the other participants to access and query for information. This would allow the stakeholder, who has to authorize or validate a suspicious credit card payment, to analyze all available information, as depicted in the Figure~\ref{fig:images_system_overview}.\@
+Ideally each of those participants would make parts of their internal data structures available for the others to access and query for information. That would allow the stakeholder, who has to authorize or validate a suspicious credit card payment, to analyze all available information, as depicted in the Figure~\ref{fig:images_system_overview}.\@
 
 \begin{figure}[H]
 	\centering
@@ -26,7 +26,9 @@ Ideally each of them would make parts of their internal data structures availabl
 \label{fig:images_system_overview}
 \end{figure}
 
-Due to the fact that data from various sources have to be combined into a shared understanding of the \gls{E-commerce} activities of a consumer, there is an urgent need to harmonize and transform the information into a shared data model. Based on the discussions in Chapter~\ref{cha:context_analysis}, and the analysis of the information each stakeholder holds and transmits to others, the following initial data relationships can be conducted for the \gls{E-commerce} scenario (see Figure~\ref{fig:images_data_model}). This figure shows not only the relevant information from the local contexts of each stakeholder, but also how they can be combined within a shared information space. \\
+In this figure one can see that the relevant parties are providing access to parts of their internal local context information within a shared information space. Due to the fact that data from various sources have to be combined into a shared understanding of the \gls{E-commerce} activities of a consumer, there is a need to harmonize and transform the information from each participant into a shared data model to be able to analyze the combined data set. Based on this shared data model a set of intelligent agents (aka analysis algorithms) can be executed and present their findings, that can be valuable to any of the participants. \\
+
+Based on the discussions in Chapter~\ref{cha:context_analysis}, and the analysis of the information each stakeholder holds and transmits to others, the following initial data relationships can be conducted for the \gls{E-commerce} scenario (see Figure~\ref{fig:images_data_model}). This figure shows not only the relevant information from the local contexts of each stakeholder, but also how they can be combined within a shared information space. \\
 
 \begin{figure}[!ht]
   \centering
@@ -35,41 +37,41 @@ Due to the fact that data from various sources have to be combined into a shared
 \label{fig:images_data_model}
 \end{figure}
 
-As one can see there are connection points between these stakeholders. Those can be used as a reference for joining the distributed information into a combined view of the \gls{E-commerce} transaction. There are actually three major connection points: \@
+As the figure also shows there are shared information tokens between various stakeholders. Those can be used in the collaborative system as a reference for joining the distributed pieces of information into a combined view of the \gls{E-commerce} transactions. There are actually three important tokens: \@
 
 \begin{enumerate}
-  \item \textbf{payment token}: shared between merchant and \gls{PSP}
-  \item \textbf{tracking number}: shared between merchant and \gls{LSP}
-  \item \textbf{credit card}: shared between issuer and \gls{PSP}
+  \item \textbf{payment token}: shared between merchants and \gls{PSP}s
+  \item \textbf{tracking number}: shared between merchants and \gls{LSP}s
+  \item \textbf{credit card}: shared between issuers and \gls{PSP}s
 \end{enumerate}
 
-In addition to these connection points one can also see the important validation points in the Figure~\ref{fig:images_data_model}. These are points that have an influence on the decision whether an \gls{E-commerce} transaction is evaluated as suspicious or not. The two main criteria are: \@
+In addition to these tokens the Figure~\ref{fig:images_data_model} also shows the important validation criteria. These are connections that have an influence on the decision whether an \gls{E-commerce} transaction is evaluated as suspicious or not. The two main criteria are: \@
 
 \begin{enumerate}
-  \item \textbf{billing address}: the billing address of the order has to match the registered address of the owner of the credit card used
-  \item \textbf{recipient}: the recipient of the delivery has to be related to the owner of the credit card
+  \item \textbf{billing address-to-owner address}: the billing address of the order has to match the registered address of the owner of the credit card used
+  \item \textbf{recipient-to-owner}: the recipient of the delivery has to be related to the owner of the credit card
 \end{enumerate}
 
 \footnotetext{Legend: green: issuer, red: \gls{PSP}, yellow: merchant, blue: \gls{LSP}}
 
-Whereas the first criteria can be examined during the authorization process of the credit card payment based on the information transmitted between merchant and \gls{PSP}, the second one is more difficult to validate (or can not be verified at all). The only check the \gls{LSP} is able to do, before they are handing over the packaged items to the recipients, is to verify that they are the ones mentioned in the order. If they are somehow related to the owner of the credit card, or just a deceiver misusing the credit card data can not be confirmed at that point. \\
+Whereas the first criteria can be examined during the payment authorization process of a credit card payment based on the information transmitted between merchants and \gls{PSP}s or issuers, the second one is more difficult to validate (or can not be verified at all). The only check the \gls{LSP}s are able to do, before they are handing over the packaged items to the recipients, is to verify that they are the ones mentioned in the shipping address information of the order. If a recipient is somehow related to the owner of the credit card used for paying an order, or just a deceiver misusing a credit card can not be confirmed by the \gls{LSP}. \\
 
-Also the merchants, the \gls{PSP}s and issuers have no clue. Whereas the merchants are able to validate whether a consumer has send items to that shipping address before, they can not restrict a consumer to choose only validated recipient addresses for shipping the order to. Doing so will have a negative impact on the business success of the online merchant. The \gls{PSP}s and issuers can not analyze this situation either, as both participants will not receive the information about the delivery address of an order with the credit card authorization request coming from a merchant. \\
+Also merchants, \gls{PSP}s and issuers have no possibility to check for this criteria. Whereas the merchants are able to validate whether a consumer has send items to a shipping address before, they can not restrict consumers to choose only validated recipient addresses for their orders. Doing so will have a negative impact on the business success of the online merchants. The \gls{PSP}s and issuers can not analyze this situation either, as both participants will not receive any information about the delivery address of an order with the payment authorization request from a merchant. \\
 
-But just sharing the fact whether the shipping and billing address of an order is different between the relevant stakeholders is not enough. Although this information is necessary, it is not sufficient to make a decision about suspicious transactions. Other necessary information are whether the consumer has send orders to this shipping address before, and the information about the content of the current order. Nevertheless, as mentioned in Section~\ref{sec:scope_thesis} looking at just a single transaction of one of the merchants is still not enough to solve the \gls{E-commerce} fraud scenario, that this thesis focuses on. \\
+But just sharing the fact between the relevant stakeholders if the shipping and billing address of an order is different or not is not enough. Although this information is necessary, it is not sufficient to make a decision about suspicious transactions. Other necessary information are whether the consumer has send orders to this shipping address before, and the information about the content of the current order. Nevertheless, as mentioned in Section~\ref{sec:scope_thesis} looking at the transactions of just one of the merchants is not enough either to solve the \gls{E-commerce} fraud scenario, that this thesis focuses on. \\
 
-Therefore the idea is to combine the transaction information from various merchants, \gls{LSP}s, \gls{PSP}s and issuers into one large, combined and shared information space to be able to analyze if there are any orders that look extraordinary, and are likely not being made by the owner of the credit card to a certain extend. One can already see that the proposed solution will have to deal with statistical evaluations and probabilities. Starting with the credit card in question the issuers can query for the order details of transactions, that have been done recently with the credit card online. For that they will likely have to query the \gls{PSP}s for the payment tokens first, before asking the merchants for order details to any of those payment tokens. At the end each online transaction can be mapped into a schema like the one shown in Figure~\ref{fig:images_data_model}, building up a large graph of entities and  the relationships between them, having the specific credit card in the center of it. An abbreviated sample graph of this procedure can be seen in Figure~\ref{fig:images_credit_card_graph}. \\
+Therefore the idea is to combine the transaction information from various merchants, \gls{LSP}s, \gls{PSP}s and issuers into one combined and shared information space within a collaborative system to be able to analyze if there are any orders that look extraordinary, and are likely not being made by the owner of the credit card to a certain extend. This will also mean that the proposed solution will use statistical evaluations and probabilities to find and rate suspicious activities. Starting with the credit card in question an issuer can query for the order details of all the transactions, that have been done recently with the credit card online. For that they will likely have to query the \gls{PSP}s for the payment tokens first, before asking the affected merchant for order details to any of those payment tokens. At the end each online transaction can be mapped into a schema like the one shown in Figure~\ref{fig:images_data_model}, building up a large graph of entities and  the relationships between them, and with the specific credit card in the center of it. An abbreviated sample graph of this procedure can be seen in Figure~\ref{fig:images_credit_card_graph}. \\
 
-One can clearly recognize the different clusters of transactions by merchant. Still this first collection of the various order information into one large data set is just the beginning of the analysis. Based on the information received the issuer can already filter out transactions, that have been shipped to different addresses than the one the credit card owner is registered for. Especially for those cases it might be worth to ask for additional information from the affected merchants to figure out if the consumer has used these shipping addresses before. As a result the existing graph can be further enriched with supplementary transactional information from merchants at any time if needed. In addition to the address information the issuer can also analyze the item information (incl.\ category, brand and model) of each order. \\
+As shown in this figure the transactions will be clustered by merchants first. Still initially collecting the various order information into one combined data set is just the beginning of the \gls{E-commerce} fraud incident analysis. Based on the information received an issuer can already filter out transactions, that have been shipped to different addresses than the one the credit card owner is registered for. Especially for those edge cases it might be worth to ask for additional information from the affected merchants to figure out if that consumer has used one of these shipping addresses before. As a result the existing data set can be further enriched with supplementary transactional information from merchants at any time if needed. In addition to the address information an issuer can also analyze the item information (incl.\ category, brand and model) of each order. \\
 
 \begin{figure}[!ht]
   \centering
   \includegraphics[width=0.9\columnwidth]{images/ontology_scenario_2.pdf}
-  \caption{Clusters of E-commerce transactions by merchant}
+  \caption{Building clusters of E-commerce transactions by merchant}
 \label{fig:images_credit_card_graph}
 \end{figure}
 
-But as already stated, analyzing the cluster of transactions from each merchant \emph{alone} will not be sufficient to come up with a solid decision about a suspicious transaction. This is mostly due to the usage pattern of the fraudsters, that have been described in the scenario selected for this Master thesis in Section~\ref{sec:scope_thesis}. Due to this scenario the various order details from the merchants have to be mapped against each other, so that the initial graph can be easily transformed into complementary representations, whose use different criteria to cluster the transactions --- such as recipient addresses, branches of the merchants, or product-related information. This reshaping of the graph can lead to new insights about the ``normal'' shopping behavior of the original credit card owner, and can make deviations from this behavior visible. Visualizing the graph data as a clustered graph on screen supports the explorative nature of knowledge generation and perception, and can help speed up the investigation of the \gls{E-commerce} fraud incidents. An example visualization of a clustered graph is shown in Figure~\ref{fig:images_graph_viz}. \\
+But as already stated, analyzing the cluster of transactions merchant by merchant will not be sufficient to come up with a solid decision about a suspicious transaction. This is mostly due to the usage pattern of the fraudsters, that have been described in the scenario selected for this Master thesis in Section~\ref{sec:scope_thesis}. Due to this scenario the various order details from the merchants have to be mapped against each other, so that the initial graph of transactions clustered by merchant can be easily transformed into complementary representations, whose use different criteria to cluster the transactions --- such as recipient addresses, branches of merchants, or product-related information. This reshaping of the graph can lead to new insights about the ``normal'' shopping behavior of the credit card owner, and can make deviations from this behavior visible. Visualizing the combined data set as a clustered graph on screen supports the explorative nature of knowledge generation and perception, and can help speed up the investigation of the \gls{E-commerce} fraud incidents. An example visualization of a clustered graph, that groups information together based on a criteria, is shown in Figure~\ref{fig:images_graph_viz}. The different colors in this figure represents different sources of information (e.g. transactions from different merchants). In this sample figure information, that stands out from the ``normal behavior'', can be found in the lower right section. \\
 
 \begin{figure}[!ht]
   \centering
@@ -78,15 +80,15 @@ But as already stated, analyzing the cluster of transactions from each merchant 
 \label{fig:images_graph_viz}
 \end{figure}
 
- In addition to these clustered graphs the system can also support the investigation of the incidents by changing the type of visualization used based on the criteria chosen for the clustering of the order details; e.g.\ when clustering them based on location information such as the shipping addresses the system can present the information as a heat map on a chart such as displayed in Figure~\ref{fig:images_map_heatmap}. \@
+ In addition to these clustered graphs the collaborative system can also support the \gls{E-commerce} fraud investigation by switching the type of visualization  based on the criteria chosen for the clustering of the transactions; e.g.\ when clustering them based on location information such as shipping addresses the system can present the information as a heat map on a chart as is displayed in Figure~\ref{fig:images_map_heatmap}. \\
 
-\begin{figure}[H]
+\begin{figure}[!ht]
   \centering
   \includegraphics[width=0.9\columnwidth]{images/Heatmap.png}
   \caption{Heatmap displaying clusters of location-based information}
 \label{fig:images_map_heatmap}
 \end{figure}
 
-To conclude the system have to support the collection and combination of \gls{E-commerce} transaction information from various sources into a large clustered graph, that can be analyzed from multiple view points to validate, if there is any transaction that stands out from the ``normal'' shopping behavior of the original credit card owner. The starting point is a sequence of recent credit card activities, that the issuer can provide to the other participants. The initial graph will collect and cluster the information from each merchant based on this list. In case there are suspicious information in one of the clusters of the merchants, the issuer can ask for further details and enrich that specific cluster with additional order details for this customer and that merchant. In the final step the system has to do the mapping of the order detail information between each merchant to allow subsequent analyzing and clustering of the transactions.
+To conclude the system have to support the collection and combination of \gls{E-commerce} transaction information from various sources into a large clustered graph, that can be analyzed from multiple view points to validate, if there are any transactions that stand out from the ``normal'' shopping behavior of the credit card owner. The starting point for the investigation is a sequence of recent credit card activities, that an issuer can provide to the other participants. The initial graph will collect and cluster the information from each merchant based on this list. In case there are suspicious information in one of the transaction clusters by merchants, an issuer can ask for further details and enrich that specific cluster with additional order details for this consumer and that merchant. In the final step the system has to do the mapping of the order detail information between each merchant to allow subsequent analyzing and clustering of the transactions with different criteria.
 
 % section system_overview (end)

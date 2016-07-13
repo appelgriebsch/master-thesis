@@ -158,19 +158,31 @@ As the merchants will provide semantic meta data for their products to improve t
  The data is likely encoded in Microdata, \gls{RDFa} or \gls{JSON-LD}. \\
 
 For the communication the \gls{WebRTC} is a good approach as it integrates well with existing enterprise IT infrastructures.
+\\
+
+\ldots
 
 % subsec comm_protocol
 
 \subsection{Using a partially centralized \gls{P2P} system}
 \label{subsec:p2p_partially_centralized_system}
 
-The issuing bank is the trusted party in this system setup. It will initiate a data sharing session with the other required stakeholders based on the past usage of the credit card in question. During the P2P session the merchants, payment and logistic service providers will share the required information with the issuer. In this process the data from the other stakeholders will be replicated to the issuer, who will build up a graph based on the Schema.org schema mapping. The analysis of the data will be done on top of this graph by the issuer and can also be handled after the initial P2P data sharing session has been ended. If there are any new conclusions drawn from the data, the issuer is in charge to inform the stakeholders afterwards. So the main work will be on the issuer side, who is the major driving party in this scenario, as depicted in Figure~\ref{fig:images_p2p_centralized}.\@
+For the \gls{E-commerce} fraud scenario, that has been selected for this thesis in Section~\ref{sec:thesis_scope}, one can say that the issuer of a credit card is the party who initiates the collaborative fraud investigation. They are recognizing the active use (and likely misuse) of a credit card in the online and the offline world first, and are also getting a notification about any suspicious transactions made with it from their fraud prevention systems. Due to this fact, one can come up with a partially centralized \gls{P2P} architecture for the \gls{E-commerce} fraud investigation system, in that the issuer of a card in at the center and acts as a trusted party in this system. This issuer will initiate a collaborative session with the other required stakeholders based on the usage history of the credit card in question. During this \gls{P2P} communication session the merchants, \gls{PSP}s and \gls{LSP}s will share the required information with the issuer. In this process the data from the other stakeholders will be replicated to the issuer, who will build up a networked graph based on the Schema.org specification. So the main work will be on the issuer's side, who is the major driving party in the system, as depicted in Figure~\ref{fig:images_p2p_centralized}.\@
 
 \begin{figure}[H]
 	\centering
-		\includegraphics[width=0.8\columnwidth]{images/system_P2P_centralized.pdf}
-	\caption{Partially centralized \gls{P2P} system architecture}
+		\includegraphics[width=0.9\columnwidth]{images/system_P2P_centralized.pdf}
+	\caption{Collaborative system using a partially centralized \gls{P2P} architecture}
 \label{fig:images_p2p_centralized}
+\end{figure}
+
+Using the \gls{WebRTC} communication protocol for initiating the \gls{P2P} session will allow the issuers to setup a communication between the relevant stakeholders directly from within an application running in their Web browsers. The application can visualize the connectivity status of the participants, the progress of their data sharing efforts as well as offer direct face-to-face communication possibilities in case of misunderstandings or further requests. A wireframe of the Web application screen is depicted in Figure~\ref{fig:images_p2p_initial_screen}. \@
+
+\begin{figure}[H]
+	\centering
+		\includegraphics[width=0.9\columnwidth]{images/p2p_initial_screen.pdf}
+	\caption{Screen prototype of collaborative system showing participants and shared information}
+\label{fig:images_p2p_initial_screen}
 \end{figure}
 
 Main issue with the above mentioned system architecture is, that the merchants, payment and logistic service providers have to hand over their information to the issuing bank of the credit card for analysis. This might be either problematic due to distrust of the objectives of the issuing bank, or not possible at all due to local data sharing restrictions and regulations.

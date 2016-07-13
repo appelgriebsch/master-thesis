@@ -1,7 +1,7 @@
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 
-SELECT ?s ?p ?o
+SELECT ?s ?p ?o   # select every subject-object-predicate triple found
 WHERE {
- ?s ?p ?o
-}
+ ?s ?p ?o         # do not specifying a condition returns everything
+ }

@@ -12,9 +12,9 @@
    xmlns="http://www.w3.org/2000/svg"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="953pt"
+   width="1034.5pt"
    height="228pt"
-   viewBox="0 0 953 228"
+   viewBox="0 0 1033.9954 228"
    id="svg2"
    version="1.1"
    inkscape:version="0.91 r13725"
@@ -42,29 +42,29 @@
      guidetolerance="10"
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
-     inkscape:window-width="1237"
-     inkscape:window-height="773"
+     inkscape:window-width="666"
+     inkscape:window-height="480"
      id="namedview222"
      showgrid="false"
+     inkscape:zoom="0.30907317"
+     inkscape:cx="1093.0587"
+     inkscape:cy="142.5"
+     inkscape:window-x="0"
+     inkscape:window-y="27"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="svg2"
      fit-margin-top="5"
      fit-margin-left="5"
      fit-margin-right="5"
-     fit-margin-bottom="5"
-     inkscape:zoom="0.31219512"
-     inkscape:cx="184.02344"
-     inkscape:cy="142.5"
-     inkscape:window-x="385"
-     inkscape:window-y="187"
-     inkscape:window-maximized="0"
-     inkscape:current-layer="svg2" />
+     fit-margin-bottom="5" />
   <g
      id="graph0"
      class="graph"
-     transform="translate(9,219)">
+     transform="translate(8.75,219)">
     <title
        id="title5">test</title>
     <polygon
-       points="939,4 -4,4 -4,4 -4,-214 939,-214 "
+       points="1020.5,4 -4,4 -4,4 -4,-214 1020.5,-214 "
        id="polygon7"
        style="fill:#ffffff;stroke:none" />
     <!-- node1 -->
@@ -74,7 +74,7 @@
       <title
          id="title10">node1</title>
       <circle
-         cx="318"
+         cx="385.5"
          cy="-105"
          id="ellipse12"
          r="10.8"
@@ -87,16 +87,16 @@
       <title
          id="title15">node2</title>
       <path
-         d="m 72,-210 c 0,0 -60,0 -60,0 -6,0 -12,6 -12,12 0,0 0,12 0,12 0,6 6,12 12,12 0,0 60,0 60,0 6,0 12,-6 12,-12 0,0 0,-12 0,-12 0,-6 -6,-12 -12,-12"
+         d="m 99,-210 c 0,0 -87,0 -87,0 -6,0 -12,6 -12,12 0,0 0,12 0,12 0,6 6,12 12,12 0,0 87,0 87,0 6,0 12,-6 12,-12 0,0 0,-12 0,-12 0,-6 -6,-12 -12,-12"
          id="path17"
          inkscape:connector-curvature="0"
          style="fill:none;stroke:#808080" />
       <text
-         x="42"
+         x="55.5"
          y="-188.3"
          font-size="14.00"
          id="text19"
-         style="font-size:14px;font-family:Times, serif;text-anchor:middle;fill:#0000ff">vcard:Home</text>
+         style="font-size:14px;font-family:Times, serif;text-anchor:middle;fill:#0000ff">vcard2006:Home</text>
     </g>
     <!-- node1&#45;&gt;node2 -->
     <g
@@ -105,16 +105,16 @@
       <title
          id="title22">node1-&gt;node2</title>
       <path
-         d="M 307.048,-105.461 C 273.315,-104.253 168.756,-103.925 94,-141 81.9034,-146.999 70.7728,-156.813 61.94,-166.165"
+         d="M 374.481,-105.532 C 337.383,-104.35 214.221,-103.65 122.5,-141 107.319,-147.182 92.4925,-157.641 80.6626,-167.399"
          id="path24"
          inkscape:connector-curvature="0"
          style="fill:none;stroke:#000000" />
       <polygon
-         points="59.1516,-164.033 59.1516,-164.033 55.0902,-173.818 64.3674,-168.701 "
+         points="78.2978,-164.817 78.2978,-164.817 72.9839,-173.982 82.8539,-170.131 "
          id="polygon26"
          style="fill:#000000;stroke:#000000" />
       <text
-         x="115.5"
+         x="144"
          y="-144.8"
          font-size="14.00"
          id="text28"
@@ -127,11 +127,11 @@
       <title
          id="title31">Germany</title>
       <polygon
-         points="170,-174 170,-210 170,-210 102,-210 102,-174 "
+         points="197.5,-174 197.5,-210 197.5,-210 129.5,-210 129.5,-174 "
          id="polygon33"
          style="fill:none;stroke:#808080" />
       <text
-         x="136"
+         x="163.5"
          y="-188.3"
          font-size="14.00"
          id="text35"
@@ -144,20 +144,20 @@
       <title
          id="title38">node1-&gt;Germany</title>
       <path
-         d="M 307.255,-106.769 C 273.762,-109.383 172.123,-119.009 149,-141 c -6.284,-5.976 -9.676,-14.571 -11.463,-22.953"
+         d="M 374.684,-106.393 C 336.573,-107.992 209.228,-115.204 179.5,-141 c -6.656,-5.775 -10.566,-14.321 -12.856,-22.719"
          id="path40"
          inkscape:connector-curvature="0"
          style="fill:none;stroke:#000000" />
       <polygon
-         points="134.069,-163.477 134.069,-163.477 136.065,-173.882 140.994,-164.503 "
+         points="163.179,-163.194 163.179,-163.194 164.58,-173.696 170.034,-164.612 "
          id="polygon42"
          style="fill:#000000;stroke:#000000" />
       <text
-         x="204"
+         x="248"
          y="-144.8"
          font-size="14.00"
          id="text44"
-         style="font-size:14px;font-family:Times, serif;text-anchor:middle">vcard:country-name</text>
+         style="font-size:14px;font-family:Times, serif;text-anchor:middle">vcard2006:country-name</text>
     </g>
     <!-- Musterstadt -->
     <g
@@ -166,11 +166,11 @@
       <title
          id="title47">Musterstadt</title>
       <polygon
-         points="309.5,-174 309.5,-210 309.5,-210 228.5,-210 228.5,-174 "
+         points="364,-174 364,-210 364,-210 283,-210 283,-174 "
          id="polygon49"
          style="fill:none;stroke:#808080" />
       <text
-         x="269"
+         x="323.5"
          y="-188.3"
          font-size="14.00"
          id="text51"
@@ -183,20 +183,20 @@
       <title
          id="title54">node1-&gt;Musterstadt</title>
       <path
-         d="M 307.719,-109.495 C 295.246,-114.358 274.795,-124.478 266,-141 c -3.652,-6.861 -4.389,-15.025 -3.8,-22.747"
+         d="m 375.048,-108.56 c -14.305,-4.125 -39.469,-13.743 -50.548,-32.44 -3.956,-6.676 -5.271,-14.784 -5.308,-22.512"
          id="path56"
          inkscape:connector-curvature="0"
          style="fill:none;stroke:#000000" />
       <polygon
-         points="258.765,-164.449 258.765,-164.449 263.674,-173.838 265.692,-163.437 "
+         points="315.707,-163.873 315.707,-163.873 319.807,-173.643 322.694,-163.449 "
          id="polygon58"
          style="fill:#000000;stroke:#000000" />
       <text
-         x="303.5"
+         x="375.5"
          y="-144.8"
          font-size="14.00"
          id="text60"
-         style="font-size:14px;font-family:Times, serif;text-anchor:middle">vcard:locality</text>
+         style="font-size:14px;font-family:Times, serif;text-anchor:middle">vcard2006:locality</text>
     </g>
     <!-- node3 -->
     <g
@@ -205,11 +205,11 @@
       <title
          id="title63">node3</title>
       <polygon
-         points="394,-174 394,-210 394,-210 340,-210 340,-174 "
+         points="475.5,-174 475.5,-210 475.5,-210 421.5,-210 421.5,-174 "
          id="polygon65"
          style="fill:none;stroke:#808080" />
       <text
-         x="367"
+         x="448.5"
          y="-188.3"
          font-size="14.00"
          id="text67"
@@ -222,20 +222,20 @@
       <title
          id="title70">node1-&gt;node3</title>
       <path
-         d="m 324.799,-113.67 c 5.844,-6.842 14.246,-17.3 20.201,-27.33 4.357,-7.339 8.37,-15.698 11.742,-23.452"
+         d="m 394.365,-111.77 c 9.073,-6.279 23.089,-17.063 32.135,-29.23 5.23,-7.034 9.551,-15.506 12.938,-23.461"
          id="path72"
          inkscape:connector-curvature="0"
          style="fill:none;stroke:#000000" />
       <polygon
-         points="353.572,-165.943 353.572,-165.943 360.648,-173.828 360.033,-163.251 "
+         points="436.185,-165.753 436.185,-165.753 443.104,-173.776 442.699,-163.189 "
          id="polygon74"
          style="fill:#000000;stroke:#000000" />
       <text
-         x="401.5"
+         x="497.5"
          y="-144.8"
          font-size="14.00"
          id="text76"
-         style="font-size:14px;font-family:Times, serif;text-anchor:middle">vcard:postal-code</text>
+         style="font-size:14px;font-family:Times, serif;text-anchor:middle">vcard2006:postal-code</text>
     </g>
     <!-- node4 -->
     <g
@@ -244,11 +244,11 @@
       <title
          id="title79">node4</title>
       <polygon
-         points="557.5,-174 557.5,-210 557.5,-210 416.5,-210 416.5,-174 "
+         points="666,-174 666,-210 666,-210 525,-210 525,-174 "
          id="polygon81"
          style="fill:none;stroke:#808080" />
       <text
-         x="487"
+         x="595.5"
          y="-188.3"
          font-size="14.00"
          id="text83"
@@ -261,20 +261,20 @@
       <title
          id="title86">node1-&gt;node4</title>
       <path
-         d="m 325.527,-113.353 c 3.988,-3.474 9.154,-7.353 14.473,-9.647 47.099,-20.317 70.871,9.767 114,-18 8.957,-5.767 16.029,-14.922 21.291,-23.832"
+         d="m 394.656,-111.315 c 7.092,-3.869 17.289,-8.9 26.844,-11.685 61.074,-17.803 88.229,15.996 142,-18 8.922,-5.641 15.827,-14.772 20.901,-23.697"
          id="path88"
          inkscape:connector-curvature="0"
          style="fill:none;stroke:#000000" />
       <polygon
-         points="472.323,-166.705 472.323,-166.705 480.122,-173.876 478.497,-163.406 "
+         points="581.368,-166.454 581.368,-166.454 589.033,-173.768 587.603,-163.27 "
          id="polygon90"
          style="fill:#000000;stroke:#000000" />
       <text
-         x="504.5"
+         x="626.5"
          y="-144.8"
          font-size="14.00"
          id="text92"
-         style="font-size:14px;font-family:Times, serif;text-anchor:middle">vcard:region</text>
+         style="font-size:14px;font-family:Times, serif;text-anchor:middle">vcard2006:region</text>
     </g>
     <!-- node5 -->
     <g
@@ -283,11 +283,11 @@
       <title
          id="title95">node5</title>
       <polygon
-         points="696.5,-174 696.5,-210 696.5,-210 575.5,-210 575.5,-174 "
+         points="805,-174 805,-210 805,-210 684,-210 684,-174 "
          id="polygon97"
          style="fill:none;stroke:#808080" />
       <text
-         x="636"
+         x="744.5"
          y="-188.3"
          font-size="14.00"
          id="text99"
@@ -300,20 +300,20 @@
       <title
          id="title102">node1-&gt;node5</title>
       <path
-         d="m 325.463,-113.508 c 3.972,-3.513 9.143,-7.38 14.537,-9.492 84.343,-33.021 116.228,7.976 203,-18 20.596,-6.166 41.84,-17.176 58.815,-27.298"
+         d="m 394.32,-111.306 c 7.08,-3.972 17.416,-9.143 27.18,-11.694 110.783,-28.944 149.803,22.243 257,-18 15.309,-5.747 30.044,-16.258 41.692,-26.166"
          id="path104"
          inkscape:connector-curvature="0"
          style="fill:none;stroke:#000000" />
       <polygon
-         points="600.421,-171.549 600.421,-171.549 610.776,-173.794 604.081,-165.582 "
+         points="717.931,-169.839 717.931,-169.839 727.733,-173.862 722.58,-164.605 "
          id="polygon106"
          style="fill:#000000;stroke:#000000" />
       <text
-         x="632.5"
+         x="772.5"
          y="-144.8"
          font-size="14.00"
          id="text108"
-         style="font-size:14px;font-family:Times, serif;text-anchor:middle">vcard:street-address</text>
+         style="font-size:14px;font-family:Times, serif;text-anchor:middle">vcard2006:street-address</text>
     </g>
     <!-- node6 -->
     <g
@@ -322,16 +322,16 @@
       <title
          id="title111">node6</title>
       <path
-         d="m 718.5,-36 c 0,0 -259,0 -259,0 -6,0 -12,6 -12,12 0,0 0,12 0,12 0,6 6,12 12,12 0,0 259,0 259,0 6,0 12,-6 12,-12 0,0 0,-12 0,-12 0,-6 -6,-12 -12,-12"
+         d="m 829.5,-36 c 0,0 -318,0 -318,0 -6,0 -12,6 -12,12 0,0 0,12 0,12 0,6 6,12 12,12 0,0 318,0 318,0 6,0 12,-6 12,-12 0,0 0,-12 0,-12 0,-6 -6,-12 -12,-12"
          id="path113"
          inkscape:connector-curvature="0"
          style="fill:none;stroke:#808080" />
       <text
-         x="589"
+         x="670.5"
          y="-14.3"
          font-size="14.00"
          id="text115"
-         style="font-size:14px;font-family:Times, serif;text-anchor:middle;fill:#0000ff">&lt;http://www.merchant1.com/MaxMustermann&gt;</text>
+         style="font-size:14px;font-family:Times, serif;text-anchor:middle;fill:#0000ff">&lt;http://www.merchant1.com/customers/MaxMustermann&gt;</text>
     </g>
     <!-- node6&#45;&gt;node1 -->
     <g
@@ -340,20 +340,20 @@
       <title
          id="title118">node6-&gt;node1</title>
       <path
-         d="M 447.849,-36.0177 C 427.712,-40.6439 407.555,-46.5248 389,-54 367.893,-62.5033 346.994,-78.3609 333.395,-89.9446"
+         d="M 499.468,-34.7403 C 480.116,-39.6111 461.061,-45.8989 443.5,-54 426.014,-62.0662 409.748,-77.011 398.919,-88.4685"
          id="path120"
          inkscape:connector-curvature="0"
          style="fill:none;stroke:#000000" />
       <polygon
-         points="330.778,-87.5852 330.778,-87.5852 325.584,-96.8194 335.403,-92.8399 "
+         points="396.174,-86.2854 396.174,-86.2854 392.055,-96.0467 401.362,-90.9846 "
          id="polygon122"
          style="fill:#000000;stroke:#000000" />
       <text
-         x="415"
+         x="483"
          y="-57.799999"
          font-size="14.00"
          id="text124"
-         style="font-size:14px;font-family:Times, serif;text-anchor:middle">vcard:adr</text>
+         style="font-size:14px;font-family:Times, serif;text-anchor:middle">vcard2006:adr</text>
     </g>
     <!-- node7 -->
     <g
@@ -362,12 +362,12 @@
       <title
          id="title127">node7</title>
       <path
-         d="m 416.5,-123 c 0,0 -55,0 -55,0 -6,0 -12,6 -12,12 0,0 0,12 0,12 0,6 6,12 12,12 0,0 55,0 55,0 6,0 12,-6 12,-12 0,0 0,-12 0,-12 0,-6 -6,-12 -12,-12"
+         d="m 498,-123 c 0,0 -55,0 -55,0 -6,0 -12,6 -12,12 0,0 0,12 0,12 0,6 6,12 12,12 0,0 55,0 55,0 6,0 12,-6 12,-12 0,0 0,-12 0,-12 0,-6 -6,-12 -12,-12"
          id="path129"
          inkscape:connector-curvature="0"
          style="fill:none;stroke:#808080" />
       <text
-         x="389"
+         x="470.5"
          y="-101.3"
          font-size="14.00"
          id="text131"
@@ -380,16 +380,16 @@
       <title
          id="title134">node6-&gt;node7</title>
       <path
-         d="M 522.35,-36.0751 C 505.931,-41.1042 488.593,-47.1305 473,-54 455.894,-61.5361 437.959,-71.8428 423.074,-81.1411"
+         d="M 603.85,-36.0751 C 587.431,-41.1042 570.093,-47.1305 554.5,-54 537.394,-61.5361 519.459,-71.8428 504.574,-81.1411"
          id="path136"
          inkscape:connector-curvature="0"
          style="fill:none;stroke:#000000" />
       <polygon
-         points="420.792,-78.4445 420.792,-78.4445 414.235,-86.7665 424.551,-84.35 "
+         points="502.292,-78.4445 502.292,-78.4445 495.735,-86.7665 506.051,-84.35 "
          id="polygon138"
          style="fill:#000000;stroke:#000000" />
       <text
-         x="494.5"
+         x="576"
          y="-57.799999"
          font-size="14.00"
          id="text140"
@@ -402,11 +402,11 @@
       <title
          id="title143">Max Mustermann</title>
       <polygon
-         points="562,-87 562,-123 562,-123 446,-123 446,-87 "
+         points="643.5,-87 643.5,-123 643.5,-123 527.5,-123 527.5,-87 "
          id="polygon145"
          style="fill:none;stroke:#808080" />
       <text
-         x="504"
+         x="585.5"
          y="-101.3"
          font-size="14.00"
          id="text147"
@@ -419,16 +419,16 @@
       <title
          id="title150">node6-&gt;Max Mustermann</title>
       <path
-         d="M 553.96,-36.0391 C 545.793,-41.069 537.573,-47.1048 531,-54 c -6.458,-6.7747 -11.838,-15.3953 -16.052,-23.5631"
+         d="M 635.46,-36.0391 C 627.293,-41.069 619.073,-47.1048 612.5,-54 c -6.458,-6.7747 -11.838,-15.3953 -16.052,-23.5631"
          id="path152"
          inkscape:connector-curvature="0"
          style="fill:none;stroke:#000000" />
       <polygon
-         points="511.686,-76.2728 511.686,-76.2728 510.543,-86.8058 518.005,-79.2847 "
+         points="593.186,-76.2728 593.186,-76.2728 592.043,-86.8058 599.505,-79.2847 "
          id="polygon154"
          style="fill:#000000;stroke:#000000" />
       <text
-         x="557"
+         x="638.5"
          y="-57.799999"
          font-size="14.00"
          id="text156"
@@ -441,11 +441,11 @@
       <title
          id="title159">Mustermann</title>
       <polygon
-         points="666,-87 666,-123 666,-123 580,-123 580,-87 "
+         points="747.5,-87 747.5,-123 747.5,-123 661.5,-123 661.5,-87 "
          id="polygon161"
          style="fill:none;stroke:#808080" />
       <text
-         x="623"
+         x="704.5"
          y="-101.3"
          font-size="14.00"
          id="text163"
@@ -458,16 +458,16 @@
       <title
          id="title166">node6-&gt;Mustermann</title>
       <path
-         d="M 586.347,-36.2845 C 585.545,-46.2127 585.795,-58.7127 590,-69 c 1.444,-3.5319 3.423,-6.918 5.701,-10.0977"
+         d="m 667.847,-36.2845 c -0.802,-9.9282 -0.552,-22.4282 3.653,-32.7155 1.444,-3.5319 3.423,-6.918 5.701,-10.0977"
          id="path168"
          inkscape:connector-curvature="0"
          style="fill:none;stroke:#000000" />
       <polygon
-         points="593.18,-81.5403 593.18,-81.5403 602.265,-86.9912 598.562,-77.0645 "
+         points="674.68,-81.5403 674.68,-81.5403 683.765,-86.9912 680.062,-77.0645 "
          id="polygon170"
          style="fill:#000000;stroke:#000000" />
       <text
-         x="639.5"
+         x="721"
          y="-57.799999"
          font-size="14.00"
          id="text172"
@@ -480,11 +480,11 @@
       <title
          id="title175">Male</title>
       <polygon
-         points="738,-87 738,-123 738,-123 684,-123 684,-87 "
+         points="819.5,-87 819.5,-123 819.5,-123 765.5,-123 765.5,-87 "
          id="polygon177"
          style="fill:none;stroke:#808080" />
       <text
-         x="711"
+         x="792.5"
          y="-101.3"
          font-size="14.00"
          id="text179"
@@ -497,16 +497,16 @@
       <title
          id="title182">node6-&gt;Male</title>
       <path
-         d="M 661.105,-36.0708 C 671.265,-40.7003 680.966,-46.5682 689,-54 c 6.705,-6.2025 11.479,-14.8151 14.826,-23.1464"
+         d="m 742.605,-36.0708 c 10.16,-4.6295 19.861,-10.4974 27.895,-17.9292 6.705,-6.2025 11.479,-14.8151 14.826,-23.1464"
          id="path184"
          inkscape:connector-curvature="0"
          style="fill:none;stroke:#000000" />
       <polygon
-         points="700.536,-78.3426 700.536,-78.3426 707.129,-86.6362 707.147,-76.0413 "
+         points="782.036,-78.3426 782.036,-78.3426 788.629,-86.6362 788.647,-76.0413 "
          id="polygon186"
          style="fill:#000000;stroke:#000000" />
       <text
-         x="731.5"
+         x="813"
          y="-57.799999"
          font-size="14.00"
          id="text188"
@@ -519,11 +519,11 @@
       <title
          id="title191">Max</title>
       <polygon
-         points="824,-87 824,-123 824,-123 770,-123 770,-87 "
+         points="905.5,-87 905.5,-123 905.5,-123 851.5,-123 851.5,-87 "
          id="polygon193"
          style="fill:none;stroke:#808080" />
       <text
-         x="797"
+         x="878.5"
          y="-101.3"
          font-size="14.00"
          id="text195"
@@ -536,16 +536,16 @@
       <title
          id="title198">node6-&gt;Max</title>
       <path
-         d="M 713.37,-36.0889 C 736.759,-41.0111 757.013,-46.986 767,-54 c 8.274,-5.8107 14.658,-14.6979 19.368,-23.3765"
+         d="M 794.87,-36.0889 C 818.259,-41.0111 838.513,-46.986 848.5,-54 c 8.274,-5.8107 14.658,-14.6979 19.368,-23.3765"
          id="path200"
          inkscape:connector-curvature="0"
          style="fill:none;stroke:#000000" />
       <polygon
-         points="783.311,-79.0936 783.311,-79.0936 790.831,-86.5565 789.606,-76.0327 "
+         points="864.811,-79.0936 864.811,-79.0936 872.331,-86.5565 871.106,-76.0327 "
          id="polygon202"
          style="fill:#000000;stroke:#000000" />
       <text
-         x="825"
+         x="906.5"
          y="-57.799999"
          font-size="14.00"
          id="text204"
@@ -558,11 +558,11 @@
       <title
          id="title207">node8</title>
       <polygon
-         points="933,-87 933,-123 933,-123 879,-123 879,-87 "
+         points="1014.5,-87 1014.5,-123 1014.5,-123 960.5,-123 960.5,-87 "
          id="polygon209"
          style="fill:none;stroke:#808080" />
       <text
-         x="906"
+         x="987.5"
          y="-101.3"
          font-size="14.00"
          id="text211"
@@ -575,16 +575,16 @@
       <title
          id="title214">node6-&gt;node8</title>
       <path
-         d="M 730.634,-25.7173 C 788.649,-30.6663 847.813,-39.2261 872,-54 c 9.272,-5.6635 16.604,-14.9203 22.05,-23.9392"
+         d="M 841.696,-28.5729 C 889.286,-33.7621 933.432,-41.7422 953.5,-54 c 9.272,-5.6635 16.604,-14.9203 22.05,-23.9392"
          id="path216"
          inkscape:connector-curvature="0"
          style="fill:none;stroke:#000000" />
       <polygon
-         points="890.994,-79.6474 890.994,-79.6474 898.868,-86.7368 897.134,-76.2848 "
+         points="972.494,-79.6474 972.494,-79.6474 980.368,-86.7368 978.634,-76.2848 "
          id="polygon218"
          style="fill:#000000;stroke:#000000" />
       <text
-         x="911.5"
+         x="993"
          y="-57.799999"
          font-size="14.00"
          id="text220"

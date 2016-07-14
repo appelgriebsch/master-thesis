@@ -17,12 +17,12 @@ Looking at the Semantic Web approach, it's most interesting functionalities are:
 
 \begin{itemize}
 	\item providing information in a semantically self-contained way
-	\item the ability to merge information from different \gls{RDF} data stores
+	\item the ability to merge information from different \gls{RDF} data stores locally
 	\item the graph-based data model underlying the \gls{RDF} data stores
 	\item the usage of \gls{SPARQL} to query and analyze the locally combined data sets
 \end{itemize}
 
-In the following section the thesis will come up with an approach that uses the fundamental technologies from the Semantic Web for information sharing and integration as well as peer-to-peer communication technologies for securing and restricting access to the \gls{RDF} data sets from the relevant participants of the \gls{E-commerce} fraud investigation scenario. It will start with a discussion of the semantics of the underlying \gls{RDF} files and how these can be combined across various organizations. After that it shows how these information can be provided to the relevant parties in the investigation scenario. It will continue with a detailed look into the partially centralized \gls{P2P} communication architecture and how that can be used for the proposed solution.
+In the following section the thesis will come up with an approach, that uses the fundamental technologies from the Semantic Web for information sharing and integration as well as peer-to-peer communication technologies for securing and restricting access to the \gls{RDF} data sets from the relevant participants of the \gls{E-commerce} fraud investigation scenario. It will start with a discussion of the semantics of the underlying \gls{RDF} data sets and how these can be combined across various organizations. After that it shows how these information can be provided to the relevant parties in the \gls{E-commerce} fraud investigation scenario. For this purpose it will have a detailed look into the partially centralized \gls{P2P} communication architecture and show how that can be used for the proposed solution.
 
 \subsection{Vocabulary alignment}
 \label{subsec:vocab_align}
@@ -36,9 +36,14 @@ Although the \gls{RDF} format has build-in support for merging information from 
 \label{fig:images_combine_rdf_graph}
 \end{figure}
 
-As a major objective of the \gls{E-commerce} fraud investigation system is to bring the various transactional information from online merchants, \gls{PSP}s and issuers together, combine them all and analyze the resulting graph from different viewpoints, the information exchanged between the relevant participants have to follow a common schema. A possible approach is to define a completely new schema for the proposed system and share it with every possible stakeholder. This schema will define all the entities and relations known to the collaborative system and would be expressed in \gls{RDFS} format. A major drawback of this approach is, that new partners of the system will have to do the conversion of their internal data structures to an \gls{RDF} file, that is compatible with the specific schema definition, before being able to participate in it. \\
+As a major objective of the \gls{E-commerce} fraud investigation system is to bring the various transactional information from online merchants, \gls{PSP}s and issuers together, combine them and analyze the resulting graph from different view points, the information exchanged between the relevant participants either have to follow a common schema or have to be mapped against each other.
 
-Therefore a better approach is to take a look into commonly used \gls{RDF} schemata and vocabularies, and try to figure out if they can be used for describing the information, that need to be exchanged between participants of the \gls{E-commerce} fraud investigation system. When consulting the Semantic Web community for commonly agreed upon and highly referenced \gls{RDF} schema definitions, one will come up with this list (see Table~\ref{tab:used_vocab_rdf}):\@
+\subsubsection{Defining a common schema}
+\label{subsub:rdf_schema_design}
+
+A common approach would be to define a completely new schema for the proposed system and share that with every possible stakeholder. This schema will define all the entities and relations known to the collaborative system and would be expressed in \gls{RDFS} format. A major drawback of this approach is, that new partners of the system will first have to implement the conversion of their internal data structures to an \gls{RDF} data set, that is compatible with the specific schema definition, before being able to participate in it. \\
+
+Therefore a better approach is to take a look into commonly used \gls{RDF} schemata and vocabularies, and try to figure out whether they can be used for describing the information, that need to be exchanged between participants of the \gls{E-commerce} fraud investigation system. When consulting the Semantic Web community for commonly agreed upon and highly used \gls{RDF} schema specifications, one will come up with this list (see Table~\ref{tab:used_vocab_rdf}):\@
 
 \begin{table}[H]
 \centering
@@ -75,7 +80,7 @@ XML Schema Datatypes & xsd: & Data types & \url{http://www.w3.org/2001/XMLSchema
 \label{tab:used_vocab_rdf}
 \end{table}
 
-Based on these schema specifications describing a fictive consumer named ``Max Mustermann'' incl.\ his home address can be done by combining data utilizing the \gls{FOAF} and \gls{vCard} namespaces in a \gls{RDF} file, such as described in Listing~\ref{lst:sample_customer_mustermann} and visualized as graph in Figure~\ref{fig:images_sample_customer}. \@
+Based on these schema specifications describing a fictive consumer named ``Max Mustermann'' incl.\ his home address can be done by combining data utilizing the \gls{FOAF} and \gls{vCard} namespaces in a \gls{RDF} data set, such as described in Listing~\ref{lst:sample_customer_mustermann} and visualized as graph in Figure~\ref{fig:images_sample_customer}. \@
 
 \begin{listing}[H]
   \inputminted[linenos,
@@ -164,7 +169,7 @@ For the communication the \gls{WebRTC} is a good approach as it integrates well 
 
 % subsec comm_protocol
 
-\subsection{Using a partially centralized \gls{P2P} system}
+\subsection{Designing a partially centralized \gls{P2P} system}
 \label{subsec:p2p_partially_centralized_system}
 
 For the \gls{E-commerce} fraud scenario, that has been selected for this thesis in Section~\ref{sec:thesis_scope}, one can say that the issuer of a credit card is the party who initiates the collaborative fraud investigation. They are recognizing the active use (and likely misuse) of a credit card in the online and the offline world first, and are also getting a notification about any suspicious transactions made with it from their fraud prevention systems. Due to this fact, one can come up with a partially centralized \gls{P2P} architecture for the \gls{E-commerce} fraud investigation system, in that the issuer of a card in at the center and acts as a trusted party in this system. This issuer will initiate a collaborative session with the other required stakeholders based on the usage history of the credit card in question. During this \gls{P2P} communication session the merchants, \gls{PSP}s and \gls{LSP}s will share the required information with the issuer. In this process the data from the other stakeholders will be replicated to the issuer, who will build up a networked graph based on the Schema.org specification. So the main work will be on the issuer's side, who is the major driving party in the system, as depicted in Figure~\ref{fig:images_p2p_centralized}.\@

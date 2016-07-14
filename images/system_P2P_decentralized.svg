@@ -290,7 +290,7 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="0.4002438"
-     inkscape:cx="1190.4863"
+     inkscape:cx="816.96396"
      inkscape:cy="562.51927"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
@@ -299,10 +299,10 @@
      fit-margin-left="5"
      fit-margin-right="5"
      fit-margin-bottom="5"
-     inkscape:window-width="1656"
-     inkscape:window-height="803"
-     inkscape:window-x="205"
-     inkscape:window-y="207"
+     inkscape:window-width="1280"
+     inkscape:window-height="727"
+     inkscape:window-x="0"
+     inkscape:window-y="27"
      inkscape:window-maximized="0" />
   <metadata
      id="metadata3960">
@@ -312,7 +312,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -329,7 +329,7 @@
          id="text4076"
          style="font-size:50px;font-family:ArialMT;fill:#000000"
          y="1278.64"
-         x="929.71503">Issuing Bank</text>
+         x="1003.715">Issuer</text>
     </g>
     <g
        style="clip-rule:evenodd;fill-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:1.41420996"

@@ -57,15 +57,15 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="0.41380402"
-     inkscape:cx="660.52217"
+     inkscape:cx="299.24003"
      inkscape:cy="629.75724"
      inkscape:document-units="px"
      inkscape:current-layer="g4136-3"
      showgrid="false"
-     inkscape:window-width="1652"
-     inkscape:window-height="864"
-     inkscape:window-x="138"
-     inkscape:window-y="100"
+     inkscape:window-width="1280"
+     inkscape:window-height="727"
+     inkscape:window-x="0"
+     inkscape:window-y="27"
      inkscape:window-maximized="0"
      fit-margin-top="5"
      fit-margin-left="5"
@@ -216,7 +216,7 @@
            id="text4076"
            style="font-size:50px;font-family:ArialMT;fill:#000000"
            y="1278.64"
-           x="929.71503">Issuing Bank</text>
+           x="1015.715">Issuer</text>
       </g>
       <g
          id="g4624"

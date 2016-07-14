@@ -5,6 +5,7 @@
 @base <http://www.merchant1.com/catalog/> .
 
 <P12345>  rdfs:type schema:Product;
+          schema:name "Self-cleaning refrigerator"; 
           rdfs:label "Selbstreinigender Kühlschrank"@de;
           rdfs:label "Self-cleaning refrigerator"@en;
           rdfs:label "refrigerador autolimpiable"@es .

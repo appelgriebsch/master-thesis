@@ -180,9 +180,11 @@ The \gls{W3C} standards for the Semantic Web also include support for the mappin
                breaklines=true,
                frame=lines]{TURTLE}
                {./samples/sample_product_with_labels.ttl}
-  \caption{Specifying a product with labels in three different languages in \gls{RDF}}
+  \caption[Specifying a product with labels in three different languages in \gls{RDF}]{Specifying a product with labels in three different languages in \gls{RDF}\protect\footnotemark}
 \label{lst:rdfs_label_language}
 \end{listing}
+
+\footnotetext{Please note that the name of the product has been stated without a language specifier.}
 
 \begin{listing}[H]
   \inputminted[linenos,
@@ -190,9 +192,11 @@ The \gls{W3C} standards for the Semantic Web also include support for the mappin
                breaklines=true,
                frame=lines]{TURTLE}
                {./samples/sample_customer_location.ttl}
-  \caption{Specifying a link to Geo Names resources for additional location information in \gls{RDF}}
+  \caption[Specifying a link to a Geo Names resource for looking up additional location information in \gls{RDF}]{Specifying a link to a Geo Names resource for looking up additional location information in \gls{RDF}\protect\footnotemark}
 \label{lst:rdfs_seeAlso_location}
 \end{listing}
+
+\footnotetext{Please note that the application has to resolve the \gls{URI} and embedd the resulting \gls{RDF} data set at this position in the graph.}
 
 \begin{listing}[H]
   \inputminted[linenos,
@@ -200,9 +204,18 @@ The \gls{W3C} standards for the Semantic Web also include support for the mappin
                breaklines=true,
                frame=lines]{TURTLE}
                {./samples/sample_customer_location2.ttl}
-  \caption{Specifying a link to DBpedia resources to uniquely identify an entity in \gls{RDF}}
+  \caption{Specifying a link to a DBpedia resource to uniquely identify an entity in \gls{RDF}}
 \label{lst:schema_sameAs_location}
 \end{listing}
+
+When looking at the \gls{E-commerce} transaction schema as defined in Section~\ref{sec:system_concept} the following information must be uniquely identified and mapped in the \gls{RDF} data sets from the participants of the collaborative system: \@
+
+\begin{itemize}
+	\item \textbf{personal related information} such as the consumer, recipient and credit card owner
+	\item \textbf{location based information} such as the billing and shipping address as well as the location a credit card owner is registered for
+	\item \textbf{product related information} such as the categories, subcategories, brand, model and item description
+	\item \textbf{merchant related information} such as branch
+\end{itemize}
 
 % subsec vocab_align
 

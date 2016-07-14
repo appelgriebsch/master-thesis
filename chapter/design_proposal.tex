@@ -149,9 +149,9 @@ As this table shows there are some parts of the \gls{E-commerce} data model that
 \label{lst:credit_card_vocab}
 \end{listing}
 
-As most of the parts of the \gls{E-commerce} data model shown in Figure~\ref{fig:images_data_model} can not be expressed with the existing \gls{RDF} vocabularies, filling in the gaps would mean to come up with a large set of custom entities and relationships. As stated above, this will limit the general usage of the collaborative system. When looking back at the list of existing ontologies and vocabularies, that are actively used on the Web today, one will find the Schema.org vocabulary definition \citep{Schema.org}. This vocabulary was initially designed by the leading search engines (aka Google, Microsoft and Yahoo!) to allow authors of Web sites to markup their \gls{HTML} documents in a way, that they are better understood by those search engines. The Schema.org vocabulary is actively maintained by its community, includes new concepts with each release and also offers an extension mechanism to implement additional vocabularies, that are not part of the core specification \citep{SchemaExtensions}. In one of the past releases of the Schema.org core specification the maintainers also included all of the existing concepts of the GoodRelation ontology into the Schema.org vocabulary \citep{SchemaGoodRelation}. \\
+As most of the parts of the \gls{E-commerce} data model shown in Figure~\ref{fig:images_data_model} can not be expressed directly with the existing \gls{RDF} vocabularies, filling in the gaps would mean to come up with a large set of custom entities and relationships. As stated above, this will limit the general usage of the collaborative system. When looking back at the list of existing ontologies and vocabularies, that are actively used on the Web today, one will also find the Schema.org vocabulary definition \citep{Schema.org}. This vocabulary was initially designed by the leading search engines (e.g.\ Google, Microsoft and Yahoo!) to allow authors of Web sites to markup their \gls{HTML} documents in a way, that they are better understood by these search engines. The Schema.org vocabulary is actively maintained by its community, includes new concepts with each release and also offers an extension mechanism to implement additional vocabularies with terms, that are not part of the core specification \citep{SchemaExtensions}. In one of the past releases of the Schema.org core specification the maintainers also included all of the existing concepts of the GoodRelation ontology into the Schema.org vocabulary \citep{SchemaGoodRelation}. \\
 
-As the merchants will have to provide semantic meta data for their products to improve their listings on search engine results (also known as \gls{SEO}) in the vocabulary of Schema.org already, one can re-use parts of these information for the \gls{E-commerce} fraud investigation scenario. Additionally, the wide-ranging scope of aspects that Schema.org declares, make it a good fit for the collaborative system in the \gls{E-commerce} fraud investigation scenario as one can assume that each participant is aware of this meta data initiative and the relevant communication partners will have a common understanding of the terms used within the system. When trying to map the initial data model from Section~\ref{sec:system_concept} to the Schema.org core specification one will basically come up with a data schema as displayed in Figure~\ref{fig:images_schema_org}. \@
+As the merchants will likely provide semantic meta data for their products to improve their listings on search engine results (also known as \gls{SEO}) using the vocabulary of Schema.org already, one can re-use parts of these information for the \gls{E-commerce} fraud investigation scenario. Additionally, the wide-ranging scope of aspects declared in the Schema.org vocabulary, make it a good fit for the collaborative system of the \gls{E-commerce} fraud investigation scenario as one can assume, that each participant is aware of this meta data initiative, and the relevant communication partners will have a common understanding of the terms declared in that system. When trying to map the initial data model from Section~\ref{sec:system_concept} to the Schema.org core specification, one will basically come up with a schema as displayed in Figure~\ref{fig:images_schema_org}. \@
 
 \begin{figure}[!ht]
 	\centering
@@ -163,9 +163,9 @@ As the merchants will have to provide semantic meta data for their products to i
 \subsubsection{Mapping of the information}
 \label{subsub:rdf_mapping_information}
 
-Although it is possible to model each \gls{E-commerce} transaction with the Schema.org specification as shown in Figure~\ref{fig:images_schema_org}, the collaborative system still has to take care of the mapping of the transactional information coming from various sources to be able to analyze and cluster them. As shown in the Section~\ref{subsec:vocab_align} the build-in merging capabilities of the \gls{RDF} specification rely on the \gls{URI}s used for the entities in the various \gls{RDF} data sets. These \gls{URI}s are used to uniquely identify the resources in a \gls{RDF} data set. \\
+Although it is possible to model each \gls{E-commerce} transaction with the Schema.org specification as shown in Figure~\ref{fig:images_schema_org}, the collaborative system still has to take care of the mapping of the transactional information coming from various sources to be able to combine, analyze and cluster them. As shown in the Section~\ref{subsec:vocab_align} the build-in merging capabilities of the \gls{RDF} specification rely on the \gls{URI}s used for the entities in the various \gls{RDF} data sets. These \gls{URI}s are used to uniquely identify the resources in a \gls{RDF} data set. \\
 
-The \gls{W3C} standards for the Semantic Web also include support for the mapping issues, that will also come up when trying to combine semantic information available on the Web. Additionally, the Schema.org specification defines properties that can be used for that purpose. The following concepts are available in the \gls{RDFS}, \gls{OWL} and Schema.org specifications: \@
+The \gls{W3C} standards for the Semantic Web also include support for these mapping issues, as they will also come up when trying to combine semantic information available around the Web. Additionally, the Schema.org specification also defines a property, that can be used for that purpose. The following properties are available in the \gls{RDFS}, \gls{OWL} and Schema.org specifications: \@
 
 \begin{itemize}
 	\item \textbf{rdfs:label}: a label of a resource in the \gls{RDF} data set can contain a human-friendly name of the resource. These labels are literals of type string and can come with a language specifier in case the resource supports expressions for different languages (see Listing~\ref{lst:rdfs_label_language} for an example).
@@ -184,7 +184,7 @@ The \gls{W3C} standards for the Semantic Web also include support for the mappin
 \label{lst:rdfs_label_language}
 \end{listing}
 
-\footnotetext{Please note that the name of the product has been stated without a language specifier, which means global usage of it.}
+\footnotetext{Please note that the name of the product has been stated without a language specifier, which makes it valid globally.}
 
 \begin{listing}[H]
   \inputminted[linenos,
@@ -196,7 +196,7 @@ The \gls{W3C} standards for the Semantic Web also include support for the mappin
 \label{lst:rdfs_seeAlso_location}
 \end{listing}
 
-\footnotetext{Please note that the application has to resolve the \gls{URI} and embedd the resulting \gls{RDF} data set at this position in the graph.}
+\footnotetext{Please note that the application has to resolve the \gls{URI} and embed the external \gls{RDF} data set at this position in the graph.}
 
 \begin{listing}[H]
   \inputminted[linenos,
@@ -208,16 +208,18 @@ The \gls{W3C} standards for the Semantic Web also include support for the mappin
 \label{lst:schema_sameAs_location}
 \end{listing}
 
-When looking at the \gls{E-commerce} transaction schema as defined in Section~\ref{sec:system_concept} the following information must be uniquely identified and mapped in the \gls{RDF} data sets from the participants of the collaborative system: \@
+When looking at the \gls{E-commerce} transaction schema as defined in Section~\ref{sec:system_concept} the following information must be uniquely identified and mapped within the \gls{RDF} data sets coming from the participants of the collaborative system: \@
 
 \begin{itemize}
 	\item \textbf{personal related information} such as the consumer, recipient and credit card owner
 	\item \textbf{location based information} such as the billing and shipping address as well as the location a credit card owner is registered for
 	\item \textbf{product related information} such as the categories, subcategories, brand, model and item description
-	\item \textbf{merchant related information} such as the branch
+	\item \textbf{merchant related information} such as the branch of a merchant
 \end{itemize}
 
-To support the unique identification of entities in the \gls{RDF} data set of an \gls{E-commerce} transaction one can refer to publicly available \gls{RDF} data sets on the Internet, such as GeoNames or DBpedia. These will provide an unique \gls{URI} for locations and named places. A product-related \gls{RDF} data set was available in form of the ProductDB initiative until recently \citep{bouzidi2014product}. Due to this the mapping of products can no longer be done by referencing unique \gls{URI}s, but will have to be based on the global trade item number (aka \gls{GTIN}). Additional aspects of an item, such as brand, categories and subcategories, can be found on DBpedia. A problem, that will come up, is the unique addressing of personal related information, such as identifying the consumer. The collaborative system can not rely on mapping the personal related information based on properties such as familyName and givenName alone (see Listing~\ref{lst:sample_customer_mustermann}). There could be typos in the information coming from various \gls{RDF} data sets, and different individuals can still have the same name information. One possible approach to bring these information together would be the mapping based on the e-mail address of the individual. An e-mail address like an \gls{URI} is a globally unique addressing scheme, and one can assume that two entities, who are using to the same e-mail address, are referring to the same entity. Still this is a weak hint as an individual can have more than one e-mail address, and could use different e-mail addresses for the online shopping trips at different merchants. Therefore a more sophisticated mapping algorithm for personal related information is needed in the collaborative system. This algorithm may take into account the combination of familyName, givenName, dateOfBirth as well as location-based information to uniquely identify an individual. To sum up, the identification of important entities from an \gls{E-commerce} transaction can be based on (see Table~\ref{tab:mapping_information}): \@
+To support the unique identification of entities in the \gls{RDF} data set of an \gls{E-commerce} transaction, one can refer to publicly available \gls{RDF} data sets on the Internet, such as GeoNames or DBpedia. These can provide an unique \gls{URI} for locations and named places. A product-related \gls{RDF} data set was available in form of the ProductDB initiative until recently \citep{bouzidi2014product}. Due to the shutdown of it, the mapping of products can no longer be done by referencing unique \gls{URI}s from the Web, but will have to be based on the global trade item number (aka \gls{GTIN}) of each product. Additional aspects of an item, such as brand, categories and subcategories, can be found on DBpedia as well. \\
+
+A problem, that will come up, is the unique addressing of personal related information, such as identifying the consumer. The collaborative system can not rely on mapping the personal related information based on properties such as familyName and givenName alone (see Listing~\ref{lst:sample_customer_mustermann}). There could be typos in the information coming from various \gls{RDF} data sets, and different individuals can still have the same name information. One possible approach to bring these information together would be the mapping based on the e-mail address of the individual. An e-mail address like an \gls{URI} is a globally unique addressing scheme, and one can assume that two entities, who are using to the same e-mail address, are referring to the same entity. Still this is only a weak hint as an individual can have more than one e-mail address, and could use different e-mail addresses for the online shopping trips at different merchants. Therefore a more sophisticated mapping algorithm for personal related information is needed in the collaborative system. This algorithm may take into account the combination of familyName, givenName, dateOfBirth as well as location-based information to uniquely identify an individual. To sum up, the identification of important entities from an \gls{E-commerce} transaction can be based on the following aspects (see Table~\ref{tab:mapping_information}): \@
 
 \begin{table}[H]
 \centering
@@ -225,18 +227,18 @@ To support the unique identification of entities in the \gls{RDF} data set of an
 \hline
 \textbf{Entity} & \textbf{Unique Identifier} & \textbf{Public Data Set} & \textbf{Example} \\
 \hline
-Person & e-Mail address & n/a & \url{mailto:max.mustermann@t-online.de} \\
+Person & eventually e-Mail address & n/a & \url{mailto:max.mustermann@t-online.de} \\
 \hline
-PostalAddress & Location, Position & GeoNames & \url{http://sws.geonames.org/2886242/} \\
+PostalAddress & Location, Position & Geo Names & \url{http://sws.geonames.org/2886242/} \\
 \hline
-Item & GTIN-13, ISBN & n/a & \url{gtin:9781617290398} \\
+Item & \gls{GTIN}, \gls{ISBN} & n/a & \url{gtin:9781617290398} \\
 \hline
 Brand & Name & DBpedia & \url{http://dbpedia.org/resource/Samsung} \\
 \hline
-Organization & Web Site URL & n/a & \url{http://www.samsung.com} \\
+Organization & Web Site \gls{URL} & n/a & \url{http://www.samsung.com} \\
 \hline
 \end{tabular}
-\caption{Criterias to uniquely identify entities of an \gls{E-commerce} transaction}
+\caption{List of possible criteria to uniquely identify entities of an \gls{E-commerce} transaction}
 \label{tab:mapping_information}
 \end{table}
 

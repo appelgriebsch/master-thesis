@@ -184,7 +184,7 @@ The \gls{W3C} standards for the Semantic Web also include support for the mappin
 \label{lst:rdfs_label_language}
 \end{listing}
 
-\footnotetext{Please note that the name of the product has been stated without a language specifier.}
+\footnotetext{Please note that the name of the product has been stated without a language specifier, which means global usage of it.}
 
 \begin{listing}[H]
   \inputminted[linenos,
@@ -214,8 +214,10 @@ When looking at the \gls{E-commerce} transaction schema as defined in Section~\r
 	\item \textbf{personal related information} such as the consumer, recipient and credit card owner
 	\item \textbf{location based information} such as the billing and shipping address as well as the location a credit card owner is registered for
 	\item \textbf{product related information} such as the categories, subcategories, brand, model and item description
-	\item \textbf{merchant related information} such as branch
+	\item \textbf{merchant related information} such as the branch
 \end{itemize}
+
+To support the unique identification of entities in the \gls{RDF} data set of an \gls{E-commerce} transaction one can refer to publicly available \gls{RDF} data sets on the Internet, such as GeoNames or DBpedia. These will provide an unique \gls{URI} for locations and named places. A product-related \gls{RDF} data set was available in form of the ProductDB initiative until recently \citep{bouzidi2014product}. Due to this the mapping of products can no longer be done by referencing unique \gls{URI}s, but will have to be based on the global trade item number (aka \gls{GTIN}). Additional aspects of an item, such as brand, categories and subcategories, can be found on DBpedia. A problem, that will come up, is the unique addressing of personal related information, such as identifying the consumer. The collaborative system can not rely on mapping the personal related information based on properties such as familyName and givenName alone. There could be typos in the information coming from various \gls{RDF} data sets, and different individuals can still have the same name information. One possible approach to bring these information together would be the mapping based on the e-mail address of the individual. An e-mail address like an \gls{URI} is a globally unique addressing scheme, and one can assume that two entities, who are using to the same e-mail address, are referring to the same entity. Still this is a weak hint as an individual can have more than one e-mail address, and could use different e-mail addresses for the online shopping trips at different merchants.
 
 % subsec vocab_align
 

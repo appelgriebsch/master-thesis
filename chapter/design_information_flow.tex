@@ -1,0 +1,95 @@
+%!TEX root = ../MasterThesis.tex
+
+\section{Working with \gls{RDF} data sets}
+\label{sec:working_semantic_data}
+
+\subsection{Preparing information for external usage}
+\label{subsec:prepare_information}
+
+\ldots
+
+\subsection{Mapping of the information from various sources}
+\label{subsec:information_mapping}
+
+Although it is possible to model each \gls{E-commerce} transaction with the Schema.org specification as shown in Figure~\ref{fig:images_schema_org}, the collaborative system still has to take care of the mapping of the transactional information coming from various sources to be able to combine, analyze and cluster them. As shown in the Section~\ref{subsec:web_data} the build-in merging capabilities of the \gls{RDF} specification rely on the \gls{URI}s used for the entities in the various \gls{RDF} data sets. These \gls{URI}s are used to uniquely identify the resources in a \gls{RDF} data set. \\
+
+The \gls{W3C} standards for the Semantic Web also include support for these mapping issues, as they will also come up when trying to combine semantic information available around the Web. Additionally, the Schema.org specification also defines a property, that can be used for that purpose. The following properties are available in the \gls{RDFS}, \gls{OWL} and Schema.org specifications: \@
+
+\begin{itemize}
+	\item \textbf{rdfs:label}: a label of a resource in the \gls{RDF} data set can contain a human-friendly name of the resource. These labels are literals of type string and can come with a language specifier in case the resource supports expressions for different languages (see Listing~\ref{lst:rdfs_label_language} for an example).
+	\item \textbf{rdfs:seeAlso}: a relation of type seeAlso contains an \gls{URI} to an external resource, that contains additional information for the subject (see Listing~\ref{lst:rdfs_seeAlso_location} for an example).
+	\item \textbf{rdfs:isDefinedBy}: the isDefinedBy property is a specialization of the seeAlso relation, in that it specifies a link to the original definition of a resource
+	\item \textbf{owl:sameAs, schema:sameAs}: the sameAs relation as specified in the \gls{OWL} and Schema.org vocabularies are providing an unique \gls{URI} that unambiquiously define the subject (see Listing~\ref{lst:schema_sameAs_location} for an example)
+\end{itemize}
+
+\begin{listing}[H]
+  \inputminted[linenos,
+               numbersep=5pt,
+               breaklines=true,
+               frame=lines]{TURTLE}
+               {./samples/sample_product_with_labels.ttl}
+  \caption[Specifying a product with labels in three different languages in \gls{RDF}]{Specifying a product with labels in three different languages in \gls{RDF}\protect\footnotemark}
+\label{lst:rdfs_label_language}
+\end{listing}
+
+\footnotetext{Please note that the name of the product has been stated without a language specifier, which makes it valid globally.}
+
+\begin{listing}[H]
+  \inputminted[linenos,
+               numbersep=5pt,
+               breaklines=true,
+               frame=lines]{TURTLE}
+               {./samples/sample_customer_location.ttl}
+  \caption[Specifying a link to a Geo Names resource for looking up additional location information in \gls{RDF}]{Specifying a link to a Geo Names resource for looking up additional location information in \gls{RDF}\protect\footnotemark}
+\label{lst:rdfs_seeAlso_location}
+\end{listing}
+
+\footnotetext{Please note that the application has to resolve the \gls{URI} and embed the external \gls{RDF} data set at this position in the graph.}
+
+\begin{listing}[H]
+  \inputminted[linenos,
+               numbersep=5pt,
+               breaklines=true,
+               frame=lines]{TURTLE}
+               {./samples/sample_customer_location2.ttl}
+  \caption{Specifying a link to a DBpedia resource to uniquely identify an entity in \gls{RDF}}
+\label{lst:schema_sameAs_location}
+\end{listing}
+
+When looking at the \gls{E-commerce} transaction schema as defined in Section~\ref{sec:data_model_transactions} the following information must be uniquely identified and mapped within the \gls{RDF} data sets coming from the participants of the collaborative system: \@
+
+\begin{itemize}
+	\item \textbf{personal related information} such as the consumer, recipient and credit card owner
+	\item \textbf{location based information} such as the billing and shipping address as well as the location a credit card owner is registered for
+	\item \textbf{product related information} such as the categories, subcategories, brand, model and item description
+	\item \textbf{merchant related information} such as the branch of a merchant
+\end{itemize}
+
+To support the unique identification of entities in the \gls{RDF} data set of an \gls{E-commerce} transaction, one can refer to publicly available \gls{RDF} data sets on the Internet, such as GeoNames or DBpedia. These can provide an unique \gls{URI} for locations and named places. A product-related \gls{RDF} data set was available in form of the ProductDB initiative until recently \citep{bouzidi2014product}. Due to the shutdown of it, the mapping of products can no longer be done by referencing unique \gls{URI}s from the Web, but will have to be based on the global trade item number (aka \gls{GTIN}) of each product. Additional aspects of an item, such as brand, categories and subcategories, can be found on DBpedia as well. \\
+
+A problem, that will come up, is the unique addressing of personal related information, such as identifying the consumer. The collaborative system can not rely on mapping the personal related information based on properties such as familyName and givenName alone (see Listing~\ref{lst:sample_customer_mustermann}). There could be typos in the information coming from various \gls{RDF} data sets, and different individuals can still have the same name information. One possible approach to bring these information together would be the mapping based on the e-mail address of the individual. An e-mail address like an \gls{URI} is a globally unique addressing scheme, and one can assume that two entities, who are using to the same e-mail address, are referring to the same entity. Still this is only a weak hint as an individual can have more than one e-mail address, and could use different e-mail addresses for the online shopping trips at different merchants. Therefore a more sophisticated mapping algorithm for personal related information is needed in the collaborative system. This algorithm may take into account the combination of familyName, givenName, dateOfBirth as well as location-based information to uniquely identify an individual. To sum up, the identification of important entities from an \gls{E-commerce} transaction can be based on the following aspects (see Table~\ref{tab:mapping_information}): \@
+
+\begin{table}[H]
+\centering
+\begin{tabular}{lllp{4cm}}
+\hline
+\textbf{Entity} & \textbf{Unique Identifier} & \textbf{Public Data Set} & \textbf{Example} \\
+\hline
+Person & eventually e-Mail address & n/a & \url{mailto:max.mustermann@t-online.de} \\
+\hline
+PostalAddress & Location, Position & Geo Names & \url{http://sws.geonames.org/2886242/} \\
+\hline
+Item & \gls{GTIN}, \gls{ISBN} & n/a & \url{gtin:9781617290398} \\
+\hline
+Brand & Name & DBpedia & \url{http://dbpedia.org/resource/Samsung} \\
+\hline
+Organization & Web Site \gls{URL} & n/a & \url{http://www.samsung.com} \\
+\hline
+\end{tabular}
+\caption{List of possible criteria to uniquely identify entities of an \gls{E-commerce} transaction}
+\label{tab:mapping_information}
+\end{table}
+
+% subsec information_mapping (end)
+
+% sec provide_information (end)

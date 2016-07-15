@@ -1,11 +1,17 @@
 %!TEX root = ../MasterThesis.tex
 
-\chapter{Design of the collaborative system} % (fold)
+\chapter{Design of a collaborative system} % (fold)
 \label{cha:system_design}
 
-This second section of the main part of the Master thesis looks into the design of a collaborative system that will improve the situation described in the scenario in Section~\ref{sec:scope_thesis}. The system design approach that will be proposed, which is based on Semantic Web and peer-to-peer communication technologies to improve the current situation, and support the investigation of E-commerce fraud incidents in an inter-institutional team.
+This chapter about the design of a collaborative system to support the investigation of \gls{E-commerce} fraud incidents will start with a discussion of the semantics of the underlying \gls{RDF} data sets, and how these can be combined across various organizations. After that it shows how these information can be provided to the relevant parties based on the \gls{E-commerce} fraud investigation scenario described in Chapter~\ref{cha:context_analysis}. For this purpose it will have a detailed look into the partially centralized \gls{P2P} communication architecture and show how that can be used within the system for securely sharing the relevant information.
 
-% sub chapter design proposal
-\input{chapter/design_proposal}
+% sub chapter selecting a data schema
+\input{chapter/design_data_schema}
+
+% sub chapter combining the information
+\input{chapter/design_information_flow}
+
+% sub chapter the p2p communication system
+\input{chapter/design_p2p_system}
 
 % chapter design system (end)

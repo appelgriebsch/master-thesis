@@ -442,8 +442,8 @@
      guidetolerance="10"
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
-     inkscape:window-width="1920"
-     inkscape:window-height="1007"
+     inkscape:window-width="1280"
+     inkscape:window-height="727"
      id="namedview744"
      showgrid="false"
      fit-margin-top="5"
@@ -451,12 +451,13 @@
      fit-margin-right="5"
      fit-margin-bottom="5"
      inkscape:zoom="1.65"
-     inkscape:cx="139.53066"
-     inkscape:cy="265.35013"
+     inkscape:cx="645.63226"
+     inkscape:cy="105.43791"
      inkscape:window-x="0"
      inkscape:window-y="27"
      inkscape:window-maximized="1"
-     inkscape:current-layer="svg2" />
+     inkscape:current-layer="svg2"
+     inkscape:snap-text-baseline="true" />
   <desc
      id="desc6">Creator: FreeHEP Graphics2D Driver Producer: org.freehep.graphicsio.svg.SVGGraphics2D Revision Source:  Date: Thursday, June 23, 2016 5:04:05 PM CEST</desc>
   <g
@@ -2388,6 +2389,96 @@
        font-weight="normal"
        font-style="normal">operates in</text>
   </g>
+  <rect
+     style="opacity:0.50800003;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1.10027182;stroke-miterlimit:4;stroke-dasharray:6.60163128, 6.60163128000000032;stroke-dashoffset:0;stroke-opacity:1"
+     id="rect4706"
+     width="178.68761"
+     height="44.748211"
+     x="437.62589"
+     y="375.0289" />
+  <text
+     xml:space="preserve"
+     style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+     x="481.81818"
+     y="385.88785"
+     id="text4868"
+     sodipodi:linespacing="125%"><tspan
+       sodipodi:role="line"
+       id="tspan4870"
+       x="481.81818"
+       y="385.88785" /></text>
+  <rect
+     style="opacity:1;fill:#fffb21;fill-opacity:0.66666667;stroke:none;stroke-width:1;stroke-miterlimit:4;stroke-dasharray:6, 6;stroke-dashoffset:0;stroke-opacity:1"
+     id="rect4876"
+     width="15.757576"
+     height="15.757576"
+     x="441.2121"
+     y="379.40302" />
+  <text
+     xml:space="preserve"
+     style="font-style:normal;font-weight:normal;font-size:16.50702667px;line-height:125%;font-family:sans-serif;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+     x="461.24841"
+     y="393.67508"
+     id="text4878"
+     sodipodi:linespacing="125%"><tspan
+       sodipodi:role="line"
+       id="tspan4880"
+       x="461.24841"
+       y="393.67508">Merchant</tspan></text>
+  <rect
+     style="opacity:1;fill:#fb8b43;fill-opacity:0.66666667;stroke:none;stroke-width:1;stroke-miterlimit:4;stroke-dasharray:6, 6;stroke-dashoffset:0;stroke-opacity:1"
+     id="rect4876-6"
+     width="15.757576"
+     height="15.757576"
+     x="441.1275"
+     y="400.25153" />
+  <text
+     xml:space="preserve"
+     style="font-style:normal;font-weight:normal;font-size:16.50702667px;line-height:125%;font-family:sans-serif;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+     x="461.16382"
+     y="414.52359"
+     id="text4878-2"
+     sodipodi:linespacing="125%"><tspan
+       sodipodi:role="line"
+       id="tspan4880-9"
+       x="461.16382"
+       y="414.52359">PSP</tspan></text>
+  <rect
+     style="opacity:1;fill:#75f83a;fill-opacity:0.66666667;stroke:none;stroke-width:1;stroke-miterlimit:4;stroke-dasharray:6, 6;stroke-dashoffset:0;stroke-opacity:1"
+     id="rect4876-9"
+     width="15.757576"
+     height="15.757576"
+     x="546.01825"
+     y="379.94843" />
+  <text
+     xml:space="preserve"
+     style="font-style:normal;font-weight:normal;font-size:16.50702667px;line-height:125%;font-family:sans-serif;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+     x="566.05457"
+     y="394.22049"
+     id="text4878-0"
+     sodipodi:linespacing="125%"><tspan
+       sodipodi:role="line"
+       id="tspan4880-8"
+       x="566.05457"
+       y="394.22049">Issuer</tspan></text>
+  <rect
+     style="opacity:1;fill:#8dca9e;fill-opacity:0.66666667;stroke:none;stroke-width:1;stroke-miterlimit:4;stroke-dasharray:6, 6;stroke-dashoffset:0;stroke-opacity:1"
+     id="rect4876-6-1"
+     width="15.757576"
+     height="15.757576"
+     x="545.93365"
+     y="401.58484" />
+  <text
+     xml:space="preserve"
+     style="font-style:normal;font-weight:normal;font-size:16.50702667px;line-height:125%;font-family:sans-serif;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+     x="565.96997"
+     y="415.8569"
+     id="text4878-2-3"
+     sodipodi:linespacing="125%"><tspan
+       sodipodi:role="line"
+       id="tspan4880-9-1"
+       x="565.96997"
+       y="415.8569">LSP</tspan></text>
 </svg>
 <!-- bounding box -->
 

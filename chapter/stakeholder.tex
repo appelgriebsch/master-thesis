@@ -8,9 +8,9 @@ The following section looks at each stakeholder involved in the \gls{E-commerce}
 \subsection{Consumer}
 \label{subsec:stakeholder_consumer}
 
-The consumers are the initiators of \gls{E-commerce} transactions. They are using the shop of a merchant on the Internet to order products or services. For doing so they have to know the \gls{URL} of the Web shop, have to be connected to the Internet via the \gls{ISP} and have to use a standard software called a Web browser on their computer. For the duration of their online browsing sessions they also own an unique \gls{IP} address handed out from the \gls{ISP}.\\
+The consumers are the initiators of \gls{E-commerce} transactions. They are using the shop of a merchant on the Internet to order products or services. For doing so they have to know the \gls{URL} of the Web shop, have to be connected to the Internet via the \gls{ISP} and have to use a standard software called a Web browser on their computer. For the duration of their online browsing sessions they also own a unique \gls{IP} address handed out from the \gls{ISP}.\\
 
-They might have had a long-term business relationship with the merchant and already own an user account on the Web shop. On the other hand they might be just interested into a one-time shopping trip and might want to order the items without creating an account first --- sometimes also called ``anonymous checkout'' in the \gls{E-commerce} shops. \\
+They might have had a long-term business relationship with the merchant and already own an user account on the Web shop. As an alternative they might be just interested into a one-time shopping trip and might want to order the items without creating an account first --- sometimes also called ``anonymous checkout'' in the \gls{E-commerce} shops. \\
 
 The consumer is also having a bank account and at least owns a debit card from the issuer to get access to the money on that account. In addition to that they can also hold multiple credit cards. A credit card can be issued by the same bank, or can be provided by another financial service institute (e.g.\ American Express). In any case the organization that has handed out the credit card to the consumer is called the issuer. \\
 
@@ -31,16 +31,16 @@ If they are going to end the transaction with a payment of type credit card they
 		\item the security code of the credit card
 \end{itemize}
 
-The consumers are having a special role in the whole scenario. As the online merchant has to deal with the consumers without any face-to-face or real-world interaction, the consumers are also the least trustworthy participants from the point of view of the merchant. As the Section~\ref{sec:scenario_fraud} will show, the consumers are the main questionable object in the case of an \gls{E-commerce} fraud incident. For the investigation of it the consumers are therefore usually not taking any active part.
+The consumers have a special role in the whole scenario. As the online merchant has to deal with the consumers without any face-to-face or real-world interaction, the consumers are also the least trustworthy participants from the point of view of the merchant. As Section~\ref{sec:scenario_fraud} will show, the consumers are the main questionable object in the case of an \gls{E-commerce} fraud incident. Therefore, the consumers are not taking any active part in the fraud investigation process.
 
 % subsection stakeholder consumer
 
 \subsection{Merchant}
 \label{subsec:stakeholder_merchant}
 
-The merchants offer products and services on the Internet to the general public. They might use the Internet as an additional sales channel, or rely on it solely for making any business. To provide access to the Web shop the merchants have to register a domain name and an \gls{URL} with a local domain name registry. This specific \gls{URL} refers to a fixed public \gls{IP} address, that the server that runs the Web shop software uses. Normally the merchants do not operate the servers themselves, but rely on a service offering from a hosting or cloud service provider for that. Also the Web shop software itself is usually not provided by the merchants, but bought from an \gls{ISV} on the market. In any case the merchants have special responsibilities in the Web shop, because they have to take care to configure the products, prices, promotions, payment and shipment services available. In addition products can be categorized by them into categories and sub-categories for easier navigating and searching the offerings in the Web shop by the consumer later. \\
+The merchants offer products and services on the Internet to the general public. They might use the Internet as an additional sales channel, or rely on it solely for making any business. To provide access to the Web shop the merchants have to register a domain name and an \gls{URL} with a local domain name registry. This specific \gls{URL} refers to a fixed public \gls{IP} address, that the server that runs the Web shop software uses. Normally the merchants do not operate the servers themselves, but rely on a service offered by a hosting or cloud service provider for that. Also the Web shop software itself is usually not provided by the merchants, but bought from an \gls{ISV} on the market. In any case the merchants have special responsibilities in the Web shop, because they have to take care to configure the products, prices, promotions, payment, and shipment services available. In addition products can be categorized by them into categories and sub-categories for easier navigating and searching the offerings in the Web shop by the consumer later. \\
 
-The merchants can decide whether they restrict ordering of products to registered users only, or allows anonymous users too. The main benefit of the former is the possibility to analyze the shopping behavior of individual consumers, whereas the latter will open the business for a wider range of consumers as it includes also those, that do not want to register with any existing online shop. Nevertheless, any consumer activity on the online shop is tracked in the analytic databases of a merchant. This includes not only the items, that have been placed into the shopping cart, but also any product that has been looked at by a consumer during a shopping session. Even if these detailed analytic capabilities are actually synonymous for their usage in target-related advertising, they can also help to decide whether a consumer behaves normally or not. \\
+The merchants can decide whether they restrict ordering of products to registered users only, or allows anonymous users too. The main benefit of the former is the possibility to analyze the shopping behavior of individual consumers, whereas the latter will open the business for a wider range of consumers as it includes also those, who do not want to register with any existing online shop. Nevertheless, any consumer activity on the online shop is tracked in the analytic databases of a merchant. This includes not only the items, that have been placed into the shopping cart, but also any product that has been looked at by a consumer during a shopping session. Even if these detailed analytic capabilities are actually synonymous for their usage in target-related advertising, they can also help to decide whether a consumer behaves normally or not. \\
 
 Any business transaction that a consumer makes with a merchant is stored in the merchant's databases. A transaction information contains, but is not limited to:\@
 
@@ -52,7 +52,7 @@ Any business transaction that a consumer makes with a merchant is stored in the 
 		\item the selected payment information
 \end{itemize}
 
-If a consumer pays with credit card, the merchants will not handle the payment themselves, but relate this activity to a Payment Service Provider (\gls{PSP}). To initiate the credit card authorization, a merchant is sending a request with the following information to the Web service endpoint of a \gls{PSP}: \@
+If a consumer pays with credit card, the merchants do not handle the payment themselves, but relate this activity to a Payment Service Provider (\gls{PSP}). To initiate the credit card authorization, a merchant is sending a request with the following information to the Web service endpoint of a \gls{PSP}: \@
 
 \begin{itemize}
     \item consumer's billing address
@@ -61,14 +61,14 @@ If a consumer pays with credit card, the merchants will not handle the payment t
     \item final amount of the current transaction
 \end{itemize}
 
-In return of the payment authorization the merchant will receive and store these  payment-related information for the transaction:\@
+In return of the payment authorization the merchant receives and stores these  payment-related information for the transaction:\@
 
 \begin{itemize}
 		\item the type of credit card used (e.g.\ Visa, MasterCard, American Express, \ldots)
 		\item the name of the credit card owner
 		\item the unique payment token received by the \gls{PSP}
 		\item the timestamps and result code of the authorization
-		\item the authority who has approved the payment (if the merchant works with multiple Payment Service Providers)
+		\item the authority, who has approved the payment (if the merchant works with multiple Payment Service Providers)
 \end{itemize}
 
 As the merchants will collect a lot of personal and payment-related information over time, they are also one of the major sources of possible data leaks in this scenario. Due to this circumstance the Payment Card Initiative, a group of banks, issuers and \gls{PSP}s, provides rules and guidelines (aka \gls{PCI/DSS} standards) for securely handling these kinds of information in an \gls{IT} system \citep{virtue2009payment}. \\
@@ -80,7 +80,7 @@ The merchants are one of the main actors in the fraud investigation process. The
 \subsection{Payment Service Provider}
 \label{subsec:stakeholder_psp}
 
-The Payment Service Providers are offering payment-related services to online merchants. To be able to do this a \gls{PSP} provides a Web service interface, that the merchant has to communicate with by sending payment authorization requests to it (see above). The \gls{PSP}s might be able to authorize a payment request on their own, or have to route that request to the corresponding issuer of the credit card in question. For the former procedure the \gls{PSP}s have to run own databases of registered users with their credit card information (e.g.\ a Web service such as PayPal). For the latter they will just have to know, who has issued the credit card in question, and have to call into the Web service of this issuer for validation purposes. For verifying a credit card and authorizing the payment a merchant is handing over the following information from the transaction:\@
+The Payment Service Providers offer payment-related services to online merchants. To be able to do this a \gls{PSP} provides a Web service interface, that the merchant has to communicate with by sending payment authorization requests to it (see above). The \gls{PSP}s might be able to authorize a payment request on their own, or might have to route that request to the corresponding issuer of the credit card in question. For the former procedure the \gls{PSP}s have to run their own databases of registered users with their credit card information (e.g.\ a Web service such as PayPal). For the latter they will just have to know, who has issued the credit card in question, and have to call into the Web service of this issuer for validation purposes. For verifying a credit card and authorizing the payment a merchant hands over the following:\@
 
 \begin{itemize}
 		\item credit card owner incl.\ billing address given
@@ -91,9 +91,9 @@ The Payment Service Providers are offering payment-related services to online me
 		\item total amount of the current transaction
 \end{itemize}
 
-In case the \gls{PSP}s are authorizing the payment requests, they will have to securely process these information and return the validation results to the merchants. Each result message also contains an unique payment token, that a merchant can refer to later to initiate the clearing process. As of this the \gls{PSP}s have to persist the credit card and payment-related information in their own back-end databases. Following industry standards, they should do so according to the \gls{PCI/DSS} guidelines mentioned in the previous section. \\
+In case the \gls{PSP}s are authorizing the payment requests, they will have to securely process the information and return the validation results to the merchants. Each result message also contains a unique payment token that a merchant can refer to later to initiate the clearing process. As of this the \gls{PSP}s have to persist the credit card and payment-related information in their own back-end databases. According to industry standards, they should follow the \gls{PCI/DSS} guidelines mentioned in the previous section. \\
 
-The level of activity in the \gls{E-commerce} fraud investigation process depends on whether the \gls{PSP}s authorize the payments themselves, or only act as routing service between the merchants and the original credit card issuers. In the former case the \gls{PSP}s are more actively involved. In that situation they also holds more of the valuable information to analyze an incident. In the latter case they will still be required to connect the payment-related request information from a merchant with the corresponding authorization result coming from an issuer. \\
+The level of activity in the \gls{E-commerce} fraud investigation process depends on whether the \gls{PSP}s authorize the payments themselves, or only act as routing service between the merchants and the original credit card issuers. In the former case the \gls{PSP}s are more actively involved. In that situation they also holds more of the valuable information to analyze an \gls{E-commerce} fraud incident. In the latter case they will still be required to connect the payment-related request information from a merchant with the corresponding authorization result coming from an issuer. \\
 
 If the \gls{PSP}s hold sensitive information in their own databases, they will also be a source of possible data leaks. In that situation they have to put the same precautions in place as an issuer will have to do (as explained in the next section).
 
@@ -110,9 +110,9 @@ The issuers are the only members in the \gls{E-commerce} scenario that know the 
 		\item the bank account that should be used to settle credit card balances
 \end{itemize}
 
-Even if the two parties do not really meet each other personally, an individual will still have to identify with a valid id card and bank account to receive and activate a new credit card. Beside being the single source of truth about the original credit card owner, the issuers of credit cards also collect and store all of their usages. The issuers therefore can provide individual credit card usage patterns, that are not just limited to the online shopping scenario --- something a Payment Service Provider can deliver too; but also include transactions the card owners do in the real-world. Needless to say that these are valuable information for an \gls{E-commerce} fraud investigation. \\
+Even if the two parties do not really meet each other personally, individuals will still have to identify themselves with a valid ID card and bank account to receive and activate a new credit card. Beside being the single source of truth about the original credit card owner, the issuers of credit cards also collect and store all of their usages. Whereas the Payment Service Providers can only provide individual credit card usage patterns for the online shopping scenario, the issuers can also include transactions the credit card owners do in the real-world. Needless to say that these are valuable information for an \gls{E-commerce} fraud investigation. \\
 
-Still an issuer does not know any details of the transactions, that have been made with a credit card yet. As shown in the Section~\ref{subsec:stakeholder_psp} the issuers will just receive an identifier of the merchants, in whose shops a credit card has been used. Based on public available information from a commercial register about the merchants, at least the issuers could come up with the retail branch each merchant operates in. \\
+Still an issuer does not know any details of the transactions that have been made with a credit card yet. As shown in the Section~\ref{subsec:stakeholder_psp} the issuers just receive an identifier of the merchants, in whose shops a credit card has been used. Based on public available information from a commercial register about the merchants, at least the issuers could come up with the retail branch each merchant operates in. \\
 
 Being the single source of truth about all issued credit cards, their owners and usage patterns make the issuers another high-risk candidates for possible data leaks. They should as well follow the guidelines from the \gls{PCI/DSS} standards, should incorporate security standards for their \gls{IT} systems and the processes of operating them as well as monitor their back-end systems actively with an intrusion detection mechanism.
 
@@ -121,18 +121,18 @@ Being the single source of truth about all issued credit cards, their owners and
 \subsection{Acquiring Bank}
 \label{subsec:stakeholder_acquirer}
 
-The acquirers hold the bank accounts of merchants and are responsible for withdrawing the outstanding amounts of transactions from the accounts of the consumers, or more precisely requesting it from the issuer of each consumer. Due to this an acquiring bank is usually not processing any credit card related information from consumers directly, but refer to the unique payment tokens that have been given by the \gls{PSP}s or issuers during the authorization processes. \\
+The acquirers hold the bank accounts of merchants and are responsible for withdrawing the outstanding amounts of transactions from the accounts of the consumers, or more precisely requesting it from the issuer of each consumer. Due to this an acquiring bank usually not processes any credit card related information from consumers directly, but refers to the unique payment tokens that have been given out by the \gls{PSP}s or the issuers during the authorization processes. \\
 
-Still as financial institutes acquirers (like issuers) have to comply with the rules and guidelines of the \gls{PCI/DSS} and other industry standards to make sure, that their bank accounts and the transaction processing are safe and secure. The detailed analysis of these techniques and procedures as well as possible banking fraud incidents are out of scope of this Master thesis though.
+Still as financial institutes acquirers (like issuers) have to comply with the rules and guidelines of the \gls{PCI/DSS} and other industry standards to make sure that their bank accounts and the transaction processing are safe and secure. The detailed analysis of these techniques and procedures as well as possible banking fraud incidents are out of scope of this Master thesis though.
 
 % subsection stakeholder acquirer
 
 \subsection{Logistic Service Provider}
 \label{subsec:stakeholder_lsp}
 
-The Logistic Service Providers have two important roles in the \gls{E-commerce} scenario. First, they have access to and control over the items of a merchant for the duration of the transport between the merchant's facility and the consumer's shipping address. And second, they hold the information to whom they have handed over the items at the final destination. Although the \gls{LSP}s have nothing to do with any payment-related activities, they are still critical parts of the investigation of fraud incidents as they will be the last chance for a merchant to stop the delivery of an order (in case a fraud has been detected after initiating of shipment), or provide information about the person that has received the items at the shipping address --- especially so for orders of high-priced goods, that usually require a recipient to identify with a personal id card and place a signature on the delivery receipt. \\
+The Logistic Service Providers have two important roles in the \gls{E-commerce} scenario. First, they have access to and control over the items of a merchant for the duration of the transport between the merchant's facility and the consumer's shipping address. And second, they hold the information to whom they have handed over the items at the final destination. Although the \gls{LSP}s have nothing to do with any payment-related activities, they are still critical parts of the investigation of fraud incidents as they will be the last chance for a merchant to stop the delivery of an order (in case a fraud has been detected after initiating of shipment), or provide information about the person that has received the items at the shipping address --- especially so for orders of high-priced goods, which usually require a recipient to identify with a personal ID card and place a signature on the delivery receipt. \\
 
-For initiating the shipment procedure a merchant is ordering a certain transport service from a \gls{LSP} and hand over the following information:\@
+For initiating the shipment procedure a merchant orders a certain transport service from a \gls{LSP} and hands over the following information:\@
 
 \begin{itemize}
 	\item name of the recipient
@@ -141,16 +141,16 @@ For initiating the shipment procedure a merchant is ordering a certain transport
 	\item optionally: value of the items if an insurance policy is taken
 \end{itemize}
 
-That \gls{LSP} at the other hand returns an unique tracking id for the shipment. This number can be used by that merchant, and the consumer, to check the status of a shipment online. \\
+That \gls{LSP} in response returns a unique tracking id for the shipment. This number can be used by that merchant, and the consumer, to check the status of a shipment online. \\
 
-As the \gls{LSP}s do not have to deal with the payment-related activities in the \gls{E-commerce} scenario, they are also not actively involved in the fraud investigation. Still they are of help, if an incident is found as they can stop the delivery of the items, or provide useful information about the recipients.
+As the \gls{LSP}s do not have to deal with the payment-related activities in the \gls{E-commerce} scenario, they are also not actively involved in the fraud investigation. However they can stop the delivery of the items, or provide useful information about the recipients if an incident is found.
 
 % subsection stakeholder lsp
 
 \subsection{Cloud Service Provider}
 \label{subsec:stakeholder_csp}
 
-The Cloud Service Providers offer \gls{IT} services to their customers. These \gls{IT} services include hardware and software assets, that (in the \gls{E-commerce} scenario) merchants can order to run their Web shops on the Internet. Part of the service level agreement between a merchant and a \gls{CSP} is a detailed listing of the responsibilities of both parties (who has to take care of what). In most cases the merchants are outsourcing the complete operation of the hardware and software for their Web shops to the \gls{CSP}; so the \gls{CSP} will be responsible for making sure that the Web shops are available and secure. The \gls{CSP}s are also constantly monitoring the incoming connections to each public Internet server under their control and can provide information, whether a Web shop of one of the merchants has been compromised or not.
+The Cloud Service Providers offer \gls{IT} services to their customers. These \gls{IT} services include hardware and software assets, that merchants can order in the \gls{E-commerce} scenario to run their Web shops on the Internet. Part of the service level agreement between a merchant and a \gls{CSP} is a detailed listing of the responsibilities of both parties (who has to take care of what). In most cases the merchants are outsourcing the complete operation of the hardware and software for their Web shops to the \gls{CSP}; so the \gls{CSP} will be responsible for making sure that the Web shops are available and secure. The \gls{CSP}s are also constantly monitoring the incoming connections to each public Internet server under their control and can provide information, whether a Web shop of one of the merchants has been compromised or not.
 
 % subsection stakeholder csp
 

@@ -3,311 +3,160 @@
 \section{The Semantic Web}
 \label{sec:semantic_web}
 
-\subsection{Vision}
-\label{sec:semantic_vision}
+The \emph{Semantic Web} initiative strives for a better integration of distributed data from various publishers on the Web to enable new kinds of Smart Web applications. To achieve this goal, the Semantic Web delivers the infrastructure for this vision in form of various standard specifications such as \gls{RDF}, \gls{RDFS}, \gls{OWL}, \gls{SPARQL}, \ldots, which are introduced during the course of this section. Before going into the technical specifications of these the section shows the fundamental aspects underlying the (Semantic) Web as a whole.
 
-MKP Chapter 1: \\
-integrate distributed data from various publishers on the Web into smart applications \\
-the Semantic Web delivers the infrastructure for this vision in form of various standard
-specifications (RDF, RDFS, OWL, SPARQL, ...) \\
-the fundamentals of the World-Wide Web are also supported by the Semantic Web, especially: \\
-- AAA-Slogan: Anyone can say Anything about Any topic \\
-- Open World Assumption: we must always assume that there exist new information unknown to us yet,
-that can give additional insights \\
-- Non-unique Naming Assumption: different URIs might refer to the same entity or object \\
-\\
-as of this any one can extend on existing data entities and contribute her own knowledge / opinions as
-well as combine existing information in new ways -> data wilderness, no common data schema, more of an
-organic, living system \\
-it heavily depends on the ``network effect'' and will / might explode with rising number of users / applications \\
-as there will be disagreements on all sorts of topics there is no single ontology for the whole Web,
-but rather multiple ontologies tat can be integrated and utilised \\
-\\
+\subsection{Fundamental aspects}
+\label{subsec:fundamentals_semweb}
 
-MIT Chapter 1: \\
-make information on the Web accessible to machines \\
-- allows integration of information across web sites \\
-- is also known as the ``Web of Data'' \\
-\\
-design principles: \\
-1. make structured and semi-structured data available in standardized formats \\
-2. make individual data elements and their relationships accessible on the Web \\
-3. describe the intended semantics of the data in a machine readable format \\
-\\
-HTML is just for human consumption and a lot of the structures and semantics of the
-underlying databases is lost in the transformation process \\
-- use labeled graphs as data model for objects and their relationships (objects == nodes,
-edges == relationships between them) \\
-- formalize the syntax of the graph in RDF (Resource Description Framework) \\
-- use URIs to identify individual data items and relations \\
-- use ontologies to represent semantics of the data items (either lightweight RDF schema definitions
-or Web Ontology Language are used for that) \\
-\\
-RDFS and OWL are meta-description languages allowing to define new domain-specific knowledge representations \\
-they rely on the basic principles of the Web: supporting distributed, decentralized architectures \\
-\\
-some new initiatives for standardizing semantics: schema.org and linkeddata.org \\
-initially it was tried to solve the integration issues with XML, but as it is syntactically more machine-
-readable it lacks the semantic of the data \\
-- as of this RDF is the basic language of the Semantic Web and describes meta-data as well as content \\
-\\
-an ontology formally describe a domain based on terms and their relationships (terms == classes of objects) \\
-hierarchies are supported (even multiple inheritance between objects) \\
-ontologies also include: \\
-- properties \\
-- value restrictions \\
-- disjointness statements \\
-- specifications of logical relationships \\
-goal is to provide a shared understanding of a domain \\
-can help with the necessity to overcome differences in terminology \\
-a mapping for different wordings in an ontology or between ontologies is possible \\
-they can also be useful for generalization or specialization of Web search results \\
-\\
-ontologies help with reasoning of objects, they can uncover unexpected relationships and
-inconsistencies as well as - by utilizing intelligent web agents - make decisions and select course of actions
-(e.g. ``if-then-conclusions'' aka Horn logic) \\
-agents can also be used for ``validation of proof'' of statements of another agent or machine \\
-\\
-Semantic Web is a layered approach \ldots
+The Semantic Web builds on the fundamentals of the existing World-Wide Web, especially \citep[pg. 4-11]{allemang2011semantic}: \@
+
+\begin{itemize}
+	\item \textbf{AAA-Slogan:} Anyone can say Anything about Any topic. The Web does not restrict what people can post or publish on it. It is in the responsibilities of the readers to decide whether they can trust information from a specific source or not.
+	\item \textbf{Open World Assumption:} as the amount of information on the Web is endless, and new information is published every day, one must always assume that there are new information available on it, that one does not know yet. As of this one can never be sure to have all facts at hand. New information can be published at any time that can give additional insights.
+	\item \textbf{Non-unique Naming Assumption:} there is no central authority, who is responsible for providing unique identifiers for entities on the Web. Due to this fact different \gls{URI}s might refer to the same entity or real-world object.
+\end{itemize}
+
+Instead of making information on the Web available for human consumption \emph{only}, the Semantic Web is trying to make the information on the Web accessible (and readable) to machines as well. This will allow the integration of information across Web sites, and enable a distributed, interlinked ``Web of Data''. The major design principles to achieve this objective are \citep[pg. 1-22]{antoniou2008semantic}: \@
+
+\begin{enumerate}
+	\item make structured and semi-structured data available in standard formats,
+	\item make individual data elements and their relationships accessible on the Web,
+	\item describe the intended semantics of the data in a machine readable format
+\end{enumerate}
+
+The data model of the Semantic Web is build upon labeled graphs with objects and their relationships. Objects are modeled as nodes and their relationships as edges between them. To express these graphs of objects and their relationships, the Semantic Web: \@
+
+\begin{itemize}
+	\item formalize the syntax of the graph in \gls{RDF} (see Section~\ref{sec:semantic_rdf}),
+	\item use \gls{URI}s to identify individual data items and relations (see Section~\ref{subsec:uri_concept}),
+	\item use ontologies to represent semantics of the entities. Ontologies can be lightweight \gls{RDFS} definitions or expressive descriptions in the \gls{OWL} language (see Section~\ref{sec:semantic_ontologies}).
+\end{itemize}
+
+Initially it was tried to solve the data integration aspect on the Web with the exchange of \gls{XML} based messages, but though the \gls{XML} format is more machine-readable as \gls{HTML} it still lacks the semantic of the data transmitted (see Section~\ref{subsec:xml_format}). Therefore the Semantic Web defines the \gls{RDF} format as the basic data exchange format of it. Still the \gls{RDF} format was initially based on the \gls{XML} specification. To formally describe the existing terms and their relationships within a domain the Semantic Web relies on an ontology specification. These specifications are either expressed in \gls{RDFS} or uses the more expressive \gls{OWL} language; both of them are meta-description languages, which allows the definition of domain-specific knowledge representations based on the concepts found in \gls{RDF} itself. \\
+
+As such the Semantic Web is a layered approach as depicted in Figure~\ref{fig:images_semweb_model}.\@
 
 \begin{figure}[H]
 	\centering
-		\includegraphics[height=2.5in]{images/semantic_web_layers.png}
+		\includegraphics[width=0.8\columnwidth]{images/semantic_web_layers.png}
 	\caption[The Semantic Web Model]{The Semantic Web Model \citep{W3C2013}}
 \label{fig:images_semweb_model}
 \end{figure}
 
-% section semantic_vision (end)
+% section semantic_fundamentals (end)
 
-\subsection{Semantic Modelling}
-\label{sec:semantic_models}
+\subsection{Resource Description Framework}
+\label{sec:semantic_rdf}
 
-MKP Chapter 2: \\
-semantic models \\
-- help people communicate about a fact or situation in the world \\
-- explain and make predictions about the world \\
-- mediate among multiple viewpoints and allow to explore commonalities as well as differences \\
-\\
-1. human communication and modelling: \\
-- helps people to coordinate their understanding collaboratively \\
-- knowledge will be gathered, organized, tagged and shared \\
-- when building models in natural human language they are usually open for interpretation of the meaning (e.g. laws)  \\
-- interpretation of the text depends on time and context of use -> informal model \\
-- the success of informal models can be measured as degree of people supporting the intended purpose \\
-- tagging systems provide an informal organisation to a large body of heterogenous information \\
-- in addition: models can have different layers with an increasing degree of formality (e.g. in the sector of regulations
-and laws there are regional, national as well as international laws with different degree of formality) \\
-- informal models might be fitting their purpose in the context of their creation, but might need additional layers of models
-when their usage get beyond that original context to represent the shared meaning \\
-\\
-2. explanations and predictions: \\
-- help individuals to draw their own conclusions based on the information received \\
-- especially useful in ``interpretive situations'' -> something is not set in stone \\
-- explanation plays a crucial role in the ``understanding'' of a situation; if someone can ``explain'' it,
-they usually understood it \\
-- in the Semantic Web explanation might help reuse the whole or parts of an existing model \\
-- prediction is closely related to explanation; if a model offer an explanation for a certain situation,
-it can also be used to make predictions \\
-- that resembles the fundamental of the scientific method (falsification) \\
-- explanation and prediction require a more formal models than used for human communication (see above) \\
-- usually they are build up from objective statements that are used to describe principles and rules (aka formalism) \\
-- these models can also be used to make predictions \\
-- they allow to evaluate the validity of a model and its applicability to a given situation \\
-- in opposite to human communication formalism doesn't need extra layers of explanations \\
-- in the Semantic Web there are certain standards (a formalism) for modelling explanations \\
-- these techniques can also be used to validate proofs and make predictions (aka inference) \\
-\\
-3. Mediating Variability: \\
-- goes hand in hand with AAA principle of the Semantic Web \\
-- usually one decides for a specific viewpoint based on the information from trusted authorities \\
-- informal approach: let every opinion stay side-by-side and let the consumer choose which one to follow \\
-- in this scenario the notion depends on the readers interpretation (as is also common in the Web of information) \\
-- can be modelled in an OOP sense with classes and a hierarchy between them (the higher the more general, the lower the more specific) \\
-- works well for known categories of entities (aka taxonomies) \\
-- any model can also be build up from contributions from multiple sources \\
-- usually seen as layers from different sources \\
-- combination of all layers into a complete model \\
-- a simple merge operation on the layers is easy, but might also introduce inconsistencies of viewpoints into the model \\
-- when two or more viewpoints come together on the Semantic Web there will be an overlap of information \\
-- this will result in disagreements and confusions in the beginning before there will be synergy, cooperation and collaboration \\
-- essence of the Semantic Web: provide an infrastructure that supports AAA and help the community to work through the resulting information chaos
-to come up with a shared meaning \\
-\\
-4. Level of expressivity: \\
-- different people contribute information on different levels of expressivity \\
-- each level might be sufficient to answer specific questions while leaving out unnecessary (sometimes confusing and complex) details \\
-- as of this each level has its purpose! \\
-- also on the Semantic Web there are tools for different levels of expressivity, from the least to the most expressive: \\
-   1) RDF: foundation for making statements \\
-	 2) RDFS: basic notion of classes, hierarchies and relationships \\
-	 3) RDFS+: subset of OWL, more expressive as RDFS, less complex than OWL, but no standard yet. tries to solve some issues with RDFS for
-	    industry use \\
-	 4) OWL: express logic on the Semantic Web like contraints between classes, entities and relationships \\
-\\
-- in the context of the Semantic Web modelling is an ongoing process with some well-structured knowledge and some new, unstructured information
-coming in at the same point in time \\
-\\
+When trying to come up with a specification on how to integrate data on a globally dispersed platform such as the World-Wide Web, one will have to answer the following questions first: \@
 
-% section semantic_modelling (end)
+\begin{itemize}
+	\item \textbf{syntax:} How to serialize the data?
+	\item \textbf{data model:} How to structure and organize the data?
+	\item \textbf{semantics:} How to interpret the data?
+\end{itemize}
 
-\subsection{Resource Description Language}
-\label{sec:semantic_rdl}
+Whereas the World-Wide Web is made up from interlinked documents in the \gls{HTML} format that is specifically designed for rendering information on screen to be consumed by a human, the \gls{RDF} brings a highly flexible data model to the Web. Its basic building block is the \emph{triple}, that is a statement consisting of an entity, an attribute and a value. The parts of a statement are also known as subject, predicate and object, which make up a directed graph as shown in the example in Figure~\ref{fig:images_semweb_triple}: \@
 
-MIT Chapter 2: \\
-what is needed to exchange information? \\
-1. syntax: how to serialize the data? \\
-2. data model: how to structure and organize the data? \\
-3. semantics: how to interpret the data? \\
-\\
-HTML is made for rendering information on screen and for human consumption \\
-RDF brings a flexible data model to the Web: \\
-- basic building block is a \textbf{triple} of \textit{entity - attribute - value}
-also known as statement (could also be expressed as \textit{subject - predicate - object}) \\
-RDFS describes the vocabulary that is available \\
-\\
-so: \\
-1. syntax: Turtle, RDFa, RDF-XML or JSON-LD \\
-2. data model: RDF \\
-3. semantics: RDFS \\
-\\
-foundational elements are: \\
-- resources (aka just a ``thing'' of interest identified by an URI or URL depending on its accessibility) \\
-- properties (specify the relations between resources, also identified by URIs) \\
-- statements (assign a value to a `resource-property' relation, value could be another resource or a literal) \\
-- graphs (RDF is a graph-centered data model, could be distributed, Web of Data / Linked Data approaches) \\
-\\
-linked data principles: \\
-- use URIs as name for things \\
-- use HTTP URLs so ppl. can look up those things on the Web \\
-- if they do so, provide useful information (HTML and/or RDF, content and/or meta data) \\
-- include links to other URLs so they can discover more/related things \\
-\\
-named graph: \\
-- can be used to point to specific statements or (sub-)graphs \\
-- alternative: reification via an auxiliary object \\
-\\
-Turtle: Terse RDF triple language \\
-- \textless subject incl. URI\textgreater \textless predicate incl. URI\textgreater \textless object incl. URI\textgreater . \\
-- literals will be expressed as ``value''\^{}\^{}\textless XML schema data type\textgreater and supports \textit{string, integer, decimal, dates, \ldots} \\
-- URIs can be prefixed: @prefix: \textless URI\textgreater \\
-- repetition: `;' repeats the subject from previous statement, `,' repeats subject and predicate from previous statement \\
-- named graphs in Turtle via Trig extension: \\
-  { [...] } \textless predicate incl. URI\textgreater { [...] } \\
-\\
+\begin{figure}[H]
+	\centering
+		\includegraphics[width=0.8\columnwidth]{images/sample_triple.pdf}
+	\caption{A basic example for a triple-statement}
+\label{fig:images_semweb_triple}
+\end{figure}
+
+In this example the triple consists of the entity ``MasterThesis'', the assigned attribute ``createdBy'' and the value ``AndreasGerlach''. The value-part of a triple can contain either a literal value or another entity (as in the example above). Still a problem with this example statement is that the entities are not unique. Based on the given information it is not clear, which specific ``MasterThesis'' is meant and to whom the value ``AndreasGerlach'' refers. Additionally the predicate shown could have multiple meanings. These ambiguities have to be resolved on the Semantic Web to be able to make these information understandable by machines. To solve these issues the Semantic Web standard specifies that names of entities and predicates have to use a \gls{URI} (see Section~\ref{subsec:uri_concept}) to make their meanings clear. Literals that can be used as values such as numbers, dates and strings borrow their data type specifications from the \gls{XML} standard \citep[pg. 15-38]{wood2014linked}. \\
+
+Based on this description the foundational elements of \gls{RDF} can be summarized as: \@
+
+\begin{itemize}
+	\item \textbf{entities:} aka resources or ``things'' of interest that are identified via \gls{URI}s
+	\item \textbf{predicates:} aka attributes or properties that specify the relations between resources and are also identified by \gls{URI}s
+	\item \textbf{literals:} integral values such as numbers, dates and strings that are based on the \gls{XML} data type specification
+	\item \textbf{statements:} assign a value (either another entity or a literal) to a ``entity-predicate'' relation
+	\item \textbf{graphs:} as the data model behind \gls{RDF} enables a  distributed, interlinked ``Web of Data''
+\end{itemize}
+
+\gls{RDF} triples can be serialized into four different syntax formats \citep[pg. 43-54]{wood2014linked}: \@
+
+\begin{itemize}
+
+	\item \textbf{\gls{RDF}/\gls{XML}:} the original format of the \gls{RDF} specification is based on the \gls{XML} specification. Because of their complexity they are best used with a parser program. For an example see Listing~\ref{lst:xml_meta_data}.
+	\item \textbf{\gls{RDFa}:} describes how to embed \gls{RDF} information into existing \gls{HTML} documents. It allows Web site authors to enrich their Web pages with semantic information by adding a set of \gls{HTML} attributes to important items of the document. For an example see Listing~\ref{lst:rdfa_meta_data}.
+	\item \textbf{\gls{JSON-LD}:} a recent initiative to allow JavaScript developers to use \gls{JSON} documents to express a \gls{RDF} statement, see Listing~\ref{lst:jsonld_meta_data}
+	\item \textbf{Turtle:} a human readable serialization format for \gls{RDF} statements. \gls{URI}s can be shortened with a declared prefix, statements have to be finished with `.'. Statements referring to the same entity can be abbreviated via `;', which repeats the subject from the previous statement, or `,', which repeats subject and predicate from it. For an example see Listing~\ref{lst:turtle_meta_data}.
+\end{itemize}
+
 \begin{listing}[H]
 	\begin{minted}[linenos,
 	               numbersep=5pt,
-	               gobble=2,
+	               breaklines=true,
 	               frame=lines,
-	               framesep=2mm]{TURTLE}
-	  @prefix ns1: <URI>
-	  @prefix ns2: <URI>
-	  @prefix ns3: <URI>
-
-	  ns1:subject ns2:predicate ns3:object .
+								 gobble=2]{XML}
+		<?xml version="1.0"?>
+		<rdf:RDF xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+			xmlns:ex="http://www.example.com/">
+		  <rdf:Description rdf:about="http://www.example.com/MasterThesis">
+		    <ex:createdBy rdf:resource="http://www.example.com/AndreasGerlach" />
+		  </rdf:Description>
+		</rdf:RDF>
 	\end{minted}
-\caption{Turtle formatted meta data}
-\label{lst:turtle_meta_data}
-\end{listing}
-
-RDF/XML: RDF represented in XML format \\
-- RDF namespace and root node \\
-- subjects in `RDF:description' node containing `RDF:about' attribute with URI \\
-- predicates and objects are child elements of subject node \\
-- use XML namespeaces for URI of nodes \\
-\\
-\begin{listing}[H]
-	\begin{minted}[linenos,
-	               numbersep=5pt,
-	               gobble=2,
-	               frame=lines,
-	               framesep=2mm]{XML}
-	  <rdf:Description rdf:about="<subject incl. URI>">
-	    <ns2:predicate rdf:resource="<object incl. URI>" />
-	  </rdf:Description>
-	\end{minted}
-\caption{\gls{XML} formatted meta data}
+\caption{A triple statement expressed in \gls{RDF}/\gls{XML} format}
 \label{lst:xml_meta_data}
 \end{listing}
 
-RDFa: mixin RDF meta-data into HTML \\
-- `about' attribute on \textless span\textgreater or \textless div\textgreater in HTML \\
-- `property' attribute for literal value assignment \\
-- `rel' and `resource' attributes for non-literals \\
-- use XML namespaces for URI of data nodes \\
-- put `[]' around subject and object notations \\
+\begin{listing}[H]
+	\begin{minted}[linenos,
+	               numbersep=5pt,
+	               breaklines=true,
+	               frame=lines,
+								 gobble=2]{HTML}
+	  <div about="http://www.example.com/MasterThesis">
+	    <span rel="http://www.example.com/createdBy" resource="http://www.example.com/AndreasGerlach">
+	  </div>
+	\end{minted}
+\caption{A triple statement expressed in \gls{RDFa} format}
+\label{lst:rdfa_meta_data}
+\end{listing}
 
 \begin{listing}[H]
 	\begin{minted}[linenos,
 	               numbersep=5pt,
-	               gobble=2,
+	               breaklines=true,
 	               frame=lines,
-	               framesep=2mm]{HTML}
-	  <div about="[ns1:subject]">
-	    <span rel="ns2:relation" resource="[ns3:object]">
-	  </div>
+								 gobble=2]{JSON}
+  {
+   "@context": "http://www.example.com/",
+   "@id": "http://www.example.com/MasterThesis",
+   "createdBy": "http://www.example.com/AndreasGerlach"
+ 	}
 	\end{minted}
-\caption{\gls{RDFa} formatted meta data}
-\label{lst:rdfa_meta_data}
+\caption{A triple statement expressed in \gls{JSON-LD} format}
+\label{lst:jsonld_meta_data}
 \end{listing}
 
-MKP Chapter 3: \\
-- usually data is provided in tables from a database \\
-- if we wanna split those over multiple servers, we can: \\
-  1) simply split the tables on a row-basis; the table needs to have the same layout on all servers \\
-	2) simply split the tables on a column-basis; the rows in each column need an unique identifier to match up the results \\
-	3) break down the whole table into cells and distribute them across all servers \\
-	 -\textgreater cells with facts need an unique identifier for the row as well as the column \\
-\\
-- therefore RDF uses a triple of subject - predicate - object \\
-- subject and predicate are using an unique identifier based on URI \\
-- the triple can be visualized as directed graph \\
-\\
-- data from multiple sources can be combined into a graph, if it can be figured out, which nodes exist in both distributed graphs \\
-- therefore nodes are prefixed with an URI \\
-- this URI should be an URL if the information can be dereferenced on the World-Wide Web \\
-- usually they are used in combination with qnames, which define abbrevations for full-qualified URIs \\
-   e.g. qname \textless URI\textgreater \\
-	      qname:subject predicate qname:object . \\
-- use camel case for identifiers, no spaces are allowed \\
-- W3C defines some qnames themselves: \\
-   - rdf: contains identifiers used in RDF \\
-	 - rdfs: contains identifiers used in RDFS \\
-	 - owl: contains identifiers used in OWL \\
-\\
-- in any case: if you use URLs for your entities at least provide a Web page with the explanation of them \\
-\\
-- use rdf:type to specify the type of a subject or object (e.g. geo:Berlin rdf:type geo:City .) \\
-- use rdf:Property to specify an identifier to be used as a predicate (e.g. geo:latitude rdf:type rdf:Property .) \\
-- the references objects could also be literal objects like numbers, dates and strings (they borrow the data type specifications from the XML standard)	\\
-\\
-- statements can also refer to other statements; this kind of metadata about statements can include: \\
-  1) provenance (who has made the statement) \\
-	2) likelyhood (what is the probability of this statement) \\
-	3) context (the setting in which the statement is valid) \\
-	4) timeframe (the time constraints for this statement) \\
-\\
-- explicit reification with the predicates rdf:subject, rdf:predicate, rdf:object; e.g.: \\
-    q:n1 rdf:subject geo:Berlin \\
-		     rdf:predicate geo:size \\
-				 rdf:object geo:MegaCity . \\
-\\
-    web:Wikipedia m:says q:n1 .
-\\
-- this sample just qualifies that a source (here: Wikipedia) has made a certain statement (n1); but does say nothing about the
-statement itself! it is up to the application to decide whether the source (Wikipedia) can be trusted or not! \\
-\\
-- RDF triples can be serialized as: \\
-    1) N-Triples \\
-		2) Turtle \\
-		3) RDF/XML \\
-		4) RDFa \\
-\\
-- blank nodes are commonly used to express unknown or uncertain entities \\
-- they will be described in turtle within [] \\
-- an ordered set of items can be represented in turtle as () \\
-\\
-% section semantic_rdl (end)
+\begin{listing}[H]
+	\begin{minted}[linenos,
+	               numbersep=5pt,
+	               breaklines=true,
+	               frame=lines,
+								 gobble=2]{TURTLE}
+	  @prefix ex:  <http://www.example.com/> .
+	  ex:MasterThesis ex:createdBy ex:AndreasGerlach .
+	\end{minted}
+\caption{A triple statement expressed in Turle format}
+\label{lst:turtle_meta_data}
+\end{listing}
+
+Coming back to the initial questions that have to be solved for data integration on a larger scale, this section showed how the Semantic Web tries to solve them, such as this: \@
+
+\begin{itemize}
+	\item \textbf{syntax:} supports the following formats: Turtle, \gls{RDFa}, \gls{RDF}/\gls{XML} and \gls{JSON-LD},
+	\item \textbf{data model:} graph-based data model in \gls{RDF} specification,
+	\item \textbf{semantics:} express semantics of the data in \gls{RDFS}. This will be the topic of the next section.
+\end{itemize}
+
+% section semantic_rdf (end)
 
 \subsection{Web Ontologies}
 \label{sec:semantic_ontologies}

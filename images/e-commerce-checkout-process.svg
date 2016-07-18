@@ -26,7 +26,7 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="0.7"
-     inkscape:cx="187.99701"
+     inkscape:cx="162.99701"
      inkscape:cy="409.71195"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
@@ -49,7 +49,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title />
+        <dc:title></dc:title>
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -446,19 +446,19 @@
        sodipodi:nodetypes="ccsc" />
     <text
        sodipodi:linespacing="125%"
-       x="661.45752"
-       y="998.26752"
+       x="637.45752"
+       y="956.26752"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:35px;line-height:125%;font-family:ArialMT;-inkscape-font-specification:'ArialMT, Normal';text-align:start;writing-mode:lr-tb;text-anchor:start;clip-rule:evenodd;fill:#000000;fill-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:1.41420996"
        id="text4393-1-6-2-4-4">
       <tspan
          sodipodi:role="line"
          id="tspan5012"
-         x="661.45752"
-         y="998.26752">6a. alternative</tspan>
+         x="637.45752"
+         y="956.26752">6a. alternative</tspan>
       <tspan
          sodipodi:role="line"
-         x="661.45752"
-         y="1042.0176"
+         x="637.45752"
+         y="1000.0175"
          id="tspan4211">clearing process</tspan>
     </text>
     <path

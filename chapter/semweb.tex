@@ -246,22 +246,39 @@ As an example the Listing~\ref{lst:sample_rdf_schema} describes a \gls{RDF} sche
 
 As is also shown in Figure~\ref{fig:images_rdfs_sample} the majority of the domain specific knowledge is described in the \gls{RDFS} part of the \gls{RDF} data set. It holds all available classes, predicates, restrictions, \ldots, and is therefore more abstract and expressive. The \gls{RDF} part containing the specific instances might be rather small and concrete, consisting of only existing resources with their real predicates. Usually each of the real entities from the \gls{RDF} part refer to its best matching and most descriptive entity from the \gls{RDFS} part (e.g.\ the entity \url{http://music.org/Song1} in the sample is referring to the \emph{Song} class rather than the \emph{Audio} class). \\
 
-- container classes like: \\
-  - `rdf:Bag'  (unordered list of entitites) \\
-  - `rdf:Seq'  (ordered list of entities) \\
-  - `rdf:Alt'  (list of alternatives/choices) \\
-  - `rdf:Container' (superclass for all containers) \\
-- utility classes like: \\
-  - `rdfs:seeAlso', `rdfs:isDefinedBy' (links and references to other entities) \\
-  - `rdfs:Comment' (comments and notes of entities) \\
-  - `rdfs:Label' (human-friendly name of entities) \\
-\\
+In addition to the classes shown above the \gls{RDF} and \gls{RDFS} specifications contain further useful entities and predicates, such as: \@
+
+\begin{table}[H]
+\centering
+\begin{tabular}{p{4cm}p{7cm}}
+\hline
+\textbf{Classes} & \textbf{Description} \\
+\hline
+rdf:Bag & unordered list of entities \\
+\hline
+rdf:Seq & ordered list of entities \\
+\hline
+rdf:Alt & list of alternatives or choices \\
+\hline
+rdf:Container & superclass of all containers \\
+\hline
+\textbf{Predicates} & \textbf{Describes} \\
+\hline
+rdfs:seeAlso &	links to an external resource, that contains additional information \\
+\hline
+rdfs:isDefinedBy & links to the original definition of a resource \\
+\hline
+rdfs:Comment & comments and notes on entities \\
+\hline
+rdfs:Label & human friendly label for entities \\
+\hline
+\end{tabular}
+\caption[\gls{RDF} and \gls{RDFS} supplemental vocabularies]{\gls{RDF} and \gls{RDFS} supplemental vocabularies \citep[pg. 89-90]{antoniou2008semantic}}
+\label{tab:w3c_vocab_supplement}
+\end{table}
 
 Missing features in RDFS: \ldots  \\
-\\
-Complex Ontologies in Web Ontology Language (OWL): \\
-\ldots \\
-\\
+Complex Ontologies in Web Ontology Language (OWL): \ldots \\
 
 % section semantic_ontologies (end)
 

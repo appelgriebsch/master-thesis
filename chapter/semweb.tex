@@ -194,17 +194,21 @@ Turtle: Terse RDF triple language \\
 - named graphs in Turtle via Trig extension: \\
   { [...] } \textless predicate incl. URI\textgreater { [...] } \\
 \\
-\begin{minted}[linenos,
-               numbersep=5pt,
-               gobble=2,
-               frame=lines,
-               framesep=2mm]{TURTLE}
-  @prefix ns1: <URI>
-  @prefix ns2: <URI>
-  @prefix ns3: <URI>
+\begin{listing}[H]
+	\begin{minted}[linenos,
+	               numbersep=5pt,
+	               gobble=2,
+	               frame=lines,
+	               framesep=2mm]{TURTLE}
+	  @prefix ns1: <URI>
+	  @prefix ns2: <URI>
+	  @prefix ns3: <URI>
 
-  ns1:subject ns2:predicate ns3:object .
-\end{minted}
+	  ns1:subject ns2:predicate ns3:object .
+	\end{minted}
+\caption{Turtle formatted meta data}
+\label{lst:turtle_meta_data}
+\end{listing}
 
 RDF/XML: RDF represented in XML format \\
 - RDF namespace and root node \\
@@ -212,15 +216,19 @@ RDF/XML: RDF represented in XML format \\
 - predicates and objects are child elements of subject node \\
 - use XML namespeaces for URI of nodes \\
 \\
-\begin{minted}[linenos,
-               numbersep=5pt,
-               gobble=2,
-               frame=lines,
-               framesep=2mm]{XML}
-  <rdf:Description rdf:about="<subject incl. URI>">
-    <ns2:predicate rdf:resource="<object incl. URI>" />
-  </rdf:Description>
-\end{minted}
+\begin{listing}[H]
+	\begin{minted}[linenos,
+	               numbersep=5pt,
+	               gobble=2,
+	               frame=lines,
+	               framesep=2mm]{XML}
+	  <rdf:Description rdf:about="<subject incl. URI>">
+	    <ns2:predicate rdf:resource="<object incl. URI>" />
+	  </rdf:Description>
+	\end{minted}
+\caption{\gls{XML} formatted meta data}
+\label{lst:xml_meta_data}
+\end{listing}
 
 RDFa: mixin RDF meta-data into HTML \\
 - `about' attribute on \textless span\textgreater or \textless div\textgreater in HTML \\
@@ -228,16 +236,20 @@ RDFa: mixin RDF meta-data into HTML \\
 - `rel' and `resource' attributes for non-literals \\
 - use XML namespaces for URI of data nodes \\
 - put `[]' around subject and object notations \\
-\\
-\begin{minted}[linenos,
-               numbersep=5pt,
-               gobble=2,
-               frame=lines,
-               framesep=2mm]{HTML}
-  <div about="[ns1:subject]">
-    <span rel="ns2:relation" resource="[ns3:object]">
-  </div>
-\end{minted}
+
+\begin{listing}[H]
+	\begin{minted}[linenos,
+	               numbersep=5pt,
+	               gobble=2,
+	               frame=lines,
+	               framesep=2mm]{HTML}
+	  <div about="[ns1:subject]">
+	    <span rel="ns2:relation" resource="[ns3:object]">
+	  </div>
+	\end{minted}
+\caption{\gls{RDFa} formatted meta data}
+\label{lst:rdfa_meta_data}
+\end{listing}
 
 MKP Chapter 3: \\
 - usually data is provided in tables from a database \\
@@ -365,20 +377,25 @@ Stores on the public Web incl. dbpedia.org, ckan.org, wikidata.org \\
 SPARQL also works with RDFS \\
 SPARQL has similarities to SQL:
 - each element in a triple might be replaced with a variable like `?varName' like so: \\
-\begin{minted}[linenos,
-               numbersep=5pt,
-               gobble=2,
-               frame=lines,
-               framesep=2mm]{SPARQL}
-  PREFIX ns1:<URI>
-  PREFIX ns2:<URI>
-  PREFIX ns3:<URI>
 
-  SELECT ?varName
-  WHERE {
-      ns1:subject ns2:predicate ?varName
-  }
-\end{minted}
+\begin{listing}[H]
+	\begin{minted}[linenos,
+	               numbersep=5pt,
+	               gobble=2,
+	               frame=lines,
+	               framesep=2mm]{SPARQL}
+	  PREFIX ns1:<URI>
+	  PREFIX ns2:<URI>
+	  PREFIX ns3:<URI>
+
+	  SELECT ?varName
+	  WHERE {
+	      ns1:subject ns2:predicate ?varName
+	  }
+	\end{minted}
+\caption{Selecting information with \gls{SPARQL}}
+\label{lst:select_sparql}
+\end{listing}
 
 - in the WHERE clause it hosts the graph pattern to match (could be cascaded to go down subgraphs) \\
 - variables can occur at any place in the graph pattern (?subj ?pred ?obj) as select with query everything \\
@@ -396,24 +413,29 @@ using different vocabularies \\
 \\
 ASK query checks for the existence of a given graph pattern \\
 CONSTRUCT can be used to retrieve a subgraph from a larger graph, can also be used to translate between different schemas \\
-\begin{minted}[linenos,
-               numbersep=5pt,
-               gobble=2,
-               frame=lines,
-               framesep=2mm]{SPARQL}
-  PREFIX ns1:<URI>
-  PREFIX ns2:<URI>
-  PREFIX ns3:<URI>
 
-  CONSTRUCT {
-      ?varA ns2:predicate ?varB .
-      ?varA ns3:predicate ?literalA .
-  }
-  WHERE {
-      ?varA ns1:predicate ?varB
-  }
-  FILTER ( ?varB > x )
-\end{minted}
+\begin{listing}[H]
+	\begin{minted}[linenos,
+	               numbersep=5pt,
+	               gobble=2,
+	               frame=lines,
+	               framesep=2mm]{SPARQL}
+	  PREFIX ns1:<URI>
+	  PREFIX ns2:<URI>
+	  PREFIX ns3:<URI>
+
+	  CONSTRUCT {
+	      ?varA ns2:predicate ?varB .
+	      ?varA ns3:predicate ?literalA .
+	  }
+	  WHERE {
+	      ?varA ns1:predicate ?varB
+	  }
+	  FILTER ( ?varB > x )
+	\end{minted}
+\caption{A CONSTRUCT query in \gls{SPARQL}}
+\label{lst:construct_sparql}
+\end{listing}
 
 - SPARQL can be used to harmonize graphs from different sources \\
 - is also used for basic reasoning ala ``if found this, assume that'' \\

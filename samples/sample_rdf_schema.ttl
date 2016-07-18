@@ -1,0 +1,18 @@
+@prefix ex: <http://www.example.com/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+# define available classes and their hierarchy
+ex:Audio rdf:type rdfs:Class .
+ex:Song  rdf:type rdfs:Class;
+         rdfs:subClassOf ex:Audio .
+
+# define available properties, their hierarchy and restrictions
+ex:attribute rdf:type rdfs:Property .
+ex:title rdf:type rdfs:Property;
+         rdfs:subPropertyOf ex:attribute;
+         rdfs:domain ex:Song;
+         rdfs:range rdfs:Literal .
+
+# add specific instances of classes
+<http://music.org/Song1> rdf:type ex:Song;
+                         ex:title "The best of..." .

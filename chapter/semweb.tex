@@ -193,6 +193,8 @@ An important step in the definition of a \gls{RDF} vocabulary or Web ontology is
 	\item Impose restrictions on the kind of properties that can be used on objects. These can include restrictions on the \emph{values} a predicate might take (aka ``rdfs:range'' restrictions), and restrictions on the possible \emph{subjects} of a predicate (aka ``rdfs:domain'' restrictions).
 \end{enumerate}
 
+The fundamental concepts of the \gls{RDFS} specification, which are used to model entities and their relations within a domain, are listed in Table~\ref{tab:w3c_vocab_rdfs}.
+
 \begin{table}[H]
 \centering
 \begin{tabular}{p{5cm}p{7cm}}
@@ -253,7 +255,7 @@ As is also shown in Figure~\ref{fig:images_rdfs_sample} the majority of the doma
 
 Its important to note that the meaning of the \gls{RDFS} predicates ``rdfs:subClassOf'', ``rdfs:subPropertyOf'' as well as ``rdfs:domain'' and ``rdfs:range'' is \emph{not} to restrict or validate the proper usage of them in a \gls{RDF} statement, but is rather used to \emph{infer} additional statements in a \gls{RDF} data set based on their usage. So in the example above, one can infer that the resource found at \url{http://music.org/Song1} is not only a ``Song'', but also an ``Audio'' based on the ``rdfs:subClassOf'' relationship between ``Song'' and ``Audio''. This kind of propagation of \gls{RDF} statements based on the usages of those \gls{RDFS} predicates fits well to the Open World Assumption of the Semantic Web \citep[pg. 125-152]{allemang2011semantic}. \\
 
-In addition to the axioms shown above the \gls{RDF} and \gls{RDFS} specifications contain further useful entities and predicates, such as: \@
+In addition to the axioms shown above the \gls{RDF} and \gls{RDFS} specifications contain further useful entities and predicates, such as shown in Table~\ref{tab:w3c_vocab_supplement}: \@
 
 \begin{table}[H]
 \centering
@@ -293,7 +295,7 @@ As the two tables (Table~\ref{tab:w3c_vocab_rdfs} and Table~\ref{tab:w3c_vocab_s
 	\item \textbf{Property Restrictions:} To define whether a predicate is referring to an object or a literal as value is not possible with \gls{RDFS}, but may be useful for modeling and editing tools.
 \end{itemize}
 
-If more expressiveness is required to model a domain one can refer to the Web Ontology Language specification (\gls{OWL}). It is build on the \gls{RDFS} specification, but contains additional constraints and classifiers. \@
+Therefore, in case there is more expressiveness required to model a domain one can use additional concepts from the Web Ontology Language specification (\gls{OWL}). It is build on the \gls{RDFS} specification, but contains additional constraints and classifiers, some of the most commonly used ones are listed in Table~\ref{tab:w3c_vocab_owl}. \@
 
 \begin{table}[H]
 \centering
@@ -322,9 +324,11 @@ owl:equivalentProperty & equality of properties \\
 owl:sameAs & equality of individual resources \\
 \hline
 \end{tabular}
-\caption[Important \gls{OWL} axioms]{Important \gls{OWL} axioms \citep[pg. 153-185]{allemang2011semantic}}
+\caption[Commonly used \gls{OWL} axioms]{Commonly used \gls{OWL} axioms \citep[pg. 153-185]{allemang2011semantic}}
 \label{tab:w3c_vocab_owl}
 \end{table}
+
+The Table~\ref{tab:w3c_vocab_owl} is only showing a small subset of the concepts available in \gls{OWL}. The Web Ontology Language can be used to express a wide variety of constraints and classifiers on predicates, and the whole specification is based on three parts that are build upon each other \citep{owlspec}. Still, with an increase of expressiveness in the model definition the complexity of the reasoning and inferencing engine also grows up. This Master thesis is therefore restricting the usage of concepts of the \gls{OWL} specifications to the axioms shown in Table~\ref{tab:w3c_vocab_owl}.
 
 % section semantic_ontologies (end)
 

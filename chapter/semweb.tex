@@ -32,7 +32,7 @@ The data model of the Semantic Web is build upon labeled graphs with objects and
 	\item use ontologies to represent semantics of the entities. Ontologies can be lightweight \gls{RDFS} definitions or expressive descriptions in the \gls{OWL} language (see Section~\ref{sec:semantic_vocab_ontologies}).
 \end{itemize}
 
-Initially it was tried to solve the data integration aspect on the Web with the exchange of \gls{XML}-based messages, but though the \gls{XML} format is more machine readable as \gls{HTML} it still lacks the semantic of the data transmitted (see Section~\ref{subsec:xml_format}). Therefore the Semantic Web defines the \gls{RDF} format as the basic data exchange format of it. Still the \gls{RDF} format was initially based on the \gls{XML} specification. To formally describe the existing terms and their relationships within a domain the Semantic Web relies on an ontology specification. These specifications are either expressed in \gls{RDFS} or uses the more expressive \gls{OWL} language; both of them are meta-description languages, which allows the definition of domain-specific knowledge representations based on the concepts found in \gls{RDF} itself. \\
+Initially it was tried to solve the data integration aspect on the Web with the exchange of \gls{XML}-based messages, but though the \gls{XML} format is more machine readable as \gls{HTML} it still lacks the semantic of the data transmitted (see Section~\ref{subsec:xml_format}). Therefore the Semantic Web defines the \gls{RDF} format as the basic data exchange format of it. Still the \gls{RDF} format was initially based on the \gls{XML} specification. To formally describe the existing terms and their possible relationships within a domain the Semantic Web relies on an ontology specification. These specifications are either expressed in \gls{RDFS} or uses the more expressive \gls{OWL} language; both of them are meta-description languages, which allows the definition of domain-specific knowledge representations based on the concepts found in \gls{RDF} itself. \\
 
 As such the Semantic Web is a layered approach as depicted in Figure~\ref{fig:images_semweb_model}.\@
 
@@ -56,7 +56,7 @@ When trying to come up with a specification on how to integrate data on a global
 	\item \textbf{semantics:} How to interpret the data?
 \end{itemize}
 
-Whereas the World-Wide Web is made up from interlinked documents in the \gls{HTML} format that are specifically designed for rendering information on screen, and will be consumed by a human, the \gls{RDF} brings a highly flexible data model to the Web. Its basic building block is the \emph{triple}, that is a statement consisting of an entity, an attribute and a value. These parts of a statement are also known as subject, predicate and object, and make up a directed graph as shown in the example in Figure~\ref{fig:images_semweb_triple}: \@
+Whereas the World-Wide Web is made up from interlinked documents in the \gls{HTML} format that are specifically designed for rendering information on screen, and will be consumed by a human, the \gls{RDF} brings a highly flexible data model to the Web. Its basic building block is the \emph{triple}, that is a statement consisting of an entity, an attribute and a value. The individual parts of a statement are also known as subject, predicate and object, and make up a directed graph as shown in the example in Figure~\ref{fig:images_semweb_triple}: \@
 
 \begin{figure}[H]
 	\centering
@@ -70,11 +70,11 @@ In this example the triple consists of the entity ``MasterThesis'', the assigned
 Based on this description the foundational elements of \gls{RDF} can be summarized as: \@
 
 \begin{itemize}
-	\item \textbf{entities:} aka resources or ``things'' of interest that are identified via \gls{URI}s
-	\item \textbf{predicates:} aka attributes or properties that specify the relations between resources and are also identified by \gls{URI}s
-	\item \textbf{literals:} integral values such as numbers, dates and strings that are based on the \gls{XML} data type specification
-	\item \textbf{statements:} assign a value (either another entity or a literal) to a ``entity-predicate'' relation
-	\item \textbf{graphs:} are the data model behind \gls{RDF} and enable a  distributed, interlinked ``Web of Data''
+	\item \textbf{entities:} aka resources or ``things of interest'' that are identified via \gls{URI}s,
+	\item \textbf{predicates:} aka attributes or properties that specify the relations between resources and are also identified by \gls{URI}s,
+	\item \textbf{literals:} integral values such as numbers, dates and strings that are based on the \gls{XML} data type specification,
+	\item \textbf{statements:} assign a value (either another entity or a literal) to a ``entity-predicate'' relation,
+	\item \textbf{graphs:} are the data model behind \gls{RDF} and enable a  distributed, interlinked ``Web of Data''.
 \end{itemize}
 
 \gls{RDF} triples can be serialized into four different syntax formats \citep[pg. 43-54]{wood2014linked}: \@
@@ -148,6 +148,8 @@ Based on this description the foundational elements of \gls{RDF} can be summariz
 \label{lst:turtle_meta_data}
 \end{listing}
 
+Interestingly, these different serialization formats for \gls{RDF} data sets are fully interchangeable. A \gls{RDF} data set can be easily converted from one serialization format to the other, and merging \gls{RDF} data sets work with sources expressed in different formats as well. \\
+
 Coming back to the initial questions that have to be solved for data integration on Web scale, the section showed how the Semantic Web initiative tries to solve them, such as this: \@
 
 \begin{itemize}
@@ -169,7 +171,7 @@ Both specifications are based on the \gls{RDF} data model, and make use of the f
 \centering
 \begin{tabular}{p{3cm}llp{4.5cm}}
 \hline
-\textbf{Name} & \textbf{Prefix} & \textbf{Describes} & \textbf{Namespace URI} \\
+\textbf{Name} & \textbf{Prefix} & \textbf{Used for} & \textbf{Namespace URI} \\
 \hline
 \gls{RDF} & rdf: & Core \gls{RDF} framework & \url{http://www.w3.org/1999/02/22-rdf-syntax-ns\#} \\
 \hline
@@ -182,10 +184,10 @@ Web Ontology Language & owl: & Define ontologies & \url{http://www.w3.org/2002/0
 \label{tab:w3c_vocab_rdf}
 \end{table}
 
-An important step in the definition of a \gls{RDF} vocabulary or Web ontology is to analyze the domain in question in detail, and come up with a list of objects and their relations. One can use the following step-by-step guide as a reference \citep[pg. 88-94]{antoniou2008semantic}: \@
+An important step in the definition of a \gls{RDF} vocabulary or Web ontology is to analyze the domain of interest in detail, and come up with a list of objects and their possible relations. One can use the following step-by-step guide as a reference \citep[pg. 88-94]{antoniou2008semantic}: \@
 
 \begin{enumerate}
-	\item Specify the \emph{things} to talk about. These have to be divided in \emph{objects} (aka real entities) and \emph{classes} (aka set of entities). A specific statement containing the predicate ``rdf:type'' assigns individual objects to their classes.
+	\item Specify the \emph{things} to talk about. These have to be divided into \emph{objects} (aka real entities) and \emph{classes} (aka set of entities). A specific statement containing the predicate ``rdf:type'' assigns individual objects to their classes.
 	\item Set up relations that are available between these classes. The relations can either be of type inheritance or composition.
 	\item Define existing properties (aka predicates) and their hierarchical relationships (if appropriate).
 	\item Impose restrictions on the kind of properties that can be used on objects. These can include restrictions on the \emph{values} a predicate might take (aka ``rdfs:range'' restrictions), and restrictions on the possible \emph{subjects} of a predicate (aka ``rdfs:domain'' restrictions).
@@ -195,7 +197,7 @@ An important step in the definition of a \gls{RDF} vocabulary or Web ontology is
 \centering
 \begin{tabular}{p{4cm}p{7cm}}
 \hline
-\textbf{Predicate} & \textbf{Describes} \\
+\textbf{Classes} & \textbf{Used for} \\
 \hline
 rdfs:Resource & resources \\
 \hline
@@ -204,6 +206,8 @@ rdfs:Class & classes \\
 rdfs:Literal & literals \\
 \hline
 rdfs:Propery & properties \\
+\hline
+\textbf{Predicate} & \textbf{Describes} \\
 \hline
 rdf:type	& kind of class \\
 \hline
@@ -216,7 +220,7 @@ rdfs:domain	&	restrict the subjects of a property \\
 rdfs:range  & restrict the values of a property \\
 \hline
 \end{tabular}
-\caption[\gls{RDFS} predicates to define \gls{RDF} vocabularies]{\gls{RDFS} predicates to define \gls{RDF} vocabularies \citep[pg. 89-90]{antoniou2008semantic}}
+\caption[\gls{RDFS} axioms commonly used to define \gls{RDF} vocabularies]{\gls{RDFS} axioms commonly used to define \gls{RDF} vocabularies \citep[pg. 89-90]{antoniou2008semantic}}
 \label{tab:w3c_vocab_rdfs}
 \end{table}
 
@@ -247,13 +251,15 @@ As an example the Listing~\ref{lst:sample_rdf_schema} describes a \gls{RDF} data
 
 As is also shown in Figure~\ref{fig:images_rdfs_sample} the majority of the domain specific knowledge is described in the \gls{RDFS} part of the \gls{RDF} data set. It holds all available classes, predicates, restrictions, \ldots, and is therefore more abstract and expressive. The \gls{RDF} part containing the specific instances might be rather small and concrete, consisting of only existing resources with their known predicates. Usually each of the real entities from the \gls{RDF} part refer to its best matching and most descriptive entity from the \gls{RDFS} part (e.g.\ the entity \url{http://music.org/Song1} in the sample is referring to the \emph{Song} class rather than the \emph{Audio} class). \\
 
-In addition to the classes shown above the \gls{RDF} and \gls{RDFS} specifications contain further useful entities and predicates, such as: \@
+Its important to note that the meaning of the \gls{RDFS} predicates ``rdfs:subClassOf'', ``rdfs:subPropertyOf'' as well as ``rdfs:domain'' and ``rdfs:range'' is \emph{not} to restrict the usage of them in a \gls{RDF} statement, but are rather used to \emph{infer} additional statements in a \gls{RDF} data set based on their usage. So in the example above, one can infer that the resource found at the \url{http://music.org/Song1} is not only a ``Song'', but also an ``Audio'' based on the ``rdfs:subClassOf'' relationship between ``Song'' and ``Audio''. \\
+
+In addition to the axioms shown above the \gls{RDF} and \gls{RDFS} specifications contain further useful entities and predicates, such as: \@
 
 \begin{table}[H]
 \centering
 \begin{tabular}{p{4cm}p{7cm}}
 \hline
-\textbf{Classes} & \textbf{Description} \\
+\textbf{Classes} & \textbf{Used for} \\
 \hline
 rdf:Bag & unordered list of entities \\
 \hline
@@ -265,29 +271,27 @@ rdf:Container & superclass of all containers \\
 \hline
 \textbf{Predicates} & \textbf{Describes} \\
 \hline
-rdfs:seeAlso &	links to an external resource, that contains additional information \\
+rdfs:seeAlso &	links to an external resource that contains additional information about it \\
 \hline
 rdfs:isDefinedBy & links to the original definition of a resource \\
 \hline
-rdfs:Comment & comments and notes on entities \\
+rdfs:comment & comments and notes on entities \\
 \hline
-rdfs:Label & human friendly label for entities \\
+rdfs:label & human friendly label for entities \\
 \hline
 \end{tabular}
-\caption[\gls{RDF} and \gls{RDFS} supplemental vocabularies]{\gls{RDF} and \gls{RDFS} supplemental vocabularies \citep[pg. 89-90]{antoniou2008semantic}}
+\caption[\gls{RDF} and \gls{RDFS} supplemental axioms]{\gls{RDF} and \gls{RDFS} supplemental axioms \citep[pg. 89-90]{antoniou2008semantic}}
 \label{tab:w3c_vocab_supplement}
 \end{table}
 
-As the two tables (Table~\ref{tab:w3c_vocab_rdfs} and Table~\ref{tab:w3c_vocab_supplement}) show the \gls{RDFS} specification contains only basic elements to describe an entity and its relationships as well as the hierarchy of the entities and relations. It is the fundamental set of constraints that is needed to start with publishing resources on the Semantic Web. As of this it does not include more advanced features that can be of use for combining and reasoning on distributed \gls{RDF} data sets, such as: \@
+As the two tables (Table~\ref{tab:w3c_vocab_rdfs} and Table~\ref{tab:w3c_vocab_supplement}) show the \gls{RDFS} specification contains only basic axioms to describe an entity and its possible relationships as well as the hierarchy between these entities and the relations. It is the fundamental set of constraints that is needed to start with publishing resources on the Semantic Web. As of this it does not include more advanced features that can be of use for combining and reasoning on distributed \gls{RDF} data sets, such as: \@
 
 \begin{itemize}
 	\item \textbf{Equality/Inequality:}
 	\item \textbf{Cardinality:}
-	\item \textbf{Property Characteristics:}
-	\item \textbf{Property Restrictions:}
 \end{itemize}
 
-If more expressiveness is required to model a domain one can refer to the Web Ontology Language specification (\gls{OWL}). It is build on the \gls{RDFS} specification, but contains additional constraints and classifiers.git
+If more expressiveness is required to model a domain one can refer to the Web Ontology Language specification (\gls{OWL}). It is build on the \gls{RDFS} specification, but contains additional constraints and classifiers.
 
 % section semantic_ontologies (end)
 

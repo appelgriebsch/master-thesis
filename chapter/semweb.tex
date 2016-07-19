@@ -195,11 +195,11 @@ An important step in the definition of a \gls{RDF} vocabulary or Web ontology is
 
 \begin{table}[H]
 \centering
-\begin{tabular}{p{4cm}p{7cm}}
+\begin{tabular}{p{5cm}p{7cm}}
 \hline
 \textbf{Classes} & \textbf{Used for} \\
 \hline
-rdfs:Resource & resources \\
+rdfs:Resource & individual resources \\
 \hline
 rdfs:Class & classes \\
 \hline
@@ -251,13 +251,13 @@ As an example the Listing~\ref{lst:sample_rdf_schema} describes a \gls{RDF} data
 
 As is also shown in Figure~\ref{fig:images_rdfs_sample} the majority of the domain specific knowledge is described in the \gls{RDFS} part of the \gls{RDF} data set. It holds all available classes, predicates, restrictions, \ldots, and is therefore more abstract and expressive. The \gls{RDF} part containing the specific instances might be rather small and concrete, consisting of only existing resources with their known predicates. Usually each of the real entities from the \gls{RDF} part refer to its best matching and most descriptive entity from the \gls{RDFS} part (e.g.\ the entity \url{http://music.org/Song1} in the sample is referring to the \emph{Song} class rather than the \emph{Audio} class). \\
 
-Its important to note that the meaning of the \gls{RDFS} predicates ``rdfs:subClassOf'', ``rdfs:subPropertyOf'' as well as ``rdfs:domain'' and ``rdfs:range'' is \emph{not} to restrict the usage of them in a \gls{RDF} statement, but are rather used to \emph{infer} additional statements in a \gls{RDF} data set based on their usage. So in the example above, one can infer that the resource found at the \url{http://music.org/Song1} is not only a ``Song'', but also an ``Audio'' based on the ``rdfs:subClassOf'' relationship between ``Song'' and ``Audio''. \\
+Its important to note that the meaning of the \gls{RDFS} predicates ``rdfs:subClassOf'', ``rdfs:subPropertyOf'' as well as ``rdfs:domain'' and ``rdfs:range'' is \emph{not} to restrict or validate the proper usage of them in a \gls{RDF} statement, but is rather used to \emph{infer} additional statements in a \gls{RDF} data set based on their usage. So in the example above, one can infer that the resource found at \url{http://music.org/Song1} is not only a ``Song'', but also an ``Audio'' based on the ``rdfs:subClassOf'' relationship between ``Song'' and ``Audio''. This kind of propagation of \gls{RDF} statements based on the usages of those \gls{RDFS} predicates fits well to the Open World Assumption of the Semantic Web \citep[pg. 125-152]{allemang2011semantic}. \\
 
 In addition to the axioms shown above the \gls{RDF} and \gls{RDFS} specifications contain further useful entities and predicates, such as: \@
 
 \begin{table}[H]
 \centering
-\begin{tabular}{p{4cm}p{7cm}}
+\begin{tabular}{p{5cm}p{7cm}}
 \hline
 \textbf{Classes} & \textbf{Used for} \\
 \hline
@@ -287,11 +287,44 @@ rdfs:label & human friendly label for entities \\
 As the two tables (Table~\ref{tab:w3c_vocab_rdfs} and Table~\ref{tab:w3c_vocab_supplement}) show the \gls{RDFS} specification contains only basic axioms to describe an entity and its possible relationships as well as the hierarchy between these entities and the relations. It is the fundamental set of constraints that is needed to start with publishing resources on the Semantic Web. As of this it does not include more advanced features that can be of use for combining and reasoning on distributed \gls{RDF} data sets, such as: \@
 
 \begin{itemize}
-	\item \textbf{Equality/Inequality:}
-	\item \textbf{Cardinality:}
+	\item \textbf{Equality/Inequality:} Neither \gls{RDF} nor \gls{RDFS} provide a way to specify that two resources or properties coming from different \gls{RDF} data sets are the same, or are not the same. Though it might be possible to model the aspect of equality with a combination of ``rdfs:subClassOf'' or ``rdfs:subPropertyOf'' statements the results are usually not as desired due to the inferencing nature of those axioms.
+	\item \textbf{Cardinality:} Predicates defined in \gls{RDFS} can be used multiple times in statements referring to the same subject or object. This is not desired in situations, in which there is only one possible instance of a ``subject-predicate-object'' relationship.
+	\item \textbf{Transitivity:} Whereas it is possible to express the hierarchy of classes and predicates in \gls{RDFS} it is not feasible to do so for individual instances. This might be useful when building up a hierarchy of people, e.g.\ a statement such as ``S3 has an ancestor S2, who has an ancestor S1'' can lead to the inference ``S3 has an ancestor S1''.
+	\item \textbf{Property Restrictions:} To define whether a predicate is referring to an object or a literal as value is not possible with \gls{RDFS}, but may be useful for modeling and editing tools.
 \end{itemize}
 
-If more expressiveness is required to model a domain one can refer to the Web Ontology Language specification (\gls{OWL}). It is build on the \gls{RDFS} specification, but contains additional constraints and classifiers.
+If more expressiveness is required to model a domain one can refer to the Web Ontology Language specification (\gls{OWL}). It is build on the \gls{RDFS} specification, but contains additional constraints and classifiers. \@
+
+\begin{table}[H]
+\centering
+\begin{tabular}{p{5cm}p{7cm}}
+\hline
+\textbf{Classes} & \textbf{Used for} \\
+\hline
+owl:Class & all classes in \gls{OWL}  \\
+\hline
+owl:FunctionalProperty & allow only one value \\
+\hline
+owl:InverseFunctionalProperty & allow only one source \\
+\hline
+owl:TransitiveProperty & build chains of relationships \\
+\hline
+owl:ObjectProperty & property can hold a resource as value \\
+\hline
+owl:DataProperty & property can hold a literal as value \\
+\hline
+\textbf{Predicates} & \textbf{Describes} \\
+\hline
+owl:equivalentClass &	equality of classes \\
+\hline
+owl:equivalentProperty & equality of properties \\
+\hline
+owl:sameAs & equality of individual resources \\
+\hline
+\end{tabular}
+\caption[Important \gls{OWL} axioms]{Important \gls{OWL} axioms \citep[pg. 153-185]{allemang2011semantic}}
+\label{tab:w3c_vocab_owl}
+\end{table}
 
 % section semantic_ontologies (end)
 

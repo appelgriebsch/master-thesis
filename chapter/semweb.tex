@@ -16,7 +16,7 @@ The Semantic Web builds on the fundamentals of the existing World-Wide Web, espe
 	\item \textbf{Non-unique Naming Assumption:} there is no central authority, who is responsible for providing unique identifiers for entities on the Web. Due to this fact different \gls{URI}s might refer to the same virtual entity or real-world object.
 \end{itemize}
 
-Instead of making information on the Web available for human consumption \emph{only}, the Semantic Web is trying to make the information on the Web accessible (and readable) to machines as well. This will allow the integration of information across Web sites, and enable a distributed, interlinked ``Web of Data''. The major design principles to achieve this objective are \citep[pg. 1-22]{antoniou2008semantic}: \@
+Instead of making information on the Web available for human consumption \emph{only}, the Semantic Web is trying to make the information on the Web accessible (and readable) to machines as well. This will allow the integration of information across Web sites, and enable a distributed, interlinked ``Web of Data''. The major design principles to achieve this objective are \citep[pg. 1-22]{antoniou2012semantic}: \@
 
 \begin{enumerate}
 	\item make structured and semi-structured data available in standard formats,
@@ -184,7 +184,7 @@ Web Ontology Language & owl: & Define ontologies & \url{http://www.w3.org/2002/0
 \label{tab:w3c_vocab_rdf}
 \end{table}
 
-An important step in the definition of a \gls{RDF} vocabulary or Web ontology is to analyze the domain of interest in detail, and come up with a list of objects and their possible relations. One can use the following step-by-step guide as a reference \citep[pg. 88-94]{antoniou2008semantic}: \@
+An important step in the definition of a \gls{RDF} vocabulary or Web ontology is to analyze the domain of interest in detail, and come up with a list of objects and their possible relations. One can use the following step-by-step guide as a reference \citep[pg. 40-55]{antoniou2012semantic}: \@
 
 \begin{enumerate}
 	\item Specify the \emph{things} to talk about. These have to be divided into \emph{objects} (aka real entities) and \emph{classes} (aka set of entities). A specific statement containing the predicate ``rdf:type'' assigns individual objects to their classes.
@@ -222,7 +222,7 @@ rdfs:domain	&	restrict the subjects of a property \\
 rdfs:range  & restrict the values of a property \\
 \hline
 \end{tabular}
-\caption[\gls{RDFS} axioms commonly used to define \gls{RDF} vocabularies]{\gls{RDFS} axioms commonly used to define \gls{RDF} vocabularies \citep[pg. 89-90]{antoniou2008semantic}}
+\caption[\gls{RDFS} axioms commonly used to define \gls{RDF} vocabularies]{\gls{RDFS} axioms commonly used to define \gls{RDF} vocabularies \citep[pg. 46-49]{antoniou2012semantic}}
 \label{tab:w3c_vocab_rdfs}
 \end{table}
 
@@ -282,7 +282,7 @@ rdfs:comment & comments and notes on entities \\
 rdfs:label & human friendly label for entities \\
 \hline
 \end{tabular}
-\caption[\gls{RDF} and \gls{RDFS} supplemental axioms]{\gls{RDF} and \gls{RDFS} supplemental axioms \citep[pg. 89-90]{antoniou2008semantic}}
+\caption[\gls{RDF} and \gls{RDFS} supplemental axioms]{\gls{RDF} and \gls{RDFS} supplemental axioms \citep[pg. 46-49]{antoniou2012semantic}}
 \label{tab:w3c_vocab_supplement}
 \end{table}
 
@@ -332,7 +332,7 @@ The Table~\ref{tab:w3c_vocab_owl} is only showing a small subset of the concepts
 
 % section semantic_ontologies (end)
 
-\subsection{Query Language}
+\subsection{\gls{SPARQL} protocol and query language}
 \label{sec:semantic_querylang}
 
 SPARQL requires a \textbf{triple store} - a database containing RDF documents \\

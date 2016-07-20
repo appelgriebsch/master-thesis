@@ -337,7 +337,7 @@ The Table~\ref{tab:w3c_vocab_owl} is only showing a small subset of the axioms a
 
 A kind of query language is required to be able to access specific information in a \gls{RDF} data set on the Semantic Web. Additionally, the query language has to support the distributed nature of information on the Semantic Web, as well as be suitable for asking information from the graph-oriented data model of \gls{RDF}. The \gls{W3C} proposes the \gls{SPARQL} protocol and query language as a standard way to access and query for information on the Semantic Web. As the name already implies the specification contains two parts: a \emph{protocol} and a \emph{query language}. \\
 
-\gls{SPARQL} requires the \gls{RDF} data set in a \emph{triple store}, which is a kind of database containing \gls{RDF} statements (another name for it might be \emph{graph store}). The \gls{RDF} data set is usually inserted into the triple store via bulk load operations or single \gls{SPARQL} update statements, which like in \gls{SQL} for relational databases can manipulate \gls{RDF} statements in the data store. A \gls{SPARQL} query is usually expressed in a Turtle-like syntax and is send to an \gls{HTTP} endpoint of the triple store by a client application. The result of the query can contain either a single value, a tabular data stream, or a subgraph of the \gls{RDF} data set depending on the type of query issued. The structure of a Semantic Web application that uses a triple store (aka \gls{RDF} store) and the \gls{SPARQL} query engine is depicted in Figure~\ref{fig:images_semweb_app}.
+\gls{SPARQL} requires the \gls{RDF} data set in a \emph{triple store}, which is a kind of database containing \gls{RDF} statements (another name for it might be \emph{graph store}). The \gls{RDF} data set is usually inserted into the triple store via bulk load operations or single \gls{SPARQL} update statements, which like in \gls{SQL} for relational databases can manipulate \gls{RDF} statements in the data store. A \gls{SPARQL} query is usually expressed in a Turtle-like syntax and is send to an \gls{HTTP} endpoint of the triple store by a client application. The result of the query can contain either a single value, a tabular data stream, or a subgraph of the \gls{RDF} data set depending on the type of query issued. The structure of a Semantic Web application that uses a triple store (aka \gls{RDF} store) and the \gls{SPARQL} query engine is depicted in Figure~\ref{fig:images_semweb_app} \citep[pg. 51-60]{allemang2011semantic}:
 
 \begin{figure}[H]
 	\centering
@@ -346,7 +346,7 @@ A kind of query language is required to be able to access specific information i
 	\label{fig:images_semweb_app}
 \end{figure}
 
-The \gls{SPARQL} query language has a lot of similarities with the \gls{SQL} used for querying relational databases. This design decision will ease the transition to the Semantic Web for application developers familiar with accessing data from a relational database. The main difference though is the way used to specify the conditions for a query. This is largely due to the differences in the underlying data model, which is relational in \gls{SQL} versus graph-oriented in \gls{SPARQL}. As of this, a WHERE clause in a \gls{SPARQL} query has to contain a graph-based representation of the query conditions that have to be matched in the \gls{RDF} data set. Parts of these conditions can be marked as placeholders, which are referred to in a SELECT statement for generating a tabular data output. These placeholders are marked with a question-mark in the beginning of their name and can be used as placeholder for any part of a triple statement (subject, predicate, object). E.g.\ querying a \gls{RDF} data set containing triples such as the one described in Listing~\ref{lst:sample_rdf_schema} for the titles of all available songs, one has to write a \gls{SPARQL} SELECT query as shown in Listing~\ref{lst:select_sparql}: \@
+The \gls{SPARQL} query language has a lot of similarities with the \gls{SQL} used for querying relational databases. This design decision will ease the transition to the Semantic Web for application developers familiar with accessing data from a relational database. The main difference though is the way used to specify the conditions for a query. This is largely due to the differences in the underlying data model, which is relational in \gls{SQL} versus graph-oriented in \gls{SPARQL}. As of this, a WHERE clause in a \gls{SPARQL} query has to contain a graph-based representation of the query conditions that have to be matched in the \gls{RDF} data set. Parts of these conditions can be marked as placeholders, which are referred to in a SELECT statement for generating a tabular data output. These placeholders are marked with a question-mark in the beginning of their name and can be used as placeholder for any part of a triple statement (subject, predicate, object) \citep[pg. 66-112]{allemang2011semantic}. E.g.\ querying a \gls{RDF} data set containing triples such as the one described in Listing~\ref{lst:sample_rdf_schema} for the titles of all available songs, one has to write a \gls{SPARQL} SELECT query as shown in Listing~\ref{lst:select_sparql}: \@
 
 \begin{listing}[H]
 	\begin{minted}[linenos,
@@ -362,7 +362,7 @@ The \gls{SPARQL} query language has a lot of similarities with the \gls{SQL} use
 		SELECT ?title
 		WHERE {
 		  # describe the conditions for the query
-		  # as graph-patterns that has to match
+		  # as graph-patterns that have to match
 		  # here: it has to be a Song, which has a predicate title
 		  ?song rdf:type ex:Song .
 		  ?song ex:title ?title .
@@ -374,22 +374,18 @@ The \gls{SPARQL} query language has a lot of similarities with the \gls{SQL} use
 
 Please note that this query defines two placeholders in the WHERE clause: ``?song'' and ``?title'', but only uses the ``?title'' as an output criteria in the SELECT statement. The placeholder ``?song'' is \emph{just} required to refer to the same node when specifying the conditions in the WHERE clauses. \\
 
-- in the WHERE clause it hosts the graph pattern to match (could be cascaded to go down subgraphs) \\
-- variables can occur at any place in the graph pattern (?subj ?pred ?obj) as select with query everything \\
-\\
-LIMIT \textless n\textgreater option at the end for limiting the result set \\
-FILTER (?varName \textless condition\textgreater ) in graph pattern can restrict results to match some
-literal values and supports: \\
-- numbers, dates: \textless, \textgreater, = \\
-- strings: =, regex() \\
-\\
-\textbf{open world} assumption: resources on the Web are described in different schematas with various properties
-using different vocabularies \\
-- UNION option in graph pattern combines different matches \\
-- OPTIONAL option in graph pattern only returns those entities if they are available (otherwise empty) \\
-\\
-ASK query checks for the existence of a given graph pattern \\
-CONSTRUCT can be used to retrieve a subgraph from a larger graph, can also be used to translate between different schemas \\
+The WHERE clause in a \gls{SPARQL} query can include additional conditions that have an effect on the returned information, such as \citep[pg. 66-112]{allemang2011semantic}: \@
+
+\begin{itemize}
+	\item \textbf{LIMIT:} specifies the upper limit of results that should be returned from a \gls{SPARQL} query; e.g.\ LIMIT 100
+	\item \textbf{FILTER:} express additional filter conditions on the result set of a \gls{SPARQL} query; e.g.\ FILTER(?releaseDate > ``1980-01-01'')
+	\item \textbf{UNION:} combine the result sets from different graph patterns into one; e.g.\ { ex:Song ex:title ``A'' } UNION { ex:Song ex:title ``G'' }
+\end{itemize}
+
+Beside the SELECT statement, that returns tabular data, \gls{SPARQL} also supports the ASK type of query, which checks for the existence of graph patterns stated in the WHERE clause, and will return a boolean value (true or false). This kind of query is commonly used to assert the presence of certain triples in a \gls{RDF} data set. \\
+
+Another kind of query is the CONSTRUCT statement, that is used to retrieve a subgraph from a \gls{RDF} data set, and can also be used to harmonize graphs from different sources, that use different schemata. As a query of type CONSTRUCT will return a new \gls{RDF} graph it can also be used for basic reasoning functionality ala ``if this graph-pattern is found, assume that \ldots'', as well as to help with resolving issues of identifying entities that are described with different \gls{URI}s \citep[pg. 88-98]{allemang2011semantic}.
+E.g.\ querying a \gls{RDF} data set containing triples such as the one described in Listing~\ref{lst:sample_rdf_schema} and mapping the song information to the DublinCore specification \citep{DublinCore}, one has to write a \gls{SPARQL} CONSTRUCT query as shown in Listing~\ref{lst:construct_sparql}: \@
 
 \begin{listing}[H]
 	\begin{minted}[linenos,
@@ -397,37 +393,32 @@ CONSTRUCT can be used to retrieve a subgraph from a larger graph, can also be us
 	               gobble=2,
 	               frame=lines,
 	               framesep=2mm]{SPARQL}
-	  PREFIX ns1:<URI>
-	  PREFIX ns2:<URI>
-	  PREFIX ns3:<URI>
+		# define prefixes for URIs
+		PREFIX ex:  <http://www.example.com/> .
+		PREFIX dc:  <http://purl.org/dc/elements/1.1/> .
+		PREFIX dct: <http://purl.org/dc/terms/> .
+		PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 
-	  CONSTRUCT {
-	      ?varA ns2:predicate ?varB .
-	      ?varA ns3:predicate ?literalA .
-	  }
-	  WHERE {
-	      ?varA ns1:predicate ?varB
-	  }
-	  FILTER ( ?varB > x )
+		# create a new graph with the mapped song information
+		# here: there is an entity of class dc:Sound that have a title
+		CONSTRUCT {
+			?song rdf:type dc:Sound .
+			?song dct:title ?title .
+		}
+		WHERE {
+		  # describe the conditions for the query
+		  # as graph-patterns that have to match
+		  # here: it has to be a Song, which has a predicate title
+		  ?song rdf:type ex:Song .
+		  ?song ex:title ?title .
+		}
 	\end{minted}
-\caption{A CONSTRUCT query in \gls{SPARQL}}
+\caption{Mapping custom song information to the DublinCore vocabulary with \gls{SPARQL}}
 \label{lst:construct_sparql}
 \end{listing}
 
-- SPARQL can be used to harmonize graphs from different sources \\
-- is also used for basic reasoning ala ``if found this, assume that'' \\
-- can ease hierarchical queries with * or + on the predicate (SPARQL 1.1) \\
-- can help resolving issues with different entities referring to the same object (MKP pg. 95)\\
-- Federated Queries can be used to combine information from distinct sources via SPARQL (MKP pg. 110-112)\\
-\\
-- inferencing information from existing triples via SPIN (SPARQL Inferencing Notation) \\
-- like in a taxonomy items can be categorized in an hierarchy (MKP pg. 114) \\
-- inference patterns are used in Semantic Web applications (MKP pg. 115) \\
-   * subClassOf - type propagation rule \\
-- inferencing could be done at query time or persistently (MKP pg. 120/121) \\
-- inferences can also be helpful when combining information from unknown sources \\
-- inferencing happens on various levels (RDFS, RDFS+, OWL) with an increased set of complex inferencing rules (MKP pg. 122/123)
-\\
+Please note that the CONSTRUCT statement consists of a set of triple statements that will make up the resulting \gls{RDF} graph.
+
 % section semantic_querylang (end)
 
 % section semantic_web (end)

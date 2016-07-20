@@ -328,22 +328,25 @@ owl:sameAs & equality of individual resources \\
 \label{tab:w3c_vocab_owl}
 \end{table}
 
-The Table~\ref{tab:w3c_vocab_owl} is only showing a small subset of the concepts available in \gls{OWL}. The Web Ontology Language can be used to express a wide variety of constraints and classifiers on predicates, and the whole specification is based on three parts that are build upon each other \citep{owlspec}. Still, with an increase of expressiveness in the model definition the complexity of the reasoning and inferencing engine also grows up. This Master thesis is therefore restricting the usage of concepts of the \gls{OWL} specifications to the axioms shown in Table~\ref{tab:w3c_vocab_owl}.
+The Table~\ref{tab:w3c_vocab_owl} is only showing a small subset of the axioms available in \gls{OWL}. The Web Ontology Language can be used to express a wide variety of constraints and classifiers on predicates, and the whole specification is based on three parts that are build upon each other \citep{owlspec}. Still, with an increase of expressiveness in the model the complexity of the reasoning and inferencing engine also grows up, because most of these axioms are used to express inferences that can be drawn on the \gls{RDF} data set. This Master thesis is restricting the usage of axioms of the \gls{OWL} specifications to ones shown in Table~\ref{tab:w3c_vocab_owl}.
 
 % section semantic_ontologies (end)
 
 \subsection{\gls{SPARQL} protocol and query language}
 \label{sec:semantic_querylang}
 
-SPARQL requires a \textbf{triple store} - a database containing RDF documents \\
-is also referred to as a \textit{Graph Store} \\
-data is inserted via Bulk load operation or via SPARQL update statements \\
-SPARQL consist of SPARQL Queries that are send over the SPARQL protocol \\
-Clients sends the queries to an HTTP endpoint \\
-Stores on the public Web incl. dbpedia.org, ckan.org, wikidata.org \\
-SPARQL also works with RDFS \\
-SPARQL has similarities to SQL:
-- each element in a triple might be replaced with a variable like `?varName' like so: \\
+A kind of query language is required to be able to access specific information in a \gls{RDF} data set on the Semantic Web. Additionally, the query language has to support the distributed nature of information on the Semantic Web, as well as be suitable for asking information from the graph-oriented data model of \gls{RDF}. The \gls{W3C} proposes the \gls{SPARQL} protocol and query language as a standard way to access and query for information on the Semantic Web. As the name already implies the specification contains two parts: a \emph{protocol} and a \emph{query language}. \\
+
+\gls{SPARQL} requires the \gls{RDF} data set in a \emph{triple store}, which is a kind of database containing \gls{RDF} statements (another name for it might be \emph{graph store}). The \gls{RDF} data set is usually inserted into the triple store via bulk load operations or single \gls{SPARQL} update statements, which like in \gls{SQL} for relational databases can manipulate \gls{RDF} statements in the data store. A \gls{SPARQL} query is usually expressed in a Turtle-like syntax and is send to an \gls{HTTP} endpoint of the triple store by a client application. The result of the query can contain either a single value, a tabular data stream, or a subgraph of the \gls{RDF} data set depending on the query issued. The structure of a Semantic Web application that uses a triple store (aka \gls{RDF} store) and the \gls{SPARQL} query engine is depicted in Figure~\ref{fig:images_semweb_app}.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\columnwidth]{images/semantic_web_application.png}
+	\caption[Semantic Web application architecture]{Semantic Web application architecture \citep[pg. 57]{allemang2011semantic}}
+	\label{fig:images_semweb_app}
+\end{figure}
+
+The \gls{SPARQL} query language has a lot of similarities with the \gls{SQL} used for querying relational databases. This design decision will ease the transition to the Semantic Web for application developers familiar with accessing data from a relational database. The main difference though is the way used to specify the conditions for a query. This is largely due to the differences in the underlying data model, which is relational in \gls{SQL} versus graph-oriented in \gls{SPARQL}. As of this, a WHERE clause in a \gls{SPARQL} query has to contain a graph-based representation of the query conditions that have to be matched in the \gls{RDF} data set. Parts of these conditions can be marked as placeholders, which are referred to in a SELECT statement for generating a tabular output. These placeholders are marked with a questionmark in the beginning of their name and can be used for any part of a triple statement. E.g.\ querying a \gls{RDF} data set containing triples such as the one described in Listing~\ref{lst:sample_rdf_schema} for the titles of all available songs, one has to write a \gls{SPARQL} SELECT query as shown in Listing~\ref{lst:select_sparql}: \@
 
 \begin{listing}[H]
 	\begin{minted}[linenos,
@@ -351,16 +354,21 @@ SPARQL has similarities to SQL:
 	               gobble=2,
 	               frame=lines,
 	               framesep=2mm]{SPARQL}
-	  PREFIX ns1:<URI>
-	  PREFIX ns2:<URI>
-	  PREFIX ns3:<URI>
+		# define prefixes for URIs
+	  PREFIX music: <http://music.org/>
+	  PREFIX ex: <http://www.example.com/>
 
-	  SELECT ?varName
+		# choose to output any title found in graph-pattern
+	  SELECT ?title
 	  WHERE {
-	      ns1:subject ns2:predicate ?varName
+				# describe the conditions for the query
+				# as graph-patterns that has to match
+				# (it has to be a song, which has a title)
+	      ?song rdf:type ex:Song .
+				?song ex:title ?title .
 	  }
 	\end{minted}
-\caption{Selecting information with \gls{SPARQL}}
+\caption{Selecting the title from all songs with \gls{SPARQL}}
 \label{lst:select_sparql}
 \end{listing}
 

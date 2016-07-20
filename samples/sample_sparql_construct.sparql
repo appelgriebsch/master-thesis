@@ -5,7 +5,7 @@ PREFIX dct: <http://purl.org/dc/terms/> .
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 
 # create a new graph with the mapped song information
-# here: there is an entity of class dc:Sound that have a title
+# here: there is an entity of type dc:Sound that have a title
 CONSTRUCT {
   ?song rdf:type dc:Sound .
   ?song dct:title ?title .

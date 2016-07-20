@@ -349,25 +349,11 @@ A kind of query language is required to be able to access specific information i
 The \gls{SPARQL} query language has a lot of similarities with the \gls{SQL} used for querying relational databases. This design decision will ease the transition to the Semantic Web for application developers familiar with accessing data from a relational database. The main difference though is the way used to specify the conditions for a query. This is largely due to the differences in the underlying data model, which is relational in \gls{SQL} versus graph-oriented in \gls{SPARQL}. As of this, a WHERE clause in a \gls{SPARQL} query has to contain a graph-based representation of the query conditions that have to be matched in the \gls{RDF} data set. Parts of these conditions can be marked as placeholders, which are referred to in a SELECT statement for generating a tabular data output. These placeholders are marked with a question-mark in the beginning of their name and can be used as placeholder for any part of a triple statement (subject, predicate, object) \citep[pg. 66-112]{allemang2011semantic}. E.g.\ querying a \gls{RDF} data set containing triples such as the one described in Listing~\ref{lst:sample_rdf_schema} for the titles of all available songs, one has to write a \gls{SPARQL} SELECT query as shown in Listing~\ref{lst:select_sparql}: \@
 
 \begin{listing}[H]
-	\begin{minted}[linenos,
-	               numbersep=5pt,
-	               gobble=2,
-	               frame=lines,
-	               framesep=2mm]{SPARQL}
-		# define prefixes for URIs
-		PREFIX ex:  <http://www.example.com/> .
-		PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-
-		# choose to output any title found in graph-pattern
-		SELECT ?title
-		WHERE {
-		  # describe the conditions for the query
-		  # as graph-patterns that have to match
-		  # here: it has to be a Song, which has a predicate title
-		  ?song rdf:type ex:Song .
-		  ?song ex:title ?title .
-		}
-	\end{minted}
+	\inputminted[linenos,
+							 numbersep=5pt,
+							 breaklines=true,
+							 frame=lines]{SPARQL}
+							 {./samples/sample_sparql_select.sparql}
 \caption{Selecting the title from all songs with \gls{SPARQL}}
 \label{lst:select_sparql}
 \end{listing}
@@ -378,41 +364,21 @@ The WHERE clause in a \gls{SPARQL} query can include additional conditions that 
 
 \begin{itemize}
 	\item \textbf{LIMIT:} specifies the upper limit of results that should be returned from a \gls{SPARQL} query; e.g.\ LIMIT 100
-	\item \textbf{FILTER:} express additional filter conditions on the result set of a \gls{SPARQL} query; e.g.\ FILTER(?releaseDate > ``1980-01-01'')
-	\item \textbf{UNION:} combine the result sets from different graph patterns into one; e.g.\ { ex:Song ex:title ``A'' } UNION { ex:Song ex:title ``G'' }
+	\item \textbf{FILTER:} express additional filter conditions on the result set of a \gls{SPARQL} query; e.g.\ FILTER(?releaseDate \textgreater ``1980-01-01'')
+	\item \textbf{UNION:} combine the result sets from different graph patterns into one; e.g.\ \{ ex:Song ex:title ``A'' \} UNION \{ ex:Song ex:title ``G'' \}
 \end{itemize}
 
 Beside the SELECT statement, that returns tabular data, \gls{SPARQL} also supports the ASK type of query, which checks for the existence of graph patterns stated in the WHERE clause, and will return a boolean value (true or false). This kind of query is commonly used to assert the presence of certain triples in a \gls{RDF} data set. \\
 
 Another kind of query is the CONSTRUCT statement, that is used to retrieve a subgraph from a \gls{RDF} data set, and can also be used to harmonize graphs from different sources, that use different schemata. As a query of type CONSTRUCT will return a new \gls{RDF} graph it can also be used for basic reasoning functionality ala ``if this graph-pattern is found, assume that \ldots'', as well as to help with resolving issues of identifying entities that are described with different \gls{URI}s \citep[pg. 88-98]{allemang2011semantic}.
-E.g.\ querying a \gls{RDF} data set containing triples such as the one described in Listing~\ref{lst:sample_rdf_schema} and mapping the song information to the DublinCore specification \citep{DublinCore}, one has to write a \gls{SPARQL} CONSTRUCT query as shown in Listing~\ref{lst:construct_sparql}: \@
+E.g.\ querying a \gls{RDF} data set containing triples such as the one described in Listing~\ref{lst:sample_rdf_schema} and mapping the song information to the DublinCore specification \citep{DublinCore}, one has to write a \gls{SPARQL} CONSTRUCT query as shown in Listing~\ref{lst:construct_sparql}. \\
 
-\begin{listing}[H]
-	\begin{minted}[linenos,
-	               numbersep=5pt,
-	               gobble=2,
-	               frame=lines,
-	               framesep=2mm]{SPARQL}
-		# define prefixes for URIs
-		PREFIX ex:  <http://www.example.com/> .
-		PREFIX dc:  <http://purl.org/dc/elements/1.1/> .
-		PREFIX dct: <http://purl.org/dc/terms/> .
-		PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-
-		# create a new graph with the mapped song information
-		# here: there is an entity of class dc:Sound that have a title
-		CONSTRUCT {
-			?song rdf:type dc:Sound .
-			?song dct:title ?title .
-		}
-		WHERE {
-		  # describe the conditions for the query
-		  # as graph-patterns that have to match
-		  # here: it has to be a Song, which has a predicate title
-		  ?song rdf:type ex:Song .
-		  ?song ex:title ?title .
-		}
-	\end{minted}
+\begin{listing}[!ht]
+	\inputminted[linenos,
+							 numbersep=5pt,
+							 breaklines=true,
+							 frame=lines]{SPARQL}
+							 {./samples/sample_sparql_construct.sparql}
 \caption{Mapping custom song information to the DublinCore vocabulary with \gls{SPARQL}}
 \label{lst:construct_sparql}
 \end{listing}

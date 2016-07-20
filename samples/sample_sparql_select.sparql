@@ -1,0 +1,13 @@
+# define prefixes for URIs
+PREFIX ex:  <http://www.example.com/> .
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+
+# choose to output any title found in graph-pattern
+SELECT ?title
+WHERE {
+  # describe the conditions for the query
+  # as graph-patterns that have to match
+  # here: it has to be a Song, which has a predicate title
+  ?song rdf:type ex:Song .
+  ?song ex:title ?title .
+}

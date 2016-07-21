@@ -5,7 +5,7 @@
 
 When trying to solve issues of information integration between organizations there are already existing solutions, that have to be examined whether they might fit the \gls{E-commerce} fraud investigation scenario or not. This section is looking into the common approaches that exist to collect and integrate information between \gls{IT} systems.
 
-\subsection{The \gls{ETL} processes}
+\subsection{\gls{ETL} processes}
 \label{subsec:etl_process}
 
 To begin with, retrieving, transforming and combining data from multiple dispersed data sources is not a completely new problem, and is actually part of ``Extract-Transform-Load'' (\gls{ETL}) processes \emph{within} an organization. The basic idea is very much the same as in the concept shown in this thesis; namely to get as much information as possible from the various databases, that are in use within a company, harmonize (aka transform) the data from each of them into a shared data model, and use the cleaned up and combined information repository for doing advanced business analytics and predictions later. Data within an organization is created and maintained by different business-related tools. Each of these will usually store the information into their own database using a vendor-specific data schema. Other business-relevant data might be stored in structured files, sometimes using a proprietary format such as Excel files. Each of these data sources have to be accessed, the valuable information have to be extracted and mapped against each other, before the analysis of it can begin on a separate data store, that holds the combined data set. The whole process is visualized in Figure~\ref{fig:images_etl_process}. \\

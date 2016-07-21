@@ -28,15 +28,15 @@ The data model of the Semantic Web is build upon labeled graphs with objects and
 
 \begin{itemize}
 	\item formalize the syntax of the graph in \gls{RDF} (see Section~\ref{sec:semantic_rdf}),
-	\item use \gls{URI}s to identify individual data items and relations (see Section~\ref{subsec:uri_concept}),
+	\item use \gls{URI}s to identify individual data items and relations,
 	\item use ontologies to represent semantics of the entities. Ontologies can be lightweight \gls{RDFS} definitions or expressive descriptions in the \gls{OWL} language (see Section~\ref{sec:semantic_vocab_ontologies}).
 \end{itemize}
 
-Initially it was tried to solve the data integration aspect on the Web with the exchange of \gls{XML}-based messages, but though the \gls{XML} format is more machine readable as \gls{HTML} it still lacks the semantic of the data transmitted (see Section~\ref{subsec:xml_format}). Therefore the Semantic Web defines the \gls{RDF} format as the basic data exchange format of it. Still the \gls{RDF} format was initially based on the \gls{XML} specification. To formally describe the existing terms and their possible relationships within a domain the Semantic Web relies on an ontology specification. These specifications are either expressed in \gls{RDFS} or uses the more expressive \gls{OWL} language; both of them are meta-description languages, which allows the definition of domain-specific knowledge representations based on the concepts found in \gls{RDF} itself. \\
+Initially it was tried to solve the data integration aspect on the Web with the exchange of \gls{XML}-based messages, but though the \gls{XML} format is more machine readable as \gls{HTML} it still lacks the semantic of the data transmitted. Therefore the Semantic Web defines the \gls{RDF} format as the basic data exchange format of it. Still the \gls{RDF} format was initially based on the \gls{XML} specification. To formally describe the existing terms and their possible relationships within a domain the Semantic Web relies on an ontology specification. These specifications are either expressed in \gls{RDFS} or uses the more expressive \gls{OWL} language; both of them are meta-description languages, which allows the definition of domain-specific knowledge representations based on the concepts found in \gls{RDF} itself. \\
 
 As such the Semantic Web is a layered approach as depicted in Figure~\ref{fig:images_semweb_model}.\@
 
-\begin{figure}[H]
+\begin{figure}[!ht]
 	\centering
 		\includegraphics[width=0.8\columnwidth]{images/semantic_web_layers.png}
 	\caption[The Semantic Web Model]{The Semantic Web Model \citep{W3C2013}}
@@ -65,7 +65,7 @@ Whereas the World-Wide Web is made up from interlinked documents in the \gls{HTM
 \label{fig:images_semweb_triple}
 \end{figure}
 
-In this example the triple consists of the entity ``MasterThesis'', the assigned attribute ``createdBy'' and the value ``AndreasGerlach''. The value-part of a triple can contain either a literal value or refer to another entity (as in the example shown above). Still a problem with this example statement is that the entities are not unique. Based on the given information it is not clear, which specific ``MasterThesis'' is meant and to whom the value ``AndreasGerlach'' refers. Additionally the predicate used can have multiple meanings. These ambiguities have to be resolved on the Semantic Web to be able to make these information understandable by machines. To solve these issues the Semantic Web standard specifies that names of entities and predicates have to use a \gls{URI} (see Section~\ref{subsec:uri_concept}) to make their intended meanings clear. Literals that can be also used as values, such as numbers, dates and strings, borrow their data type specifications from the \gls{XML} standard \citep[pg. 15-38]{wood2014linked}. \\
+In this example the triple consists of the entity ``MasterThesis'', the assigned attribute ``createdBy'' and the value ``AndreasGerlach''. The value-part of a triple can contain either a literal value or refer to another entity (as in the example shown above). Still a problem with this example statement is that the entities are not unique. Based on the given information it is not clear, which specific ``MasterThesis'' is meant and to whom the value ``AndreasGerlach'' refers. Additionally the predicate used can have multiple meanings. These ambiguities have to be resolved on the Semantic Web to be able to make these information understandable by machines. To solve these issues the Semantic Web standard specifies that names of entities and predicates have to use a \gls{URI} to make their intended meanings clear. Literals that can be also used as values, such as numbers, dates and strings, borrow their data type specifications from the \gls{XML} standard \citep[pg. 15-38]{wood2014linked}. \\
 
 Based on this description the foundational elements of \gls{RDF} can be summarized as: \@
 

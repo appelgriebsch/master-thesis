@@ -33,37 +33,21 @@ In opposite to that a \gls{P2P} network considers all nodes as equal. This offer
 \subsection{Classification of \gls{P2P} systems}
 \label{sec:p2p_classification}
 
-- can be categorized by the degree of centralization into: \\
-1) partly centralized P2P systems (have a dedicated controller node that maintains the set of participating nodes and controls the system) \\
-2) decentralized P2P systems (there are no dedicated nodes that are critical for the system operation) \\
-- depends on the structure of the P2P system
-- in a partly centralized P2P system new nodes join the network by connecting to the central controller (wellknown IP address) \\
-- in a decentralized P2P system new nodes are expected to obtain via a separate channel the IP address to connect to (usually a bootstrap node that helps to set up the new node) \\
-\\
+\gls{P2P} system architectures can be classified based on their degree of centralization into: \@
 
-% section p2p_init_session (end)
+\begin{itemize}
+	\item \textbf{partially centralized \gls{P2P} system:} rely on a dedicated controller node that maintains the set of participating nodes, host the index of the information available in the system and controls its operation,
+	\item \textbf{decentralized \gls{P2P} system:} does not use any dedicated controller nodes, but depending on its size may need to introduce bootstrap and super nodes for maintaining the list of participating nodes and the index of the information available
+\end{itemize}
 
-\subsection{Initiating a \gls{P2P} communication}
+% section p2p_classification (end)
+
+\subsection{Establish a \gls{P2P} communication}
 \label{sec:p2p_start_communication}
 
-- also known as the overlay network in a P2P system \\
-- can be represented as a directed graph containing the nodes and communication links between them \\
-- can be differentiated between unstructured and structured overlays \\
-- unstructured overlay networks have no constraints for the links between nodes; therefore the network has no particular structure \\
-- structured overlay networks assign an unique identifier from a numeric keyspace to each node; these keys are used to assign certain responsibilities to nodes
-on the network; as of this routing can be handled more efficiently \\
-- in partly centralized P2P systems the controller is responsible for the overlay formation \\
-\\
-- in partly centralized P2P system an object is typically stored at the node that inserted the object \\
-- the central controller holds the information about which objects exist and which nodes hold them \\
-\\
-- in unstructured systems the information is typically stored on the nodes that introduces them \\
-- to locate an object a query request is typically broadcasted through the overlay network \\
-- often the scope of the request (e.g. the maximum number of hops from the querying node forward) is limited to reduce the overhead on the system \\
-\\
-- in structured systems a distributed index is maintained in the form of a distributed hash table \\
-- this DHT holds the hash value of the (index) key and the address of the node that stores the value \\
-\\
+The procedure to establish a \gls{P2P} communication depends on the structure of the \gls{P2P} system. In a \emph{partly centralized \gls{P2P} system} new nodes join the network by connecting to the central controller first. This central controller has a well-known \gls{IP} address and maintains the operation of the whole \gls{P2P} network. Due to this, any new node has to register with the central controller to get introduced to the \gls{P2P} network. The controller also maintains the information about the overlay network as well as the information about each object and on which node(s) it resides within the network. The overlay is typically following a star-shaped topology with the central controller at the center, see Figure~\ref{fig:p2p_network_overlays}. \\
+
+In a \emph{decentralized \gls{P2P} system} new nodes are expected to obtain the \gls{IP} address they have to connect to initially via a separate channel. Depending on the size of the \gls{P2P} network additional bootstrap or super nodes, which help to set up a new node, are available on the network. The special nodes are also consolidating information about the objects available on the peers nearby, which helps speeding up searching and accessing required information. The overlay information of such distributed network can be either \emph{structured}, in which each node receives a unique identifier from a numeric keyspace resembling the responsibilities of that node, or \emph{unstructured}, in which there no particular structure or constraints assigned to the nodes of the network. A structured overlay maintain the information within the network more efficiently, because it uses a distributed hash-table to maintain a distributed index and decides the location (aka node) of an object in the network based on its hash-value. In an unstructured overlay network the information is typically stored on the node that introduces it. To locate an object a query request is typically broadcasted through the overlay network. Based on the size of the network and the distance between the node asking for the information and the node holding the information querying and accessing an information on an unstructured overlay network will take time, and can also flood the whole network. Therefore, requesting nodes often set the scope of the request, which limits the number of hops that should be done on the network. This will reduce the overhead on the whole system. Additionally, introducing super nodes that collect and maintain indexes of their peers nearby can further reduce the number of hops necessary to find the required information, see Figure~\ref{fig:p2p_network_overlays} \citep{rodrigues2010peer}.
 
 % section p2p_start_communication
 

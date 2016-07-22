@@ -60,9 +60,16 @@ A \emph{structured overlay} maintain the information within the network more eff
 
 % section p2p_start_communication
 
-\subsection{\gls{WebRTC} protocol}
+\subsection{Using \gls{WebRTC} for \gls{P2P} communication}
 \label{sec:p2p_webrtc}
 
+``Web Real-Time Communication (\gls{WebRTC}) is a collection of standards, protocols, and JavaScript \gls{API}s, the combination of which enables peer-to-peer audio, video, and data sharing between browsers (peers)'' \citep[pg. 307]{grigorik2013high}. Although this new \gls{W3C} standard usually stands for in-browser video or audio conferencing without the need of proprietary browser extensions it also offers ways to exchange arbitrary messages or binary data between participating peers in a distributed Web application. Due to being an open Web standard \gls{WebRTC} is available in many current Web browsers directly, and is widely adopted as a standardized and open way to establish a \gls{P2P} communication between clients from within a Web site or application. The standard wraps a lot of the complexity of establishing peer-to-peer communication channels and transmit data into three primary \gls{API}s \citep[pg. 307-308]{grigorik2013high}: \@
+
+\begin{itemize}
+	\item \textbf{MediaStream:} for acquiring access to and retrieve data from local audio and video devices,
+	\item \textbf{RTCPeerConnection:} for establishing a peer-to-peer connection between clients,
+	\item \textbf{RTCDataChannel:} for transmitting arbitrary application data
+\end{itemize}
 
 % section p2p_webrtc (end)
 

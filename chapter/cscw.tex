@@ -79,7 +79,16 @@ In a \gls{CSCW} system shared information can take over two important roles: on 
 
 The kind of artifacts that are shared within such as collaborative system is not further specified, and can range from information, events or object representations from the real world to internal terms or objects of the working group. Whereas the former can be described extensively and usually do not need further interpretation, the latter one will need an interpretative component to define and communicate their intended meanings between group members. This common interpretation of terms and objects is even more important if the collaborative system is working across time and space boundaries, because co-located group member are generally having the same understanding of terms and objects due to being in the same (working) context and environment. Based to this fact, information that has to be shared between dispersed group members have to be refined and packaged in a way that enable the receiver to ``unpack'' the information and be able to re-create the original context, in which the information was created. Therefore the information in such a system is not just coming out of a shared database, but also involves the joined interpretation of it by all the actors involved \citep{bannon1997constructing}. \\
 
-If information from different sources come together in a shared information space the collaborative system should support a nonlinear, exploratory way to retrieve and navigate through the information space to enable participants to browse and ascertain the concepts and their relations individually. A valid proposal for such a system is based on \emph{Hypertext}, because of its generic approach for the construction of nonlinear, computer-supported material that users can display and navigate on their screen in a nonlinear fashion. Hypertext systems are providing information that is distributed over a network of nodes, which make up the information space. Therefore, the information is divided into small, logical information units (aka nodes), in which references (aka links) are pointing to relevant or related units from the shared information space (see Figure~\ref{fig:images_cscw_hypertext_concept}). Users can navigate the information space along these links. A Hypertext system consists of three layers \citep[pg. 295-307]{borghoff2000computer}: \@
+If information from different sources come together in a shared information space the collaborative system should support a nonlinear, exploratory way to retrieve and navigate through the information space to enable participants to browse and ascertain the concepts and their relations individually. A valid proposal for such a system is based on \emph{Hypertext}, because of its generic approach for the construction of nonlinear, computer-supported material that users can display and navigate on their screen in a nonlinear fashion. Hypertext systems are providing information that is distributed over a network of nodes, which make up the information space. Therefore, the information is divided into small, logical information units (aka nodes), in which references (aka links) are pointing to relevant or related units from the shared information space (see Figure~\ref{fig:images_cscw_hypertext_concept}). Users can navigate the information space along these links \citep[pg. 295-307]{borghoff2000computer}. \@
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.9\columnwidth]{images/Hypertext.pdf}
+  \caption[A link between two nodes]{A link between two nodes \citep[pg. 303]{borghoff2000computer}}
+  \label{fig:images_cscw_hypertext_concept}
+\end{figure}
+
+A Hypertext system usually consists of three layers \citep[pg. 301-302]{borghoff2000computer}: \@
 
 \begin{itemize}
   \item \textbf{database layer:} persists and manages the Hypertext information in a way that allows fast access and retrieval of information units,
@@ -87,12 +96,8 @@ If information from different sources come together in a shared information spac
   \item \textbf{presentation:} displays individual information units on screen and allows the user to navigate the information space (via the links)
 \end{itemize}
 
-\begin{figure}[H]
- \centering
- \includegraphics[width=0.9\columnwidth]{images/Hypertext.pdf}
- \caption[Example for a link between two nodes]{Example for a link between two nodes \citep[pg. 303]{borghoff2000computer}}
-\label{fig:images_cscw_hypertext_concept}
-\end{figure}
+
+The link specifications can be either part of the node content itself (e.g.\ as in the \gls{HTML} standard), can be completely separated from the contents of the nodes (e.g.\ as navigational elements such as ``previous'' or ``next''), or can be collected and presented in some kind of general overview such as a table of contents \citep[pg. 304-306]{borghoff2000computer}.
 
 % section cscw_shared_spaces (end)
 

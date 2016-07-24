@@ -11,16 +11,8 @@
 \subsection{Mapping of the information from various sources}
 \label{subsec:information_mapping}
 
-Although it is possible to model each \gls{E-commerce} transaction with the Schema.org specification as shown in Figure~\ref{fig:images_schema_org}, the collaborative system still has to take care of the mapping of the transactional information coming from various sources to be able to combine, analyze and cluster them. As shown in the Section~\ref{subsec:web_data} the build-in merging capabilities of the \gls{RDF} specification rely on the \gls{URI}s used for the entities in the various \gls{RDF} data sets. These \gls{URI}s are used to uniquely identify the resources in a \gls{RDF} data set. \\
+As shown in the Section~\ref{subsec:web_data} the build-in merging capabilities of the \gls{RDF} specification rely on the \gls{URI}s used for the entities in the various \gls{RDF} data sets. These \gls{URI}s are used to uniquely identify the resources in a \gls{RDF} data set. \\
 
-The \gls{W3C} standards for the Semantic Web also include support for these mapping issues, as they will also come up when trying to combine semantic information available around the Web. Additionally, the Schema.org specification also defines a property, that can be used for that purpose. The following properties are available in the \gls{RDFS}, \gls{OWL} and Schema.org specifications: \@
-
-\begin{itemize}
-	\item \textbf{rdfs:label}: a label of a resource in the \gls{RDF} data set can contain a human-friendly name of the resource. These labels are literals of type string and can come with a language specifier in case the resource supports expressions for different languages (see Listing~\ref{lst:rdfs_label_language} for an example).
-	\item \textbf{rdfs:seeAlso}: a relation of type seeAlso contains an \gls{URI} to an external resource, that contains additional information for the subject (see Listing~\ref{lst:rdfs_seeAlso_location} for an example).
-	\item \textbf{rdfs:isDefinedBy}: the isDefinedBy property is a specialization of the seeAlso relation, in that it specifies a link to the original definition of a resource
-	\item \textbf{owl:sameAs, schema:sameAs}: the sameAs relation as specified in the \gls{OWL} and Schema.org vocabularies are providing an unique \gls{URI} that unambiquiously define the subject (see Listing~\ref{lst:schema_sameAs_location} for an example)
-\end{itemize}
 
 \begin{listing}[H]
   \inputminted[linenos,

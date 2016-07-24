@@ -3,6 +3,8 @@
 \section{Combining \gls{RDF} data sets in the \gls{E-commerce} scenario}
 \label{sec:working_semantic_data}
 
+With that methods in place the collaborative system can now specify how the relevant participants have to provide their information so that they can be used in the system for analyzing the various \gls{E-commerce} transactions, which have been done with a credit card, with the objective to find any suspicious activities. This section explains how the different participants might prepare their local context information for external consumption, and how the transactional details from various online merchants can be combined on an individual level to be able to cluster the transactions by different criteria as described in Section~\ref{sec:analyze_transactions}.
+
 \subsection{Preparing internal information for external consumption}
 \label{subsec:prepare_information}
 
@@ -11,7 +13,7 @@
 \subsection{Merging transactional information from various sources}
 \label{subsec:information_mapping}
 
-As shown in the Section~\ref{subsec:web_data} the build-in merging capabilities of the \gls{RDF} specification rely on the \gls{URI}s used for the entities in the various \gls{RDF} data sets. These \gls{URI}s are used to uniquely identify the resources in a \gls{RDF} data set. \@
+Still, if the transactional details from various online merchants have to be linked together on the individual entity level to support clustering the information on different aspects, the build-in merging capabilities of the \gls{RDF} specification will rely on unique \gls{URI}s used for the same entities found in different \gls{RDF} data sets as shown in the Section~\ref{subsec:web_data}. These unique \gls{URI}s are used to identify the resources in a dispersed \gls{RDF} data set. \@
 
 \begin{itemize}
   \item \textbf{rdfs:label}: a label of a resource in the \gls{RDF} data set can contain a human-friendly name of the resource. These labels are literals of type string and can come with a language specifier in case the resource supports expressions for different languages (see Listing~\ref{lst:rdfs_label_language} for an example).

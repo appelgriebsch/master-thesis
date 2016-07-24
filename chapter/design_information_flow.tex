@@ -8,11 +8,17 @@
 
 \ldots
 
-\subsection{Mapping of the information from various sources}
+\subsection{Merging information from various sources}
 \label{subsec:information_mapping}
 
-As shown in the Section~\ref{subsec:web_data} the build-in merging capabilities of the \gls{RDF} specification rely on the \gls{URI}s used for the entities in the various \gls{RDF} data sets. These \gls{URI}s are used to uniquely identify the resources in a \gls{RDF} data set. \\
+As shown in the Section~\ref{subsec:web_data} the build-in merging capabilities of the \gls{RDF} specification rely on the \gls{URI}s used for the entities in the various \gls{RDF} data sets. These \gls{URI}s are used to uniquely identify the resources in a \gls{RDF} data set. \@
 
+\begin{itemize}
+  \item \textbf{rdfs:label}: a label of a resource in the \gls{RDF} data set can contain a human-friendly name of the resource. These labels are literals of type string and can come with a language specifier in case the resource supports expressions for different languages (see Listing~\ref{lst:rdfs_label_language} for an example).
+  \item \textbf{rdfs:seeAlso}: a relation of type ``rdfs:seeAlso'' contains an \gls{URI} to an external resource, that contains additional information for the subject (see Listing~\ref{lst:rdfs_seeAlso_location} for an example).
+	\item \textbf{rdfs:isDefinedBy}: the ``rdfs:isDefinedBy'' predicate is a specialization of the ``rdfs:seeAlso'' relation, in that it specifies a link to the original definition of a resource.
+	\item \textbf{owl:sameAs, schema:sameAs}: the ``owl:sameAs'' as well as the ``schema:sameAs'' relations are providing an unique \gls{URI} that unambiguously define the subject (see Listing~\ref{lst:schema_sameAs_location} for an example)
+\end{itemize}
 
 \begin{listing}[H]
   \inputminted[linenos,

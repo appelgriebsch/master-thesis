@@ -153,6 +153,18 @@ The \gls{W3C} standards for the Semantic Web also include support for these mapp
   \item \textbf{owl:equivalentProperty:} a relation of type ``owl:equivalentProperty'' specifies the equality of classes coming from different \gls{RDF} vocabularies or Web ontologies
 \end{itemize}
 
+If a merchant wants to state that the product-related information delivered using the GoodRelations vocabulary is equal to product information found in the Schema.org specification, he or she can do so as follows (see Listing~\ref{lst:schema_mapping_gr_schema_org}): \@
+
+\begin{listing}[H]
+ \inputminted[linenos,
+              numbersep=5pt,
+              breaklines=true,
+              frame=lines]{TURTLE}
+              {./samples/mapping_gr_schema_org.ttl}
+ \caption{Mapping product-related information from GoodRelations to Schema.org}
+\label{lst:schema_mapping_gr_schema_org}
+\end{listing}
+
 % subsection map ontology (end)
 
 % sec data_schema (end)

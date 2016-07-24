@@ -1,0 +1,17 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix schema: <http://schema.org/> .
+@prefix gr: <http://purl.org/goodrelations/v1#> .
+
+# mapping classes and properties between GoodRelations and Schema.org
+gr:ProductOrService owl:equivalentClass schema:Product .
+gr:category owl:equivalentProperty schema:category .
+gr:color owl:equivalentProperty schema:color .
+gr:description owl:equivalentProperty schema:description .
+gr:hasBrand owl:equivalentProperty schema:brand .
+gr:hasEAN_UCC-13 owl:equivalentProperty schema:gtin13 .
+gr:hasGTIN-14 owl:equivalentProperty schema:gtin14 .
+gr:hasGTIN-8 owl:equivalentProperty schema:gtin8 .
+gr:name owl:equivalentProperty schema:name .
+[...]

@@ -26,7 +26,7 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="0.4884499"
-     inkscape:cx="727.43639"
+     inkscape:cx="691.60876"
      inkscape:cy="133.21204"
      inkscape:document-units="px"
      inkscape:current-layer="g4371"
@@ -49,7 +49,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -518,16 +518,16 @@
              sodipodi:linespacing="125%">
             <tspan
                sodipodi:role="line"
-               id="tspan4744"
-               style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:41.54158783px;line-height:125%;font-family:ArialMT;-inkscape-font-specification:'ArialMT, Normal';text-align:start;writing-mode:lr-tb;text-anchor:start"
-               x="793.85107"
-               y="808.59082">Data from</tspan>
-            <tspan
-               sodipodi:role="line"
                id="tspan4746"
                style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:41.54158783px;line-height:125%;font-family:ArialMT;-inkscape-font-specification:'ArialMT, Normal';text-align:start;writing-mode:lr-tb;text-anchor:start"
                x="793.85107"
-               y="860.51782">Service A</tspan>
+               y="808.59082">XML data</tspan>
+            <tspan
+               sodipodi:role="line"
+               style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:41.54158783px;line-height:125%;font-family:ArialMT;-inkscape-font-specification:'ArialMT, Normal';text-align:start;writing-mode:lr-tb;text-anchor:start"
+               x="793.85107"
+               y="860.51782"
+               id="tspan4354">Service A</tspan>
           </text>
           <text
              id="text546"
@@ -744,16 +744,16 @@
              sodipodi:linespacing="125%">
             <tspan
                sodipodi:role="line"
-               id="tspan4748"
                style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:41.54158783px;line-height:125%;font-family:ArialMT;-inkscape-font-specification:'ArialMT, Normal';text-align:start;writing-mode:lr-tb;text-anchor:start"
                x="793.85107"
-               y="808.59082">Data from</tspan>
+               y="808.59082"
+               id="tspan4348">XML data</tspan>
             <tspan
                sodipodi:role="line"
-               id="tspan4750"
                style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:41.54158783px;line-height:125%;font-family:ArialMT;-inkscape-font-specification:'ArialMT, Normal';text-align:start;writing-mode:lr-tb;text-anchor:start"
                x="793.85107"
-               y="860.51782">Service B</tspan>
+               y="860.51782"
+               id="tspan4352">Service B</tspan>
           </text>
           <text
              id="text546-0"

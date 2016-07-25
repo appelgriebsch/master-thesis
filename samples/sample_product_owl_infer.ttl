@@ -9,6 +9,9 @@
 schema:gtin13 rdf:type owl:InverseFunctionalProperty .
 gr:hasEAN_UCC-13 rdf:type owl:InverseFunctionalProperty .
 
+# specify that both predicates are equal
+schema:gtin13 owl:equivalentProperty gr:hasEAN_UCC-13 .
+
 # describe product in Schema.org vocabulary
 <P12345>  rdf:type schema:Product;
           schema:name "Self-cleaning refrigerator";
@@ -19,5 +22,5 @@ gr:hasEAN_UCC-13 rdf:type owl:InverseFunctionalProperty .
           gr:name "Self-cleaning refrigerator";
           gr:hasEAN_UCC-13 "111-222-333-444-5" .
 
-# a reasoner will infer the following:
+# a reasoner will infer the following based on above triples
 <P12345> owl:sameAs <P556677> .

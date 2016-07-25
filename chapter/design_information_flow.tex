@@ -145,6 +145,8 @@ In addition to the unique identification of entities in dispersed \gls{RDF} data
 \label{lst:schema_owl_infer_equality}
 \end{listing}
 
+After being able to infer that both products are the same if their global trade item number are equal additional statements can be deduced --- e.g.\ as a product identified by a \gls{GTIN} generally relates to just one brand as well as one model the \gls{RDF} data set can further specify that these predicates are of type ``owl:FunctionalProperty''. This would allow the reasoner to inject additional ``owl:sameAs'' statements into the combined \gls{RDF} data set.  
+
 % subsec information_mapping (end)
 
 % sec provide_information (end)

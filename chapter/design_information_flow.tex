@@ -18,9 +18,9 @@ The merchants should be able to provide \gls{RDF} encoded information for their 
 The merchants provide the following information in \gls{RDF}:\@
 
 \begin{itemize}
-  \item \textbf{product-related information:} as part of the order details the merchants have detailed information about the products that have been bought by a consumer. These information include the brand, model as well as product categories of each item within an order. These are likely of interest in the \gls{E-commerce} fraud investigation. If merchants have these information in a \gls{RDFa} format on their Web sites already, they can refer to those data via the ``rdfs:seeAlso'' predicate, which holds a \gls{URI} to an external resource that contains additional information for the subject (see Listing~\ref{lst:rdfs_seeAlso_order} for an example). Additionally, the product-related information might be available in different languages on the Web shop. The merchants should use the English expression for each textual identifier in a \gls{RDF} data set and express language-dependent terms via the ``rdfs:label'' predicate that is used for a human-friendly name of the resource and supports language specifiers (see Listing~\ref{lst:rdfs_label_language} for an example).
-  \item \textbf{consumer-related information:} as part of the order details the merchants also have the personal related information of the buyer incl.\ billing and shipping addresses.
-  \item \textbf{merchant-related information:} the merchants can also provide information about themselves such as the retail branch they are operating in.
+  \item \textbf{product related information:} as part of the order details the merchants have detailed information about the products that have been bought by a consumer. These information include the brand, model as well as product categories of each item within an order. These are likely of interest in the \gls{E-commerce} fraud investigation. If merchants have these information in a \gls{RDFa} format on their Web sites already, they can refer to those data via the ``rdfs:seeAlso'' predicate, which holds a \gls{URI} to an external resource that contains additional information for the subject (see Listing~\ref{lst:rdfs_seeAlso_order} for an example). Additionally, the product-related information might be available in different languages on the Web shop. The merchants should use the English expression for each textual identifier in a \gls{RDF} data set and express language-dependent terms via the ``rdfs:label'' predicate that is used for a human-friendly name of the resource and supports language specifiers (see Listing~\ref{lst:rdfs_label_language} for an example).
+  \item \textbf{consumer related information:} as part of the order details the merchants also have the personal related information of the buyer incl.\ billing and shipping addresses.
+  \item \textbf{merchant related information:} the merchants can also provide information about themselves such as the retail branch they are operating in.
 \end{itemize}
 
 \begin{listing}[H]
@@ -75,11 +75,7 @@ The issuers holds information about credit cards and their owners incl.\ persona
 \subsection{Merging transactional information from various sources}
 \label{subsec:information_mapping}
 
-Still, if the transactional details from various online merchants have to be linked together on the individual entity level to support analyzing and clustering the information on different aspects, the build-in merging capabilities of the \gls{RDF} specification will rely on unique \gls{URI}s used for the same entities found in different \gls{RDF} data sets as shown in the Section~\ref{subsec:web_data}. These unique \gls{URI}s are used to identify the resources in a dispersed \gls{RDF} data set. \@
-
-\begin{itemize}
-	\item \textbf{owl:sameAs, schema:sameAs}: the ``owl:sameAs'' as well as the ``schema:sameAs'' relations are providing an unique \gls{URI} that unambiguously define the subject (see Listing~\ref{lst:schema_sameAs_location} for an example)
-\end{itemize}
+The issuers must be able to link together the transactional details from various online merchants on the individual entity level for analyzing and clustering the order details on different aspects. As explained in Section~\ref{subsec:web_data} the build-in merging capabilities of the \gls{RDF} specification will rely on unique \gls{URI}s, which are used to describe the same entities found in different \gls{RDF} data sets. Resources can be extended with the ``owl:sameAs'' predicate from the \gls{OWL} specification to provide a  \gls{URI} that unambiguously define the subject (see Listing~\ref{lst:schema_sameAs_location} for an example). \@
 
 \begin{listing}[H]
   \inputminted[linenos,
@@ -91,7 +87,7 @@ Still, if the transactional details from various online merchants have to be lin
 \label{lst:schema_sameAs_location}
 \end{listing}
 
-When looking at the \gls{E-commerce} transaction schema as defined in Section~\ref{sec:data_model_transactions} the following information must be uniquely identified and mapped within the \gls{RDF} data sets coming from the participants of the collaborative system: \@
+When looking at the \gls{E-commerce} \gls{ER} model as defined in Section~\ref{sec:data_model_transactions} the following information must be uniquely identified within the \gls{RDF} data sets coming from the participants of the collaborative system: \@
 
 \begin{itemize}
 	\item \textbf{personal related information} such as the consumer, recipient and credit card owner
@@ -100,9 +96,11 @@ When looking at the \gls{E-commerce} transaction schema as defined in Section~\r
 	\item \textbf{merchant related information} such as the branch of a merchant
 \end{itemize}
 
-To support the unique identification of entities in the \gls{RDF} data set of an \gls{E-commerce} transaction, one can refer to publicly available \gls{RDF} data sets on the Internet, such as GeoNames or DBpedia. These can provide an unique \gls{URI} for locations and named places. A product-related \gls{RDF} data set was available in form of the ProductDB initiative until recently \citep{bouzidi2014product}. Due to the shutdown of it, the mapping of products can no longer be done by referencing unique \gls{URI}s from the Web, but will have to be based on the global trade item number (aka \gls{GTIN}) of each product. Additional aspects of an item, such as brand, categories and subcategories, can be found on DBpedia as well. \\
+To support the unique identification of entities in the \gls{RDF} data of an \gls{E-commerce} transaction, one can refer to publicly available \gls{RDF} data sets on the Internet such as GeoNames \citep{geonames} or DBpedia \citep{dbPedia.org}. These can provide unique \gls{URI}s for locations and named places. A product related \gls{RDF} data set was available in form of the ProductDB initiative until recently \citep{bouzidi2014product}. Due to the shutdown of it the linking of products can no longer be done by referencing unique \gls{URI}s from the Web, but will have to be based on the global trade item number (aka \gls{GTIN}) of each product. Additional aspects of an item such as brand, categories and subcategories, can be found on DBpedia \citep{dbPedia.org} as well. \\
 
-A problem, that will come up, is the unique addressing of personal related information, such as identifying the consumer. The collaborative system can not rely on mapping the personal related information based on properties such as familyName and givenName alone (see Listing~\ref{lst:sample_customer_mustermann}). There could be typos in the information coming from various \gls{RDF} data sets, and different individuals can still have the same name information. One possible approach to bring these information together would be the mapping based on the e-mail address of the individual. An e-mail address like an \gls{URI} is a globally unique addressing scheme, and one can assume that two entities, who are using to the same e-mail address, are referring to the same entity. Still this is only a weak hint as an individual can have more than one e-mail address, and could use different e-mail addresses for the online shopping trips at different merchants. Therefore a more sophisticated mapping algorithm for personal related information is needed in the collaborative system. This algorithm may take into account the combination of familyName, givenName, dateOfBirth as well as location-based information to uniquely identify an individual. To sum up, the identification of important entities from an \gls{E-commerce} transaction can be based on the following aspects (see Table~\ref{tab:mapping_information}): \@
+A problem, which will come up, is the unique addressing of personal related information such as uniquely identifying a consumer. The collaborative system can not rely on linking the personal related information based on properties such as ``familyName'' and ``givenName'' alone (see Listing~\ref{lst:sample_customer_mustermann}). There could be typos in the information coming from various \gls{RDF} data sets, and distinct individuals can still have the same naming information. One possible approach to bring personal related information together would be linking them based on the e-mail address of the individual. An e-mail address like an \gls{URI} is a globally unique addressing scheme, and one can assume that two entities, who are using to the same e-mail address, are referring to the same subject. Still this is only a weak hint as an individual can have more than one e-mail address, and could use varying e-mail addresses for online shopping trips at different merchants. Therefore a more sophisticated linking algorithm for personal related information is needed in the collaborative system. This algorithm may take into account the combination of ``familyName'', ``givenName'', ``dateOfBirth'' as well as location based information to uniquely identify an individual. \\
+
+To sum up the linking of important entities from an \gls{E-commerce} transaction can be based on the following aspects (see Table~\ref{tab:mapping_information}): \@
 
 \begin{table}[H]
 \centering
@@ -110,7 +108,7 @@ A problem, that will come up, is the unique addressing of personal related infor
 \hline
 \textbf{Entity} & \textbf{Unique Identifier} & \textbf{Public Data Set} & \textbf{Example} \\
 \hline
-Person & eventually e-Mail address & n/a & \url{mailto:max.mustermann@t-online.de} \\
+Person & \gls{evt}. e-mail address & n/a & \url{mailto:max.mustermann@t-online.de} \\
 \hline
 PostalAddress & Location, Position & Geo Names & \url{http://sws.geonames.org/2886242/} \\
 \hline

@@ -9,5 +9,5 @@
                 schema:adress [
                   rdf:type schema:PostalAddress;
                   schema:addressLocality "Cologne"@en;
-                  rdfs:seeAlso <http://sws.geonames.org/2886242/>
+                  schema:sameAs <http://dbpedia.org/resource/Cologne>
                 ] .

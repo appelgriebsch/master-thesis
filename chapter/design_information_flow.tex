@@ -3,24 +3,37 @@
 \section{Combining \gls{RDF} data sets in the \gls{E-commerce} scenario}
 \label{sec:working_semantic_data}
 
-With that methods in place the collaborative system can now specify how the relevant participants have to provide their information so that they can be used in the system for analyzing the various \gls{E-commerce} transactions, which have been done with a credit card, with the objective to find any suspicious activities. This section explains how the different participants might prepare their local context information for external consumption, and how the transactional details from various online merchants can be combined on an individual level to be able to cluster the transactions by different criteria as described in Section~\ref{sec:analyze_transactions}.
+With these methods in place one can now specify how the relevant participants have to provide their information so that they can be combined and analyzed in the collaborative system. This section explains how the different participants might prepare their local context information for external consumption, and how the transactional details from various online merchants can be combined on an individual resource level to be able to analyze and cluster the transactions by different criteria as described in Section~\ref{sec:analyze_transactions}.
 
 \subsection{Preparing internal information for external consumption}
 \label{subsec:prepare_information}
 
-\ldots
+As explained in Section~\ref{subsec:etl_process} there are likely \gls{ETL} processes in-use within the \gls{IT} operations of every stakeholder. These processes are usually collecting and combining information from internal data sources for \emph{internal} business analytics, but can also be used to prepare internal data for external consumption. In the latter case the parts of the relevant information for the \gls{E-commerce} fraud investigation have to be extracted from the internal databases and encoded in a \gls{RDF} data set incl. the \gls{RDFS} vocabulary used and required mapping statements to a well-known vocabulary such as Schema.org as shown in Figure~\ref{fig:images_schema_org}.
 
-\subsection{Merging transactional information from various sources}
-\label{subsec:information_mapping}
+\subsubsection{Merchant}
+\label{subsub:prep_info_merchant}
 
-Still, if the transactional details from various online merchants have to be linked together on the individual entity level to support clustering the information on different aspects, the build-in merging capabilities of the \gls{RDF} specification will rely on unique \gls{URI}s used for the same entities found in different \gls{RDF} data sets as shown in the Section~\ref{subsec:web_data}. These unique \gls{URI}s are used to identify the resources in a dispersed \gls{RDF} data set. \@
+The merchants should be able to provide \gls{RDF} encoded information for their orders based on a given payment token or based on a consumer identification. The former selector is likely used in the initial phase of collecting all required information of orders that have been done with a credit card recently. The latter one is of interest if there are malicious transactions found for a consumer and a merchant has to provide additional order details coming from that consumer. \\
+
+The merchants provide the following information in \gls{RDF}:\@
 
 \begin{itemize}
-  \item \textbf{rdfs:label}: a label of a resource in the \gls{RDF} data set can contain a human-friendly name of the resource. These labels are literals of type string and can come with a language specifier in case the resource supports expressions for different languages (see Listing~\ref{lst:rdfs_label_language} for an example).
-  \item \textbf{rdfs:seeAlso}: a relation of type ``rdfs:seeAlso'' contains an \gls{URI} to an external resource, that contains additional information for the subject (see Listing~\ref{lst:rdfs_seeAlso_location} for an example).
-	\item \textbf{rdfs:isDefinedBy}: the ``rdfs:isDefinedBy'' predicate is a specialization of the ``rdfs:seeAlso'' relation, in that it specifies a link to the original definition of a resource.
-	\item \textbf{owl:sameAs, schema:sameAs}: the ``owl:sameAs'' as well as the ``schema:sameAs'' relations are providing an unique \gls{URI} that unambiguously define the subject (see Listing~\ref{lst:schema_sameAs_location} for an example)
+  \item \textbf{product-related information:} as part of the order details the merchants have more information about the products that have been bought by a consumer. These information include the brand, model as well as product categories of each item within an order. If merchants provide these information in \gls{RDFa} on their Web shops already, they can refer to those data via the ``rdfs:seeAlso'' predicate, which holds an \gls{URI} to an external resource that contains additional information for the subject (see Listing~\ref{lst:rdfs_seeAlso_order} for an example). Additionally, the product-related information might be available in different languages on the Web shop. The merchants should use the English expression for each textual identifier in the \gls{RDF} data set and specify language-dependent terms via the ``rdfs:label'' predicate that usually contains a human-friendly name of the resource and supports language specifiers for such cases (see Listing~\ref{lst:rdfs_label_language} for an example).
+  \item \textbf{consumer-related information:} as part of the order details the merchants also have the personal related information of the buyer incl.\ billing and shipping addresses.
+  \item \textbf{merchant-related information:} the merchants also provide information about themselves such as the retail branch they are operating in.
 \end{itemize}
+
+\begin{listing}[H]
+  \inputminted[linenos,
+               numbersep=5pt,
+               breaklines=true,
+               frame=lines]{TURTLE}
+               {./samples/sample_customer_order.ttl}
+  \caption[Specifying a link to a Web site for looking up product-related information in \gls{RDF}]{Specifying a link to a Web site for looking up product-related information in \gls{RDF}\protect\footnotemark}
+\label{lst:rdfs_seeAlso_order}
+\end{listing}
+
+\footnotetext{Please note that the application has to resolve the \gls{URI} and embed the external \gls{RDF} data set at this position.}
 
 \begin{listing}[H]
   \inputminted[linenos,
@@ -34,24 +47,36 @@ Still, if the transactional details from various online merchants have to be lin
 
 \footnotetext{Please note that the name of the product has been stated without a language specifier, which makes it valid globally.}
 
+\subsubsection{Payment Service Provider}
+\label{subsub:prep_info_psp}
+
+The \gls{PSP}s provide information about a payment token and the authorization request that belongs to it. These information are required to link the credit card to the order information from a merchant.
+
+\subsubsection{Logistic Service Provider}
+\label{subsub:prep_info_lsp}
+
+The \gls{LSP}s provide information about a tracking number and the delivery status of an order. If the recipients have to show their ID card and have to place a signature on the delivery receipt, the \gls{LSP}s can also hand over personal related information about them.
+
+\subsubsection{Issuer}
+\label{subsub:prep_info_issuer}
+
+The issuers provide information about a credit card and its owner incl.\ personal related information.
+
+\subsection{Merging transactional information from various sources}
+\label{subsec:information_mapping}
+
+Still, if the transactional details from various online merchants have to be linked together on the individual entity level to support analyzing and clustering the information on different aspects, the build-in merging capabilities of the \gls{RDF} specification will rely on unique \gls{URI}s used for the same entities found in different \gls{RDF} data sets as shown in the Section~\ref{subsec:web_data}. These unique \gls{URI}s are used to identify the resources in a dispersed \gls{RDF} data set. \@
+
+\begin{itemize}
+	\item \textbf{owl:sameAs, schema:sameAs}: the ``owl:sameAs'' as well as the ``schema:sameAs'' relations are providing an unique \gls{URI} that unambiguously define the subject (see Listing~\ref{lst:schema_sameAs_location} for an example)
+\end{itemize}
+
 \begin{listing}[H]
   \inputminted[linenos,
                numbersep=5pt,
                breaklines=true,
                frame=lines]{TURTLE}
                {./samples/sample_customer_location.ttl}
-  \caption[Specifying a link to a Geo Names resource for looking up additional location information in \gls{RDF}]{Specifying a link to a Geo Names resource for looking up additional location information in \gls{RDF}\protect\footnotemark}
-\label{lst:rdfs_seeAlso_location}
-\end{listing}
-
-\footnotetext{Please note that the application has to resolve the \gls{URI} and embed the external \gls{RDF} data set at this position in the graph.}
-
-\begin{listing}[H]
-  \inputminted[linenos,
-               numbersep=5pt,
-               breaklines=true,
-               frame=lines]{TURTLE}
-               {./samples/sample_customer_location2.ttl}
   \caption{Specifying a link to a DBpedia resource to uniquely identify an entity in \gls{RDF}}
 \label{lst:schema_sameAs_location}
 \end{listing}

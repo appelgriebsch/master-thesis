@@ -165,6 +165,8 @@ If a merchant wants to state that a product-related information, which is delive
 \label{lst:schema_mapping_gr_schema_org}
 \end{listing}
 
+These mapping statements from one \gls{RDF} vocabulary to another can be either created and injected into a \gls{RDF} data store by the party who is going to merge information from different sources according to needs, or can also be part of the resource specification coming from an external source. In the former case the stakeholder who is collecting and combining the information from various sources has to maintain the additional ``triples'' to map information between each \gls{RDF} vocabulary used and include them in the processing of the statements within the combined \gls{RDF} data store. With an increased number of participants, who are using disjunct \gls{RDF} vocabularies, the effort and time to manage and create these mapping instructions on the collectors side will increase tremendously. Therefore the second approach is the preferred one. In that situation the \gls{RDF} description of an entitiy coming from an external source is already stating the mapping to one or more well-known \gls{RDF} vocabularies (e.g.\ the Schema.org specification mentioned above). This will reduce the effort and time to combine the information from different sources, and will only slightly increase the effort on the side of the external partner to prepare their resources for external consumptions.
+
 % subsection map ontology (end)
 
 % sec data_schema (end)

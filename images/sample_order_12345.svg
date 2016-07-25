@@ -162,7 +162,7 @@
          y="-57.799999"
          font-size="14.00"
          id="text46"
-         style="font-size:14px;font-family:Times, serif;text-anchor:middle">rdfs:type</text>
+         style="font-size:14px;font-family:Times, serif;text-anchor:middle">rdf:type</text>
     </g>
   </g>
 </svg>

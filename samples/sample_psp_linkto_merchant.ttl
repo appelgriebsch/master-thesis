@@ -4,7 +4,7 @@
 @prefix schema: <http://schema.org/> .
 @base <http://www.payservices.com/payments/> .
 
-<C12345>  rdfs:type schema:PayAction;
+<C12345>  rdf:type schema:PayAction;
           schema:recipient [
             schema:name "ACME Corp.";
             rdfs:seeAlso "http://www.acme.com/about"

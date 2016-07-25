@@ -8,7 +8,7 @@ As a major objective of the \gls{E-commerce} fraud investigation system is to co
 \subsection{Using a common \gls{RDF} vocabulary}
 \label{subsec:reuse_vocab_web}
 
-One valid approach to come up with a data schema is to take a look into commonly used \gls{RDF} vocabularies and Web ontologies, and try to figure out whether they can be used for describing the information that need to be exchanged between participants of the \gls{E-commerce} fraud investigation system. When consulting the Semantic Web community for commonly agreed upon and highly used \gls{RDF} schema specifications, one will come up with the following list (see Table~\ref{tab:used_vocab_rdf}):\@
+One valid approach to come up with a data schema for the collaborative system is to take a look into commonly used \gls{RDF} vocabularies and Web ontologies, and try to figure out whether they can be used for describing the information that need to be exchanged between participants of the \gls{E-commerce} fraud investigation system. When consulting the Semantic Web community for commonly agreed upon and highly used \gls{RDF} schema specifications, one will come up with the following list (see Table~\ref{tab:used_vocab_rdf}):\@
 
 \begin{table}[H]
 \centering
@@ -45,7 +45,7 @@ XML Schema Datatypes & xsd: & Data types & \url{http://www.w3.org/2001/XMLSchema
 \label{tab:used_vocab_rdf}
 \end{table}
 
-Based on these available schema specifications describing a fictive consumer named ``Max Mustermann'' incl.\ his home address can be done by combining data utilizing the \gls{FOAF} and \gls{vCard} vocabularies into a \gls{RDF} data set such as described in Listing~\ref{lst:sample_customer_mustermann} and visualized as directed graph in Figure~\ref{fig:images_sample_customer}. The described resource can be uniquely identified by the \gls{URI} \url{http://www.merchant1.com/customers/MaxMustermann}. Additionally one can see, that these vocabularies use expressive names for their entities and predicates, which make it easier to understand their intended meanings (e.g.\ ``foaf:givenname'', ``vcard:locality'', \ldots).  \@
+Based on these existing schema specifications describing a fictive consumer named ``Max Mustermann'' incl.\ his home address can be done by combining data utilizing the \gls{FOAF} and \gls{vCard} vocabularies into a \gls{RDF} data set such as described in Listing~\ref{lst:sample_customer_mustermann} and visualized as directed graph in Figure~\ref{fig:images_sample_customer}. The described resource can be uniquely identified by the \gls{URI} \url{http://www.merchant1.com/customers/MaxMustermann}. Additionally one can see, that these vocabularies use expressive names for their entities and predicates, which make it easier to understand their intended meanings (e.g.\ ``foaf:givenname'', ``vcard:locality'', \ldots).  \@
 
 \begin{listing}[H]
   \inputminted[linenos,
@@ -99,7 +99,7 @@ Payment Types & GoodRelations \\
 
 As this table shows there are some parts of the \gls{E-commerce} \gls{ER} model that can be expressed with existing \gls{RDF} vocabularies extensively --- such as personal related information via \gls{FOAF} and \gls{vCard}, whereas other parts can not be stated in-depth (e.g. credit card information), or are not specified at all (e.g.\ tracking of the delivery). Due to these circumstances one usually have to build an own \gls{RDF} vocabulary or Web ontology that fills in the missing pieces and refers to the existing concepts whenever appropriate.\\
 
-When trying to model the information of a credit card as displayed in Figure~\ref{fig:images_data_model} a possible result will be the \gls{RDFS} specification shown in Listing~\ref{lst:credit_card_vocab}. This definition of a credit card resource explicitly reuses specifications from the \gls{FOAF} and GoodRelations ontologies by specifying that: \@
+When trying to model the information of a credit card as displayed in Figure~\ref{fig:images_data_model} a possible result will be the \gls{RDFS} specification shown in Listing~\ref{lst:credit_card_vocab}. This definition of a credit card resource explicitly reuses specifications from the \gls{FOAF} and GoodRelations ontologies by defining that: \@
 
 \begin{itemize}
  \item the owner of a credit card has to be of type ``Person'' from the \gls{FOAF} ontology
@@ -118,9 +118,9 @@ As most of the parts of the \gls{E-commerce} data model shown in Figure~\ref{fig
 \label{lst:credit_card_vocab}
 \end{listing}
 
-When analyzing the list of existing and actively used \gls{RDF} vocabularies and ontologies in Table~\ref{tab:used_vocab_rdf}, one will also find the Schema.org schema specification \citep{Schema.org}. This vocabulary was initially designed by the leading search engines (e.g.\ Google, Microsoft and Yahoo!) to allow authors of Web sites to markup their \gls{HTML} documents in a way so that they are better understood by these search engines. The Schema.org vocabulary is actively maintained by its community, includes new concepts with each release, and also offers an extension mechanism to implement additional vocabularies with terms that are not part of the core specifications \citep{SchemaExtensions} yet. In one of the past releases the maintainers also introduced all of the existing concepts of the GoodRelation ontology into the Schema.org vocabulary \citep{SchemaGoodRelation}. \\
+When analyzing the list of existing and actively used \gls{RDF} vocabularies and Web ontologies in Table~\ref{tab:used_vocab_rdf}, one will also find the Schema.org initiative \citep{Schema.org}. This meta data vocabulary was initially designed by the leading search engines (e.g.\ Google, Microsoft and Yahoo!) to allow authors of Web sites to markup their \gls{HTML} documents in a way so that they are better understood by these search engines. The Schema.org vocabulary is actively maintained by its community, includes new concepts with each release, and also offers an extension mechanism to implement additional vocabularies with terms that are not part of the core specifications \citep{SchemaExtensions} yet. In one of the past releases the maintainers also introduced all of the existing concepts of the GoodRelation ontology into the Schema.org vocabulary \citep{SchemaGoodRelation}. \\
 
-As online merchants will likely provide semantic meta data for their products and offerings in the vocabulary of Schema.org already to improve their listings on search engine results (also known as \gls{SEO}), one can reuse parts of these information for the \gls{E-commerce} fraud investigation scenario as well. Additionally, the wide-ranging scope of aspects declared in the Schema.org vocabulary can make it a good fit for the collaborative system of the \gls{E-commerce} fraud investigation scenario. When trying to map the initial \gls{ER} model from Section~\ref{sec:data_model_transactions} to the Schema.org core specifications, one will basically come up with a schema as displayed in Figure~\ref{fig:images_schema_org}. \@
+As online merchants will likely provide semantic meta data for their products and offerings in the vocabulary of Schema.org already to improve their listings on search engine results (also known as \gls{SEO}), one can reuse parts of these information for the \gls{E-commerce} fraud investigation scenario. Additionally, the wide-ranging scope of aspects declared in the Schema.org vocabulary can make it a good fit for the collaborative system of the \gls{E-commerce} fraud investigation scenario. When trying to map the initial \gls{ER} model from Section~\ref{sec:data_model_transactions} to the Schema.org core specifications, one will basically come up with a schema as displayed in Figure~\ref{fig:images_schema_org}. \@
 
 \begin{figure}[H]
 	\centering
@@ -131,29 +131,29 @@ As online merchants will likely provide semantic meta data for their products an
 
 % subsection reuse_vocab_web (end)
 
-\subsection{Creating a custom vocabulary}
+\subsection{Creating a custom \gls{RDF} vocabulary}
 \label{subsec:build_ontology_frauds}
 
-Another possible approach is to define a completely new \gls{RDF} vocabulary or Web ontology for the proposed \gls{E-commerce} fraud investigation system and share that with every possible stakeholder. This specification will have to define all the entities and relations known to the collaborative system and describe them in \gls{RDFS} format (see Section~\ref{sec:semantic_web}). \\
+Another possible approach to harmonize information in the collaborative system is to define a completely new \gls{RDF} vocabulary or Web ontology for the proposed \gls{E-commerce} fraud investigation system and share that with every possible stakeholder. This specification will have to define all the entities and relations known to the collaborative system and describe them in \gls{RDFS} format (see Section~\ref{sec:semantic_web}). \\
 
 A major drawback of this approach is that new participants of the system will have to implement the conversion of their internal data structures to a \gls{RDF} data set that follows the predefined schema definition first, before even being able to join in. This will limit the general usage of the collaborative system, and will therefore not further considered in detail.
 
 % subsection build ontology (end)
 
-\subsection{Mapping and Linking between \gls{RDF} schemata}
+\subsection{Mapping and Linking between \gls{RDF} vocabularies}
 
-Although it is possible to model an \gls{E-commerce} transaction solely with the Schema.org specifications as shown in Figure~\ref{fig:images_schema_org}, the collaborative system still has to take care of the mapping of the transactional information coming from various sources to be able to combine, analyze and cluster them. As the Semantic Web does not restrict how organizations structure and express their information, and due to the ``AAA slogan'' (see Section~\ref{sec:semantic_web}), there are likely different \gls{RDF} representations of an \gls{E-commerce} transaction in-use. \\
+Although it is possible to model an \gls{E-commerce} transaction solely with the Schema.org specifications as shown in Figure~\ref{fig:images_schema_org}, the collaborative system likely has to take care of the mapping of the transactional information coming from various sources to be able to combine them later. As the Semantic Web does not restrict how organizations structure and express their information, and due to the ``AAA slogan'' (see Section~\ref{sec:semantic_web}), there are likely different \gls{RDF} representations of an \gls{E-commerce} transaction in-use and have to be brought together. \\
 
 The \gls{W3C} standards for the Semantic Web also include support for these mapping issues, because they will also come up when trying to combine semantic information available around the Web. The following axioms are available in the \gls{RDFS} and \gls{OWL} specifications explicitly for that purpose: \@
 
 \begin{itemize}
-	\item \textbf{rdfs:subClassOf:} a relation of type ``rdfs:subClassOf'' specifies a specialization of a class, in which the child class inherits all the properties of the parent class,
-  \item \textbf{rdfs:subProperyOf:} a relation of type ``rdfs:subPropertyOf'' specifies a specialization of a property, in which the child property inherits all constraints of the parent property,
+	\item \textbf{rdfs:subClassOf:} a relation of type ``rdfs:subClassOf'' defines a specialization of a class, in which the child class inherits all the properties of the parent class,
+  \item \textbf{rdfs:subProperyOf:} a relation of type ``rdfs:subPropertyOf'' defines a specialization of a property, in which the child property inherits all constraints of the parent property,
   \item \textbf{owl:equivalentClass:} a relation of type ``owl:equivalentClass'' specifies the equality of classes coming from different \gls{RDF} vocabularies or Web ontologies,
   \item \textbf{owl:equivalentProperty:} a relation of type ``owl:equivalentProperty'' specifies the equality of classes coming from different \gls{RDF} vocabularies or Web ontologies
 \end{itemize}
 
-If a merchant wants to state that the product-related information delivered using the GoodRelations vocabulary is equal to product information found in the Schema.org specification, he or she can do so as follows (see Listing~\ref{lst:schema_mapping_gr_schema_org}): \@
+If a merchant wants to state that a product-related information, which is delivered as resource using the GoodRelations vocabulary, is equal to product information that can be found in the Schema.org specification, he or she can do so as follows (see Listing~\ref{lst:schema_mapping_gr_schema_org}): \@
 
 \begin{listing}[H]
  \inputminted[linenos,

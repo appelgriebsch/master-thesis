@@ -1,11 +1,11 @@
 %!TEX root = ../MasterThesis.tex
 
-\section{Combining \gls{RDF} data sets in the \gls{E-commerce} scenario}
+\section{Combine \gls{RDF} data sets in the \gls{E-commerce} scenario}
 \label{sec:working_semantic_data}
 
 With these methods in place one can now specify how the relevant participants have to provide their information so that they can be combined and analyzed in the collaborative system. This section explains how the different participants might prepare their local context information for external consumption, and how the transactional details from various online merchants can be combined on an individual resource level to be able to analyze and cluster the transactions by different criteria as described in Section~\ref{sec:analyze_transactions}.
 
-\subsection{Preparing internal information for external consumption}
+\subsection{Prepare internal information for external consumption}
 \label{subsec:prepare_information}
 
 As explained in Section~\ref{subsec:etl_process} there are likely \gls{ETL} processes in-use within the \gls{IT} operations of every stakeholder. These processes are usually collecting and combining information from internal data sources for \emph{internal} business analytics, but can also be used to prepare internal data for external consumption. In the latter case the parts of the relevant information for the \gls{E-commerce} fraud investigation have to be extracted from the internal databases and encoded in a \gls{RDF} data set incl. the \gls{RDFS} vocabulary used and required mapping statements to a well-known vocabulary such as the one from Schema.org as shown in Figure~\ref{fig:images_schema_org}.
@@ -72,10 +72,15 @@ The \gls{LSP}s provide information about a tracking number and the delivery stat
 
 The issuers holds information about credit cards and their owners incl.\ personal related information. They are the ones who are usually initiating the \gls{E-commerce} fraud investigation by asking the \gls{PSP}s for detailed order information to a payment authorization request. They will also collect all the information from the different stakeholders and have to combine and analyze them to be able to validate a credit card transaction. To be able to do so they will have to use a \gls{RDF} data store, in which the dispersed \gls{RDF} data sets are imported and linked against each other (see next section).
 
-\subsection{Merging transactional information from various sources}
+\subsection{Merge transactional information from various sources}
 \label{subsec:information_mapping}
 
-The issuers must be able to link together the transactional details from various online merchants on the individual entity level for analyzing and clustering the order details on different aspects. As explained in Section~\ref{subsec:web_data} the build-in merging capabilities of the \gls{RDF} specification will rely on unique \gls{URI}s, which are used to describe the same entities found in different \gls{RDF} data sets. Resources can be extended with the ``owl:sameAs'' predicate from the \gls{OWL} specification to provide a  \gls{URI} that unambiguously define the subject (see Listing~\ref{lst:schema_sameAs_location} for an example). \@
+The issuers must be able to link together the transactional details from various online merchants on the individual entity level for analyzing and clustering the order details on different aspects.
+
+\subsubsection{Uniquely identify entities in a \gls{RDF} data set}
+\label{subsub:info_unique_id}
+
+As explained in Section~\ref{subsec:web_data} the build-in merging capabilities of the \gls{RDF} specification will rely on unique \gls{URI}s, which are used to describe the same entities found in different \gls{RDF} data sets. Resources can be extended with the ``owl:sameAs'' predicate from the \gls{OWL} specification to provide a \gls{URI} that unambiguously define the subject (see Listing~\ref{lst:schema_sameAs_location} for an example). \@
 
 \begin{listing}[H]
   \inputminted[linenos,
@@ -96,11 +101,13 @@ When looking at the \gls{E-commerce} \gls{ER} model as defined in Section~\ref{s
 	\item \textbf{merchant related information} such as the branch of a merchant
 \end{itemize}
 
-To support the unique identification of entities in the \gls{RDF} data of an \gls{E-commerce} transaction, one can refer to publicly available \gls{RDF} data sets on the Internet such as GeoNames \citep{geonames} or DBpedia \citep{dbPedia.org}. These can provide unique \gls{URI}s for locations and named places. A product related \gls{RDF} data set was available in form of the ProductDB initiative until recently \citep{bouzidi2014product}. Due to the shutdown of it the linking of products can no longer be done by referencing unique \gls{URI}s from the Web, but will have to be based on the global trade item number (aka \gls{GTIN}) of each product. Additional aspects of an item such as brand, categories and subcategories, can be found on DBpedia \citep{dbPedia.org} as well. \\
+To support the unique identification of entities in the \gls{RDF} data of an \gls{E-commerce} transaction, one can either refer to publicly available \gls{RDF} data sets on the Internet such as GeoNames \citep{geonames} or DBpedia \citep{dbPedia.org}, or use unique identification schemes (aka \gls{URN}) such as phone numbers, e-mail addresses or \gls{EAN} codes. \\
 
-A problem, which will come up, is the unique addressing of personal related information such as uniquely identifying a consumer. The collaborative system can not rely on linking the personal related information based on properties such as ``familyName'' and ``givenName'' alone (see Listing~\ref{lst:sample_customer_mustermann}). There could be typos in the information coming from various \gls{RDF} data sets, and distinct individuals can still have the same naming information. One possible approach to bring personal related information together would be linking them based on the e-mail address of the individual. An e-mail address like an \gls{URI} is a globally unique addressing scheme, and one can assume that two entities, who are using to the same e-mail address, are referring to the same subject. Still this is only a weak hint as an individual can have more than one e-mail address, and could use varying e-mail addresses for online shopping trips at different merchants. Therefore a more sophisticated linking algorithm for personal related information is needed in the collaborative system. This algorithm may take into account the combination of ``familyName'', ``givenName'', ``dateOfBirth'' as well as location based information to uniquely identify an individual. \\
+The public \gls{RDF} data sets can provide unique \gls{URL}s for locations and named places, as well as brands and item categories. A product related \gls{RDF} data set, which was available in form of the ProductDB initiative until recently \citep{bouzidi2014product}, has been shutted down so that the linking of products can no longer be done by referencing unique \gls{URL}s from the Web, but will have to be based on the global trade item number (aka \gls{GTIN}) of each product. Additional aspects of an item such as brand, categories and subcategories, can be eventually found on DBpedia \citep{dbPedia.org}. \\
 
-To sum up the linking of important entities from an \gls{E-commerce} transaction can be based on the following aspects (see Table~\ref{tab:mapping_information}): \@
+A problem, which will come up, is the unique addressing of personal related information such as uniquely identifying a consumer. The collaborative system can not rely on linking the personal related information based on properties such as ``familyName'' and ``givenName'' alone (see Listing~\ref{lst:sample_customer_mustermann}). There could be typos in the information coming from various \gls{RDF} data sets, and distinct individuals can still have the same naming information. One possible approach to bring personal related information together is to link them based on the e-mail address of an individual. An e-mail address is a globally unique addressing scheme, and one can assume that two entities, which are using the same e-mail address, are referring to the same subject. Still this is only a weak hint as an individual can have more than one e-mail address, and could use varying e-mail addresses for online shopping trips at different merchants. Therefore a more sophisticated linking algorithm for personal related information is needed in the collaborative system. This algorithm may take into account the combination of ``familyName'', ``givenName'', ``dateOfBirth'' as well as location based information to uniquely identify an individual. \\
+
+To sum up the unique identification of important entities from an \gls{E-commerce} transaction can be based on the following aspects (see Table~\ref{tab:mapping_information}): \@
 
 \begin{table}[H]
 \centering
@@ -122,6 +129,21 @@ Organization & Web Site \gls{URL} & n/a & \url{http://www.samsung.com} \\
 \caption{List of possible criteria to uniquely identify entities of an \gls{E-commerce} transaction}
 \label{tab:mapping_information}
 \end{table}
+
+\subsubsection{Infer equality in a \gls{RDF} data set}
+\label{subsub:info_unique_infer}
+
+In addition to the unique identification of entities in dispersed \gls{RDF} data sets the \gls{OWL} specification includes axioms that allow to infer equality into a combined \gls{RDF} data set. The two important predicates for that are ``owl:FunctionalProperty'' and ``owl:InverseFunctionalProperty'' (see Section~\ref{sec:semantic_vocab_ontologies}). A possible use case in the \gls{E-commerce} scenario is the linking of product related information. As a product is uniquely identified by its global trade item number a predicate for it should be classified as ``owl:InverseFunctionalProperty''. By doing so the reasoners working on a combined \gls{RDF} data set can infer that a subject A is equal to another subject B if both subjects have the same predicate-value statement as shown in Listing~\ref{lst:schema_owl_infer_equality}. \@
+
+\begin{listing}[H]
+  \inputminted[linenos,
+               numbersep=5pt,
+               breaklines=true,
+               frame=lines]{TURTLE}
+               {./samples/sample_product_owl_infer.ttl}
+  \caption{Infer equality between two product specifications using different \gls{RDF} vocabularies}
+\label{lst:schema_owl_infer_equality}
+\end{listing}
 
 % subsec information_mapping (end)
 

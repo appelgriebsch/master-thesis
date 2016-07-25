@@ -8,19 +8,19 @@ With these methods in place one can now specify how the relevant participants ha
 \subsection{Preparing internal information for external consumption}
 \label{subsec:prepare_information}
 
-As explained in Section~\ref{subsec:etl_process} there are likely \gls{ETL} processes in-use within the \gls{IT} operations of every stakeholder. These processes are usually collecting and combining information from internal data sources for \emph{internal} business analytics, but can also be used to prepare internal data for external consumption. In the latter case the parts of the relevant information for the \gls{E-commerce} fraud investigation have to be extracted from the internal databases and encoded in a \gls{RDF} data set incl. the \gls{RDFS} vocabulary used and required mapping statements to a well-known vocabulary such as Schema.org as shown in Figure~\ref{fig:images_schema_org}.
+As explained in Section~\ref{subsec:etl_process} there are likely \gls{ETL} processes in-use within the \gls{IT} operations of every stakeholder. These processes are usually collecting and combining information from internal data sources for \emph{internal} business analytics, but can also be used to prepare internal data for external consumption. In the latter case the parts of the relevant information for the \gls{E-commerce} fraud investigation have to be extracted from the internal databases and encoded in a \gls{RDF} data set incl. the \gls{RDFS} vocabulary used and required mapping statements to a well-known vocabulary such as the one from Schema.org as shown in Figure~\ref{fig:images_schema_org}.
 
 \subsubsection{Merchant}
 \label{subsub:prep_info_merchant}
 
-The merchants should be able to provide \gls{RDF} encoded information for their orders based on a given payment token or based on a consumer identification. The former selector is likely used in the initial phase of collecting all required information of orders that have been done with a credit card recently. The latter one is of interest if there are malicious transactions found for a consumer and a merchant has to provide additional order details coming from that consumer. \\
+The merchants should be able to provide \gls{RDF} encoded information for their orders based on a given payment token or based on a consumer identification. The former selector is likely used in the initial phase of collecting all required information of orders that have been done with a credit card recently. The latter one is of interest if there are malicious transactions found for a consumer and a merchant will have to provide additional order details coming from that individual. \\
 
 The merchants provide the following information in \gls{RDF}:\@
 
 \begin{itemize}
-  \item \textbf{product-related information:} as part of the order details the merchants have more information about the products that have been bought by a consumer. These information include the brand, model as well as product categories of each item within an order. If merchants provide these information in \gls{RDFa} on their Web shops already, they can refer to those data via the ``rdfs:seeAlso'' predicate, which holds an \gls{URI} to an external resource that contains additional information for the subject (see Listing~\ref{lst:rdfs_seeAlso_order} for an example). Additionally, the product-related information might be available in different languages on the Web shop. The merchants should use the English expression for each textual identifier in the \gls{RDF} data set and specify language-dependent terms via the ``rdfs:label'' predicate that usually contains a human-friendly name of the resource and supports language specifiers for such cases (see Listing~\ref{lst:rdfs_label_language} for an example).
+  \item \textbf{product-related information:} as part of the order details the merchants have detailed information about the products that have been bought by a consumer. These information include the brand, model as well as product categories of each item within an order. These are likely of interest in the \gls{E-commerce} fraud investigation. If merchants have these information in a \gls{RDFa} format on their Web sites already, they can refer to those data via the ``rdfs:seeAlso'' predicate, which holds a \gls{URI} to an external resource that contains additional information for the subject (see Listing~\ref{lst:rdfs_seeAlso_order} for an example). Additionally, the product-related information might be available in different languages on the Web shop. The merchants should use the English expression for each textual identifier in a \gls{RDF} data set and express language-dependent terms via the ``rdfs:label'' predicate that is used for a human-friendly name of the resource and supports language specifiers (see Listing~\ref{lst:rdfs_label_language} for an example).
   \item \textbf{consumer-related information:} as part of the order details the merchants also have the personal related information of the buyer incl.\ billing and shipping addresses.
-  \item \textbf{merchant-related information:} the merchants also provide information about themselves such as the retail branch they are operating in.
+  \item \textbf{merchant-related information:} the merchants can also provide information about themselves such as the retail branch they are operating in.
 \end{itemize}
 
 \begin{listing}[H]
@@ -50,17 +50,27 @@ The merchants provide the following information in \gls{RDF}:\@
 \subsubsection{Payment Service Provider}
 \label{subsub:prep_info_psp}
 
-The \gls{PSP}s provide information about a payment token and the authorization request that belongs to it. These information are required to link the credit card to the order information from a merchant.
+The \gls{PSP}s provide information about a payment token and the authorization request that belongs to it. These information are required to link the credit card to the order information from a merchant. Due to this the \gls{PSP}s can act as a broker between the issuers and online merchants. On the one hand they have a strong relationship with the issuers for any payment related activities, and on the other hand they have an integration of their Web service \gls{API}s at the merchants (see Section~\ref{subsec:web_services}). The benefit of this is that the issuers do not have to know about any online merchant operating on the Internet, because they can get contact information to any of these merchants from the \gls{PSP}s. In a distributed \gls{P2P} communication scenario the \gls{PSP}s can also use the \gls{RDFS} predicate ``rdfs:seeAlso'' to provide links to the affiliated online merchant of a payment authorization in their \gls{RDF} data set as shown in Listing~\ref{lst:rdfs_psp_linkto_merchant}. \@
+
+\begin{listing}[H]
+  \inputminted[linenos,
+               numbersep=5pt,
+               breaklines=true,
+               frame=lines]{TURTLE}
+               {./samples/sample_psp_linkto_merchant.ttl}
+  \caption{Linking to an online merchant in the \gls{RDF} from a \gls{PSP}}
+\label{lst:rdfs_psp_linkto_merchant}
+\end{listing}
 
 \subsubsection{Logistic Service Provider}
 \label{subsub:prep_info_lsp}
 
-The \gls{LSP}s provide information about a tracking number and the delivery status of an order. If the recipients have to show their ID card and have to place a signature on the delivery receipt, the \gls{LSP}s can also hand over personal related information about them.
+The \gls{LSP}s provide information about a tracking number and the delivery status of an order. If the recipients have to show their ID card or have to place a signature on the delivery receipt, the \gls{LSP}s can also hand over personal related information about them. The information will be requested based on the tracking number that is shared with a merchant. In these situations the merchants will be acting as a broker between the issuers and the \gls{LSP}s due to the strong business integrations between merchants and \gls{LSP}s.
 
 \subsubsection{Issuer}
 \label{subsub:prep_info_issuer}
 
-The issuers provide information about a credit card and its owner incl.\ personal related information.
+The issuers holds information about credit cards and their owners incl.\ personal related information. They are the ones who are usually initiating the \gls{E-commerce} fraud investigation by asking the \gls{PSP}s for detailed order information to a payment authorization request. They will also collect all the information from the different stakeholders and have to combine and analyze them to be able to validate a credit card transaction. To be able to do so they will have to use a \gls{RDF} data store, in which the dispersed \gls{RDF} data sets are imported and linked against each other (see next section).
 
 \subsection{Merging transactional information from various sources}
 \label{subsec:information_mapping}

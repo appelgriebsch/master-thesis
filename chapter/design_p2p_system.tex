@@ -29,7 +29,25 @@ One of the major concerns with the system architecture mentioned above is that t
 
 In addition to that online merchants will likely not provide to much detail information about their sales and offerings in such a collaborative system, because of direct competitors might also be involved in the \gls{E-commerce} fraud investigation. By sharing parts of the business relevant information the merchants will fear that their internal business processes, pricing structures as well as customer loyalty activities get visible to their competitors and might lead to a stronger competition afterwards. \\
 
+During the design of the collaborative system a valuation of the shared information has to take place that classify them based on the criteria: \@
 
+\begin{itemize}
+	\item is the information really necessary to evalutate the \gls{E-commerce} transactions? Some of the order details from the merchants might not be required to analyze the transactions to find out an abnormal shopping behaviour.
+	\item is the information worth protecting? Parts of the neccessary information are sensitive information and should be protected against misuse.
+\end{itemize}
+
+Special considerations have to be taken for required and sensitive information. In that case cryptographic algorithms such as hash functions (e.g.\ SHA-1) can be used to anonymize the information. A hash function is working in one-direction only and generates a unique hash value based on its input parameter. This hash value is different as soon as the input changes slightly, but based on the mathematical algorithms used for computing it a hash value can not be calculated back to the original input values of the hash function afterwards. \\
+
+A valid use case for that hashing of information is the e-mail address of a consumer. A plaintext e-mail address such as ``max.mustermann@web.de'' will result in a SHA-1 value of ``8495914d9bd2c0c5d37ca351208a92e8b0ce2310'' regardless of the stakeholder who has computed it. That is an additional benefit of the hash functions, because they allow the information from different stakeholders to be linked together based on their unique hash values. \\
+
+Based on these facts the information that is shared in the \gls{E-commerce} fraud investigation has to be classified into one of the four quadrants of Figure~\ref{fig:images_handle_privacy_concerns}. \@
+
+\begin{figure}[H]
+	\centering
+		\includegraphics[width=0.5\columnwidth]{images/privacy_concerns.pdf}
+	\caption{A classification of information in the collaborative system and how to deal with them}
+\label{fig:images_handle_privacy_concerns}
+\end{figure}
 
 % subsec p2p_partially_centralized_system
 

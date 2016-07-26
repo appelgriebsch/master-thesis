@@ -1,11 +1,11 @@
 %!TEX root = ../MasterThesis.tex
 
-\section{Combine \gls{RDF} data sets in the \gls{E-commerce} scenario}
+\section{Use of \gls{RDF} data sets for \gls{E-commerce} fraud investigation}
 \label{sec:working_semantic_data}
 
 With these methods in place one can now specify how the relevant participants have to provide their information so that they can be combined and analyzed in the collaborative system. This section explains how the different participants might prepare their local context information for external consumption, and how the transactional details from various online merchants can be combined on an individual resource level to be able to analyze and cluster the transactions by different criteria as described in Section~\ref{sec:analyze_transactions}.
 
-\subsection{Prepare internal information for external consumption}
+\subsection{Preparation of information}
 \label{subsec:prepare_information}
 
 As explained in Section~\ref{subsec:etl_process} there are likely \gls{ETL} processes in-use within the \gls{IT} operations of every stakeholder. These processes are usually collecting and combining information from internal data sources for \emph{internal} business analytics, but can also be used to prepare internal data for external consumption. In the latter case the parts of the relevant information for the \gls{E-commerce} fraud investigation have to be extracted from the internal databases and encoded in a \gls{RDF} data set incl. the \gls{RDFS} vocabulary used and required mapping statements to a well-known vocabulary such as the one from Schema.org as shown in Figure~\ref{fig:images_schema_org}.
@@ -72,7 +72,7 @@ The \gls{LSP}s provide information about a tracking number and the delivery stat
 
 The issuers holds information about credit cards and their owners incl.\ personal related information. They are the ones who are usually initiating the \gls{E-commerce} fraud investigation by asking the \gls{PSP}s for detailed order information to a payment authorization request. They will also collect all the information from the different stakeholders and have to combine and analyze them to be able to validate a credit card transaction. To be able to do so they will have to use a \gls{RDF} data store, in which the dispersed \gls{RDF} data sets are imported and linked against each other (see next section).
 
-\subsection{Merge transactional information from various sources}
+\subsection{Linking of information from various sources}
 \label{subsec:information_mapping}
 
 The issuers must be able to link together the transactional details from various online merchants on the individual entity level for analyzing and clustering the order details on different aspects.
@@ -145,7 +145,7 @@ In addition to the unique identification of entities in dispersed \gls{RDF} data
 \label{lst:schema_owl_infer_equality}
 \end{listing}
 
-After being able to infer that both products are the same if their global trade item number are equal additional statements can be deduced --- e.g.\ as a product identified by a \gls{GTIN} generally relates to just one brand as well as one model the \gls{RDF} data set can further specify that these predicates are of type ``owl:FunctionalProperty''. This would allow the reasoner to inject additional ``owl:sameAs'' statements into the combined \gls{RDF} data set.  
+After being able to infer that both products are the same if their global trade item number are equal additional statements can be deduced --- e.g.\ as a product identified by a \gls{GTIN} generally relates to just one brand as well as one model the \gls{RDF} data set can further specify that these predicates are of type ``owl:FunctionalProperty''. This would allow the reasoner to inject additional ``owl:sameAs'' statements into the combined \gls{RDF} data set.
 
 % subsec information_mapping (end)
 

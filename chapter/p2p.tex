@@ -5,7 +5,7 @@
 
 This section explains the core concepts of \gls{P2P} communication technologies. It begins with a comparison of the benefits and disadvantages of centralized and decentralized Web architectures. After that it shows how \gls{P2P} communication networks can be structured, different ways to initiate a communication session as well as how data can be transmitted between peers.
 
-\subsection{Centralized vs. Decentralized Web Architectures}
+\subsection{Centralized vs. Decentralized Web architectures}
 \label{sec:central_decentral_arch}
 
 In classical client-server applications the information is stored on a central system (aka server). Clients have to connect to the server and ask for the information. The server handles the requests from the clients and deliver the information in case a request was valid. Prominent examples of centralized Web architectures are Social Networks such as Facebook or Twitter, in which clients, such as a Web browser or Mobile application, communicate with a Web service, which runs on a server of the organization providing these Social Networks, to access and retrieve Web documents (e.g.\ \gls{HTML}, images, audio, video, \ldots) via the \gls{HTTP} protocol, as shown in Figure~\ref{fig:p2p_central_server}. \@
@@ -60,7 +60,7 @@ A \emph{structured overlay} maintain the information within the network more eff
 
 % section p2p_start_communication
 
-\subsection{Using \gls{WebRTC} for \gls{P2P} communication}
+\subsection{The \gls{WebRTC} standard}
 \label{sec:p2p_webrtc}
 
 ``Web Real-Time Communication (\gls{WebRTC}) is a collection of standards, protocols, and JavaScript \gls{API}s, the combination of which enables peer-to-peer audio, video, and data sharing between browsers (peers)'' \citep[pg. 307]{grigorik2013high}. Although this new \gls{W3C} standard usually stands for in-browser video or audio conferencing without the need of proprietary browser extensions, it also offers ways to exchange arbitrary messages or binary data between participating peers in a distributed Web application. Due to being an open Web standard \gls{WebRTC} is available in many current Web browsers directly, and is widely adopted as a standardized and open way to establish a \gls{P2P} communication between clients of a Web site, or from within a Web application. The standard wraps a lot of the complexities of establishing peer-to-peer communication channels and transmitting data into three primary \gls{API}s \citep[pg. 307-308]{grigorik2013high}: \@

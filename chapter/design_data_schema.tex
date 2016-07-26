@@ -5,7 +5,7 @@
 
 As a major objective of the \gls{E-commerce} fraud investigation system is to collect the various transactional information from online merchants, \gls{PSP}s and issuers, combine and link them together, and analyze the resulting data set from different view points to find abnormal activities, the information exchanged between the relevant participants either have to follow commonly available \gls{RDF} vocabularies, have to be based on a custom shared \gls{RDF} vocabulary that has been specifically designed for this system, or have to be mapped and linked against each other from different \gls{RDF} schema specifications.
 
-\subsection{Using a common \gls{RDF} vocabulary}
+\subsection{Reuse of a common \gls{RDF} vocabulary}
 \label{subsec:reuse_vocab_web}
 
 One valid approach to come up with a data schema for the collaborative system is to take a look into commonly used \gls{RDF} vocabularies and Web ontologies, and try to figure out whether they can be used for describing the information that need to be exchanged between participants of the \gls{E-commerce} fraud investigation system. When consulting the Semantic Web community for commonly agreed upon and highly used \gls{RDF} schema specifications, one will come up with the following list (see Table~\ref{tab:used_vocab_rdf}):\@
@@ -131,7 +131,7 @@ As online merchants will likely provide semantic meta data for their products an
 
 % subsection reuse_vocab_web (end)
 
-\subsection{Creating a custom \gls{RDF} vocabulary}
+\subsection{Creation of a custom \gls{RDF} vocabulary}
 \label{subsec:build_ontology_frauds}
 
 Another possible approach to harmonize information in the collaborative system is to define a completely new \gls{RDF} vocabulary or Web ontology for the proposed \gls{E-commerce} fraud investigation system and share that with every possible stakeholder. This specification will have to define all the entities and relations known to the collaborative system and describe them in \gls{RDFS} format (see Section~\ref{sec:semantic_web}). \\
@@ -140,7 +140,7 @@ A major drawback of this approach is that new participants of the system will ha
 
 % subsection build ontology (end)
 
-\subsection{Mapping and Linking between \gls{RDF} vocabularies}
+\subsection{Mapping of \gls{RDF} vocabularies}
 
 Although it is possible to model an \gls{E-commerce} transaction solely with the Schema.org specifications as shown in Figure~\ref{fig:images_schema_org}, the collaborative system likely has to take care of the mapping of the transactional information coming from various sources to be able to combine them later. As the Semantic Web does not restrict how organizations structure and express their information, and due to the ``AAA slogan'' (see Section~\ref{sec:semantic_web}), there are likely different \gls{RDF} representations of an \gls{E-commerce} transaction in-use and have to be brought together. \\
 
@@ -153,7 +153,7 @@ The \gls{W3C} standards for the Semantic Web also include support for these mapp
   \item \textbf{owl:equivalentProperty:} a relation of type ``owl:equivalentProperty'' specifies the equality of classes coming from different \gls{RDF} vocabularies or Web ontologies
 \end{itemize}
 
-If a merchant wants to state that a product-related information, which is delivered as resource using the GoodRelations vocabulary, is equal to product information that can be found in the Schema.org specification, he or she can do so as follows (see Listing~\ref{lst:schema_mapping_gr_schema_org}): \@
+If a merchant wants to state that a product related information, which is delivered as resource using the GoodRelations vocabulary, is equal to product information that can be found in the Schema.org specification, he or she can do so as follows (see Listing~\ref{lst:schema_mapping_gr_schema_org}): \@
 
 \begin{listing}[H]
  \inputminted[linenos,

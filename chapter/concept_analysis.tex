@@ -1,6 +1,6 @@
 %!TEX root = ../MasterThesis.tex
 
-\section{Analyzing \gls{E-commerce} transactions}
+\section{Analysis of \gls{E-commerce} transactions}
 \label{sec:analyze_transactions}
 
 Based on the explanations in the previous section the idea is to link the transaction information from various merchants, \gls{LSP}s, \gls{PSP}s and issuers together into a shared information space to be able to analyze if there are any orders that look extraordinary, and are likely not being made by the owner of the credit card to a certain extend. Due to this proposal the collaborative system will also have to use statistical evaluations and probabilities to find and rate suspicious activities. Starting with the credit card in question an issuer can query for the order details of all the transactions that have been done with the credit card online recently. To be able to do that an issuer will likely have to query the \gls{PSP}s for the payment tokens first, before asking the affected merchants for order details to any of those payment tokens. At the end each online transaction can be mapped into an \gls{ER} model like the one shown in Figure~\ref{fig:images_data_model}, building up a large graph of entities and their relationships, which has the specific credit card in the center of it. An abbreviated sample graph of this procedure can be seen in Figure~\ref{fig:images_credit_card_graph}. \@

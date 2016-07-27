@@ -34,7 +34,7 @@ The data model of the Semantic Web is build upon labeled graphs with objects and
 
 Initially it was tried to solve the data integration aspect on the Web with the exchange of \gls{XML}-based messages, but though the \gls{XML} format is more machine readable as \gls{HTML} it still lacks the semantic of the data transmitted. Therefore the Semantic Web defines the \gls{RDF} format as the basic data exchange format of it. Still the \gls{RDF} format was initially based on the \gls{XML} specification. To formally describe the existing terms and their possible relationships within a domain the Semantic Web relies on an ontology specification. These specifications are either expressed in \gls{RDFS} or uses the more expressive \gls{OWL} language; both of them are meta-description languages, which allows the definition of domain-specific knowledge representations based on the concepts found in \gls{RDF} itself. \\
 
-As such the Semantic Web is a layered approach as depicted in Figure~\ref{fig:images_semweb_model}.\@
+Thus, the Semantic Web is a layered approach as depicted in Figure~\ref{fig:images_semweb_model}.\@
 
 \begin{figure}[!ht]
 	\centering
@@ -56,7 +56,7 @@ When trying to come up with a specification on how to integrate data on a global
 	\item \textbf{semantics:} How to interpret the data?
 \end{itemize}
 
-Whereas the World-Wide Web is made up from interlinked documents in the \gls{HTML} format that are specifically designed for rendering information on screen, and will be consumed by a human, the \gls{RDF} brings a highly flexible data model to the Web. Its basic building block is the \emph{triple}, that is a statement consisting of an entity, an attribute and a value. The individual parts of a statement are also known as subject, predicate and object, and make up a directed graph as shown in the example in Figure~\ref{fig:images_semweb_triple}: \@
+Whereas the World-Wide Web is made up from interlinked documents in the \gls{HTML} format that are specifically designed for rendering information on screen, and will be consumed by a human, the \gls{RDF} brings a highly flexible data model to the Web. Its basic building block is the \emph{triple}, which is a statement consisting of an entity, an attribute and a value. The individual parts of a statement are also known as subject, predicate and object, and make up a directed graph as shown in the example in Figure~\ref{fig:images_semweb_triple}: \@
 
 \begin{figure}[H]
 	\centering
@@ -328,7 +328,7 @@ owl:sameAs & equality of individual resources \\
 \label{tab:w3c_vocab_owl}
 \end{table}
 
-The Table~\ref{tab:w3c_vocab_owl} is only showing a small subset of the axioms available in \gls{OWL}. The Web Ontology Language can be used to express a wide variety of constraints and classifiers on predicates, and the whole specification is based on three parts that are build upon each other \citep{owlspec}. Still, with an increase of expressiveness in the model the complexity of the reasoning and inferencing engine also grows up, because most of these axioms are used to express inferences that can be drawn on the \gls{RDF} data set. This Master thesis is restricting the usage of axioms of the \gls{OWL} specifications to ones shown in Table~\ref{tab:w3c_vocab_owl}.
+The Table~\ref{tab:w3c_vocab_owl} is only showing a small subset of the axioms available in \gls{OWL}. The Web Ontology Language can be used to express a wide variety of constraints and classifiers on predicates, and the whole specification is based on three parts that are build upon each other \citep{owlspec}. Still, with an increase of expressiveness in the model the complexity of the reasoning and inferencing engine also grows up, because most of these axioms are used to express inferences that can be drawn on the \gls{RDF} data set. This Master thesis is restricting the usage of axioms of the \gls{OWL} specifications to the ones shown in Table~\ref{tab:w3c_vocab_owl}.
 
 % section semantic_ontologies (end)
 
@@ -368,9 +368,9 @@ The WHERE clause in a \gls{SPARQL} query can include additional conditions that 
 	\item \textbf{UNION:} combine the result sets from different graph patterns into one; e.g.\ \{ ex:Song ex:title ``A'' \} UNION \{ ex:Song ex:title ``G'' \}
 \end{itemize}
 
-Beside the SELECT statement, that returns tabular data, \gls{SPARQL} also supports the ASK type of query, which checks for the existence of graph patterns stated in the WHERE clause, and will return a boolean value (true or false). This kind of query is commonly used to assert the presence of certain triples in a \gls{RDF} data set. \\
+Beside the SELECT statement, which returns tabular data, \gls{SPARQL} also supports the ASK type of query, which checks for the existence of graph patterns stated in the WHERE clause, and will return a boolean value (true or false). This kind of query is commonly used to assert the presence of certain triples in a \gls{RDF} data set. \\
 
-Another kind of query is the CONSTRUCT statement, that is used to retrieve a subgraph from a \gls{RDF} data set, and can also be used to harmonize graphs from different sources, that use different schemata. As a query of type CONSTRUCT will return a new \gls{RDF} graph it can also be used for basic reasoning functionality ala ``if this graph-pattern is found, assume that \ldots'', as well as to help with resolving issues of identifying entities that are described with different \gls{URI}s \citep[pg. 88-98]{allemang2011semantic}.
+Another kind of query is the CONSTRUCT statement, which is used to retrieve a subgraph from a \gls{RDF} data set, and can also be used to harmonize graphs from different sources that use different schemata. As a query of type CONSTRUCT will return a new \gls{RDF} graph it can also be used for basic reasoning functionality ala ``if this graph-pattern is found, assume that \ldots'', as well as can help resolve issues of identifying entities that are described with different \gls{URI}s \citep[pg. 88-98]{allemang2011semantic}.
 E.g.\ querying a \gls{RDF} data set containing triples such as the one described in Listing~\ref{lst:sample_rdf_schema} and mapping the song information to the DublinCore specification \citep{DublinCore}, one has to write a \gls{SPARQL} CONSTRUCT query as shown in Listing~\ref{lst:construct_sparql}. \@
 
 \begin{listing}[H]

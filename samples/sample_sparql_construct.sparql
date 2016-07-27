@@ -5,15 +5,12 @@ PREFIX dct: <http://purl.org/dc/terms/> .
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 
 # create a new graph with the mapped song information
-# here: there is an entity of type dc:Sound that have a title
 CONSTRUCT {
   ?song rdf:type dc:Sound .
   ?song dct:title ?title .
 }
 WHERE {
-  # describe the conditions for the query
-  # as graph-patterns that have to match
-  # here: it has to be a Song, which has a predicate title
+  # describe the conditions for the query as graph pattern
   ?song rdf:type ex:Song .
   ?song ex:title ?title .
 }

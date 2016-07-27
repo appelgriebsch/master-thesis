@@ -83,23 +83,11 @@ To establish a data connection between peers a Web application has to create a R
 For a purely data transmission channel one can also disable any audio and video transfers during the setup of the communication session (see Listing~\ref{lst:p2p_webrtc_data_only}). \@
 
 \begin{listing}[H]
-	\begin{minted}[linenos,
-	               numbersep=5pt,
-	               breaklines=true,
-	               frame=lines,
-								 gobble=2]{JavaScript}
-		// create signaling channel for negotiating between peers
-		var signalingChannel = new SignalingChannel();
-		// create p2p connection object
-		var pc = new RTCPeerConnection(iceConfig);
-		// create a named data channel with unreliable transfer option
-		var dc = pc.createDataChannel('namedChannel', { reliable: false });
-		// set media constraints to disable audio and video transfers
-		var mediaConstraints = {
-		  mandatory: { OfferToReceiveAudio: false, OfferToReceiveVideo: false }
-		};
-		pc.createOffer((offer) => { ... }, null, mediaConstraints);
-	\end{minted}
+	\inputminted[linenos,
+							 numbersep=5pt,
+							 breaklines=true,
+							 frame=lines]{JavaScript}
+		{./samples/initiateWebRTCConnection.js}
 \caption[Establishing a pure \gls{WebRTC} data connection]{Establishing a pure \gls{WebRTC} data connection \citep[pg. 349]{grigorik2013high}}
 \label{lst:p2p_webrtc_data_only}
 \end{listing}
@@ -107,24 +95,11 @@ For a purely data transmission channel one can also disable any audio and video 
 Once a data channel has been established between the peers application data can be exchanged between them via message passing, as shown in Listing~\ref{lst:p2p_webrct_data_send}: \@
 
 \begin{listing}[H]
-	\begin{minted}[linenos,
-	               numbersep=5pt,
-	               breaklines=true,
-	               frame=lines,
-								 gobble=2]{JavaScript}
-		// initial channel and session setup and negotiation
-		...
-		// register callback for handling remote data channels
-		pc.ondatachannel = handleChannel;
-		function handleChannel(dc) {
-		  dc.onerror = (error) => { /* handle error event */ }
-		  dc.onclose = () => { /* handle close event */ }
-		  // exchange application information with peer
-		  dc.onopen = (evt) => { dc.send(msg); }
-		  // act on data received by another peer
-		  dc.onmessage = (msg) => { console.log(msg.data); }
-		}
-	\end{minted}
+	\inputminted[linenos,
+							 numbersep=5pt,
+							 breaklines=true,
+							 frame=lines]{JavaScript}
+		{./samples/handleWebRTCDataChannel.js}
 \caption[Message-oriented communication via a \gls{WebRTC} data channel]{Message-oriented communication via a \gls{WebRTC} data channel \citep[pg. 346]{grigorik2013high}}
 \label{lst:p2p_webrct_data_send}
 \end{listing}

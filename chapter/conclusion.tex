@@ -3,13 +3,22 @@
 \chapter{Conclusion and Future Work} % (fold)
 \label{cha:conclusion}
 
-Initially, this Master thesis started with three important premises: \@
+\section{Conclusion}
+\label{sec:conclusion}
+
+Initially, this Master thesis started with three fundamental assumptions: \@
 
 \begin{enumerate}
-	\item the use of an electronic transfer of credit card information in the \gls{E-commerce} scenario make them always subject to frauds and counterfeits,
-	\item existing technological solutions to detect and prevent them will not be able to cover 100\%,
-	\item a substantial analysis of any suspicious transactions is not taken place today due to the enormous effort and time needed to collect all required information manually
+	\item the use of an unsecure computer network to transfer credit card information in the \gls{E-commerce} scenario make them always subject to frauds and counterfeits,
+	\item the existing technological solutions to detect and prevent them will not be able to cover 100\% due to the complexity and dynamics of the whole system, and
+	\item the substantial analysis of any suspicious transaction is not taken place today due to the enormous effort and time needed to collect all required information manually
 \end{enumerate}
+
+As this Master thesis has pointed out in Chapter~\ref{cha:introduction} and Chapter~\ref{cha:context_analysis} the first and second premise has been seen a lot of research and development in recent years. But neither an industry-wide usage of the \gls{PCI/DSS} standards to securely process personal and payment-related information, nor the widely adoption of rule-based or score-based fraud prevention systems has been able to stop deceivers from cheating the \gls{E-commerce} system and bringing harm to the merchants and consumers alike. Whereas the Master thesis has shown the impact of \gls{E-commerce} frauds to the merchants, who are usually the ones that have to cover the losses, it also makes clear that any successful fraud attempt will reduce the thrust into the \gls{E-commerce} system, which is a substantial part of the global economics already. \\
+
+Thus, bringing down the amount of fraudulent transactions in the system cannot be done with technology alone, but require a sharing of information between experts coming from various organizations. As the Master thesis explained in Section~\ref{subsec:e_commerce_fraud_handling} this consolidation of information about a suspicious transaction is currently not being done in-depth as this would require a lengthy manual communication and analyzation process by the investigator of an issuer or \gls{PSP}. This fact has lead to the third premise as well as to the hypothesis that the introduction of a collaborative system, which makes use of Semantic Web and peer-to-peer communication technologies to collect the information and know-how of the relevant stakeholders and link them together, can improve this siutation significantly. \\
+
+As explained in Section~\ref{sec:system_approaches} existing approaches for integrating information from different sources are either to restrictive to work on a large scale (Web services), or are to open for the sharing of personal and payment-related information (Semantic Web). Therefore a new proposal for a collaborative system has been developed in Chapter~\ref{cha:system_concept} and Chapter~\ref{cha:system_design}, which uses suitable aspects from the Semantic Web standards as well as a secure \gls{P2P} communication network between the stakeholders for collaborating on \gls{E-commerce} fraud incidents. \\
 
 \section{Towards a decentralized \gls{P2P} system}
 \label{sec:p2p_decentralized_system}

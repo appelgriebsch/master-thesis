@@ -32,13 +32,13 @@
      inkscape:window-height="727"
      id="namedview590"
      showgrid="false"
-     inkscape:zoom="0.23233509"
-     inkscape:cx="-243.85092"
-     inkscape:cy="1078.6325"
+     inkscape:zoom="0.51963599"
+     inkscape:cx="1514.4953"
+     inkscape:cy="917.80658"
      inkscape:window-x="0"
      inkscape:window-y="27"
      inkscape:window-maximized="0"
-     inkscape:current-layer="svg2" /><g
+     inkscape:current-layer="g66" /><g
      transform="translate(37.1227,-471.0563)"
      id="g8"><circle
        cx="359.673"
@@ -46,7 +46,7 @@
        r="26.535"
        style="fill:none;stroke:#000000;stroke-width:1px"
        id="circle10" /><g
-       transform="translate(-1,0)"
+       transform="matrix(1.1499578,0,0,0.63147423,-54.934267,228.83071)"
        id="g12"><path
          d="m 360.163,621.141 -1,98.806"
          style="fill:none;stroke:#000000;stroke-width:1px"
@@ -91,7 +91,7 @@
          cy="595.98798"
          cx="359.673" /><g
          id="g42"
-         transform="translate(-1,0)"><path
+         transform="matrix(1.1632334,0,0,0.59247462,-59.709021,253.05725)"><path
            inkscape:connector-curvature="0"
            id="path44"
            style="fill:none;stroke:#000000;stroke-width:1px"
@@ -132,8 +132,8 @@
          transform="translate(-1,0)"><path
            inkscape:connector-curvature="0"
            id="path68"
-           style="fill:none;stroke:#000000;stroke-width:1px"
-           d="m 360.163,621.141 -1,98.806" /></g><path
+           style="fill:none;stroke:#000000;stroke-width:0.86154336px"
+           d="m 360.23322,621.07005 -1.14044,64.30827" /></g><path
          inkscape:connector-curvature="0"
          id="path70"
          style="fill:none;stroke:#000000;stroke-width:1px"
@@ -167,7 +167,7 @@
          cy="595.98798"
          cx="359.673" /><g
          id="g90"
-         transform="translate(-1,0)"><path
+         transform="matrix(1.1499578,0,0,0.63147423,-54.934267,228.83071)"><path
            inkscape:connector-curvature="0"
            id="path92"
            style="fill:none;stroke:#000000;stroke-width:1px"

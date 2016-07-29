@@ -183,15 +183,15 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="0.7"
-     inkscape:cx="137.99701"
+     inkscape:cx="112.99701"
      inkscape:cy="409.71195"
      inkscape:document-units="px"
-     inkscape:current-layer="layer1"
+     inkscape:current-layer="g4373-4"
      showgrid="false"
-     inkscape:window-width="1920"
-     inkscape:window-height="1018"
-     inkscape:window-x="1272"
-     inkscape:window-y="-8"
+     inkscape:window-width="1280"
+     inkscape:window-height="727"
+     inkscape:window-x="0"
+     inkscape:window-y="27"
      inkscape:window-maximized="1"
      inkscape:object-nodes="true"
      fit-margin-top="5"
@@ -227,7 +227,7 @@
          cx="359.673" />
       <g
          id="g4377"
-         transform="translate(-1,0)">
+         transform="matrix(1,0,0,0.62599272,-1,232.31125)">
         <path
            inkscape:connector-curvature="0"
            id="path4379"
@@ -312,7 +312,7 @@
          cx="359.673" />
       <g
          id="g4377-7"
-         transform="translate(-1,0)">
+         transform="matrix(1,0,0,0.64037762,-1,223.37621)">
         <path
            inkscape:connector-curvature="0"
            id="path4379-1"

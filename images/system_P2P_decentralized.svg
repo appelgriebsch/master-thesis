@@ -290,10 +290,10 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="0.4002438"
-     inkscape:cx="816.96396"
-     inkscape:cy="562.51927"
+     inkscape:cx="773.24061"
+     inkscape:cy="762.39744"
      inkscape:document-units="px"
-     inkscape:current-layer="layer1"
+     inkscape:current-layer="g4004"
      showgrid="false"
      fit-margin-top="5"
      fit-margin-left="5"
@@ -342,7 +342,7 @@
          style="fill:none;stroke:#000000;stroke-width:1px"
          id="circle4054-6" />
       <g
-         transform="translate(-1,0)"
+         transform="matrix(1.1464966,0,0,0.59913288,-53.689417,248.91802)"
          id="g4056-7">
         <path
            d="m 360.163,621.141 -1,98.806"
@@ -432,7 +432,7 @@
          style="fill:none;stroke:#000000;stroke-width:1px"
          id="circle4006" />
       <g
-         transform="translate(-1,0)"
+         transform="matrix(1.1504371,0,0,0.6300805,-55.106681,229.69827)"
          id="g4008">
         <path
            d="m 360.163,621.141 -1,98.806"
@@ -566,7 +566,7 @@
          style="fill:none;stroke:#000000;stroke-width:1px"
          id="circle4006-6" />
       <g
-         transform="translate(-1,0)"
+         transform="matrix(1.1580857,0,0,0.61326337,-57.857595,240.14085)"
          id="g4008-7">
         <path
            d="m 360.163,621.141 -1,98.806"
@@ -700,7 +700,7 @@
          style="fill:none;stroke:#000000;stroke-width:1px"
          id="circle4006-2" />
       <g
-         transform="translate(-1,0)"
+         transform="matrix(1.1602404,0,0,0.61333561,-58.632548,240.0924)"
          id="g4008-7-5">
         <path
            d="m 360.163,621.141 -1,98.806"
@@ -844,7 +844,7 @@
          style="fill:none;stroke:#000000;stroke-width:1px"
          id="circle4006-2-6" />
       <g
-         transform="translate(-1,0)"
+         transform="matrix(1.1517129,0,0,0.63013165,-55.56552,229.66397)"
          id="g4008-7-8">
         <path
            d="m 360.163,621.141 -1,98.806"

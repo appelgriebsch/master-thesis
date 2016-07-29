@@ -26,16 +26,16 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="0.4884499"
-     inkscape:cx="691.60876"
+     inkscape:cx="655.78113"
      inkscape:cy="133.21204"
      inkscape:document-units="px"
-     inkscape:current-layer="g4371"
+     inkscape:current-layer="g4373-3"
      showgrid="false"
      inkscape:snap-text-baseline="false"
      inkscape:window-width="1016"
-     inkscape:window-height="808"
-     inkscape:window-x="555"
-     inkscape:window-y="145"
+     inkscape:window-height="727"
+     inkscape:window-x="264"
+     inkscape:window-y="27"
      inkscape:window-maximized="0"
      fit-margin-top="5"
      fit-margin-left="5"
@@ -73,7 +73,7 @@
            cx="359.673" />
         <g
            id="g4377"
-           transform="translate(-1,0)">
+           transform="matrix(1.1412397,0,0,0.64919883,-51.798703,217.82563)">
           <path
              inkscape:connector-curvature="0"
              id="path4379"
@@ -156,7 +156,7 @@
            cx="359.673" />
         <g
            id="g4377-7"
-           transform="translate(-1,0)">
+           transform="matrix(1.1618306,0,0,0.60796805,-59.204483,243.42539)">
           <path
              inkscape:connector-curvature="0"
              id="path4379-5"
@@ -214,7 +214,7 @@
            cx="359.673" />
         <g
            id="g4377-7-3"
-           transform="translate(-1,0)">
+           transform="matrix(1.1513991,0,0,0.62858207,-55.452665,230.62643)">
           <path
              inkscape:connector-curvature="0"
              id="path4379-5-6"

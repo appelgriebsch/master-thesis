@@ -16,12 +16,12 @@ As shown in this figure the transactions will be clustered by merchants first. B
 
 But as already stated analyzing the cluster of transactions on a merchant by merchant basis will not be sufficient to come up with a solid decision about a suspicious transaction. This is mostly due to the usage pattern of the fraudsters that have been explained in the scenario in Section~\ref{sec:scope_thesis}. Based on this description the various order details from the merchants have to be mapped and linked against each other, so that the initial graph of transactions, which is clustered by merchant, can be easily transformed into complementary representations, which use different criteria to cluster the transactions such as recipient addresses, branches of merchants, or product-related information. \\
 
-This reshaping of the transactional details can lead to new insights about the ``normal'' shopping behavior of a credit card owner, and can make deviations from this behavior visible. By using a clustered graph to visualize the combined data set on screen the exploratory nature of knowledge generation and perception will be supported, and so this kind of representation can help speed up the investigation of \gls{E-commerce} fraud incidents. An example visualization of a clustered graph, which groups information together based on a chosen criteria, is depicted in Figure~\ref{fig:images_graph_viz}. The different colors in this figure can represent different sources of information (e.g.\ \gls{E-commerce} transactions from various merchants). In this example information that stands out from the ``normal behavior'' can be found in the  right area of the figure. \@
+This reshaping of the transactional details can lead to new insights about the ``normal'' shopping behavior of a credit card owner, and can make deviations from this behavior visible. By using a clustered graph to visualize the combined data set on screen the exploratory nature of knowledge generation and perception will be supported, and so this kind of representation can help speed up the investigation of \gls{E-commerce} fraud incidents. An example visualization of a clustered graph, which groups information together based on a chosen criteria, is depicted in Figure~\ref{fig:images_graph_viz}. The different colors in this figure can represent different sources of information (e.g.\ \gls{E-commerce} transactions from various merchants). In this example information that stands out from the ``normal behavior'' can be found in the top right and lower left areas of the figure. \@
 
 \begin{figure}[H]
   \centering
-  \includegraphics[width=0.9\columnwidth]{images/GraphViz.png}
-  \caption[An example visualization of a clustered graph]{An example visualization of a clustered graph \citep{visjsshowcase}}
+  \includegraphics[width=0.8\columnwidth]{images/GraphViz.png}
+  \caption[An example visualization of a clustered graph]{An example visualization of a clustered graph \citep{griffsgraphs}}
 \label{fig:images_graph_viz}
 \end{figure}
 

@@ -48,12 +48,12 @@ Thus, the Semantic Web is a layered approach as depicted in Figure~\ref{fig:imag
 \subsection{A Resource Description Framework}
 \label{sec:semantic_rdf}
 
-When trying to come up with a specification on how to integrate data on a globally dispersed platform such as the World-Wide Web, one will have to answer the following questions: \@
+When trying to come up with a specification on how to integrate data on a globally dispersed platform such as the World-Wide Web, one will have to answer the following questions \citep[pg.23-25]{antoniou2012semantic}: \@
 
 \begin{itemize}
-	\item \textbf{syntax:} How to serialize the data?
-	\item \textbf{data model:} How to structure and organize the data?
-	\item \textbf{semantics:} How to interpret the data?
+	\item \textbf{Syntax:} How to serialize the data?
+	\item \textbf{Data model:} How to structure and organize the data?
+	\item \textbf{Semantics:} How to interpret the data?
 \end{itemize}
 
 Whereas the World-Wide Web is made up from interlinked documents in the \gls{HTML} format that are specifically designed for rendering information on screen, and will be consumed by a human, the \gls{RDF} brings a highly flexible data model to the Web. Its basic building block is the \emph{triple}, which is a statement consisting of an entity, an attribute and a value. The individual parts of a statement are also known as subject, predicate and object, and make up a directed graph as shown in the example in Figure~\ref{fig:images_semweb_triple}: \@
@@ -70,11 +70,11 @@ In this example the triple consists of the entity ``MasterThesis'', the assigned
 Based on this description the foundational elements of \gls{RDF} can be summarized as: \@
 
 \begin{itemize}
-	\item \textbf{entities:} aka resources or ``things of interest'' that are identified via \gls{URI}s,
-	\item \textbf{predicates:} aka attributes or properties that specify the relations between resources and are also identified by \gls{URI}s,
-	\item \textbf{literals:} integral values such as numbers, dates and strings that are based on the \gls{XML} data type specification,
-	\item \textbf{statements:} assign a value (either another entity or a literal) to a ``entity-predicate'' relation,
-	\item \textbf{graphs:} are the data model behind \gls{RDF} and enable a  distributed, interlinked ``Web of Data''.
+	\item \textbf{Entities:} aka resources or ``things of interest'' that are identified via \gls{URI}s,
+	\item \textbf{Predicates:} aka attributes or properties that specify the relations between resources and are also identified by \gls{URI}s,
+	\item \textbf{Literals:} integral values such as numbers, dates and strings that are based on the \gls{XML} data type specification,
+	\item \textbf{Statements:} assign a value (either another entity or a literal) to a ``entity-predicate'' relation,
+	\item \textbf{Graphs:} are the data model behind \gls{RDF} and enable a  distributed, interlinked ``Web of Data''.
 \end{itemize}
 
 \gls{RDF} triples can be serialized into four different syntax formats \citep[pg. 43-54]{wood2014linked}: \@
@@ -150,12 +150,12 @@ Based on this description the foundational elements of \gls{RDF} can be summariz
 
 Interestingly, these different serialization formats for \gls{RDF} data sets are fully interchangeable. A \gls{RDF} data set can be easily converted from one serialization format to the other, and merging \gls{RDF} data sets work with sources expressed in different formats as well. \\
 
-Coming back to the initial questions that have to be solved for data integration on Web scale, the section showed how the Semantic Web initiative tries to solve them, such as this: \@
+Coming back to the initial questions that have to be solved for data integration on Web scale, the section showed how the Semantic Web initiative tries to solve them, such as this \citep[pg.23-25]{antoniou2012semantic}: \@
 
 \begin{itemize}
-	\item \textbf{syntax:} support for the following formats: Turtle, \gls{RDFa}, \gls{RDF}/\gls{XML} and \gls{JSON-LD},
-	\item \textbf{data model:} use the graph-based data model of \gls{RDF},
-	\item \textbf{semantics:} express the semantics of the data in \gls{RDFS}. This will be the topic of the next section.
+	\item \textbf{Syntax:} support for the following formats: Turtle, \gls{RDFa}, \gls{RDF}/\gls{XML} and \gls{JSON-LD},
+	\item \textbf{Data model:} use the graph-based data model of \gls{RDF},
+	\item \textbf{Semantics:} express the semantics of the data in \gls{RDFS}. This will be the topic of the next section.
 \end{itemize}
 
 % section semantic_rdf (end)
@@ -184,7 +184,7 @@ Web Ontology Language & owl: & Define ontologies & \url{http://www.w3.org/2002/0
 \label{tab:w3c_vocab_rdf}
 \end{table}
 
-An important step in the definition of a \gls{RDF} vocabulary or Web ontology is to analyze the domain of interest in detail, and come up with a list of objects and their possible relations. One can use the following step-by-step guide as a reference \citep[pg. 40-55]{antoniou2012semantic}: \@
+An important step in the definition of a \gls{RDF} vocabulary or Web ontology is to analyse the domain of interest in detail, and come up with a list of objects and their possible relations. One can use the following step-by-step guide as a reference \citep[pg. 40-55]{antoniou2012semantic}: \@
 
 \begin{enumerate}
 	\item Specify the \emph{things} to talk about. These have to be divided into \emph{objects} (aka real entities) and \emph{classes} (aka set of entities). A specific statement containing the predicate ``rdf:type'' assigns individual objects to their classes.
@@ -292,7 +292,7 @@ As the two tables (Table~\ref{tab:w3c_vocab_rdfs} and Table~\ref{tab:w3c_vocab_s
 	\item \textbf{Equality/Inequality:} Neither \gls{RDF} nor \gls{RDFS} provide a way to specify that two resources or properties coming from different \gls{RDF} data sets are the same, or are not the same. Though it might be possible to model the aspect of equality with a combination of ``rdfs:subClassOf'' or ``rdfs:subPropertyOf'' statements the results are usually not as desired due to the inferencing nature of those axioms.
 	\item \textbf{Cardinality:} Predicates defined in \gls{RDFS} can be used multiple times in statements referring to the same subject or object. This is not desired in situations, in which there is only one possible instance of a ``subject-predicate-object'' relationship.
 	\item \textbf{Transitivity:} Whereas it is possible to express the hierarchy of classes and predicates in \gls{RDFS} it is not feasible to do so for individual instances. This might be useful when building up a hierarchy of people, e.g.\ a statement such as ``S3 has an ancestor S2, who has an ancestor S1'' can lead to the inference ``S3 has an ancestor S1''.
-	\item \textbf{Property Restrictions:} To define whether a predicate is referring to an object or a literal as value is not possible with \gls{RDFS}, but may be useful for modeling and editing tools.
+	\item \textbf{Property Restrictions:} To define whether a predicate is referring to an object or a literal as value is not possible with \gls{RDFS}, but may be useful for modelling and editing tools.
 \end{itemize}
 
 Therefore, in case there is more expressiveness required to model a domain one can use additional concepts from the Web Ontology Language specification (\gls{OWL}). It is build on the \gls{RDFS} specification, but contains additional constraints and classifiers, some of the most commonly used ones are listed in Table~\ref{tab:w3c_vocab_owl}. \@
@@ -328,7 +328,7 @@ owl:sameAs & equality of individual resources \\
 \label{tab:w3c_vocab_owl}
 \end{table}
 
-The Table~\ref{tab:w3c_vocab_owl} is only showing a small subset of the axioms available in \gls{OWL}. The Web Ontology Language can be used to express a wide variety of constraints and classifiers on predicates, and the whole specification is based on three parts that are build upon each other \citep{owlspec}. Still, with an increase of expressiveness in the model the complexity of the reasoning and inferencing engine also grows up, because most of these axioms are used to express inferences that can be drawn on the \gls{RDF} data set. This Master thesis is restricting the usage of axioms of the \gls{OWL} specifications to the ones shown in Table~\ref{tab:w3c_vocab_owl}.
+The Table~\ref{tab:w3c_vocab_owl} is only showing a small subset of the axioms available in \gls{OWL}. The Web Ontology Language can be used to express a wide variety of constraints and classifiers on predicates, and the whole specification is based on three parts that are build upon each other \citep{owlspec}. Still, with an increase of expressiveness in the model the complexity of the reasoning and inferencing engine also grows up, because most of these axioms are used to express inferences that can be drawn on the \gls{RDF} data set. This Master Thesis is restricting the usage of axioms of the \gls{OWL} specifications to the ones shown in Table~\ref{tab:w3c_vocab_owl}.
 
 % section semantic_ontologies (end)
 
@@ -370,7 +370,7 @@ The WHERE clause in a \gls{SPARQL} query can include additional conditions that 
 
 Beside the SELECT statement, which returns tabular data, \gls{SPARQL} also supports the ASK type of query, which checks for the existence of graph patterns stated in the WHERE clause, and will return a boolean value (true or false). This kind of query is commonly used to assert the presence of certain triples in a \gls{RDF} data set. \\
 
-Another kind of query is the CONSTRUCT statement, which is used to retrieve a subgraph from a \gls{RDF} data set. It can also be used to harmonize graphs from sources with different schemata. As a query of type CONSTRUCT will return a new \gls{RDF} graph, it is also used for basic reasoning functionality ala ``if this graph-pattern is found, assume that \ldots'', as well as helps to resolve issues of identifying entities that are described with different \gls{URI}s \citep[pg. 88-98]{allemang2011semantic}.
+Another kind of query is the CONSTRUCT statement, which is used to retrieve a subgraph from a \gls{RDF} data set. It can also be used to harmonise graphs from sources with different schemata. As a query of type CONSTRUCT will return a new \gls{RDF} graph, it is also used for basic reasoning functionality such as ``if this graph-pattern is found, assume that \ldots'', as well as helps to resolve issues of identifying entities that are described with different \gls{URI}s \citep[pg. 88-98]{allemang2011semantic}.
 E.g.\ querying a \gls{RDF} data set containing triples such as the one described in Listing~\ref{lst:sample_rdf_schema} and mapping the song information to the DublinCore specification \citep{DublinCore}, one has to write a \gls{SPARQL} CONSTRUCT query as shown in Listing~\ref{lst:construct_sparql}. \@
 
 \begin{listing}[H]

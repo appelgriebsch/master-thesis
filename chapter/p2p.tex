@@ -40,17 +40,17 @@ In opposite to that a \gls{P2P} network considers all nodes as equal. This offer
 	\item \textbf{Decentralized \gls{P2P} system:} does not use any dedicated controller node, but may need to introduce bootstrap and super nodes for maintaining the list of participating nodes and the index of the information available depending on the size of the network.
 \end{itemize}
 
-\begin{figure}[H]
-	\centering
-		\includegraphics[width=0.8\columnwidth]{images/p2p_network_structures.pdf}
-	\caption{Classification of \gls{P2P} networks}
-\label{fig:p2p_network_structures}
-\end{figure}
-
 % section p2p_classification (end)
 
 \subsection{Communication in a \gls{P2P} network}
 \label{sec:p2p_start_communication}
+
+\begin{figure}[!ht]
+	\centering
+	\includegraphics[width=0.8\columnwidth]{images/p2p_network_structures.pdf}
+	\caption{Classification of \gls{P2P} networks}
+	\label{fig:p2p_network_structures}
+\end{figure}
 
 The procedure to establish a \gls{P2P} communication depends on the structure of the \gls{P2P} system. In a \emph{partly centralized \gls{P2P} system} new nodes join the network by connecting to the central controller first. This central controller has a well-known \gls{IP} address and maintains the operation of the whole \gls{P2P} network. Due to this, any new node has to register with the central controller to get introduced to the \gls{P2P} network. The controller also maintains the information about the overlay network as well as the information about each object and on which node(s) it resides within the network. The overlay is typically following a star-shaped topology with the central controller at the centre, see Figure~\ref{fig:p2p_network_structures}. \\
 

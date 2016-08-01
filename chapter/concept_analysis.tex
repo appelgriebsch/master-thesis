@@ -36,6 +36,13 @@ This reshaping of the transactional details can lead to new insights about the `
 
 Additionally, the collaborative system can provide a Hypertext-based visualization of the linked information to allow investigators navigating through the consolidated order details done with a credit card recently. \\
 
-To conclude the system have to support the collection and combination of \gls{E-commerce} transaction information from various sources into a linked data set using a graph-oriented data model. This graph can further be analysed from multiple view points to validate if there are any transactions that stand out from the ``normal'' shopping behaviour of the credit card owner. The starting point for the investigation is a sequence of payment tokens of recent credit card activities that an issuer can provide to the \gls{PSP}s. The linked data set will initially collect and cluster the information from each merchant based on this list. In case there are already suspicious information in one of these clusters, an issuer can ask for further details and enrich that specific cluster with additional order information for this consumer and that merchant. In the final step the system has to do the mapping and linking of the order detail information between each merchant to allow subsequent analysing and clustering of the transaction details based on various criteria.
+To conclude the system have to support the collection and combination of \gls{E-commerce} transaction information from various sources into a linked data set using a graph-oriented data model. This graph can further be analysed from multiple view points to validate if there are any transactions that stand out from the ``normal'' shopping behaviour of the credit card owner. The starting point for the investigation is a sequence of payment tokens of recent credit card activities that an issuer can provide to the \gls{PSP}s. The linked data set will initially collect and cluster the information from each merchant based on this list. In case there are already suspicious information in one of these clusters, an issuer can ask for further details and enrich that specific cluster with additional order information for this consumer and that merchant. In the final step the system has to do the mapping and linking of the order detail information between each merchant to allow subsequent analysing and clustering of the transaction details based on various criteria, see Figure~\ref{fig:system_workflow}.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.7\columnwidth]{images/system_P2P_decentralized.pdf}
+  \caption{Information flow in the proposed collaborative system}
+\label{fig:system_workflow}
+\end{figure}
 
 % section system_overview (end)

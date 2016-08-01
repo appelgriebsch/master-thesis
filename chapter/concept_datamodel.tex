@@ -15,16 +15,16 @@ Based on the analysis of the information each stakeholder holds and transmits to
 As the figure also shows there are \emph{shared information tokens} that will be exchanged between various stakeholders. Those can be used in the collaborative system as a reference for joining the distributed pieces of information into a combined view of an \gls{E-commerce} transaction. There are actually three important tokens: \@
 
 \begin{enumerate}
-  \item \textbf{payment token}: shared between merchants and \gls{PSP}s,
-  \item \textbf{tracking number}: shared between merchants and \gls{LSP}s,
-  \item \textbf{credit card}: shared between issuers and \gls{PSP}s
+  \item \textbf{Payment token}: shared between merchants and \gls{PSP}s,
+  \item \textbf{Tracking number}: shared between merchants and \gls{LSP}s,
+  \item \textbf{Credit card}: shared between issuers and \gls{PSP}s
 \end{enumerate}
 
 In addition to these tokens Figure~\ref{fig:images_data_model} also shows the important validation criteria. These are two important connections that have an influence on the decision whether an \gls{E-commerce} transaction is evaluated as fraudulent or not. The two main criteria are: \@
 
 \begin{enumerate}
-  \item \textbf{billing address-to-owner address}: the billing address of the order has to match the registered address of the credit card owner
-  \item \textbf{recipient-to-owner}: the recipient of the delivery has to be related to the owner of the credit card
+  \item \textbf{Billing address to owner address}: the billing address of the order has to match the registered address of the credit card owner
+  \item \textbf{Recipient to owner}: the recipient of the delivery has to be related to the owner of the credit card
 \end{enumerate}
 
 Whereas the first criteria can be examined during the payment authorization process of an \gls{E-commerce} transaction based on the information transmitted between merchants and \gls{PSP}s or issuers, the second one is more difficult to validate (or can not be verified at all). The only check the \gls{LSP}s are able to do, before they are handing over the packaged items to the recipients, is to verify that they are the ones mentioned in the shipping address information of the order. If a recipient is somehow related to the owner of the credit card used for paying an order, or just a deceiver misusing a credit card can not be confirmed by the \gls{LSP}. \\

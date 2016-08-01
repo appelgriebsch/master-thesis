@@ -3,7 +3,7 @@
 \section{An overview of \gls{E-commerce}}
 \label{sec:e_commerce_scenario}
 
-\emph{\gls{E-commerce}} as a term relates to the trading of products or services utilizing a computer network such as the Internet. It is usually divided into the following four different subfields \citep{sen2015study}:\@
+\emph{\Gls{E-commerce}} as a term relates to the trading of products or services utilizing a computer network such as the Internet. It is usually divided into the following four different subfields \citep{sen2015study}:\@
 
 \begin{enumerate}
   \item \textbf{Business-To-Business (\gls{B2B})}: refers to electronic trading between companies with the objective to improve their supply chain processes,
@@ -23,9 +23,9 @@ When placing an order with a merchant online, the consumers normally use a credi
 \label{fig:images_ecommerce_scenario}
 \end{figure}
 
-When a consumer places an order online, the merchant receives at least a list of products or services from the current shopping cart of the consumer, the identification of the consumer, as well as the delivery address to ship the physical items to. If the transaction is going to be finalized with a credit card, the consumer will have to provide additional information like the billing address and the credit card details (including the number, the expiry date and the security code of the card). \\
+When a consumer places an order online, the merchant receives at least a list of products or services from the current shopping cart of the consumer, the identification of the consumer, as well as the delivery address to ship the physical items to. If the transaction is going to be finalized with a credit card, the consumer will have to provide additional information such as the billing address and the credit card details (including the number, the expiry date and the security code of the card). \\
 
-The merchants usually do not validate the credit card information on their own. For that purpose they are relying on another 3$^{rd}$ party service offered on the Internet by the Payment Service Provider (\gls{PSP}). These providers either validate the credit card information themselves based on a user profile the consumer has with the \gls{PSP} (e.g.\ a globally available Web service such as PayPal), or communicate with the issuer of the credit card for doing so. For initiating this validation process the merchant is handing over the billing information to the \gls{PSP}, which include the credit card details given by the consumer. \\
+The merchants usually do not validate the credit card information on their own. For that purpose they are relying on another 3$^{rd}$ party service offered on the Internet by the Payment Service Provider (\gls{PSP}). These providers either validate the credit card information themselves based on a user profile the consumer has with the \gls{PSP} (e.g.\ a globally available Web service such as PayPal), or communicate with the issuer of the credit card for doing so. For initiating this validation process the merchant hands over the billing information to the \gls{PSP}, which also include the credit card details given by the consumer. \\
 
 Either the \gls{PSP}s or the issuers validate the correctness of these information with reference to criteria such as: \@
 
@@ -36,7 +36,7 @@ Either the \gls{PSP}s or the issuers validate the correctness of these informati
     \item Is the credit card not marked as being blocked in the internal databases?
 \end{itemize}
 
-The merchant receives the status of the authorization as well as a unique payment token in return. If the authorization has been successful, the merchant collects the items and sends out a shipping request to one of the available Logistic Service Providers (\gls{LSP}), which are capable of delivering the order. They pickup the items at the merchant's facility and ship them to the delivery address stated by the consumer. Usually at about the same time the merchant informs the acquirer about the order, amount due as well as the payment token received from the \gls{PSP}. The acquirer is in charge to withdraw the amount of the order from the consumer's bank account either via the \gls{PSP} or directly from the issuer, depending on which of them has authorized the initial payment request (a process called clearing) \citep{VisaPayment2014}. The sequence of activities within an \gls{E-commerce} checkout process is visualized in Figure~\ref{fig:images_ecommerce_checkout_process}.\@
+The merchant receives the status of the authorization as well as a unique payment token in return. If the authorization has been successful, the merchant collects the items and sends out a shipping request to one of the available Logistic Service Providers (\gls{LSP}), which are capable of delivering the order. They pickup the items at the merchant's facility and ship them to the delivery address stated by the consumer. Usually at about the same time the merchant informs the acquirer about the order, amount due as well as the payment token received from the \gls{PSP}. The acquirer is in charge to withdraw the amount of the order from the consumer's bank account either via the \gls{PSP} or directly from the issuer, depending on who of them has authorized the initial payment request --- a process called clearing \citep{VisaPayment2014}. The sequence of activities within an \gls{E-commerce} checkout process is visualized in Figure~\ref{fig:images_ecommerce_checkout_process}.\@
 
 \begin{figure}[!ht]
 	\centering

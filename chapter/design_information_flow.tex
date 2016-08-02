@@ -3,24 +3,24 @@
 \section{Use of \gls{RDF} data sets for \gls{E-commerce} fraud investigation}
 \label{sec:working_semantic_data}
 
-With these methods in place one can now specify how the relevant participants have to provide their information, so that they can be combined and analysed in the collaborative system. This section explains how the different participants might prepare their local context information for external consumption, and how the transactional details from various online merchants can be combined on an individual resource level to be able to analyse and cluster the transactions by different criteria as described in Section~\ref{sec:analyse_transactions}.
+With these methods in place, one can now specify how the relevant participants have to provide their information, so that they can be combined and analysed in the collaborative system. This section explains how the different participants might prepare their local context information for external consumption, and how the transactional details from various online merchants can be combined on the level of individual resources to be able to analyse and cluster the transactions by different criteria as described in Section~\ref{sec:analyse_transactions}.
 
 \subsection{Preparation of information}
 \label{subsec:prepare_information}
 
-As explained in Section~\ref{subsec:etl_process} there are likely \gls{ETL} processes in-use within the \gls{IT} operations of every stakeholder. These processes are usually collecting and combining information from internal data sources for \emph{internal} business analysis, but can also be used to prepare internal data for external consumption. In the latter case the parts of the relevant information for the \gls{E-commerce} fraud investigation have to be extracted from the internal databases and encoded in a \gls{RDF} data set \gls{incl} the \gls{RDFS} vocabulary used and required mapping statements to a well-known vocabulary such as the one from Schema.org as shown in Figure~\ref{fig:images_schema_org}.
+As explained in Section~\ref{subsec:etl_process}, there are likely \gls{ETL} processes in-use within the \gls{IT} operations of every stakeholder. These processes are usually collecting and combining information from internal data sources for \emph{internal} business analysis, but can also be used to prepare internal data for external consumption. In the latter case, the parts of the relevant information for the \gls{E-commerce} fraud investigation have to be extracted from the internal databases and encoded in a \gls{RDF} data set \gls{incl} the \gls{RDFS} vocabulary used and any required mapping statement to well-known vocabularies such as the one from Schema.org as shown in Figure~\ref{fig:images_schema_org}.
 
 \subsubsection{Merchant}
 \label{subsub:prep_info_merchant}
 
-The merchants should be able to provide \gls{RDF} encoded information for their orders based on a given payment token or based on a consumer identification. The former selector is likely used in the initial phase of collecting all required information of orders that have been done with a credit card recently. The latter one is of interest if there are malicious transactions found for a consumer and a merchant will have to provide additional order details coming from that individual. \\
+The merchants should be able to provide \gls{RDF} encoded information for their orders based on a given payment token, or based on a consumer identification. The former selector is likely used in the initial phase that collects all required information of orders, which have been done with a credit card recently. The latter one is of interest, if there are suspicious transactions found for a consumer, and the merchant will have to provide additional order details for that individual. \\
 
 The merchants provide the following information in \gls{RDF}:\@
 
 \begin{itemize}
-  \item \textbf{Product related information:} as part of the order details the merchants have detailed information about the products that have been bought by a consumer. These information include the brand, model as well as product categories of each item within an order. These are likely of interest in the \gls{E-commerce} fraud investigation. If merchants have these information in a \gls{RDFa} format on their Web sites already, they can refer to those data via the ``rdfs:seeAlso'' predicate, which holds a \gls{URI} to an external resource that contains additional information for the subject (see Listing~\ref{lst:rdfs_seeAlso_order} for an example). Additionally, the product-related information might be available in different languages on the Web shop. The merchants should use the English expression for each textual identifier in a \gls{RDF} data set and express language-dependent terms via the ``rdfs:label'' predicate that is used for a human-friendly name of the resource and supports language specifiers (see Listing~\ref{lst:rdfs_label_language} for an example),
-  \item \textbf{Consumer related information:} as part of the order details the merchants also have the personal related information of the buyer \gls{incl}\ billing and shipping addresses,
-  \item \textbf{Merchant related information:} the merchants can also provide information about themselves such as the retail branch they are operating in.
+  \item \textbf{Product related information:} as part of the order details the merchants have detailed information about the products that have been bought by a consumer. These information include the brand, model, as well as product categories of each item within an order. These are the attributes that are likely of interest in the \gls{E-commerce} fraud investigation. If merchants have these information in a \gls{RDFa} format on their Web sites already, they can refer to those data via the ``rdfs:seeAlso'' predicate, which holds a \gls{URI} to an external resource that contains additional information for the subject (see Listing~\ref{lst:rdfs_seeAlso_order} for an example). Additionally, the product related information might be available in different languages on the Web shop. The merchants should use the English expression for each textual identifier in a \gls{RDF} data set, and express language-dependent terms via the ``rdfs:label'' predicate that is used for a human-friendly name of the resource and supports language specifiers (see Listing~\ref{lst:rdfs_label_language} for an example),
+  \item \textbf{Consumer related information:} as part of the order details the merchants also have the personal related information of the buyers \gls{incl}\ their billing and shipping addresses,
+  \item \textbf{Merchant related information:} the merchants can also provide information about themselves, such as the retail branch they are operating in.
 \end{itemize}
 
 \begin{listing}[H]
@@ -50,7 +50,7 @@ The merchants provide the following information in \gls{RDF}:\@
 \subsubsection{Payment Service Provider}
 \label{subsub:prep_info_psp}
 
-The \gls{PSP}s provide information about a payment token and the authorization request that belongs to it. These information are required to link the credit card to the order information from a merchant. Due to this the \gls{PSP}s can act as a broker between the issuers and online merchants. On the one hand they have a strong relationship with the issuers for any payment related activities, and on the other hand they have an integration of their Web service \gls{API}s at the merchants (see Section~\ref{subsec:web_services}). The benefit of this is that the issuers do not have to know about any online merchant operating on the Internet, because they can get contact information to any of these merchants from the \gls{PSP}s. In a distributed \gls{P2P} communication scenario the \gls{PSP}s can also use the \gls{RDFS} predicate ``rdfs:seeAlso'' to provide links to the affiliated online merchant of a payment authorization in their \gls{RDF} data set as shown in Listing~\ref{lst:rdfs_psp_linkto_merchant}. \@
+The \gls{PSP}s provide information about a payment token and the authorization request that belongs to it. These information are required to link the credit card to the order information from a merchant. Thus, the \gls{PSP}s can act as a broker between the issuers and online merchants. On the one hand they have a strong business relationship with the issuers for any payment related activities, and on the other hand they have an integration of their Web Service \gls{API}s at the merchants (see Section~\ref{subsec:web_services}). The benefit of this is that issuers do not have to know about any online merchant available on the Internet, because they can get contact information to any of these merchants from the \gls{PSP}s. In a distributed \gls{P2P} communication scenario the \gls{PSP}s can also use the \gls{RDFS} predicate ``rdfs:seeAlso'' for providing a link to the online merchant affiliated to a payment authorization in their \gls{RDF} data set as shown in Listing~\ref{lst:rdfs_psp_linkto_merchant}. \@
 
 \begin{listing}[H]
   \inputminted[linenos,
@@ -65,22 +65,22 @@ The \gls{PSP}s provide information about a payment token and the authorization r
 \subsubsection{Logistic Service Provider}
 \label{subsub:prep_info_lsp}
 
-The \gls{LSP}s provide information about a tracking number and the delivery status of an order. If the recipients have to show their ID card or have to place a signature on the delivery receipt, the \gls{LSP}s can also hand over personal related information about them. The information will be requested based on the tracking number that is shared with a merchant. In these situations the merchants will be acting as a broker between the issuers and the \gls{LSP}s due to the strong business integrations between merchants and \gls{LSP}s.
+The \gls{LSP}s provide information about a tracking number and the delivery status of an order. If the recipients have to show their ID card, or have to place a signature on the delivery receipt, the \gls{LSP}s can also hand over personal related information about them. The information will be requested based on the tracking number that is shared with a merchant. Thus, the merchants will be acting as a broker between the issuers and the \gls{LSP}s due to the existing business integrations between merchants and \gls{LSP}s.
 
 \subsubsection{Issuer}
 \label{subsub:prep_info_issuer}
 
-The issuers holds information about credit cards and their owners \gls{incl}\ personal related information. They are the ones, who are usually initiating the \gls{E-commerce} fraud investigation by asking the \gls{PSP}s for detailed order information to a payment authorization request. They will also collect all the information from the different stakeholders and have to combine and analyse them to be able to validate credit card transactions. To be able to do so they will have to use a \gls{RDF} data store, in which the dispersed \gls{RDF} data sets are imported and linked against each other (see next section).
+The issuers holds information about credit cards and their owners \gls{incl}\ personal related information. They are the ones, who are usually initiating the \gls{E-commerce} fraud investigation by asking the \gls{PSP}s for detailed order information to a payment authorization request. They will also collect all the information from the different stakeholders, and have to combine and analyse them to be able to assess a credit card transaction. To be able to do so, they will have to use a \gls{RDF} data store, in which the dispersed \gls{RDF} data sets are imported and linked against each other (see next section).
 
 \subsection{Linking of information from various sources}
 \label{subsec:information_mapping}
 
-The issuers must be able to link together the transactional details from various online merchants on the individual resource level for analysing and clustering the order details on different aspects.
+The issuers must be able to link together the transactional details from various online merchants on the level of individual resources for analysing and clustering the order details on different aspects. This can be achieved by either assigning unique IDs to important subjects, or by inferring equality based on the \gls{RDF} schematas used.
 
 \subsubsection{Uniquely identify entities in a \gls{RDF} data set}
 \label{subsub:info_unique_id}
 
-As explained in Section~\ref{subsec:web_data} the build-in merging capabilities of the \gls{RDF} specification will rely on unique \gls{URI}s, which are used to describe the same entities found in different \gls{RDF} data sets. Resources can be extended with the ``owl:sameAs'' predicate from the \gls{OWL} specification to provide a \gls{URI} that unambiguously define the subject (see Listing~\ref{lst:schema_sameAs_location} for an example). \@
+As explained in Section~\ref{subsec:web_data}, the build-in merging capabilities of the \gls{RDF} specification will rely on unique \gls{URI}s, which are used to describe the same entities found in different \gls{RDF} data sets. Thus, individual resources can be extended with the ``owl:sameAs'' predicate from the \gls{OWL} specification to provide a \gls{URI} that unambiguously define the subject (see Listing~\ref{lst:schema_sameAs_location} for an example). \@
 
 \begin{listing}[H]
   \inputminted[linenos,
@@ -92,22 +92,22 @@ As explained in Section~\ref{subsec:web_data} the build-in merging capabilities 
 \label{lst:schema_sameAs_location}
 \end{listing}
 
-When looking at the \gls{E-commerce} \gls{ER} model as defined in Section~\ref{sec:data_model_transactions} the following information must be uniquely identified within the \gls{RDF} data sets coming from the participants of the collaborative system: \@
+When looking at the \gls{E-commerce} \gls{ER} model as defined in Section~\ref{sec:data_model_transactions}, the following information must be uniquely identified within the \gls{RDF} data sets coming from the participants of the collaborative system: \@
 
 \begin{itemize}
-	\item \textbf{Personal related information} such as the consumer, recipient and credit card owner,
-	\item \textbf{Location based information} such as the billing and shipping address as well as the location a credit card owner is registered for,
-	\item \textbf{Product related information} such as the categories, subcategories, brand, model and product identifier,
+	\item \textbf{Personal related information} such as consumers, recipients and owners of credit cards,
+	\item \textbf{Location based information} such as billing and shipping addresses, as well as the location a credit card owner is registered for,
+	\item \textbf{Product related information} such as categories, subcategories, brand, model and product identifier,
 	\item \textbf{Merchant related information} such as the branch of a merchant.
 \end{itemize}
 
-To support the unique identification of entities in the \gls{RDF} data of an \gls{E-commerce} transaction, one can either refer to publicly available \gls{RDF} data sets on the Internet such as GeoNames \citep{geonames} or DBpedia \citep{dbPedia.org}, or use unique identification schemes (aka \gls{URN}) such as phone numbers, e-mail addresses or \gls{EAN} codes. \\
+To support the unique identification of entities in the \gls{RDF} data of an \gls{E-commerce} transaction, one can either refer to publicly available \gls{RDF} data sets on the Internet such as GeoNames \citep{geonames} or DBpedia \citep{dbPedia.org}, or use unique identification scheme (aka \gls{URN}) such as phone numbers, e-mail addresses, or \gls{EAN} codes. \\
 
-The public \gls{RDF} data sets can provide unique \gls{URL}s for locations and named places, as well as brands and item categories. A product related \gls{RDF} data set, which was available in form of the ProductDB initiative until recently \citep{bouzidi2014product}, has been shut down, so that the linking of products can no longer be done by referencing unique \gls{URL}s from the Web, but will have to use the global trade item number (aka \gls{GTIN}) of each product instead. Additional aspects of an item such as brand, categories and subcategories can be eventually found on DBpedia \citep{dbPedia.org}. \\
+The publicly available \gls{RDF} data sets can provide unique \gls{URL}s for locations and named places, as well as brands and item categories. A product related \gls{RDF} data set, which was available in form of the ProductDB initiative until recently \citep{bouzidi2014product}, has been shut down. Thus, the linking of products can no longer be done by referencing unique \gls{URL}s from the Web, but will have to use the global trade item number (aka \gls{GTIN}) of each product instead. Additional aspects of an item such as brand, categories and subcategories can eventually be found on DBpedia \citep{dbPedia.org}. \\
 
-A problem that will come up is the unique addressing of personal related information such as uniquely identifying a consumer. The collaborative system can not rely on linking the personal related information based on properties such as ``familyName'' and ``givenName'' alone (see Listing~\ref{lst:sample_customer_mustermann}). There could be typos in the information coming from various \gls{RDF} data sets, and distinct individuals can still have the same naming information. One possible approach to bring personal related information together is to link them based on the e-mail address of an individual. An e-mail address is a globally unique addressing scheme, and one can assume that two entities, which are using the same e-mail address, are referring to the same subject. Still this is only a weak hint as an individual can have more than one e-mail address, and could use varying e-mail addresses for online shopping trips at different merchants. Therefore a more sophisticated linking algorithm for personal related information is needed in the collaborative system. This algorithm may take into account the combination of ``familyName'', ``givenName'', ``dateOfBirth'' as well as location based information to uniquely identify an individual. \\
+A problem that will come up is the unique addressing of personal related information such as uniquely identifying a consumer. The collaborative system can not rely on linking the personal related information based on properties such as ``familyName'' and ``givenName'' alone (see Listing~\ref{lst:sample_customer_mustermann}). There could be typos in the information coming from various \gls{RDF} data sets, and distinct individuals can still have the same naming information. One possible approach to bring personal related information together, is to link them based on the e-mail address of an individual. An e-mail address is a globally unique addressing scheme, and one can assume that two entities, which are using the same e-mail address, are referring to the same subject. However, this is only a weak link as an individual can have more than one e-mail address, and could use varying e-mail addresses for online shopping trips at different merchants. Additionally, fraudsters can fake e-mail addresses, or can break into the mail system of a consumer with the intent of doing an identity theft. Therefore, a more sophisticated linking algorithm for personal related information is needed in the collaborative system. This procedure may take into account a combination of ``familyName'', ``givenName'', ``dateOfBirth'', as well as location based information such as the position of the computer used regularly by a consumer to uniquely identify an individual. \\
 
-To sum up the unique identification of important entities from an \gls{E-commerce} transaction can be based on the following aspects (see Table~\ref{tab:mapping_information}): \@
+To sum up, the unique identification of important entities from an \gls{E-commerce} transaction can be based on the following aspects (see Table~\ref{tab:mapping_information}): \@
 
 \begin{table}[H]
 \centering
@@ -133,7 +133,7 @@ Organization & Web Site \gls{URL} & n/a & \url{http://www.samsung.com} \\
 \subsubsection{Infer equality in a \gls{RDF} data set}
 \label{subsub:info_unique_infer}
 
-In addition to the unique identification schemes for entities in dispersed \gls{RDF} data sets the \gls{OWL} specification includes axioms that allow to infer equality into a combined \gls{RDF} data set. The two important predicates for that are ``owl:FunctionalProperty'' and ``owl:InverseFunctionalProperty'' (see Section~\ref{sec:semantic_vocab_ontologies}). A possible use case in the \gls{E-commerce} scenario is the linking of product related information. As a product is uniquely identified by its global trade item number, a predicate for it should be classified as ``owl:InverseFunctionalProperty''. By doing so the reasoners working on a combined \gls{RDF} data set can infer that a subject A is equal to another subject B if both subjects have the same predicate-value statement as shown in Listing~\ref{lst:schema_owl_infer_equality}. \@
+In addition to the unique identification scheme for entities in dispersed \gls{RDF} data sets, the \gls{OWL} specification includes axioms that allow to infer equality into a combined \gls{RDF} data set. The two important predicates for that are ``owl:FunctionalProperty'' and ``owl:InverseFunctionalProperty'' (see Section~\ref{sec:semantic_vocab_ontologies}). A possible use case for that in the \gls{E-commerce} scenario is the linking of product related information. As a product is uniquely identified by its global trade item number, a predicate for this attribute should be classified as ``owl:InverseFunctionalProperty''. By doing so, the reasoners working on a combined \gls{RDF} data set can infer that a subject A is equal to another subject B, if both subjects have the same predicate-value statement as shown in Listing~\ref{lst:schema_owl_infer_equality}. \@
 
 \begin{listing}[H]
   \inputminted[linenos,
@@ -145,7 +145,7 @@ In addition to the unique identification schemes for entities in dispersed \gls{
 \label{lst:schema_owl_infer_equality}
 \end{listing}
 
-After being able to infer that both products are the same if their global trade item number are equal, additional statements can be deduced --- e.g.\ as a product identified by a \gls{GTIN} generally relates to just one brand as well as one model, the \gls{RDF} data set can further specify that these predicates are of type ``owl:FunctionalProperty''. This would allow the reasoner to inject additional ``owl:sameAs'' statements into the combined \gls{RDF} data set.
+After being able to infer that both products are the same when their global trade item number are equal, additional statements can be deduced --- e.g.\ as a product identified by a \gls{GTIN} generally relates to just one brand, as well as to one model, the \gls{RDF} data set can further specify that these predicates are of type ``owl:FunctionalProperty''. This would allow the reasoner to inject additional ``owl:sameAs'' statements into the combined \gls{RDF} data set.
 
 % subsec information_mapping (end)
 

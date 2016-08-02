@@ -10,7 +10,9 @@ CONSTRUCT {
   ?song dct:title ?title .
 }
 WHERE {
-  # describe the conditions for the query as graph pattern
+  # describe the conditions for the query
+  # as graph-patterns that have to match
+  # here: it has to be a Song, which has a predicate title
   ?song rdf:type ex:Song .
   ?song ex:title ?title .
 }
